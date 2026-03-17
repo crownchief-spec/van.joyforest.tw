@@ -234,16 +234,9 @@ a {
 .hero {
   position: relative;
   border-bottom: 1px solid var(--color-border);
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: var(--hero-image);
   background-size: cover;
   background-position: center;
-  filter: saturate(0.95) contrast(1.05);
+  background-repeat: no-repeat;
 }
 
 .hero::after {
