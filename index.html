@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1f6b52" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
 
     <title>揪好森露營車出租｜台北桃園新竹露營車出租</title>
     <meta
@@ -21,6 +23,20 @@
     />
     <meta property="og:url" content="https://van.joyforest.tw/" />
     <meta property="og:image" content="https://van.joyforest.tw/assets/images/home/hero-home.jpg" />
+    <meta property="og:image:alt" content="揪好森露營車出租首頁主視覺" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="揪好森露營車出租｜台北桃園新竹露營車出租" />
+    <meta
+      name="twitter:description"
+      content="台北、桃園、新竹露營車出租與指定地點送車。兩張雙人床、獨立衛浴、冷暖氣空調，露營直接到你家。"
+    />
+    <meta name="twitter:image" content="https://van.joyforest.tw/assets/images/home/hero-home.jpg" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/images/shared/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/images/shared/apple-touch-icon.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preload" as="image" href="./assets/images/home/hero-home.jpg" />
 
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script defer src="./assets/js/main.js"></script>
@@ -28,17 +44,44 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "揪好森露營車出租",
-        "alternateName": "Joyforest Campervan Rental",
-        "url": "https://van.joyforest.tw/",
-        "areaServed": ["台北", "桃園", "新竹"],
-        "description": "露營車出租服務網站，提供台北、桃園、新竹地區露營車出租與指定地點送車服務。兩張雙人床、獨立浴室與廁所、冷暖空調，適合露營車新手與親子出遊。",
-        "serviceType": ["露營車出租", "指定地點送車"],
-        "deposit": "NT$5,000",
-        "sameAs": []
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://van.joyforest.tw/#organization",
+            "name": "揪好森露營車出租",
+            "alternateName": "Joyforest Campervan Rental",
+            "url": "https://van.joyforest.tw/",
+            "logo": "https://van.joyforest.tw/assets/images/shared/apple-touch-icon.svg"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://van.joyforest.tw/#website",
+            "name": "揪好森露營車出租",
+            "url": "https://van.joyforest.tw/",
+            "inLanguage": "zh-Hant"
+          },
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://van.joyforest.tw/#localbusiness",
+            "name": "揪好森露營車出租",
+            "url": "https://van.joyforest.tw/",
+            "areaServed": ["台北", "桃園", "新竹"],
+            "description": "露營車出租服務網站，提供台北、桃園、新竹地區露營車出租與指定地點送車服務。兩張雙人床、獨立浴室與廁所、冷暖空調，適合露營車新手與親子出遊。",
+            "serviceType": ["露營車出租", "指定地點送車"],
+            "deposit": "NT$5,000"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://van.joyforest.tw/#webpage",
+            "url": "https://van.joyforest.tw/",
+            "name": "揪好森露營車出租｜台北桃園新竹露營車出租",
+            "description": "揪好森露營車出租提供台北、桃園、新竹地區露營車出租與指定地點送車服務。兩張雙人床、獨立浴室與廁所、冷暖氣空調，露營直接到你家。",
+            "isPartOf": { "@id": "https://van.joyforest.tw/#website" }
+          }
+        ]
       }
     </script>
+    <!-- TODO: GA4 / GTM / Meta Pixel 可放在此區塊 -->
   </head>
 
   <body>
@@ -47,7 +90,7 @@
     <header class="site-header" data-site-header>
       <div class="container">
         <div class="nav">
-          <a class="brand" href="./">
+          <a class="brand" href="./" aria-label="揪好森露營車出租首頁">
             <span class="brand-mark" aria-hidden="true"></span>
             <span>揪好森露營車出租</span>
           </a>

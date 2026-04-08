@@ -1,0 +1,23 @@
+{
+  "name": "揪好森露營車出租",
+  "short_name": "揪好森露營車",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f8f5",
+  "theme_color": "#1f6b52",
+  "lang": "zh-Hant",
+  "icons": [
+    {
+      "src": "/assets/images/shared/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/images/shared/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "brand": {
+    "name": "揪好森露營車出租",
+    "domain": "https://van.joyforest.tw",
+    "themeColor": "#1f6b52",
+    "defaultLocale": "zh_TW",
+    "defaultLang": "zh-Hant"
+  },
+  "ogImageStrategy": {
+    "rule": "ogImage > heroImage > pageMainImage",
+    "preferredSize": "1200x630",
+    "mustBeAbsoluteUrl": true
+  },
+  "pages": [
+    {
+      "file": "index.html",
+      "route": "/",
+      "title": "揪好森露營車出租｜台北桃園新竹露營車出租",
+      "description": "揪好森露營車出租提供台北、桃園、新竹地區露營車出租與指定地點送車服務。兩張雙人床、獨立浴室與廁所、冷暖氣空調，露營直接到你家。",
+      "canonical": "https://van.joyforest.tw/",
+      "heroImage": "https://van.joyforest.tw/assets/images/home/hero-home.jpg",
+      "ogImage": "https://van.joyforest.tw/assets/images/home/hero-home.jpg",
+      "schemaType": ["Organization", "WebSite", "LocalBusiness", "WebPage"],
+      "noindex": false
+    },
+    {
+      "file": "pages/campervan.html",
+      "route": "/pages/campervan.html",
+      "title": "露營車介紹｜揪好森露營車出租",
+      "description": "揪好森露營車介紹：基本規格、睡眠空間、車內設備、衛浴設備、戶外設備與電力發電機。適合台北、桃園、新竹露營車出租與指定地點送車。",
+      "canonical": "https://van.joyforest.tw/pages/campervan.html",
+      "heroImage": "https://van.joyforest.tw/assets/images/campervan/hero-campervan.jpg",
+      "ogImage": "https://van.joyforest.tw/assets/images/campervan/hero-campervan.jpg",
+      "schemaType": ["WebPage", "Service", "BreadcrumbList"],
+      "noindex": false
+    },
+    {
+      "file": "pages/guide.html",
+      "route": "/pages/guide.html",
+      "title": "露營車新手指南｜揪好森露營車出租",
+      "description": "露營車新手指南：教學影片、開車注意事項（車高 3 公尺）、電力使用、水箱與戶外使用提醒，以及三天兩夜行程建議。",
+      "canonical": "https://van.joyforest.tw/pages/guide.html",
+      "heroImage": "https://van.joyforest.tw/assets/images/guide/hero-guide.jpg",
+      "ogImage": "https://van.joyforest.tw/assets/images/guide/hero-guide.jpg",
+      "schemaType": ["WebPage", "Article", "BreadcrumbList"],
+      "noindex": false
+    },
+    {
+      "file": "pages/faq.html",
+      "route": "/pages/faq.html",
+      "title": "常見問題 FAQ｜揪好森露營車出租",
+      "description": "揪好森露營車出租常見問題：駕照、可睡人數、台北桃園新竹指定地點送車、最低租期（三天兩夜）、寵物清潔費（NT$800）、看車、保險與理賠範圍。",
+      "canonical": "https://van.joyforest.tw/pages/faq.html",
+      "heroImage": "https://van.joyforest.tw/assets/images/faq/hero-faq.jpg",
+      "ogImage": "https://van.joyforest.tw/assets/images/faq/hero-faq.jpg",
+      "schemaType": ["WebPage", "BreadcrumbList", "FAQPage"],
+      "noindex": false
+    },
+    {
+      "file": "blog/index.html",
+      "route": "/blog/",
+      "title": "露營車資訊分享｜揪好森露營車出租",
+      "description": "揪好森露營車資訊分享：第一次租露營車要注意什麼、露營車可以停哪裡、三天兩夜行程、新手攻略、親子家庭旅行與海邊旅行建議等。",
+      "canonical": "https://van.joyforest.tw/blog/",
+      "heroImage": "https://van.joyforest.tw/assets/images/shared/hero-blog.jpg",
+      "ogImage": "https://van.joyforest.tw/assets/images/shared/hero-blog.jpg",
+      "schemaType": ["WebPage", "Blog", "BreadcrumbList"],
+      "noindex": false
+    },
+    {
+      "file": "404.html",
+      "route": "/404.html",
+      "title": "找不到頁面｜揪好森露營車出租",
+      "description": "你要找的頁面不存在，請返回揪好森露營車出租首頁繼續瀏覽。",
+      "canonical": "https://van.joyforest.tw/404.html",
+      "heroImage": "",
+      "ogImage": "",
+      "schemaType": ["WebPage"],
+      "noindex": true
+    }
+  ],
+  "todo": [
+    "補上真正的 favicon.ico 二進位檔案",
+    "若未來新增文章單頁，請為每篇文章指定專屬 heroImage 與 ogImage",
+    "若有 staging/demo 頁面，請設定 noindex 並從 sitemap 排除"
+  ]
+}
