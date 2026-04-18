@@ -1008,3 +1008,165 @@ a {
   line-height: 1.65;
 }
 
+/* SEO：熱門搜尋關鍵字（純文字、可換行） */
+.seo-hashtags {
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.65);
+  padding: clamp(16px, 3vw, 22px);
+  margin-top: 8px;
+}
+
+.seo-hashtags h2 {
+  margin: 0 0 12px;
+  font-size: clamp(16px, 1.8vw, 18px);
+  letter-spacing: -0.1px;
+}
+
+.seo-hashtags .tag-plain {
+  display: block;
+  margin: 0;
+  padding: 6px 0;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.55;
+  border-bottom: 1px dashed rgba(31, 35, 32, 0.08);
+}
+
+.seo-hashtags .tag-plain:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.intro-lead {
+  font-size: 16px;
+  color: var(--color-ink);
+  line-height: 1.85;
+  max-width: 68ch;
+}
+
+.intro-lead + .kicker {
+  margin-top: 12px;
+}
+
+/* 延伸資源表格（文章頁） */
+.resource-table-wrap {
+  overflow-x: auto;
+  margin-top: 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.resource-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.resource-table th,
+.resource-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.resource-table th {
+  background: rgba(31, 58, 44, 0.06);
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.resource-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.resource-table a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-prose h2 {
+  margin: 28px 0 12px;
+  font-size: var(--h2);
+}
+
+.article-prose h3 {
+  margin: 20px 0 8px;
+  font-size: 17px;
+}
+
+.article-prose p {
+  margin: 0 0 12px;
+  color: var(--color-muted);
+  font-size: 15px;
+}
+
+.sources-list {
+  margin: 0;
+  padding: 0 0 0 18px;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.sources-list li {
+  margin-bottom: 8px;
+}
+
+.footer-resources-section {
+  padding: 22px 0 8px;
+  border-top: 1px solid rgba(31, 35, 32, 0.08);
+  margin-top: 8px;
+}
+
+.footer-resources-section h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  letter-spacing: -0.1px;
+  color: var(--color-ink);
+}
+
+.footer-resources-sub {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--color-muted);
+  max-width: 72ch;
+}
+
+.footer-resources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.footer-resources-list a {
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.footer-resources-list a:hover {
+  color: var(--color-ink);
+}
+
+.resource-card-grid {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 760px) {
+  .resource-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1020px) {
+  .resource-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
