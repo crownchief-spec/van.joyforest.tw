@@ -899,6 +899,25 @@ a {
   border: 0;
 }
 
+/* 教學頁主影片：手機版左右貼齊螢幕、最大化可視區 */
+@media (max-width: 759px) {
+  #videos.section {
+    overflow-x: clip;
+  }
+
+  #videos .video-card--feature-mobile .video-embed {
+    width: 100vw;
+    max-width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    box-shadow: none;
+  }
+}
+
 /* 可點擊影片卡片（備援） */
 .video-card {
   display: grid;
