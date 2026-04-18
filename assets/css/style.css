@@ -275,6 +275,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background:
     linear-gradient(to bottom, rgba(12, 14, 13, 0.66), rgba(12, 14, 13, 0.55)),
     radial-gradient(900px 420px at 20% 10%, rgba(31, 58, 44, 0.55), transparent 60%);
