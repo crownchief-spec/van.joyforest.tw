@@ -120,11 +120,13 @@ a {
 }
 
 .brand-mark {
-  width: 12px;
-  height: 12px;
+  width: 30px;
+  height: 30px;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--color-primary), #5f8a6c);
-  box-shadow: 0 10px 20px rgba(31, 58, 44, 0.25);
+  background: #fff url("/assets/images/shared/joyforest-campervan-rental-logo-icon-64.png") center/cover no-repeat;
+  border: 1px solid rgba(31, 35, 32, 0.14);
+  box-shadow: 0 6px 16px rgba(31, 58, 44, 0.18);
+  flex: 0 0 auto;
 }
 
 .nav-toggle {
@@ -1043,27 +1045,32 @@ a {
   background: rgba(255, 255, 255, 0.65);
   padding: clamp(16px, 3vw, 22px);
   margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
 }
 
 .seo-hashtags h2 {
   margin: 0 0 12px;
   font-size: clamp(16px, 1.8vw, 18px);
   letter-spacing: -0.1px;
+  width: 100%;
 }
 
 .seo-hashtags .tag-plain {
-  display: inline-block;
-  margin: 0 10px 8px 0;
+  display: inline;
+  margin: 0;
   padding: 0;
-  color: var(--color-muted);
-  font-size: 14px;
-  line-height: 1.55;
+  color: rgba(31, 35, 32, 0.76);
+  font-size: 13px;
+  line-height: 1.5;
   border-bottom: 0;
 }
 
 .seo-hashtags .tag-plain::before {
   content: "#";
-  margin-right: 0;
+  margin-right: 1px;
 }
 
 .intro-lead {
@@ -1179,33 +1186,32 @@ a {
   margin-bottom: 8px;
 }
 
-/* SEO 延伸文章區：與上方 footer 區塊區隔，字級刻意縮小、對比降低 */
+/* SEO 延伸文章區：低調延伸閱讀，不搶主內容視覺 */
 .footer-resources-section {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  margin-top: 18px;
-  padding: 14px max(20px, env(safe-area-inset-right)) 16px max(20px, env(safe-area-inset-left));
+  margin-top: 14px;
+  padding: 10px max(18px, env(safe-area-inset-right)) 12px max(18px, env(safe-area-inset-left));
   box-sizing: border-box;
   background: #0a0a0a;
-  color: rgba(255, 255, 255, 0.34);
+  color: rgba(255, 255, 255, 0.36);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .footer-resources-section h3 {
-  margin: 0 0 6px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.38);
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.48);
 }
 
 .footer-resources-sub {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   font-size: 10px;
-  line-height: 1.45;
-  color: rgba(255, 255, 255, 0.28);
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.24);
   max-width: 72ch;
 }
 
@@ -1214,37 +1220,43 @@ a {
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 4px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px 14px;
 }
 
 .footer-resources-list a {
-  font-size: 10px;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.3);
+  display: block;
+  font-size: 11px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.42);
   text-decoration: none;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
-  padding-bottom: 2px;
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .footer-resources-list a:hover {
-  color: rgba(255, 255, 255, 0.45);
-  border-bottom-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.62);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
-/* 手機版：資源區改為精簡雙欄，縮短標題並壓縮高度 */
+/* 手機版：單欄低干擾，只留代表文章 + 查看全部 */
 @media (max-width: 759px) {
   .footer-resources-section {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 
   .footer-resources-section h3 {
-    margin-bottom: 4px;
-    font-size: 10px;
+    margin-bottom: 3px;
+    font-size: 11px;
   }
 
   .footer-resources-sub {
-    margin-bottom: 6px;
+    margin-bottom: 5px;
     font-size: 9px;
     white-space: nowrap;
     overflow: hidden;
@@ -1252,8 +1264,8 @@ a {
   }
 
   .footer-resources-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2px 10px;
+    grid-template-columns: 1fr;
+    gap: 1px;
   }
 
   .footer-resources-list li {
@@ -1261,15 +1273,10 @@ a {
   }
 
   .footer-resources-list a {
-    display: block;
-    max-width: 11ch;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     font-size: 9px;
-    line-height: 1.25;
-    padding-bottom: 0;
-    border-bottom: 0;
+    line-height: 1.22;
+    max-width: 10ch;
+    border-bottom-color: rgba(255, 255, 255, 0.05);
   }
 
   .footer-resources-list li:nth-child(n + 7) {
