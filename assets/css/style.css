@@ -36,6 +36,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -1054,39 +1055,74 @@ a {
   overflow-x: auto;
   margin-top: 18px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border);
-  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid rgba(31, 58, 44, 0.22);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.resource-table-wrap--enhanced {
+  border-radius: 12px;
+  border: 2px solid rgba(31, 58, 44, 0.28);
+  box-shadow: 0 8px 24px rgba(20, 24, 21, 0.12);
 }
 
 .resource-table {
   width: 100%;
-  min-width: 560px;
+  min-width: 640px;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.resource-table caption {
+  caption-side: top;
+  text-align: left;
+  padding: 12px 14px 10px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-ink);
+  background: linear-gradient(180deg, rgba(31, 58, 44, 0.1), rgba(31, 58, 44, 0.04));
+  border-bottom: 2px solid rgba(31, 58, 44, 0.18);
 }
 
 .resource-table th,
 .resource-table td {
-  padding: 10px 12px;
+  padding: 12px 14px;
   text-align: left;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid rgba(31, 35, 32, 0.12);
   vertical-align: top;
 }
 
-.resource-table th {
-  background: rgba(31, 58, 44, 0.06);
-  font-weight: 800;
-  color: var(--color-primary);
+.resource-table thead th {
+  background: var(--color-primary);
+  color: #f5f7f4;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-.resource-table tr:last-child td {
+.resource-table tbody tr:nth-child(odd) {
+  background: rgba(31, 58, 44, 0.035);
+}
+
+.resource-table tbody tr:hover {
+  background: rgba(154, 107, 63, 0.08);
+}
+
+.resource-table tbody tr:last-child td {
   border-bottom: 0;
 }
 
+.resource-table td:last-child {
+  min-width: 5rem;
+}
+
 .resource-table a {
-  color: var(--color-primary);
+  color: var(--color-primary-2);
+  font-weight: 600;
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
 }
 
 .article-prose h2 {
@@ -1116,23 +1152,33 @@ a {
   margin-bottom: 8px;
 }
 
+/* SEO 延伸文章區：與上方 footer 區塊區隔，字級刻意縮小、對比降低 */
 .footer-resources-section {
-  padding: 22px 0 8px;
-  border-top: 1px solid rgba(31, 35, 32, 0.08);
-  margin-top: 8px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 18px;
+  padding: 14px max(20px, env(safe-area-inset-right)) 16px max(20px, env(safe-area-inset-left));
+  box-sizing: border-box;
+  background: #0a0a0a;
+  color: rgba(255, 255, 255, 0.34);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .footer-resources-section h3 {
-  margin: 0 0 8px;
-  font-size: 14px;
-  letter-spacing: -0.1px;
-  color: var(--color-ink);
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.38);
 }
 
 .footer-resources-sub {
-  margin: 0 0 12px;
-  font-size: 13px;
-  color: var(--color-muted);
+  margin: 0 0 10px;
+  font-size: 10px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.28);
   max-width: 72ch;
 }
 
@@ -1141,16 +1187,21 @@ a {
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 8px;
+  gap: 4px;
 }
 
 .footer-resources-list a {
-  font-size: 14px;
-  color: var(--color-muted);
+  font-size: 10px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+  padding-bottom: 2px;
 }
 
 .footer-resources-list a:hover {
-  color: var(--color-ink);
+  color: rgba(255, 255, 255, 0.45);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
 }
 
 .resource-card-grid {
