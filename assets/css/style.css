@@ -280,6 +280,13 @@ a {
     radial-gradient(900px 420px at 20% 10%, rgba(31, 58, 44, 0.55), transparent 60%);
 }
 
+/* 露營車使用教學頁：海濱／天空較亮的主視覺，略加深遮罩以利標題閱讀 */
+.hero.hero--guide-coast::after {
+  background:
+    linear-gradient(to bottom, rgba(6, 8, 10, 0.62), rgba(6, 8, 10, 0.78)),
+    radial-gradient(900px 480px at 50% 12%, rgba(31, 58, 44, 0.42), transparent 58%);
+}
+
 .hero-inner {
   position: relative;
   min-height: clamp(52vh, 62vh, 68vh);
