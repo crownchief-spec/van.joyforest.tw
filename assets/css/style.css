@@ -1220,8 +1220,8 @@ a {
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2px 14px;
+  grid-template-columns: 1fr;
+  gap: 2px;
 }
 
 .footer-resources-list a {
@@ -1242,8 +1242,8 @@ a {
   border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
-/* 手機版：單欄低干擾，只留代表文章 + 查看全部 */
-@media (max-width: 759px) {
+/* 平板與手機：單欄低干擾，只留代表文章 + 查看全部 */
+@media (max-width: 1023px) {
   .footer-resources-section {
     margin-top: 10px;
     padding-top: 8px;
@@ -1281,6 +1281,14 @@ a {
 
   .footer-resources-list li:nth-child(n + 7) {
     display: none;
+  }
+}
+
+/* 大桌機才改兩欄，避免平板區塊過高且擁擠 */
+@media (min-width: 1100px) {
+  .footer-resources-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px 14px;
   }
 }
 
