@@ -267,13 +267,15 @@ a {
 
 .hero {
   position: relative;
+  isolation: isolate;
   border-bottom: 1px solid var(--color-border);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.hero::after {
+/* 遮罩用 ::before（先繪製），內容在後，避免 ::after 蓋住文字（Chrome / iOS Safari 堆疊行為與桌面 Safari 不同） */
+.hero::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -285,16 +287,16 @@ a {
 }
 
 /* 露營車使用教學頁：海濱／天空較亮的主視覺，略加深遮罩以利標題閱讀 */
-.hero.hero--guide-coast::after {
+.hero.hero--guide-coast::before {
   background:
     linear-gradient(to bottom, rgba(6, 8, 10, 0.62), rgba(6, 8, 10, 0.78)),
     radial-gradient(900px 480px at 50% 12%, rgba(31, 58, 44, 0.42), transparent 58%);
 }
 
-/* 內容疊在 ::after 遮罩之上（遮罩僅壓在背景圖上） */
 .hero > .container {
   position: relative;
   z-index: 1;
+  transform: translateZ(0);
 }
 
 .hero-inner {
