@@ -333,6 +333,11 @@ a {
   font-size: 16px;
 }
 
+.hero p.lead.hero-lead-lines {
+  line-height: 1.75;
+  max-width: min(56ch, 100%);
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
