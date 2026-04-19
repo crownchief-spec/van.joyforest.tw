@@ -277,10 +277,11 @@ a {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(to bottom, rgba(12, 14, 13, 0.66), rgba(12, 14, 13, 0.55)),
-    radial-gradient(900px 420px at 20% 10%, rgba(31, 58, 44, 0.55), transparent 60%);
+    linear-gradient(to bottom, rgba(12, 14, 13, 0.48), rgba(12, 14, 13, 0.38)),
+    radial-gradient(900px 420px at 20% 10%, rgba(31, 58, 44, 0.38), transparent 60%);
 }
 
 /* 露營車使用教學頁：海濱／天空較亮的主視覺，略加深遮罩以利標題閱讀 */
@@ -288,6 +289,12 @@ a {
   background:
     linear-gradient(to bottom, rgba(6, 8, 10, 0.62), rgba(6, 8, 10, 0.78)),
     radial-gradient(900px 480px at 50% 12%, rgba(31, 58, 44, 0.42), transparent 58%);
+}
+
+/* 內容疊在 ::after 遮罩之上（遮罩僅壓在背景圖上） */
+.hero > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-inner {
