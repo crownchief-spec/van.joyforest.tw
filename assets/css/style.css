@@ -827,6 +827,162 @@ a {
   color: var(--color-accent);
 }
 
+/* Guide page table of contents (目錄) */
+.guide-toc {
+  border: 1px dashed var(--color-border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.guide-toc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px 16px;
+  font-size: 14px;
+}
+
+@media (min-width: 640px) {
+  .guide-toc__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.guide-toc__list a {
+  display: inline-block;
+  padding: 4px 0;
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.guide-toc__list a:hover,
+.guide-toc__list a:focus-visible {
+  color: var(--color-accent);
+  border-bottom-color: currentColor;
+  outline: none;
+}
+
+/* Guide page collapsible sections — 使用 <details>/<summary> 讓大段落點擊才展開 */
+.guide-collapsible {
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 8px 20px rgba(20, 24, 21, 0.04);
+  margin: 0;
+  overflow: hidden;
+}
+
+.guide-collapsible + .guide-collapsible {
+  margin-top: 16px;
+}
+
+.guide-collapsible > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  user-select: none;
+  transition: background 160ms ease;
+}
+
+.guide-collapsible > summary::-webkit-details-marker {
+  display: none;
+}
+
+.guide-collapsible > summary:hover,
+.guide-collapsible > summary:focus-visible {
+  background: rgba(31, 58, 44, 0.04);
+  outline: none;
+}
+
+.guide-collapsible > summary .guide-collapsible__title {
+  flex: 1;
+  min-width: 0;
+}
+
+.guide-collapsible > summary h2,
+.guide-collapsible > summary h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.35;
+  letter-spacing: -0.2px;
+}
+
+.guide-collapsible > summary h3 {
+  font-size: 17px;
+}
+
+.guide-collapsible > summary .guide-collapsible__hint {
+  margin: 4px 0 0;
+  color: var(--color-muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.guide-collapsible > summary .guide-collapsible__chevron {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background: rgba(31, 58, 44, 0.05);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  font-size: 14px;
+  transition: transform 220ms ease, background 160ms ease, color 160ms ease;
+}
+
+.guide-collapsible[open] > summary .guide-collapsible__chevron {
+  transform: rotate(180deg);
+  background: rgba(154, 107, 63, 0.10);
+  color: var(--color-accent);
+}
+
+.guide-collapsible__body {
+  padding: 4px 20px 22px;
+  border-top: 1px dashed var(--color-border);
+}
+
+.guide-collapsible[open] > summary {
+  border-bottom: 0;
+}
+
+/* 巢狀折疊：power-water 區塊內部 h3 子折疊 */
+.guide-collapsible .guide-collapsible--nested {
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 14px;
+  margin-top: 14px;
+}
+
+.guide-collapsible .guide-collapsible--nested > summary {
+  padding: 14px 16px;
+}
+
+.guide-collapsible .guide-collapsible--nested .guide-collapsible__body {
+  padding: 4px 16px 18px;
+}
+
+/* 淡入動畫：details 展開時 body 淡入 */
+@media (prefers-reduced-motion: no-preference) {
+  .guide-collapsible[open] > .guide-collapsible__body {
+    animation: guideCollapseFadeIn 220ms ease both;
+  }
+}
+
+@keyframes guideCollapseFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .site-footer {
   margin-top: 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);

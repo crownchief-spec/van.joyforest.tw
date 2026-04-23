@@ -170,6 +170,29 @@
       },
       { passive: true }
     );
+
+    // 指南頁折疊區塊：若網址帶有 #hash，自動展開對應段落及其所有 <details> 祖先。
+    const openCollapsibleFromHash = () => {
+      const hash = window.location.hash;
+      if (!hash || hash.length < 2) return;
+      let target = null;
+      try {
+        target = document.querySelector(hash);
+      } catch (_) {
+        return;
+      }
+      if (!target) return;
+      let node = target;
+      while (node && node !== document.body) {
+        if (node.tagName === "DETAILS" && !node.open) node.open = true;
+        node = node.parentElement;
+      }
+      requestAnimationFrame(() => {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    };
+    openCollapsibleFromHash();
+    window.addEventListener("hashchange", openCollapsibleFromHash);
   };
 
   boot().catch((err) => {
