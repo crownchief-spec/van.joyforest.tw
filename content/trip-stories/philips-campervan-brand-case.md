@@ -25,8 +25,8 @@ readingTime: "影片約 1 分鐘 · 閱讀補充"
       playsinline
       preload="metadata"
       poster="/assets/images/trip-ideas/philips-campervan-portable-power-ad-mountain-road-golden-hour.jpg"
-      width="1206"
-      height="670"
+      width="648"
+      height="360"
       title="飛利浦行動電源 × 藍白露營車公路形象片（網頁優化版 MP4）"
       aria-label="飛利浦行動電源廣告影片：藍白配色露營車行駛於山林公路與金色夕陽。檔名：philips-campervan-portable-power-highway-ad-web.mp4。"
     >
