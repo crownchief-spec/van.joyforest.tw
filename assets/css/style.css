@@ -807,6 +807,13 @@ a {
   gap: 16px;
 }
 
+/* 自適應網格：每張卡最小 280px，最多 3 欄 */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
 @media (min-width: 940px) {
   .two-col {
     grid-template-columns: 1fr 1fr;
