@@ -1,0 +1,11 @@
+{
+  "name": "van-joyforest-site",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-trip-stories.mjs"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^12.0.2"
+  }
+}

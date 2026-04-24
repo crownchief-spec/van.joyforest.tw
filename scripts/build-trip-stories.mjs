@@ -1,0 +1,310 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import matter from "gray-matter";
+import { marked } from "marked";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, "..");
+const CONTENT_DIR = path.join(ROOT, "content", "trip-stories");
+const OUT_JSON = path.join(CONTENT_DIR, "articles.json");
+const OUT_STORIES_DIR = path.join(ROOT, "trip-stories");
+const SITEMAP = path.join(ROOT, "sitemap.xml");
+const SITE_ORIGIN = "https://van.joyforest.tw";
+
+marked.setOptions({ gfm: true, breaks: true });
+
+const escapeHtml = (s) =>
+  String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+
+const pickRelated = (all, currentSlug, limit = 3) => {
+  const cur = all.find((a) => a.slug === currentSlug);
+  if (!cur) return [];
+  const others = all.filter((a) => a.slug !== currentSlug);
+  const sameCat = others.filter((a) => a.category === cur.category);
+  const rest = others.filter((a) => a.category !== cur.category);
+  const merged = [...sameCat, ...rest];
+  return merged.slice(0, limit);
+};
+
+const articlePageTemplate = ({
+  slug,
+  title,
+  description,
+  date,
+  category,
+  tags,
+  coverImage,
+  coverImageAlt,
+  readingTime,
+  bodyHtml,
+  relatedHtml,
+  jsonLd
+}) => {
+  const tagList = Array.isArray(tags) ? tags : [];
+  const tagsMeta = tagList.map((t) => escapeHtml(t)).join("、");
+  return `<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1f6b52" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <title>${escapeHtml(title)}</title>
+    <meta name="description" content="${escapeHtml(description)}" />
+    <link rel="canonical" href="${SITE_ORIGIN}/trip-stories/${slug}/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:site_name" content="揪好森露營車出租" />
+    <meta property="og:title" content="${escapeHtml(title)}" />
+    <meta property="og:description" content="${escapeHtml(description)}" />
+    <meta property="og:url" content="${SITE_ORIGIN}/trip-stories/${slug}/" />
+    <meta property="og:image" content="${SITE_ORIGIN}${coverImage}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="${SITE_ORIGIN}${coverImage}" />
+    <meta name="twitter:image:alt" content="${escapeHtml(coverImageAlt || title)}" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-64.png" type="image/png" sizes="64x64" />
+    <link rel="apple-touch-icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-180.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <script defer src="../../assets/js/main.js"></script>
+    <script type="application/ld+json">${jsonLd}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要內容</a>
+    <div data-site-include="header"></div>
+    <article class="trip-article">
+      <header class="trip-article-hero">
+        <div class="container trip-article-hero__inner">
+          <p class="trip-article-hero__meta">
+            <a class="trip-article-hero__crumb" href="/pages/trip-ideas.html">旅遊建議</a>
+            <span class="trip-article-hero__sep" aria-hidden="true">／</span>
+            <span class="pill trip-article-hero__cat">${escapeHtml(category)}</span>
+          </p>
+          <h1 class="trip-article-hero__title">${escapeHtml(title)}</h1>
+          <p class="trip-article-hero__desc">${escapeHtml(description)}</p>
+          <div class="trip-article-hero__stats">
+            <time datetime="${escapeHtml(date)}">${escapeHtml(date)}</time>
+            <span class="trip-article-hero__dot" aria-hidden="true">·</span>
+            <span>${escapeHtml(readingTime)}</span>
+            ${
+              tagsMeta
+                ? `<span class="trip-article-hero__dot" aria-hidden="true">·</span><span class="trip-article-hero__tags" title="標籤">${tagsMeta}</span>`
+                : ""
+            }
+          </div>
+        </div>
+        <div class="trip-article-cover-wrap">
+          <img
+            class="trip-article-cover"
+            src="${escapeHtml(coverImage)}"
+            alt="${escapeHtml(coverImageAlt || title)}"
+            width="1200"
+            height="630"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </header>
+      <main id="main" class="trip-article-main section">
+        <div class="container">
+          <div class="trip-article-prose trip-story-prose">${bodyHtml}</div>
+          <section class="trip-article-related section" aria-labelledby="related-title">
+            <div class="section-title" id="related-title">
+              <h2>相關旅遊建議</h2>
+              <p>延伸閱讀其他路線與玩法。</p>
+            </div>
+            <div class="trip-hub-grid trip-hub-grid--related">${relatedHtml}</div>
+          </section>
+          <section class="cta trip-article-cta fade-in" data-reveal>
+            <h2>想用露營車安排這樣的旅行嗎？</h2>
+            <p>你可以先告訴我們日期、人數、想去的方向與是否需要送車，我們會協助確認適合的租借方式與行程安排。</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="/booking.html">立即預約露營車</a>
+              <a class="btn btn-outline" href="/pages/campervan.html">查看價格與車款介紹</a>
+              <a class="btn btn-outline" href="/pages/booking-guide.html">看露營車使用教學</a>
+            </div>
+          </section>
+        </div>
+      </main>
+    </article>
+    <div data-site-include="footer"></div>
+  </body>
+</html>`;
+};
+
+const relatedCardHtml = (a) => `<article class="trip-hub-card trip-hub-card--compact fade-in" data-reveal>
+  <a class="trip-hub-card__link" href="${escapeHtml(a.url)}">
+    <div class="trip-hub-card__media">
+      <img src="${escapeHtml(a.coverImage)}" alt="${escapeHtml(a.coverImageAlt || a.title)}" width="400" height="225" loading="lazy" decoding="async" />
+    </div>
+    <div class="trip-hub-card__body">
+      <span class="pill trip-hub-card__pill">${escapeHtml(a.category)}</span>
+      <h3 class="trip-hub-card__title">${escapeHtml(a.title)}</h3>
+      <p class="trip-hub-card__excerpt">${escapeHtml(a.description)}</p>
+      <span class="trip-hub-card__more">閱讀文章</span>
+    </div>
+  </a>
+</article>`;
+
+async function patchSitemap(urls) {
+  let xml = await fs.readFile(SITEMAP, "utf8");
+  for (const loc of urls) {
+    if (xml.includes(`<loc>${loc}</loc>`)) continue;
+    const block = `  <url>
+    <loc>${loc}</loc>
+    <priority>0.65</priority>
+  </url>
+`;
+    xml = xml.replace("</urlset>", `${block}</urlset>`);
+  }
+  await fs.writeFile(SITEMAP, xml, "utf8");
+}
+
+async function main() {
+  const entries = await fs.readdir(CONTENT_DIR, { withFileTypes: true });
+  const mdFiles = entries
+    .filter((e) => e.isFile() && e.name.endsWith(".md"))
+    .map((e) => e.name);
+
+  if (!mdFiles.length) {
+    console.warn("[build-trip-stories] No .md files in", CONTENT_DIR);
+    return;
+  }
+
+  const rawList = [];
+  for (const file of mdFiles) {
+    const full = path.join(CONTENT_DIR, file);
+    const src = await fs.readFile(full, "utf8");
+    const { data, content } = matter(src);
+    const slug = (data.slug || "").trim();
+    if (!slug) {
+      console.warn("[build-trip-stories] Skip (no slug):", file);
+      continue;
+    }
+    const title = (data.title || slug).trim();
+    const description = (data.description || "").trim();
+    const date = (data.date || "").trim();
+    const category = (data.category || "未分類").trim();
+    const tags = Array.isArray(data.tags) ? data.tags.map(String) : [];
+    const coverImage = (data.coverImage || "").trim();
+    const coverImageAlt = (data.coverImageAlt || title).trim();
+    const featured = Boolean(data.featured);
+    const order = Number.isFinite(Number(data.order)) ? Number(data.order) : 999;
+    const readingTime = (data.readingTime || "").trim() || "約 5 分鐘";
+    const url = `/trip-stories/${slug}/`;
+
+    rawList.push({
+      slug,
+      title,
+      description,
+      date,
+      category,
+      tags,
+      coverImage,
+      coverImageAlt,
+      featured,
+      order,
+      readingTime,
+      url,
+      bodyMarkdown: content.trim()
+    });
+  }
+
+  rawList.sort((a, b) => {
+    if (a.order !== b.order) return a.order - b.order;
+    return String(b.date).localeCompare(String(a.date));
+  });
+
+  const articles = rawList.map(({ bodyMarkdown, ...rest }) => rest);
+  const generatedAt = new Date().toISOString();
+  await fs.writeFile(
+    OUT_JSON,
+    JSON.stringify({ generatedAt, articles }, null, 2),
+    "utf8"
+  );
+
+  await fs.mkdir(OUT_STORIES_DIR, { recursive: true });
+
+  for (const item of rawList) {
+    const bodyHtml = marked.parse(item.bodyMarkdown);
+    const related = pickRelated(rawList, item.slug, 3);
+    const relatedHtml = related.map((a) => relatedCardHtml(a)).join("\n");
+
+    const jsonLd = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          headline: item.title,
+          description: item.description,
+          datePublished: item.date,
+          image: `${SITE_ORIGIN}${item.coverImage}`,
+          author: { "@type": "Organization", name: "揪好森露營車出租" },
+          publisher: { "@type": "Organization", name: "揪好森露營車出租" },
+          mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_ORIGIN}${item.url}` }
+        },
+        {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "首頁", item: `${SITE_ORIGIN}/` },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "旅遊建議",
+              item: `${SITE_ORIGIN}/pages/trip-ideas.html`
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: item.title,
+              item: `${SITE_ORIGIN}${item.url}`
+            }
+          ]
+        }
+      ]
+    });
+
+    const html = articlePageTemplate({
+      slug: item.slug,
+      title: item.title,
+      description: item.description,
+      date: item.date,
+      category: item.category,
+      tags: item.tags,
+      coverImage: item.coverImage,
+      coverImageAlt: item.coverImageAlt,
+      readingTime: item.readingTime,
+      bodyHtml,
+      relatedHtml,
+      jsonLd
+    });
+
+    const dir = path.join(OUT_STORIES_DIR, item.slug);
+    await fs.mkdir(dir, { recursive: true });
+    await fs.writeFile(path.join(dir, "index.html"), html, "utf8");
+  }
+
+  const sitemapUrls = rawList.map((a) => `${SITE_ORIGIN}${a.url}`);
+  await patchSitemap(sitemapUrls);
+
+  console.log(
+    "[build-trip-stories] OK:",
+    rawList.length,
+    "articles →",
+    path.relative(ROOT, OUT_JSON),
+    "+",
+    path.relative(ROOT, OUT_STORIES_DIR)
+  );
+}
+
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

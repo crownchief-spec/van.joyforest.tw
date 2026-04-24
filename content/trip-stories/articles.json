@@ -1,0 +1,121 @@
+{
+  "generatedAt": "2026-04-24T12:27:46.176Z",
+  "articles": [
+    {
+      "slug": "family-beginner-3-days",
+      "title": "露營車三天兩夜怎麼玩？新手也適合的慢遊行程建議",
+      "description": "第一次租露營車，不建議行程排太滿。這篇整理親子家庭與新手最適合的三天兩夜慢旅行方式，從交車、露營區、用電、晚餐到還車都比較輕鬆。",
+      "date": "2026-04-24",
+      "category": "新手行程",
+      "tags": [
+        "親子旅行",
+        "三天兩夜",
+        "新手露營車",
+        "露營區"
+      ],
+      "coverImage": "/images/trip-stories/family-beginner-3-days.jpg",
+      "coverImageAlt": "露營車停在戶外營位旁，適合親子三天兩夜旅行",
+      "featured": true,
+      "order": 10,
+      "readingTime": "約 6 分鐘",
+      "url": "/trip-stories/family-beginner-3-days/"
+    },
+    {
+      "slug": "seaside-van-trip",
+      "title": "露營車海邊旅行怎麼安排？看海、吹風、慢慢煮東西",
+      "description": "露營車很適合安排海邊路線。選一個可以看海、散步、拍照與慢慢煮東西的地方，把旅行節奏放慢，就是最舒服的玩法。",
+      "date": "2026-04-24",
+      "category": "海邊路線",
+      "tags": [
+        "海邊",
+        "拍照",
+        "北海岸",
+        "宜蘭",
+        "慢旅行"
+      ],
+      "coverImage": "/images/trip-stories/seaside-van-trip.jpg",
+      "coverImageAlt": "露營車海邊旅行與戶外桌椅情境",
+      "featured": true,
+      "order": 20,
+      "readingTime": "約 6 分鐘",
+      "url": "/trip-stories/seaside-van-trip/"
+    },
+    {
+      "slug": "mountain-camping-van",
+      "title": "露營車山區旅行建議｜森林、涼爽空氣與安靜過夜",
+      "description": "山區路線很適合想要森林感、涼爽空氣與安靜過夜的客人。這篇整理山區露營車旅行的安排方式與注意事項。",
+      "date": "2026-04-24",
+      "category": "山區路線",
+      "tags": [
+        "山區",
+        "露營區",
+        "森林",
+        "保暖"
+      ],
+      "coverImage": "/images/trip-stories/mountain-camping-van.jpg",
+      "coverImageAlt": "露營車停靠山區露營區，適合森林旅行",
+      "featured": true,
+      "order": 30,
+      "readingTime": "約 6 分鐘",
+      "url": "/trip-stories/mountain-camping-van/"
+    },
+    {
+      "slug": "couple-friends-photo-trip",
+      "title": "好友與情侶露營車旅行｜適合拍照、生日與小旅行的玩法",
+      "description": "露營車搭配戶外桌椅、燈串與網美露營套組，很適合好友旅行、生日小旅行、情侶紀念日與拍照行程。",
+      "date": "2026-04-24",
+      "category": "好友旅行",
+      "tags": [
+        "好友旅行",
+        "情侶",
+        "拍照",
+        "生日",
+        "網美露營"
+      ],
+      "coverImage": "/images/trip-stories/couple-friends-photo-trip.jpg",
+      "coverImageAlt": "好友情侶露營車旅行與戶外燈串佈置",
+      "featured": false,
+      "order": 40,
+      "readingTime": "約 6 分鐘",
+      "url": "/trip-stories/couple-friends-photo-trip/"
+    },
+    {
+      "slug": "event-support-van",
+      "title": "露營車也可以做活動支援｜休息室、更衣室與戶外工作站",
+      "description": "除了旅行，露營車也可以作為活動休息室、臨時更衣室、工作人員休息空間、比賽或戶外活動支援車。",
+      "date": "2026-04-24",
+      "category": "活動支援",
+      "tags": [
+        "活動",
+        "商業合作",
+        "拍攝",
+        "戶外"
+      ],
+      "coverImage": "/images/trip-stories/event-support-van.jpg",
+      "coverImageAlt": "露營車作為戶外活動休息室與支援車",
+      "featured": false,
+      "order": 50,
+      "readingTime": "約 5 分鐘",
+      "url": "/trip-stories/event-support-van/"
+    },
+    {
+      "slug": "water-electric-campsite",
+      "title": "第一次租露營車，為什麼建議先選有水電的露營區？",
+      "description": "第一次租露營車，最建議先選有水電、衛浴與管理人員的露營區。這樣可以更安心熟悉電力、充電、補水、洗澡與車內設備。",
+      "date": "2026-04-24",
+      "category": "新手教學",
+      "tags": [
+        "新手",
+        "露營區",
+        "水電",
+        "外接電"
+      ],
+      "coverImage": "/images/trip-stories/water-electric-campsite.jpg",
+      "coverImageAlt": "新手露營車停靠有水電的露營區",
+      "featured": false,
+      "order": 60,
+      "readingTime": "約 7 分鐘",
+      "url": "/trip-stories/water-electric-campsite/"
+    }
+  ]
+}

@@ -52,13 +52,13 @@
     if (!wrap) return;
     const slots = wrap.querySelectorAll("[data-footer-trip-story-slot]");
     if (!slots.length) return;
-    const manifestUrl = new URL("/content/trip-stories/manifest.json", window.location.origin).href;
+    const articlesUrl = new URL("/content/trip-stories/articles.json", window.location.origin).href;
     try {
-      const res = await fetch(manifestUrl, { cache: "no-cache" });
+      const res = await fetch(articlesUrl, { cache: "no-cache" });
       if (!res.ok) return;
       const data = await res.json();
       const articles = Array.isArray(data.articles) ? data.articles : [];
-      const valid = articles.filter((a) => a && (a.slug || "").trim());
+      const valid = articles.filter((a) => a && (a.slug || "").trim() && (a.url || "").trim());
       if (!valid.length) return;
       const picks = pickTwoUnique(valid);
       slots.forEach((slot, index) => {
@@ -68,18 +68,24 @@
           return;
         }
         slot.hidden = false;
-        const slug = pick.slug.trim();
-        const title = (pick.title || slug).trim();
-        const summary = (pick.footer_summary || pick.excerpt || "").trim();
-        const imgPath = (pick.footer_image || "").trim();
-        const imgAlt = (pick.footer_image_alt || title).trim();
+        const title = (pick.title || pick.slug || "").trim();
+        const summary = (pick.description || "").trim();
+        const imgPath = (pick.coverImage || "").trim();
+        const imgAlt = (pick.coverImageAlt || title).trim();
+        const category = (pick.category || "").trim();
+        const url = (pick.url || `/trip-stories/${pick.slug}/`).trim();
         const link = slot.querySelector("[data-footer-trip-story-link]");
         const titleEl = slot.querySelector("[data-footer-trip-story-title]");
         const summaryEl = slot.querySelector("[data-footer-trip-story-summary]");
+        const catEl = slot.querySelector("[data-footer-trip-story-category]");
         const imgEl = slot.querySelector("[data-footer-trip-story-img]");
-        if (link) link.href = `/pages/trip-ideas.html#${slug}`;
+        if (link) link.href = url;
         if (titleEl) titleEl.textContent = title;
         if (summaryEl) summaryEl.textContent = summary;
+        if (catEl) {
+          catEl.textContent = category;
+          catEl.hidden = !category;
+        }
         if (imgEl) {
           const thumb = slot.querySelector(".footer-trip-story-random__thumb");
           if (imgPath) {

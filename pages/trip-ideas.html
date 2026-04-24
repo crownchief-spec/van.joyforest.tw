@@ -9,7 +9,7 @@
     <title>露營車旅遊建議｜親子旅行、好友露營、海邊山區路線安排</title>
     <meta
       name="description"
-      content="不知道露營車可以去哪裡玩嗎？整理露營車旅遊建議、親子新手路線、海邊山區旅行、露營區選擇、3 天 2 夜行程安排與活動支援用途。"
+      content="不知道露營車可以去哪裡玩嗎？整理露營車旅遊文章、親子新手路線、海邊山區旅行、露營區選擇、三天兩夜行程安排與活動支援用途。"
     />
     <link rel="canonical" href="https://van.joyforest.tw/pages/trip-ideas.html" />
 
@@ -19,7 +19,7 @@
     <meta property="og:title" content="露營車旅遊建議｜親子旅行、好友露營、海邊山區路線安排" />
     <meta
       property="og:description"
-      content="露營車旅遊路線整理：海邊、山區、親子輕旅行、好友拍照旅行與活動用途，附 3 天 2 夜行程範例。"
+      content="不知道露營車可以去哪裡玩嗎？整理露營車旅遊文章、親子新手路線、海邊山區旅行、露營區選擇、三天兩夜行程安排與活動支援用途。"
     />
     <meta property="og:url" content="https://van.joyforest.tw/pages/trip-ideas.html" />
     <meta property="og:image" content="https://van.joyforest.tw/assets/images/home/friends-group-campervan-trip.jpg" />
@@ -38,8 +38,7 @@
 
     <link rel="stylesheet" href="../assets/css/style.css" />
     <script defer src="../assets/js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
-    <script defer src="../assets/js/trip-stories.js"></script>
+    <script defer src="../assets/js/trip-hub.js"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -48,7 +47,7 @@
             "@type": "WebPage",
             "url": "https://van.joyforest.tw/pages/trip-ideas.html",
             "name": "露營車旅遊建議",
-            "description": "露營車旅遊路線、親子海邊山區建議、3 天 2 夜行程範例與活動支援用途。"
+            "description": "露營車旅遊文章、親子新手路線、海邊山區旅行、露營區選擇、三天兩夜行程與活動支援用途整理。"
           },
           {
             "@type": "BreadcrumbList",
@@ -82,10 +81,11 @@
           <div class="hero-badge" lang="en">Trip Ideas</div>
           <h1>露營車旅遊建議｜把車開到海邊、山裡與想停留的地方</h1>
           <p class="lead">
-            第一次租露營車，不一定要排很滿的行程。選一個舒服的地點，<strong>慢慢煮飯、聊天、看風景、睡一覺</strong>，就是最適合露營車的旅行方式。
+            第一次租露營車，不一定要排很滿的行程。選一個舒服的地方停下來，煮飯、聊天、看風景，就是最適合露營車的旅行方式。
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="/booking.html">立即預約露營車</a>
+            <a class="btn btn-primary" href="#trip-articles-all">查看旅遊文章</a>
+            <a class="btn btn-ghost" href="/booking.html">立即預約露營車</a>
             <a class="btn btn-ghost" href="/pages/booking-guide.html">看露營車使用教學</a>
           </div>
         </div>
@@ -93,144 +93,55 @@
     </section>
 
     <main id="main">
-      <!-- 第一區：怎麼安排 -->
       <section class="section">
         <div class="container">
           <div class="section-title">
             <h2>露營車不是趕路工具，而是移動生活空間</h2>
-            <p>行程不用排太滿，給自己留時間「停下來」享受。</p>
+            <p>慢慢玩，把時間留給停留與生活感。</p>
           </div>
           <div class="card fade-in" data-reveal>
             <p class="intro-lead">
-              露營車旅行最適合<strong>慢慢玩</strong>，不建議每天開太遠、排太多景點。建議一天安排 <strong>1 到 2 個主要停留點</strong>，把時間留給煮飯、休息、散步、拍照與享受風景。
+              露營車旅行最適合<strong>慢慢玩</strong>，不建議每天開太遠，也不建議排太多景點。建議一天安排 <strong>1 到 2 個主要停留點</strong>，把時間留給煮飯、休息、散步、拍照與享受風景。
             </p>
             <p class="intro-lead" style="margin-top: 12px">
-              露營車本身就是<strong>移動的小屋</strong>，所以真正的樂趣不在於跑多少地方，而在於「到了一個好地方，可以把車停下來，愉快地待在那裡」。
+              下方文章由 <strong>Markdown</strong> 管理（<code>content/trip-stories/*.md</code>），新增檔案並執行建置後，列表與全站頁尾推薦會一併更新。
             </p>
           </div>
         </div>
       </section>
 
-      <!-- 第二區：新手建議 -->
-      <section class="section">
-        <div class="container">
-          <div class="section-title">
-            <h2>新手建議：第一晚先選有水電的露營區</h2>
-            <p>熟悉外接電源、充電、補水、洗澡與車內設備，之後再嘗試不同地點。</p>
+      <div class="trip-hub" data-trip-hub>
+        <section class="section trip-hub__filters-section">
+          <div class="container">
+            <div class="section-title">
+              <h2>依主題瀏覽</h2>
+              <p>點選分類篩選文章，或選「全部文章」瀏覽完整列表。</p>
+            </div>
+            <div class="trip-hub-filters" data-trip-hub-filters></div>
           </div>
-          <div class="card fade-in" data-reveal>
-            <p class="intro-lead">
-              第一次租露營車，建議<strong>第一晚安排在有水電、衛浴與管理人員的露營區</strong>。這樣可以比較安心地熟悉外接電源、充電、補水、洗澡與車內設備，第二晚再挑戰比較自由的地點會更輕鬆。
-            </p>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <div class="section-title">
+              <h2>精選露營車旅遊靈感</h2>
+              <p>最多顯示 3 則標記為精選的行程與教學文章。</p>
+            </div>
+            <div class="trip-hub-grid trip-hub-grid--featured" data-trip-hub-featured></div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- 第三區：適合的旅行方向 -->
-      <section class="section">
-        <div class="container">
-          <div class="section-title">
-            <h2>適合露營車的旅行方向</h2>
-            <p>依旅伴與風格挑選，先看看哪一類最對味。</p>
+        <section class="section" id="trip-articles-all">
+          <div class="container">
+            <div class="section-title">
+              <h2>全部旅遊建議文章</h2>
+              <p>依排序與日期整理，卡片連結為各篇獨立網址。</p>
+            </div>
+            <div class="trip-hub-grid" data-trip-hub-list></div>
           </div>
-          <div class="grid-cards">
-            <article class="card fade-in" data-reveal>
-              <div class="pill">海邊路線</div>
-              <h3>看海、吹風、慢慢煮東西</h3>
-              <p>
-                適合喜歡看海、拍照、吹風、慢慢煮東西的人。可安排<strong>北海岸、宜蘭海邊、新竹海線、苗栗海線</strong>等方向。亦可參考
-                <a href="#miaoli-cape-paradise-car-camping-story">苗栗海角樂園｜海線車宿與空曠感靈感</a>。
-              </p>
-            </article>
-            <article class="card fade-in" data-reveal>
-              <div class="pill">山區路線</div>
-              <h3>森林、涼爽空氣、安靜過夜</h3>
-              <p>
-                適合喜歡森林、涼爽空氣、營火、安靜過夜的人。可安排<strong>桃園、新竹、苗栗、南投</strong>等山區露營區。亦可參考
-                <a href="#wuling-farm-campervan-story">武陵農場高山露營車故事</a>（山路與保暖靈感）。
-              </p>
-            </article>
-            <article class="card fade-in" data-reveal>
-              <div class="pill">親子輕旅行</div>
-              <h3>家庭、小孩、第一次體驗</h3>
-              <p>
-                適合家庭、小孩、第一次體驗露營車的人。建議選擇<strong>車程不要太遠、有廁所、有水電、有草地</strong>的露營區。也可開露營車參加
-                <a href="#campervan-meetup-gathering">親子露營聚會／車友活動</a>，和同好一起過節。
-              </p>
-            </article>
-            <article class="card fade-in" data-reveal>
-              <div class="pill">好友拍照旅行</div>
-              <h3>聚會、生日、情侶旅行</h3>
-              <p>
-                適合朋友聚會、生日旅行、情侶旅行。可以搭配<strong>網美露營套組、燈串、戶外桌椅</strong>，選擇風景漂亮的地方拍照。可參考
-                <a href="#vanlife-easy-women-couple">女生與情侶的自在露營車靈感</a>。
-              </p>
-            </article>
-            <article class="card fade-in" data-reveal>
-              <div class="pill">活動與工作用途</div>
-              <h3>活動休息室、工作支援車</h3>
-              <p>
-                露營車也可作為活動休息室、臨時更衣室、工作人員休息空間、比賽或戶外活動支援車。活動用途請另外詢問<strong>報價與送車安排</strong>。可參考下方
-                <a href="#hola-campervan-brand-case">HOLA 品牌快閃與拍攝案例</a>、
-                <a href="#philips-campervan-brand-case">飛利浦行動電源廣告拍攝案例</a>、
-                <a href="#hsinchu-bride-lounge-campervan-story">新竹眷村婚禮新娘休息室案例</a>。
-              </p>
-            </article>
-          </div>
+        </section>
+      </div>
 
-          <div class="section-title" style="margin-top: 32px">
-            <h2 id="trip-stories-blog">旅遊靈感文章</h2>
-            <p>
-              每則為獨立圖文，原始內容以 <strong>Markdown</strong> 維護（<code>content/trip-stories/*.md</code>），更新清單檔即可新增文章；全站頁尾也會隨機顯示其中一篇摘要。
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <div data-trip-stories-root></div>
-
-      <!-- 第四區：建議行程範例 -->
-      <section class="section">
-        <div class="container">
-          <div class="section-title">
-            <h2>建議行程範例</h2>
-            <p>先給你 3 個簡單版本，實際安排可以再一起討論。</p>
-          </div>
-
-          <div class="grid-cards">
-            <article class="card fade-in" data-reveal>
-              <div class="pill">方案 A</div>
-              <h3>親子新手 3 天 2 夜</h3>
-              <ul class="list">
-                <li><strong>Day 1</strong>：家門口交車 → 前往露營區 → 熟悉水電與車內設備 → 晚餐</li>
-                <li><strong>Day 2</strong>：附近景點走走 → 回露營區休息 → 晚上看電影或聊天</li>
-                <li><strong>Day 3</strong>：早餐 → 收納整理 → 還車</li>
-              </ul>
-            </article>
-
-            <article class="card fade-in" data-reveal>
-              <div class="pill">方案 B</div>
-              <h3>好友海邊旅行</h3>
-              <ul class="list">
-                <li><strong>Day 1</strong>：交車 → 採買食材 → 海邊或海線露營區 → 晚餐與拍照</li>
-                <li><strong>Day 2</strong>：看日出或散步 → 咖啡與簡單早餐 → 沿路景點 → 回程</li>
-              </ul>
-            </article>
-
-            <article class="card fade-in" data-reveal>
-              <div class="pill">方案 C</div>
-              <h3>活動支援用途</h3>
-              <ul class="list">
-                <li><strong>Day 1</strong>：露營車送達活動地點 → 作為休息室、更衣室或工作站</li>
-                <li><strong>活動期間</strong>：提供冷氣、休息、簡易衛浴與置物空間</li>
-                <li><strong>結束後</strong>：由我們協助取回車輛</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- 第五區：地圖與旅遊資源 -->
       <section class="section">
         <div class="container">
           <div class="section-title">
@@ -260,9 +171,7 @@
               <li>補水與充電注意事項</li>
               <li>露營車新手文章</li>
             </ul>
-            <p class="kicker" style="margin-top: 8px">
-              目前先做版面與基礎文字，後續會陸續補上完整文章與地圖內容。
-            </p>
+            <p class="kicker" style="margin-top: 8px">目前先做版面與基礎文字，後續會陸續補上完整文章與地圖內容。</p>
           </div>
 
           <div class="card fade-in" data-reveal style="margin-top: 16px">
@@ -277,7 +186,6 @@
         </div>
       </section>
 
-      <!-- 頁尾 CTA -->
       <section class="section">
         <div class="container">
           <div class="cta fade-in" data-reveal>
@@ -286,7 +194,7 @@
             <div class="hero-actions">
               <a class="btn btn-primary" href="/booking.html">立即預約露營車</a>
               <a class="btn btn-outline" href="/pages/booking-guide.html">看露營車使用教學</a>
-              <a class="btn btn-outline" href="/pages/campervan.html">看價格與車款介紹</a>
+              <a class="btn btn-outline" href="/pages/campervan.html">查看價格與車款介紹</a>
             </div>
           </div>
         </div>
