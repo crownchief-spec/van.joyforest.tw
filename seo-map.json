@@ -16,7 +16,7 @@
       "file": "index.html",
       "route": "/",
       "title": "揪好森露營車出租｜露營車到府租借・親子好友露營車旅行",
-      "description": "揪好森露營車出租提供露營車到府交車服務，適合親子家庭、好友旅行與新手露營車體驗。車內有兩張雙人床、冷暖氣、冰箱、衛浴、卡式爐與戶外露營套組，台北、桃園、新竹可洽詢。",
+      "description": "揪好森露營車出租提供露營車到府交車服務，適合親子家庭、好友旅行與新手露營車體驗。兩張雙人床、冷暖氣、冰箱、簡易衛浴與網美露營套組，台北、桃園、新竹可洽詢。",
       "canonical": "https://van.joyforest.tw/",
       "heroImage": "https://van.joyforest.tw/assets/images/home/hero-home.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/home/hero-home.jpg",
@@ -26,8 +26,8 @@
     {
       "file": "pages/campervan.html",
       "route": "/pages/campervan.html",
-      "title": "露營車車款與設備介紹｜兩張雙人床・冷暖氣・衛浴・戶外露營套組",
-      "description": "了解揪好森露營車設備與空間配置，包含兩張雙人床、冷暖氣、冰箱、卡式爐、衛浴冷熱水、USB 充電、戶外桌椅與網美露營套組，適合 5 位大人或 4 大 2 小出遊。",
+      "title": "露營車租借價格與車款介紹｜兩張雙人床・冷暖氣・衛浴設備",
+      "description": "查看揪好森露營車租借價格、3天2夜方案、加天費用、押金、車內設備、床位配置、車身尺寸、冷暖氣、冰箱、卡式爐、簡易衛浴與戶外露營套組。",
       "canonical": "https://van.joyforest.tw/pages/campervan.html",
       "heroImage": "https://van.joyforest.tw/assets/images/campervan/hero-campervan.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/campervan/hero-campervan.jpg",
@@ -37,8 +37,8 @@
     {
       "file": "pages/booking-guide.html",
       "route": "/pages/booking-guide.html",
-      "title": "露營車預訂與使用教學｜新手租露營車流程、水電冷氣與還車注意事項",
-      "description": "第一次租露營車也能輕鬆上手。整理露營車預約方式、交車教學、開車注意事項、電力充電、冷氣使用、水箱衛浴、床鋪變形、還車流程與常見問題。",
+      "title": "露營車使用教學｜新手租露營車、水電冷氣、衛浴與還車注意事項",
+      "description": "第一次租露營車也能輕鬆上手。整理露營車交車教學、開車注意事項、電力充電、冷氣使用、水箱衛浴、床鋪變形、戶外套組收納、還車流程與常見問題。",
       "canonical": "https://van.joyforest.tw/pages/booking-guide.html",
       "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-rental-scenic-coast-guide-hero.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-rental-scenic-coast-guide-hero.jpg",
@@ -54,6 +54,17 @@
       "heroImage": "https://van.joyforest.tw/assets/images/home/friends-group-campervan-trip.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/home/friends-group-campervan-trip.jpg",
       "schemaType": ["WebPage", "BreadcrumbList"],
+      "noindex": false
+    },
+    {
+      "file": "booking.html",
+      "route": "/booking.html",
+      "title": "立即預約露營車｜揪好森露營車出租・到府交車洽詢",
+      "description": "想預約揪好森露營車出租，請提供日期、人數、天數、送車地點與旅遊方向。我們可協助確認露營車可租日期、費用、設備與適合的旅行安排。",
+      "canonical": "https://van.joyforest.tw/booking.html",
+      "heroImage": "https://van.joyforest.tw/assets/images/home/hero-home.jpg",
+      "ogImage": "https://van.joyforest.tw/assets/images/home/hero-home.jpg",
+      "schemaType": ["WebPage"],
       "noindex": false
     },
     {
