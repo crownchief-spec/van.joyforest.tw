@@ -14,9 +14,22 @@
     { id: "新手教學", label: "新手教學" }
   ];
 
-  const articlesUrl =
-    hubRoot.dataset.articles ||
-    new URL("/content/trip-stories/articles.json", window.location.origin).href;
+  const fetchArticlesData = async () => {
+    const custom = (hubRoot.dataset.articles || "").trim();
+    const paths = custom
+      ? [custom]
+      : ["/assets/data/trip-stories-articles.json", "/content/trip-stories/articles.json"];
+    for (const p of paths) {
+      try {
+        const res = await fetch(new URL(p, window.location.origin).href, { cache: "no-cache" });
+        if (!res.ok) continue;
+        return await res.json();
+      } catch {
+        /* 下一個路徑 */
+      }
+    }
+    return null;
+  };
 
   const observeReveal = (elements) => {
     if (!elements || !elements.length) return;
@@ -87,9 +100,8 @@
 
   (async () => {
     try {
-      const res = await fetch(articlesUrl, { cache: "no-cache" });
-      if (!res.ok) throw new Error("articles " + res.status);
-      const data = await res.json();
+      const data = await fetchArticlesData();
+      if (!data) throw new Error("articles json unavailable");
       const list = Array.isArray(data.articles) ? data.articles : [];
       if (!list.length) {
         hubRoot.innerHTML = '<p class="trip-stories-error">目前尚無旅遊文章。</p>';

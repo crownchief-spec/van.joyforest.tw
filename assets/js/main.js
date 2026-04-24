@@ -54,16 +54,32 @@
     return t.slice(0, maxChars).trimEnd() + "…";
   };
 
+  /** 與建置腳本同步：優先從 assets 讀取（部分主機不公開 /content/） */
+  const fetchTripStoriesArticlesJson = async () => {
+    const paths = ["/assets/data/trip-stories-articles.json", "/content/trip-stories/articles.json"];
+    for (const p of paths) {
+      try {
+        const res = await fetch(new URL(p, window.location.origin).href, { cache: "no-cache" });
+        if (!res.ok) continue;
+        return await res.json();
+      } catch {
+        /* 嘗試下一個路徑 */
+      }
+    }
+    return null;
+  };
+
   const initFooterTripStoryRandom = async () => {
-    const wrap = document.querySelector("[data-footer-trip-story]");
+    const wrap = document.querySelector(".footer-trip-story-random[data-footer-trip-story]");
     if (!wrap) return;
     const slots = wrap.querySelectorAll("[data-footer-trip-story-slot]");
     if (!slots.length) return;
-    const articlesUrl = new URL("/content/trip-stories/articles.json", window.location.origin).href;
     try {
-      const res = await fetch(articlesUrl, { cache: "no-cache" });
-      if (!res.ok) return;
-      const data = await res.json();
+      const data = await fetchTripStoriesArticlesJson();
+      if (!data) {
+        console.error("[site] Footer trip stories: 無法載入 articles JSON（請確認已部署 assets/data/trip-stories-articles.json）");
+        return;
+      }
       const articles = Array.isArray(data.articles) ? data.articles : [];
       const valid = articles.filter((a) => a && (a.slug || "").trim() && (a.url || "").trim());
       if (!valid.length) return;

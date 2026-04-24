@@ -8,6 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const CONTENT_DIR = path.join(ROOT, "content", "trip-stories");
 const OUT_JSON = path.join(CONTENT_DIR, "articles.json");
+const ASSETS_DATA_JSON = path.join(ROOT, "assets", "data", "trip-stories-articles.json");
 const OUT_STORIES_DIR = path.join(ROOT, "trip-stories");
 const SITEMAP = path.join(ROOT, "sitemap.xml");
 const SITE_ORIGIN = "https://van.joyforest.tw";
@@ -224,11 +225,10 @@ async function main() {
 
   const articles = rawList.map(({ bodyMarkdown, ...rest }) => rest);
   const generatedAt = new Date().toISOString();
-  await fs.writeFile(
-    OUT_JSON,
-    JSON.stringify({ generatedAt, articles }, null, 2),
-    "utf8"
-  );
+  const payload = JSON.stringify({ generatedAt, articles }, null, 2);
+  await fs.writeFile(OUT_JSON, payload, "utf8");
+  await fs.mkdir(path.dirname(ASSETS_DATA_JSON), { recursive: true });
+  await fs.writeFile(ASSETS_DATA_JSON, payload, "utf8");
 
   await fs.mkdir(OUT_STORIES_DIR, { recursive: true });
 
@@ -299,6 +299,8 @@ async function main() {
     rawList.length,
     "articles →",
     path.relative(ROOT, OUT_JSON),
+    "+",
+    path.relative(ROOT, ASSETS_DATA_JSON),
     "+",
     path.relative(ROOT, OUT_STORIES_DIR)
   );
