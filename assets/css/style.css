@@ -2037,14 +2037,6 @@ a {
   color: rgba(255, 255, 255, 0.72);
 }
 
-.site-footer .footer-trip-story-random__sub {
-  margin: 0 0 14px;
-  font-size: 13px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 520px;
-}
-
 .site-footer .footer-trip-story-random__category {
   display: block;
   font-size: 11px;
