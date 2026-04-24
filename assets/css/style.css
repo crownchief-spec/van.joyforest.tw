@@ -928,23 +928,56 @@ a {
 
 .guide-collapsible > summary .guide-collapsible__chevron {
   flex: none;
-  width: 32px;
-  height: 32px;
-  border-radius: 12px;
-  border: 1px solid var(--color-border);
-  background: rgba(31, 58, 44, 0.05);
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  border: 1.5px solid var(--color-accent);
+  background: rgba(154, 107, 63, 0.12);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text);
-  font-size: 14px;
-  transition: transform 220ms ease, background 160ms ease, color 160ms ease;
+  color: var(--color-accent);
+  font-size: 26px;
+  line-height: 1;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(31, 58, 44, 0.08);
+  transition: transform 260ms ease, background 160ms ease, color 160ms ease,
+    box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.guide-collapsible > summary:hover .guide-collapsible__chevron,
+.guide-collapsible > summary:focus-visible .guide-collapsible__chevron {
+  background: rgba(154, 107, 63, 0.22);
+  box-shadow: 0 4px 12px rgba(31, 58, 44, 0.14);
 }
 
 .guide-collapsible[open] > summary .guide-collapsible__chevron {
   transform: rotate(180deg);
-  background: rgba(154, 107, 63, 0.10);
-  color: var(--color-accent);
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+/* 巢狀折疊的箭頭稍微小一點，但仍保持明顯 */
+.guide-collapsible .guide-collapsible--nested > summary .guide-collapsible__chevron {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  font-size: 22px;
+}
+
+/* 平板／手機版：進一步放大點擊區 */
+@media (max-width: 640px) {
+  .guide-collapsible > summary .guide-collapsible__chevron {
+    width: 52px;
+    height: 52px;
+    font-size: 28px;
+  }
+  .guide-collapsible .guide-collapsible--nested > summary .guide-collapsible__chevron {
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+  }
 }
 
 .guide-collapsible__body {
