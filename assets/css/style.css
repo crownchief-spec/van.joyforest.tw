@@ -1647,6 +1647,24 @@ a {
   padding-bottom: 86px;
 }
 
+.booking-page-intro {
+  margin-bottom: clamp(18px, 3vw, 26px);
+}
+
+.booking-page-intro h1 {
+  margin: 0 0 10px;
+  font-size: clamp(24px, 3.6vw, 36px);
+  line-height: 1.25;
+  color: var(--color-ink);
+}
+
+.booking-page-intro p {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.75;
+  max-width: 52ch;
+}
+
 .booking-steps-card,
 .booking-template-card {
   margin-bottom: 16px;
