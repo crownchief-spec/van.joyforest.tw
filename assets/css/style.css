@@ -1141,6 +1141,34 @@ a {
   background: #23272d;
 }
 
+/* 手機版頁尾較長：將「隨機客戶體驗」移到品牌區下方，避免捲過聯絡欄才看到 */
+@media (max-width: 899px) {
+  .site-footer > .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .site-footer > .container > *:nth-child(1) {
+    order: 1;
+  }
+
+  .site-footer > .container > *:nth-child(2) {
+    order: 3;
+  }
+
+  .site-footer > .container > *:nth-child(3) {
+    order: 2;
+  }
+
+  .site-footer > .container > *:nth-child(4) {
+    order: 4;
+  }
+
+  .site-footer > .container > *:nth-child(5) {
+    order: 5;
+  }
+}
+
 .footer-grid {
   display: grid;
   gap: 16px;
@@ -1918,6 +1946,8 @@ a {
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   background: transparent;
+  position: relative;
+  z-index: 1;
 }
 
 .site-footer .footer-trip-story-random__heading {
@@ -2038,6 +2068,34 @@ a {
   color: rgba(255, 255, 255, 0.88);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+@media (max-width: 719px) {
+  .site-footer .footer-trip-story-random {
+    margin-top: 12px;
+    padding-top: 16px;
+  }
+
+  .site-footer .footer-trip-story-random__link {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .site-footer .footer-trip-story-random__thumb {
+    flex: none;
+    width: 100%;
+    max-width: none;
+  }
+
+  .site-footer .footer-trip-story-random__thumb img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    max-height: 200px;
+    object-fit: cover;
+  }
 }
 
 /* 客戶體驗入口：分類與文章卡片 */
