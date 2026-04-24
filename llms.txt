@@ -2,7 +2,7 @@
 
 - 品牌名稱：揪好森露營車出租 (Joyforest Campervan Rental)
 - 網站用途：提供台北、桃園、新竹地區露營車出租與指定地點送車服務
-- 主要服務：露營車租賃、車內規格與設備、露營車使用教學、租賃 FAQ
+- 主要服務：露營車到府租借、車款與設備介紹、預訂流程、使用教學、FAQ、旅遊建議
 - 服務區域：台北、桃園、新竹
 - 聯絡方式：
   - Line：0911252302
@@ -10,24 +10,29 @@
   - WeChat：travelphotographer
   - WhatsApp：+886 911 252 302
 
-## 重要頁面
+## 重要頁面（新架構）
 
 - 首頁：https://van.joyforest.tw/
-- 車內規格與設備：https://van.joyforest.tw/pages/campervan.html
-- 露營車使用教學：https://van.joyforest.tw/pages/guide.html
-- 常見問題 FAQ：https://van.joyforest.tw/pages/faq.html
-- 露營車旅遊與使用資源：https://van.joyforest.tw/pages/resources/index.html
-- 露營車資訊分享：https://van.joyforest.tw/blog/
+- 車款與設備（Van & Equipment）：https://van.joyforest.tw/pages/campervan.html
+- 預訂與使用教學（Booking & Guide，含 FAQ）：https://van.joyforest.tw/pages/booking-guide.html
+- 旅遊建議（Trip Ideas）：https://van.joyforest.tw/pages/trip-ideas.html
+- 立即預約：https://van.joyforest.tw/booking.html
+- 延伸閱讀與資源：https://van.joyforest.tw/pages/resources/index.html
+- 部落格：https://van.joyforest.tw/blog/
+
+## 舊頁面（已做 client-side redirect）
+
+- /pages/guide.html → /pages/booking-guide.html
+- /pages/faq.html   → /pages/booking-guide.html#faq
 
 ## 主題關鍵字
 
-- 露營車出租
-- 台北露營車出租
-- 桃園露營車出租
-- 新竹露營車出租
-- 露營車使用教學
-- 露營車 FAQ
+- 露營車出租、露營車到府
+- 台北露營車出租、桃園露營車出租、新竹露營車出租
+- 露營車使用教學、露營車預訂、露營車 FAQ
+- 露營車旅遊建議、親子露營車、好友露營車
 
 ## 說明
 
 本網站為靜態 HTML 網站，SEO/OG/Schema 直接寫於各頁 HTML head，未依賴前端 JavaScript 動態注入。
+共用的 header 與 footer 透過 /components/*.html + fetch 動態注入。
