@@ -38,27 +38,45 @@
     if (footerPh && footerHtml) footerPh.outerHTML = footerHtml;
   };
 
+  const pickTwoUnique = (items) => {
+    const copy = items.slice();
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy.slice(0, Math.min(2, copy.length));
+  };
+
   const initFooterTripStoryRandom = async () => {
     const wrap = document.querySelector("[data-footer-trip-story]");
     if (!wrap) return;
-    const link = wrap.querySelector("[data-footer-trip-story-link]");
-    const titleEl = wrap.querySelector("[data-footer-trip-story-title]");
-    const excerptEl = wrap.querySelector("[data-footer-trip-story-excerpt]");
-    if (!link || !titleEl || !excerptEl) return;
+    const slots = wrap.querySelectorAll("[data-footer-trip-story-slot]");
+    if (!slots.length) return;
     try {
       const res = await fetch("/content/trip-stories/manifest.json", { cache: "no-cache" });
       if (!res.ok) return;
       const data = await res.json();
       const articles = Array.isArray(data.articles) ? data.articles : [];
-      if (!articles.length) return;
-      const pick = articles[Math.floor(Math.random() * articles.length)];
-      const slug = pick.slug || "";
-      const title = pick.title || slug;
-      const excerpt = pick.excerpt || "";
-      if (!slug) return;
-      titleEl.textContent = title;
-      excerptEl.textContent = excerpt;
-      link.href = `/pages/trip-ideas.html#${slug}`;
+      const valid = articles.filter((a) => a && (a.slug || "").trim());
+      if (!valid.length) return;
+      const picks = pickTwoUnique(valid);
+      slots.forEach((slot, index) => {
+        const pick = picks[index];
+        if (!pick) {
+          slot.hidden = true;
+          return;
+        }
+        slot.hidden = false;
+        const slug = pick.slug.trim();
+        const title = (pick.title || slug).trim();
+        const summary = (pick.footer_summary || pick.excerpt || "").trim();
+        const link = slot.querySelector("[data-footer-trip-story-link]");
+        const titleEl = slot.querySelector("[data-footer-trip-story-title]");
+        const summaryEl = slot.querySelector("[data-footer-trip-story-summary]");
+        if (link) link.href = `/pages/trip-ideas.html#${slug}`;
+        if (titleEl) titleEl.textContent = title;
+        if (summaryEl) summaryEl.textContent = summary;
+      });
       wrap.hidden = false;
     } catch (e) {
       console.error("[site] Footer trip story random failed:", e);

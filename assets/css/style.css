@@ -1822,10 +1822,23 @@ a {
 }
 
 .footer-trip-story-random__heading {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   font-size: 15px;
   font-weight: 650;
   color: var(--color-ink);
+}
+
+.footer-trip-story-random__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-trip-story-random__item {
+  margin: 0;
 }
 
 .footer-trip-story-random__text {
