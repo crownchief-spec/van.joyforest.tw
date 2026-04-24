@@ -1831,49 +1831,95 @@ a {
   margin-inline: auto;
 }
 
-.footer-trip-story-random {
-  margin-top: 22px;
-  padding: 16px 18px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border);
-  background: var(--color-surface-2);
+/* 頁尾深色區：旅遊靈感兩則（圖 + 文），需對比清楚 */
+.site-footer .footer-trip-story-random {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
 }
 
-.footer-trip-story-random__heading {
-  margin: 0 0 10px;
-  font-size: 15px;
+.site-footer .footer-trip-story-random__heading {
+  margin: 0 0 12px;
+  font-size: 14px;
   font-weight: 650;
-  color: var(--color-ink);
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.92);
 }
 
-.footer-trip-story-random__list {
+.site-footer .footer-trip-story-random__list {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 720px) {
+  .site-footer .footer-trip-story-random__list {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+}
+
+.site-footer .footer-trip-story-random__item {
+  margin: 0;
+}
+
+.site-footer .footer-trip-story-random__link {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  text-decoration: none;
+  color: inherit;
+  min-height: 100%;
+  box-sizing: border-box;
+  transition: background 180ms ease, border-color 180ms ease;
 }
 
-.footer-trip-story-random__item {
-  margin: 0;
+.site-footer .footer-trip-story-random__link:hover {
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(255, 255, 255, 0.24);
 }
 
-.footer-trip-story-random__text {
-  margin: 0;
+.site-footer .footer-trip-story-random__thumb {
+  flex: 0 0 auto;
+}
+
+.site-footer .footer-trip-story-random__thumb[hidden] {
+  display: none;
+}
+
+.site-footer .footer-trip-story-random__thumb img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.site-footer .footer-trip-story-random__copy {
+  display: block;
+  min-width: 0;
+}
+
+.site-footer .footer-trip-story-random__title {
+  display: block;
+  font-weight: 650;
   font-size: 14px;
-  line-height: 1.6;
-  color: var(--color-muted);
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.96);
 }
 
-.footer-trip-story-random__text a {
-  color: var(--color-primary-2);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.footer-trip-story-random__dash {
-  color: var(--color-muted);
+.site-footer .footer-trip-story-random__summary {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .guide-grid-2 {

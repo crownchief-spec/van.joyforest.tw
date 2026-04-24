@@ -52,8 +52,9 @@
     if (!wrap) return;
     const slots = wrap.querySelectorAll("[data-footer-trip-story-slot]");
     if (!slots.length) return;
+    const manifestUrl = new URL("/content/trip-stories/manifest.json", window.location.origin).href;
     try {
-      const res = await fetch("/content/trip-stories/manifest.json", { cache: "no-cache" });
+      const res = await fetch(manifestUrl, { cache: "no-cache" });
       if (!res.ok) return;
       const data = await res.json();
       const articles = Array.isArray(data.articles) ? data.articles : [];
@@ -70,14 +71,29 @@
         const slug = pick.slug.trim();
         const title = (pick.title || slug).trim();
         const summary = (pick.footer_summary || pick.excerpt || "").trim();
+        const imgPath = (pick.footer_image || "").trim();
+        const imgAlt = (pick.footer_image_alt || title).trim();
         const link = slot.querySelector("[data-footer-trip-story-link]");
         const titleEl = slot.querySelector("[data-footer-trip-story-title]");
         const summaryEl = slot.querySelector("[data-footer-trip-story-summary]");
+        const imgEl = slot.querySelector("[data-footer-trip-story-img]");
         if (link) link.href = `/pages/trip-ideas.html#${slug}`;
         if (titleEl) titleEl.textContent = title;
         if (summaryEl) summaryEl.textContent = summary;
+        if (imgEl) {
+          const thumb = slot.querySelector(".footer-trip-story-random__thumb");
+          if (imgPath) {
+            imgEl.src = imgPath;
+            imgEl.alt = imgAlt;
+            if (thumb) thumb.hidden = false;
+          } else {
+            imgEl.removeAttribute("src");
+            imgEl.alt = "";
+            if (thumb) thumb.hidden = true;
+          }
+        }
       });
-      wrap.hidden = false;
+      wrap.removeAttribute("hidden");
     } catch (e) {
       console.error("[site] Footer trip story random failed:", e);
     }
@@ -131,7 +147,11 @@
     } catch (e) {
       console.error("[site] Failed to load header/footer includes:", e);
     }
-    void initFooterTripStoryRandom();
+    try {
+      await initFooterTripStoryRandom();
+    } catch (e) {
+      console.error("[site] Footer trip story init:", e);
+    }
     setMainNavCurrent();
 
     const header = document.querySelector("[data-site-header]");
