@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-25T00:15:00.000Z",
+  "generatedAt": "2026-04-25T00:25:00.000Z",
   "articles": [
     {
       "slug": "family-beginner-3-days",
@@ -86,6 +86,20 @@
       "order": 126,
       "readingTime": "約 4 分鐘",
       "url": "/trip-stories/joyforest-campervan-born-container-factory-assembly/"
+    },
+    {
+      "slug": "bunker-campsite-glamping-romantic-dinner-starry-night",
+      "title": "碉堡露營區｜星空下儀式感晚餐：網美露營套組 × 限時優惠道具實拍",
+      "description": "在碉堡露營區的藍調夜幕與星光下，用揪好森限時優惠可隨車附上的網美露營套組道具，布置一場充滿儀式感的戶外晚餐。附兩張壓縮實拍與網頁優化影片。",
+      "date": "2026-04-25",
+      "category": "好友旅行",
+      "tags": ["碉堡露營區", "網美露營套組", "儀式感晚餐", "星空", "車邊露營", "限時優惠", "揪好森"],
+      "coverImage": "/assets/images/trip-ideas/joyforest-bunker-campsite-glamping-van-string-lights-twilight-dinner.jpg",
+      "coverImageAlt": "白色露營車停於碉堡露營區草地藍調夜幕，車邊燈串、折疊木桌與小印第安帳，車宿浪漫晚餐布置",
+      "featured": false,
+      "order": 127,
+      "readingTime": "影片約 1 分鐘 · 閱讀補充",
+      "url": "/trip-stories/bunker-campsite-glamping-romantic-dinner-starry-night/"
     },
     {
       "slug": "hsinchu-bride-lounge-campervan-story",
