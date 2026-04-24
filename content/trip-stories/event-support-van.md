@@ -28,4 +28,4 @@ readingTime: "約 5 分鐘"
 
 ## 聯絡方式
 
-若你正在規劃戶外活動、拍攝或品牌專案，歡迎透過 [立即預約](/booking.html) 或既有管道說明需求；一般旅遊行程仍建議參考 [旅遊建議入口](/pages/trip-ideas.html) 與 [價格與車款介紹](/pages/campervan.html)。車輛操作細節可參考 [露營車使用教學](/pages/booking-guide.html)。
+若你正在規劃戶外活動、拍攝或品牌專案，歡迎透過 [立即預約](/booking.html) 或既有管道說明需求；一般旅遊行程仍建議參考 [客戶體驗入口](/pages/trip-ideas.html) 與 [價格與車款介紹](/pages/campervan.html)。車輛操作細節可參考 [露營車使用教學](/pages/booking-guide.html)。

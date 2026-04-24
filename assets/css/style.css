@@ -1966,7 +1966,7 @@ a {
   text-underline-offset: 3px;
 }
 
-/* 旅遊建議入口：分類與文章卡片 */
+/* 客戶體驗入口：分類與文章卡片 */
 .trip-hub-filters {
   display: flex;
   flex-wrap: wrap;

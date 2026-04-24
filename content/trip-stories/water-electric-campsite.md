@@ -28,4 +28,4 @@ readingTime: "約 7 分鐘"
 
 ## 第二次再挑戰更自由的玩法
 
-當你已熟悉外接電、水箱與床位整理，第二次規劃就可以更大膽：例如拉長海線、嘗試不同營區類型。若還在猶豫路線，可先瀏覽 [旅遊建議文章列表](/pages/trip-ideas.html) 與 [三天兩夜慢遊建議](/trip-stories/family-beginner-3-days/)。準備租車時請看 [價格與車款介紹](/pages/campervan.html)，並在 [立即預約](/booking.html) 填寫需求。
+當你已熟悉外接電、水箱與床位整理，第二次規劃就可以更大膽：例如拉長海線、嘗試不同營區類型。若還在猶豫路線，可先瀏覽 [客戶體驗文章列表](/pages/trip-ideas.html) 與 [三天兩夜慢遊建議](/trip-stories/family-beginner-3-days/)。準備租車時請看 [價格與車款介紹](/pages/campervan.html)，並在 [立即預約](/booking.html) 填寫需求。
