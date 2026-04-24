@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-24T15:54:41.965Z",
+  "generatedAt": "2026-04-25T00:05:00.000Z",
   "articles": [
     {
       "slug": "family-beginner-3-days",
@@ -58,6 +58,20 @@
       "order": 12,
       "readingTime": "影片約 1 分鐘 · 閱讀補充",
       "url": "/trip-stories/philips-campervan-brand-case/"
+    },
+    {
+      "slug": "kenting-yilan-starry-night-campervan-timelapse",
+      "title": "墾丁・宜蘭蜜月灣｜露營車夜間縮時星空與銀河體驗",
+      "description": "客人以露營車在墾丁與宜蘭蜜月灣過夜，將夜空、銀河與星軌收進夜間縮時：在大自然底下享受安靜而壯麗的星空車宿體驗。附兩支網頁優化 MP4。",
+      "date": "2026-04-25",
+      "category": "客戶體驗",
+      "tags": ["墾丁", "宜蘭", "蜜月灣", "星空", "縮時攝影", "銀河", "露營車", "車宿"],
+      "coverImage": "/assets/images/trip-ideas/kenting-campervan-night-timelapse-milky-way-stars-poster.jpg",
+      "coverImageAlt": "墾丁露營車夜間縮時劇照：星空銀河與營地夜色下的車宿氛圍",
+      "featured": false,
+      "order": 125,
+      "readingTime": "兩支縮時約半分鐘 · 閱讀補充",
+      "url": "/trip-stories/kenting-yilan-starry-night-campervan-timelapse/"
     },
     {
       "slug": "hsinchu-bride-lounge-campervan-story",
