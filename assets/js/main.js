@@ -38,6 +38,33 @@
     if (footerPh && footerHtml) footerPh.outerHTML = footerHtml;
   };
 
+  const initFooterTripStoryRandom = async () => {
+    const wrap = document.querySelector("[data-footer-trip-story]");
+    if (!wrap) return;
+    const link = wrap.querySelector("[data-footer-trip-story-link]");
+    const titleEl = wrap.querySelector("[data-footer-trip-story-title]");
+    const excerptEl = wrap.querySelector("[data-footer-trip-story-excerpt]");
+    if (!link || !titleEl || !excerptEl) return;
+    try {
+      const res = await fetch("/content/trip-stories/manifest.json", { cache: "no-cache" });
+      if (!res.ok) return;
+      const data = await res.json();
+      const articles = Array.isArray(data.articles) ? data.articles : [];
+      if (!articles.length) return;
+      const pick = articles[Math.floor(Math.random() * articles.length)];
+      const slug = pick.slug || "";
+      const title = pick.title || slug;
+      const excerpt = pick.excerpt || "";
+      if (!slug) return;
+      titleEl.textContent = title;
+      excerptEl.textContent = excerpt;
+      link.href = `/pages/trip-ideas.html#${slug}`;
+      wrap.hidden = false;
+    } catch (e) {
+      console.error("[site] Footer trip story random failed:", e);
+    }
+  };
+
   const initBookingTemplateCopy = () => {
     const btn = document.querySelector("[data-copy-booking-template]");
     const template = document.querySelector("[data-booking-template-text]");
@@ -86,6 +113,7 @@
     } catch (e) {
       console.error("[site] Failed to load header/footer includes:", e);
     }
+    void initFooterTripStoryRandom();
     setMainNavCurrent();
 
     const header = document.querySelector("[data-site-header]");
