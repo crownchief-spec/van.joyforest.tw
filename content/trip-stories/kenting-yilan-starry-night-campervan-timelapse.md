@@ -3,7 +3,7 @@ title: "墾丁・宜蘭蜜月灣｜露營車夜間縮時星空與銀河體驗"
 slug: "kenting-yilan-starry-night-campervan-timelapse"
 description: "客人以露營車在墾丁與宜蘭蜜月灣過夜，將夜空、銀河與星軌收進夜間縮時：在大自然底下享受安靜而壯麗的星空車宿體驗。附兩支網頁優化 MP4。"
 date: "2026-04-25"
-category: "客戶體驗"
+category: "客戶體驗評價"
 tags: ["墾丁", "宜蘭", "蜜月灣", "星空", "縮時攝影", "銀河", "露營車", "車宿"]
 coverImage: "/assets/images/trip-ideas/kenting-campervan-night-timelapse-milky-way-stars-poster.jpg"
 coverImageAlt: "墾丁露營車夜間縮時劇照：星空銀河與營地夜色下的車宿氛圍"
@@ -40,7 +40,7 @@ readingTime: "兩支縮時約半分鐘 · 閱讀補充"
   </div>
   <figcaption>
     <span class="guide-img-title">墾丁｜夜間縮時</span>
-    H.264、1080p、30fps、無音軌；原始素材為客人實拍分享，本站僅作客戶體驗展示。
+    H.264、1080p、30fps、無音軌；原始素材為客人實拍分享，本站僅作客戶體驗評價展示。
   </figcaption>
 </figure>
 

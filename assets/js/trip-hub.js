@@ -4,7 +4,7 @@
 
   const FILTER_KEYS = [
     { id: "all", label: "全部文章" },
-    { id: "客戶體驗", label: "客戶體驗" },
+    { id: "客戶體驗評價", label: "客戶體驗評價" },
     { id: "品牌合作", label: "品牌合作" },
     { id: "國際客人", label: "國際客人" },
     { id: "新手行程", label: "新手行程" },
@@ -126,7 +126,7 @@
       if (!data) throw new Error("articles json unavailable");
       const list = Array.isArray(data.articles) ? data.articles : [];
       if (!list.length) {
-        hubRoot.innerHTML = '<p class="trip-stories-error">目前尚無客戶體驗文章。</p>';
+        hubRoot.innerHTML = '<p class="trip-stories-error">目前尚無客戶體驗評價文章。</p>';
         return;
       }
 
@@ -180,7 +180,7 @@
     } catch (err) {
       console.error("[trip-hub]", err);
       hubRoot.innerHTML =
-        '<p class="trip-stories-error">客戶體驗文章清單載入失敗。若使用本機檔案開啟，請改以網址列的網站網域瀏覽，或確認已部署 <code>assets/data/trip-stories-articles.json</code> 後重新整理。</p>';
+        '<p class="trip-stories-error">客戶體驗評價文章清單載入失敗。若使用本機檔案開啟，請改以網址列的網站網域瀏覽，或確認已部署 <code>assets/data/trip-stories-articles.json</code> 後重新整理。</p>';
     }
   })();
 })();

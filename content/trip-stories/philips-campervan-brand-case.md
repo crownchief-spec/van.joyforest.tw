@@ -18,15 +18,15 @@ readingTime: "影片約 1 分鐘 · 閱讀補充"
 
 這類商業影片通常在車內、車外會搭配**筆電、燈光、小家電或充電情境**，凸顯行動電源在**露營、公路旅行、戶外工作**中的安心感；露營車則同時扮演**移動布景與實拍空間**，讓產品故事說得既生活化、又有公路電影感。
 
-<figure class="guide-figure guide-figure--video">
+<figure class="guide-figure guide-figure--video guide-figure--video-page">
   <div id="philips-portable-power-campervan-video" class="video-native-wrap">
     <video
       controls
       playsinline
       preload="metadata"
       poster="/assets/images/trip-ideas/philips-campervan-portable-power-ad-mountain-road-golden-hour.jpg"
-      width="648"
-      height="360"
+      width="1206"
+      height="670"
       title="飛利浦行動電源 × 藍白露營車公路形象片（網頁優化版 MP4）"
       aria-label="飛利浦行動電源廣告影片：藍白配色露營車行駛於山林公路與金色夕陽。檔名：philips-campervan-portable-power-highway-ad-web.mp4。"
     >

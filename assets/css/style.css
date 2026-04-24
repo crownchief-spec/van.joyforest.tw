@@ -1141,7 +1141,7 @@ a {
   background: #23272d;
 }
 
-/* 手機版頁尾較長：將「隨機客戶體驗」移到品牌區下方，避免捲過聯絡欄才看到 */
+/* 手機版頁尾較長：將「隨機客戶體驗評價」移到品牌區下方，避免捲過聯絡欄才看到 */
 @media (max-width: 899px) {
   .site-footer > .container {
     display: flex;
@@ -1900,6 +1900,29 @@ a {
   display: block;
 }
 
+/* 內文影片與視窗同寬（突破 .trip-article-prose 欄寬），仍受 html { overflow-x: hidden } 保護 */
+.guide-figure--video.guide-figure--video-page {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  max-width: none;
+}
+
+.guide-figure--video.guide-figure--video-page .video-native-wrap {
+  max-width: none;
+  width: 100%;
+  margin-inline: 0;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+}
+
+.guide-figure--video.guide-figure--video-page figcaption {
+  padding-inline: max(20px, env(safe-area-inset-left, 0px)) max(20px, env(safe-area-inset-right, 0px));
+  max-width: min(100% - 40px, var(--container-max));
+  margin-inline: auto;
+}
+
 /* Trip ideas: Markdown-rendered story sections */
 .trip-story-section {
   padding-block: var(--section-py);
@@ -1965,7 +1988,7 @@ a {
   margin-inline: auto;
 }
 
-/* 頁尾：隨機兩則客戶體驗圖文（封面 + 分類/標題/摘要） */
+/* 頁尾：隨機兩則客戶體驗評價圖文（封面 + 分類/標題/摘要） */
 .site-footer .footer-trip-story-random {
   margin-top: 20px;
   padding-top: 20px;
@@ -2115,7 +2138,7 @@ a {
   }
 }
 
-/* 客戶體驗入口：分類與文章卡片 */
+/* 客戶體驗評價入口：分類與文章卡片 */
 .trip-hub-filters {
   display: flex;
   flex-wrap: wrap;

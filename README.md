@@ -34,7 +34,7 @@ python3 -m http.server 8787
 
 然後在瀏覽器打開 `http://localhost:8787/`。
 
-## 客戶體驗文章（Markdown）
+## 客戶體驗評價文章（Markdown）
 
 文章原始檔在 `content/trip-stories/*.md`（含 YAML frontmatter）。**改過文章或新增 `.md` 後**，請在專案根目錄執行：
 
@@ -50,7 +50,7 @@ npm run build
 - `trip-stories/<slug>/index.html`（各篇靜態頁）
 - `sitemap.xml`（文章網址）
 
-**請將上述變更一併提交並部署**，線上的客戶體驗列表、Footer 與 SEO 才會同步。
+**請將上述變更一併提交並部署**，線上的客戶體驗評價列表、Footer 與 SEO 才會同步。
 
 ## Cloudflare Pages
 

@@ -84,7 +84,7 @@ const articlePageTemplate = ({
       <header class="trip-article-hero">
         <div class="container trip-article-hero__inner">
           <p class="trip-article-hero__meta">
-            <a class="trip-article-hero__crumb" href="/pages/trip-ideas.html">客戶體驗</a>
+            <a class="trip-article-hero__crumb" href="/pages/trip-ideas.html">客戶體驗評價</a>
             <span class="trip-article-hero__sep" aria-hidden="true">／</span>
             <span class="pill trip-article-hero__cat">${escapeHtml(category)}</span>
           </p>
@@ -118,7 +118,7 @@ const articlePageTemplate = ({
           <div class="trip-article-prose trip-story-prose">${bodyHtml}</div>
           <section class="trip-article-related section" aria-labelledby="related-title">
             <div class="section-title" id="related-title">
-              <h2>相關客戶體驗文章</h2>
+              <h2>相關客戶體驗評價文章</h2>
               <p>延伸閱讀其他路線、案例與使用情境。</p>
             </div>
             <div class="trip-hub-grid trip-hub-grid--related">${relatedHtml}</div>
@@ -257,7 +257,7 @@ async function main() {
             {
               "@type": "ListItem",
               position: 2,
-              name: "客戶體驗",
+              name: "客戶體驗評價",
               item: `${SITE_ORIGIN}/pages/trip-ideas.html`
             },
             {

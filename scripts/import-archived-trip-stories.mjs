@@ -122,7 +122,7 @@ const rows = [
     title: "客人實拍｜墾丁揪團、夜景與煙火回憶",
     description:
       "實際客人出遊畫面精選：草地揪團合影、海邊自拍、親子車窗笑容、戶外電影夜、煙火與香檳晚餐等，呈現豪華露營車旅行氛圍。",
-    category: "客戶體驗",
+    category: "客戶體驗評價",
     tags: ["墾丁", "揪團", "親子", "夜景", "煙火"],
     coverImage: "/assets/images/trip-ideas/customer-group-five-grass-campervan-kenting-travel.jpg",
     coverImageAlt: "五位旅人於墾丁草地與露營車開心合影",
