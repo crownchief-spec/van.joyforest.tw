@@ -814,14 +814,25 @@ a {
   gap: 16px;
 }
 
-/* 首頁四大賣點：卡片內配圖高度略縮，避免單卡過長 */
+/* 首頁四大賣點：配圖縮小、偏窄，以文字為主 */
+#features .grid-cards > .card > .media {
+  max-width: min(100%, 380px);
+  margin-inline: auto;
+}
+
 #features .grid-cards > .card > .media img {
-  height: 220px;
+  height: 150px;
 }
 
 @media (min-width: 760px) {
   #features .grid-cards > .card > .media img {
-    height: 260px;
+    height: 170px;
+  }
+}
+
+@media (min-width: 1020px) {
+  #features .grid-cards > .card > .media img {
+    height: 190px;
   }
 }
 
