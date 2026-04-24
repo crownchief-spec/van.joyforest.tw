@@ -1,7 +1,7 @@
 ---
 title: "露營車也可以做活動支援｜休息室、更衣室與戶外工作站"
 slug: "event-support-van"
-description: "除了旅行，露營車也可以作為活動休息室、臨時更衣室、工作人員休息空間、比賽或戶外活動支援車。"
+description: "除了旅行，露營車也可以作為活動休息室、臨時更衣室、工作人員休息空間、比賽或戶外活動支援車。本頁附網頁優化示範影片，呈現行動後勤空間的實際感受。"
 date: "2026-04-24"
 category: "活動支援"
 tags: ["活動", "商業合作", "拍攝", "戶外"]
@@ -9,10 +9,32 @@ coverImage: "/images/trip-stories/event-support-van.jpg"
 coverImageAlt: "露營車作為戶外活動休息室與支援車"
 featured: false
 order: 50
-readingTime: "約 5 分鐘"
+readingTime: "約 5 分鐘 · 含約 11 秒示範影片"
 ---
 
 許多人第一次聯想到露營車就是「旅遊」，但在實務上，它也常被當成**移動的後勤空間**：有冷氣、有插座、有冰箱，還能讓人躺平休息幾十分鐘，對戶外活動來說非常實用。
+
+<figure class="guide-figure guide-figure--video">
+  <div id="campervan-event-support-demo-video" class="video-native-wrap">
+    <video
+      controls
+      playsinline
+      preload="metadata"
+      poster="/images/trip-stories/event-support-van.jpg"
+      width="960"
+      height="1290"
+      title="露營車活動支援｜行動休息室示範影片（網頁優化直式 MP4）"
+      aria-label="露營車作為戶外活動支援與行動休息室的示範畫面。檔名：campervan-event-support-mobile-lounge-demo-web.mp4。"
+    >
+      <source src="/assets/videos/trip-stories/campervan-event-support-mobile-lounge-demo-web.mp4" type="video/mp4" />
+      您的瀏覽器無法播放此 MP4 影片，請改閱讀上文與下方說明。
+    </video>
+  </div>
+  <figcaption>
+    <span class="guide-img-title">示範影片｜活動支援場景（直式、H.264／AAC、30fps、faststart）</span>
+    螢幕錄影經 `ffmpeg` 壓縮為網頁用 MP4，便於手機直式瀏覽；實際停靠、送收車與報價請另洽。
+  </figcaption>
+</figure>
 
 ## 可以怎麼用？
 
