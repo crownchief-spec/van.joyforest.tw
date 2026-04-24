@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-24T12:28:44.090Z",
+  "generatedAt": "2026-04-24T12:32:10.184Z",
   "articles": [
     {
       "slug": "family-beginner-3-days",
@@ -19,6 +19,26 @@
       "order": 10,
       "readingTime": "約 6 分鐘",
       "url": "/trip-stories/family-beginner-3-days/"
+    },
+    {
+      "slug": "stargazing-sunroof",
+      "title": "躺著看星星的浪漫：露營車大天窗與冷氣裡的星空體驗",
+      "description": "露營車額頭床上方的大面積天窗，讓你不用窩在戶外餵蚊子，也能躺著看星星、吹冷氣舒服地望著天空，是很多人一試就愛上的室內亮點。",
+      "date": "2026-04-24",
+      "category": "客戶體驗",
+      "tags": [
+        "天窗",
+        "星空",
+        "親子",
+        "過夜",
+        "冷氣"
+      ],
+      "coverImage": "/images/trip-stories/stargazing-sunroof-night.png",
+      "coverImageAlt": "小女孩在露營車額頭床抬頭望向天窗外的夜色與樹影，車內藍色氣氛燈與木質內裝",
+      "featured": true,
+      "order": 15,
+      "readingTime": "約 5 分鐘",
+      "url": "/trip-stories/stargazing-sunroof/"
     },
     {
       "slug": "seaside-van-trip",
@@ -54,7 +74,7 @@
       ],
       "coverImage": "/images/trip-stories/mountain-camping-van.jpg",
       "coverImageAlt": "露營車停靠山區露營區，適合森林旅行",
-      "featured": true,
+      "featured": false,
       "order": 30,
       "readingTime": "約 6 分鐘",
       "url": "/trip-stories/mountain-camping-van/"

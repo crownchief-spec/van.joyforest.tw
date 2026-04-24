@@ -7,7 +7,7 @@ category: "山區路線"
 tags: ["山區", "露營區", "森林", "保暖"]
 coverImage: "/images/trip-stories/mountain-camping-van.jpg"
 coverImageAlt: "露營車停靠山區露營區，適合森林旅行"
-featured: true
+featured: false
 order: 30
 readingTime: "約 6 分鐘"
 ---
