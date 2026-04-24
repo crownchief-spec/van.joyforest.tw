@@ -2020,16 +2020,6 @@ a {
   }
 }
 
-.trip-hub-grid--featured {
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 900px) {
-  .trip-hub-grid--featured {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
 .trip-hub-grid--related {
   grid-template-columns: 1fr;
 }
