@@ -54,16 +54,34 @@
     return t.slice(0, maxChars).trimEnd() + "…";
   };
 
-  /** 與建置腳本同步：優先從 assets 讀取（部分主機不公開 /content/） */
-  const fetchTripStoriesArticlesJson = async () => {
-    const paths = ["/assets/data/trip-stories-articles.json", "/content/trip-stories/articles.json"];
-    for (const p of paths) {
+  /** 與建置腳本同步；路徑優先依 main.js 位置推算，避免子路徑或 file 情境下 /assets 錯位 */
+  const tripStoriesArticleJsonUrls = () => {
+    const urls = [];
+    const script =
+      document.querySelector('script[src*="main.js"]') || document.querySelector('script[src*="trip-hub.js"]');
+    if (script && script.src) {
       try {
-        const res = await fetch(new URL(p, window.location.origin).href, { cache: "no-cache" });
+        urls.push(new URL("../data/trip-stories-articles.json", script.src).href);
+      } catch (_) {}
+    }
+    const o = window.location.origin;
+    if (o && o !== "null") {
+      try {
+        urls.push(new URL("/assets/data/trip-stories-articles.json", o).href);
+        urls.push(new URL("/content/trip-stories/articles.json", o).href);
+      } catch (_) {}
+    }
+    return [...new Set(urls)];
+  };
+
+  const fetchTripStoriesArticlesJson = async () => {
+    for (const url of tripStoriesArticleJsonUrls()) {
+      try {
+        const res = await fetch(url, { cache: "no-cache" });
         if (!res.ok) continue;
         return await res.json();
       } catch {
-        /* 嘗試下一個路徑 */
+        /* 下一個路徑 */
       }
     }
     return null;

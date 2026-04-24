@@ -14,14 +14,34 @@
     { id: "新手教學", label: "新手教學" }
   ];
 
+  /** 依腳本位置推算 JSON（相容子路徑部署、避免只用 /assets 根路徑失敗） */
+  const tripStoriesArticleJsonUrls = () => {
+    const urls = [];
+    const script =
+      document.querySelector('script[src*="trip-hub.js"]') || document.querySelector('script[src*="main.js"]');
+    if (script && script.src) {
+      try {
+        urls.push(new URL("../data/trip-stories-articles.json", script.src).href);
+      } catch (_) {}
+    }
+    const o = window.location.origin;
+    if (o && o !== "null") {
+      try {
+        urls.push(new URL("/assets/data/trip-stories-articles.json", o).href);
+        urls.push(new URL("/content/trip-stories/articles.json", o).href);
+      } catch (_) {}
+    }
+    return [...new Set(urls)];
+  };
+
   const fetchArticlesData = async () => {
     const custom = (hubRoot.dataset.articles || "").trim();
-    const paths = custom
-      ? [custom]
-      : ["/assets/data/trip-stories-articles.json", "/content/trip-stories/articles.json"];
-    for (const p of paths) {
+    const tryList = custom
+      ? [custom.startsWith("http") ? custom : new URL(custom, window.location.href).href]
+      : tripStoriesArticleJsonUrls();
+    for (const url of tryList) {
       try {
-        const res = await fetch(new URL(p, window.location.origin).href, { cache: "no-cache" });
+        const res = await fetch(url, { cache: "no-cache" });
         if (!res.ok) continue;
         return await res.json();
       } catch {
@@ -104,7 +124,7 @@
       if (!data) throw new Error("articles json unavailable");
       const list = Array.isArray(data.articles) ? data.articles : [];
       if (!list.length) {
-        hubRoot.innerHTML = '<p class="trip-stories-error">目前尚無旅遊文章。</p>';
+        hubRoot.innerHTML = '<p class="trip-stories-error">目前尚無客戶體驗文章。</p>';
         return;
       }
 
@@ -146,7 +166,7 @@
     } catch (err) {
       console.error("[trip-hub]", err);
       hubRoot.innerHTML =
-        '<p class="trip-stories-error">旅遊文章清單載入失敗，請重新整理或稍後再試。</p>';
+        '<p class="trip-stories-error">客戶體驗文章清單載入失敗。若使用本機檔案開啟，請改以網址列的網站網域瀏覽，或確認已部署 <code>assets/data/trip-stories-articles.json</code> 後重新整理。</p>';
     }
   })();
 })();
