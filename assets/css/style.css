@@ -814,6 +814,17 @@ a {
   gap: 16px;
 }
 
+/* 首頁四大賣點：卡片內配圖高度略縮，避免單卡過長 */
+#features .grid-cards > .card > .media img {
+  height: 220px;
+}
+
+@media (min-width: 760px) {
+  #features .grid-cards > .card > .media img {
+    height: 260px;
+  }
+}
+
 @media (min-width: 940px) {
   .two-col {
     grid-template-columns: 1fr 1fr;
