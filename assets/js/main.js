@@ -70,7 +70,7 @@
   };
 
   const initFooterTripStoryRandom = async () => {
-    const wrap = document.querySelector(".footer-trip-story-random[data-footer-trip-story]");
+    const wrap = document.querySelector("[data-footer-trip-story]");
     if (!wrap) return;
     const slots = wrap.querySelectorAll("[data-footer-trip-story-slot]");
     if (!slots.length) return;
@@ -179,11 +179,20 @@
     } catch (e) {
       console.error("[site] Failed to load header/footer includes:", e);
     }
-    try {
-      await initFooterTripStoryRandom();
-    } catch (e) {
-      console.error("[site] Footer trip story init:", e);
-    }
+    /* 等瀏覽器套用 footer outerHTML 後再綁定隨機文章，避免偶發抓不到節點 */
+    await new Promise((resolve) => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(async () => {
+          try {
+            await initFooterTripStoryRandom();
+          } catch (e) {
+            console.error("[site] Footer trip story init:", e);
+          } finally {
+            resolve();
+          }
+        });
+      });
+    });
     setMainNavCurrent();
 
     const header = document.querySelector("[data-site-header]");
