@@ -17,14 +17,13 @@ const rows = [
     file: "01-hola-snow-touch.md",
     title: "HOLA × SNOW TOUCH 快閃與露營車拍攝案例",
     description:
-      "居家品牌 HOLA 以露營車結合 SNOW TOUCH 涼感系列，進行戶外形象拍攝與快閃行銷基地，車身化身行動展間與可上車體驗的空間。",
+      "居家品牌 HOLA 以露營車結合 SNOW TOUCH 冰紗涼感系列，打造情緒中暑急救站快閃、戶外策展與車內形象拍攝；內文附專案實拍與劇照。",
     category: "品牌合作",
-    tags: ["HOLA", "快閃活動", "廣告拍攝", "露營車行銷"],
-    coverImage: "/assets/images/home/friends-group-campervan-trip.jpg",
-    coverImageAlt: "好友與家庭在白色露營車旁草地聊天，象徵品牌戶外活動與露營車行銷場景",
+    tags: ["HOLA", "快閃活動", "廣告拍攝", "露營車行銷", "SNOW TOUCH"],
+    coverImage: "/assets/images/trip-ideas/hola-snow-touch-outdoor-popup-tent.png",
+    coverImageAlt: "HOLA SNOW TOUCH 情緒中暑急救站戶外快閃：白色棚帳下白藍條紋露營車與品牌布置",
     order: 11,
-    readingTime: "約 4 分鐘",
-    enrichHolaFigure: true
+    readingTime: "約 6 分鐘"
   },
   {
     slug: "philips-campervan-brand-case",
@@ -160,35 +159,9 @@ const rows = [
 
 const yamlEscape = (s) => String(s).replace(/\\/g, "\\\\").replace(/"/g, '\\"');
 
-const holaFigure = `
-
-<figure class="guide-figure">
-  <img
-    src="/assets/images/home/friends-group-campervan-trip.jpg"
-    width="1303"
-    height="1600"
-    loading="lazy"
-    decoding="async"
-    title="品牌戶外活動｜露營車旁草地聚會氛圍"
-    alt="好友與家庭在露營車旁戶外桌椅區聊天，呈現快閃與形象拍攝常用的車邊場景"
-  />
-  <figcaption>
-    <span class="guide-img-title">行銷場景｜車邊聚會與品牌體驗</span>
-    露營車很適合作為戶外策展、試用與拍攝的「可進入布景」。
-  </figcaption>
-</figure>
-
-`;
-
 for (const m of rows) {
   const srcPath = path.join(ARCH, m.file);
   let body = fs.readFileSync(srcPath, "utf8").trim();
-  if (m.enrichHolaFigure) {
-    const k = '<p class="kicker"';
-    const idx = body.indexOf(k);
-    body = idx === -1 ? body + holaFigure : `${body.slice(0, idx) + holaFigure}\n${body.slice(idx)}`;
-  }
-
   const fm = `---
 title: "${yamlEscape(m.title)}"
 slug: "${m.slug}"
