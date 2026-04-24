@@ -128,7 +128,9 @@
         return;
       }
 
+      const featured = list.filter((a) => a.featured).slice(0, 3);
       const filterHost = hubRoot.querySelector("[data-trip-hub-filters]");
+      const featuredHost = hubRoot.querySelector("[data-trip-hub-featured]");
       const listHost = hubRoot.querySelector("[data-trip-hub-list]");
 
       if (filterHost) {
@@ -140,12 +142,22 @@
         ).join("");
       }
 
+      const renderFeatured = () => {
+        if (!featuredHost) return;
+        featuredHost.innerHTML = featured.map((a) => cardHtml(a)).join("");
+      };
+
       const renderList = (filterId, matchTag) => {
         if (!listHost) return;
         const filtered = list.filter((a) => matchesFilter(a, filterId, matchTag));
         listHost.innerHTML = filtered.map((a) => cardHtml(a)).join("");
         observeReveal(listHost.querySelectorAll(".fade-in[data-reveal]"));
       };
+
+      renderFeatured();
+      if (featuredHost) {
+        observeReveal(featuredHost.querySelectorAll(".fade-in[data-reveal]"));
+      }
 
       let activeFilter = "all";
       let activeTag = "";
