@@ -836,6 +836,14 @@ a {
   }
 }
 
+/* 首頁單張卡片：配圖以寬度為準、高度隨比例，避免 cover + 固定高度裁切上下 */
+#features .grid-cards > .card.card--media-full > .media img {
+  height: auto;
+  object-fit: contain;
+  object-position: center top;
+  display: block;
+}
+
 @media (min-width: 940px) {
   .two-col {
     grid-template-columns: 1fr 1fr;
