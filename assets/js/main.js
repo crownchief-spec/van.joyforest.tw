@@ -47,6 +47,13 @@
     return copy.slice(0, Math.min(2, copy.length));
   };
 
+  /** 頁尾圖文區：摘要不宜過長，維持兩欄版面整齊 */
+  const clipFooterSummary = (text, maxChars = 88) => {
+    const t = (text == null ? "" : String(text)).trim().replace(/\s+/g, " ");
+    if (t.length <= maxChars) return t;
+    return t.slice(0, maxChars).trimEnd() + "…";
+  };
+
   const initFooterTripStoryRandom = async () => {
     const wrap = document.querySelector("[data-footer-trip-story]");
     if (!wrap) return;
@@ -69,7 +76,7 @@
         }
         slot.hidden = false;
         const title = (pick.title || pick.slug || "").trim();
-        const summary = (pick.description || "").trim();
+        const summary = clipFooterSummary(pick.description || "");
         const imgPath = (pick.coverImage || "").trim();
         const imgAlt = (pick.coverImageAlt || title).trim();
         const category = (pick.category || "").trim();
@@ -79,7 +86,10 @@
         const summaryEl = slot.querySelector("[data-footer-trip-story-summary]");
         const catEl = slot.querySelector("[data-footer-trip-story-category]");
         const imgEl = slot.querySelector("[data-footer-trip-story-img]");
-        if (link) link.href = url;
+        if (link) {
+          link.href = url;
+          link.setAttribute("aria-label", `${title}。${summary}`);
+        }
         if (titleEl) titleEl.textContent = title;
         if (summaryEl) summaryEl.textContent = summary;
         if (catEl) {

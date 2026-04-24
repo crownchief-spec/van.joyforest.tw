@@ -1842,7 +1842,7 @@ a {
   margin-inline: auto;
 }
 
-/* 頁尾深色區：旅遊靈感兩則（圖 + 文），需對比清楚 */
+/* 頁尾：隨機兩則客戶體驗圖文（封面 + 分類/標題/摘要） */
 .site-footer .footer-trip-story-random {
   margin-top: 20px;
   padding-top: 20px;
@@ -1906,10 +1906,11 @@ a {
 }
 
 .site-footer .footer-trip-story-random__thumb img {
-  width: 120px;
-  height: 80px;
+  width: 132px;
+  height: 88px;
   object-fit: cover;
   border-radius: 8px;
+  display: block;
 }
 
 .site-footer .footer-trip-story-random__copy {
@@ -1926,7 +1927,10 @@ a {
 }
 
 .site-footer .footer-trip-story-random__summary {
-  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
   margin-top: 6px;
   font-size: 13px;
   line-height: 1.45;
