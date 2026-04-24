@@ -243,6 +243,62 @@ a {
   border-radius: 14px;
 }
 
+/* 立即預約 CTA 按鈕（桌機右上） */
+.btn-book-now {
+  background: var(--color-accent);
+  color: #fff !important;
+  border: 1.5px solid var(--color-accent);
+  box-shadow: 0 8px 18px rgba(154, 107, 63, 0.28);
+  padding: 10px 18px;
+  border-radius: 14px;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.btn-book-now:hover {
+  background: #8a5d34;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 22px rgba(154, 107, 63, 0.36);
+}
+
+.btn-book-now .nav-stack {
+  gap: 1px;
+}
+
+.btn-book-now .nav-zh {
+  font-size: 15px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.btn-book-now .nav-en {
+  font-size: 10.5px;
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* 手機選單中的立即預約樣式（使用 a.nav-book-cta） */
+.nav-links .nav-book-cta {
+  background: var(--color-accent);
+  color: #fff !important;
+  border-radius: 14px;
+  margin-top: 6px;
+  box-shadow: 0 6px 14px rgba(154, 107, 63, 0.22);
+}
+
+.nav-links .nav-book-cta:hover,
+.nav-links .nav-book-cta[aria-current="page"] {
+  background: #8a5d34;
+  color: #fff !important;
+}
+
+.nav-links .nav-book-cta .nav-zh,
+.nav-links .nav-book-cta .nav-en {
+  color: #fff !important;
+}
+
 @media (min-width: 860px) {
   .nav-toggle {
     display: none;
@@ -262,6 +318,11 @@ a {
   .nav-cta {
     display: inline-flex;
     margin-left: 6px;
+  }
+
+  /* 桌機：手機選單中的立即預約項目隱藏，右上用 btn-book-now */
+  .nav-links .nav-book-cta {
+    display: none;
   }
 }
 
@@ -1435,6 +1496,30 @@ a {
   font-weight: 500;
   letter-spacing: 0.01em;
   color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-resources-details > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 4px 0;
+  user-select: none;
+}
+.footer-resources-details > summary::-webkit-details-marker {
+  display: none;
+}
+.footer-resources-details > summary::after {
+  content: "＋";
+  float: right;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+  font-size: 13px;
+  transition: transform 200ms ease;
+}
+.footer-resources-details[open] > summary::after {
+  content: "－";
+}
+.footer-resources-details[open] .footer-resources-list {
+  margin-top: 6px;
 }
 
 .footer-resources-sub {
