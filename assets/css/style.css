@@ -781,31 +781,36 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 14px 14px;
+  gap: 14px;
+  padding: 18px 18px;
   text-align: left;
   font-weight: 900;
+  font-size: 18px;
+  line-height: 1.4;
   color: var(--color-ink);
   cursor: pointer;
 }
 
 .accordion button span {
   color: var(--color-muted);
-  font-weight: 700;
-  font-size: 12px;
+  font-weight: 500;
+  font-size: 13px;
+  margin-top: 4px;
+  display: inline-block;
 }
 
 .accordion .panel {
-  padding: 0 14px 0;
-  color: var(--color-muted);
-  font-size: 14px;
+  padding: 0 18px 0;
+  color: var(--color-ink);
+  font-size: 16px;
+  line-height: 1.85;
   max-height: 0;
   overflow: hidden;
   transition: max-height 240ms ease;
 }
 
 .accordion.is-open .panel {
-  padding: 0 14px 14px;
+  padding: 0 18px 18px;
 }
 
 .accordion .toggle {
