@@ -35,5 +35,5 @@
 
 ## 說明
 
-本網站為靜態 HTML 網站，SEO/OG/Schema 直接寫於各頁 HTML head，未依賴前端 JavaScript 動態注入。
+本網站為靜態 HTML 網站，SEO/OG/Schema 直接寫於各頁 HTML head；延伸閱讀資源列表與各資源文之社群分享圖（OG）以站內圖檔為主，利於載入與品牌一致。
 共用的 header 與 footer 透過 /components/*.html + fetch 動態注入。
