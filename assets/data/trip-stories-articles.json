@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-24T15:54:00.085Z",
+  "generatedAt": "2026-04-24T15:54:41.965Z",
   "articles": [
     {
       "slug": "family-beginner-3-days",
@@ -273,21 +273,23 @@
     },
     {
       "slug": "mountain-camping-van",
-      "title": "露營車山區旅行建議｜森林、涼爽空氣與安靜過夜",
-      "description": "山區路線很適合想要森林感、涼爽空氣與安靜過夜的客人。這篇整理山區露營車旅行的安排方式與注意事項。",
+      "title": "客人案例｜露營車走中橫、上武陵農場——純山線也很好開",
+      "description": "實際客人以露營車走台八線中橫山段，一路橫跨海拔進武陵農場過夜：山路彎多但車身穩、到營地有床位與暖氣，是很典型的「完全山上」行程。",
       "date": "2026-04-24",
       "category": "山區路線",
       "tags": [
+        "武陵農場",
+        "中橫",
         "山區",
+        "高山",
         "露營區",
-        "森林",
-        "保暖"
+        "露營車"
       ],
-      "coverImage": "/images/trip-stories/mountain-camping-van.jpg",
-      "coverImageAlt": "露營車停靠山區露營區，適合森林旅行",
+      "coverImage": "/assets/images/trip-ideas/wuling-farm-mountain-road-rime-ice-campervan-winter.jpg",
+      "coverImageAlt": "武陵高山公路旁白藍露營車與霧淞林相，象徵中橫山線與高山過夜行程",
       "featured": false,
       "order": 30,
-      "readingTime": "約 6 分鐘",
+      "readingTime": "約 7 分鐘",
       "url": "/trip-stories/mountain-camping-van/"
     },
     {
