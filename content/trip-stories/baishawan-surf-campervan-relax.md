@@ -5,8 +5,8 @@ description: "好友相約台北白沙灣衝浪、玩水與水上活動；上岸
 date: "2026-04-25"
 category: "客戶體驗評價"
 tags: ["白沙灣", "衝浪", "玩水", "北海岸", "新北", "好友旅行", "露營車"]
-coverImage: "/images/trip-stories/baishawan-surf-campervan-friends-seaside.png"
-coverImageAlt: "藍天海岸旁，三位好友與藍白露營車合影，白沙灣玩水後的愜意時光"
+coverImage: "/images/trip-stories/baishawan-surf-campervan-skylight-relax.png"
+coverImageAlt: "旅人在露營車內臥區透過天窗仰望藍天白雲，玩水後吹冷氣休息的愜意氛圍"
 featured: false
 order: 128
 readingTime: "約 4 分鐘"
