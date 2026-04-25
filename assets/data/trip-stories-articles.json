@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-25T00:25:00.000Z",
+  "generatedAt": "2026-04-25T01:56:44.499Z",
   "articles": [
     {
       "slug": "family-beginner-3-days",
@@ -58,48 +58,6 @@
       "order": 12,
       "readingTime": "影片約 1 分鐘 · 閱讀補充",
       "url": "/trip-stories/philips-campervan-brand-case/"
-    },
-    {
-      "slug": "kenting-yilan-starry-night-campervan-timelapse",
-      "title": "墾丁・宜蘭蜜月灣｜露營車夜間縮時星空與銀河體驗",
-      "description": "客人以露營車在墾丁與宜蘭蜜月灣過夜，將夜空、銀河與星軌收進夜間縮時：在大自然底下享受安靜而壯麗的星空車宿體驗。附兩支網頁優化 MP4。",
-      "date": "2026-04-25",
-      "category": "客戶體驗評價",
-      "tags": ["墾丁", "宜蘭", "蜜月灣", "星空", "縮時攝影", "銀河", "露營車", "車宿"],
-      "coverImage": "/assets/images/trip-ideas/kenting-campervan-night-timelapse-milky-way-stars-poster.jpg",
-      "coverImageAlt": "墾丁露營車夜間縮時劇照：星空銀河與營地夜色下的車宿氛圍",
-      "featured": false,
-      "order": 125,
-      "readingTime": "兩支縮時約半分鐘 · 閱讀補充",
-      "url": "/trip-stories/kenting-yilan-starry-night-campervan-timelapse/"
-    },
-    {
-      "slug": "joyforest-campervan-born-container-factory-assembly",
-      "title": "露營車的誕生：從貨櫃抵達到工廠組裝｜揪好森團隊夢想執行紀錄",
-      "description": "記錄揪好森露營車如何從海運貨櫃抵達、現場卸貨到工廠組裝施工，呈現團隊把夢想化作白藍車體、一步步完成的幕後過程。",
-      "date": "2026-04-25",
-      "category": "客戶體驗評價",
-      "tags": ["揪好森", "露營車組裝", "貨櫃運輸", "工廠", "團隊", "幕後紀實"],
-      "coverImage": "/assets/images/trip-ideas/joyforest-campervan-manufacturing-assembly-process.jpg",
-      "coverImageAlt": "揪好森露營車在工廠組裝：白藍雙色車體置於施工托架，側門開啟，呈現夢想成形的施工現場",
-      "featured": false,
-      "order": 126,
-      "readingTime": "約 4 分鐘",
-      "url": "/trip-stories/joyforest-campervan-born-container-factory-assembly/"
-    },
-    {
-      "slug": "bunker-campsite-glamping-romantic-dinner-starry-night",
-      "title": "碉堡露營區｜星空下儀式感晚餐：網美露營套組 × 限時優惠道具實拍",
-      "description": "在碉堡露營區的藍調夜幕與星光下，用揪好森限時優惠可隨車附上的網美露營套組道具，布置一場充滿儀式感的戶外晚餐。附兩張壓縮實拍與網頁優化影片。",
-      "date": "2026-04-25",
-      "category": "好友旅行",
-      "tags": ["碉堡露營區", "網美露營套組", "儀式感晚餐", "星空", "車邊露營", "限時優惠", "揪好森"],
-      "coverImage": "/assets/images/trip-ideas/joyforest-bunker-campsite-glamping-van-string-lights-twilight-dinner.jpg",
-      "coverImageAlt": "白色露營車停於碉堡露營區草地藍調夜幕，車邊燈串、折疊木桌與小印第安帳，車宿浪漫晚餐布置",
-      "featured": false,
-      "order": 127,
-      "readingTime": "影片約 1 分鐘 · 閱讀補充",
-      "url": "/trip-stories/bunker-campsite-glamping-romantic-dinner-starry-night/"
     },
     {
       "slug": "hsinchu-bride-lounge-campervan-story",
@@ -391,6 +349,94 @@
       "order": 60,
       "readingTime": "約 7 分鐘",
       "url": "/trip-stories/water-electric-campsite/"
+    },
+    {
+      "slug": "kenting-yilan-starry-night-campervan-timelapse",
+      "title": "墾丁・宜蘭蜜月灣｜露營車夜間縮時星空與銀河體驗",
+      "description": "客人以露營車在墾丁與宜蘭蜜月灣過夜，將夜空、銀河與星軌收進夜間縮時：在大自然底下享受安靜而壯麗的星空車宿體驗。附兩支網頁優化 MP4。",
+      "date": "2026-04-25",
+      "category": "客戶體驗評價",
+      "tags": [
+        "墾丁",
+        "宜蘭",
+        "蜜月灣",
+        "星空",
+        "縮時攝影",
+        "銀河",
+        "露營車",
+        "車宿"
+      ],
+      "coverImage": "/assets/images/trip-ideas/kenting-campervan-night-timelapse-milky-way-stars-poster.jpg",
+      "coverImageAlt": "墾丁露營車夜間縮時劇照：星空銀河與營地夜色下的車宿氛圍",
+      "featured": false,
+      "order": 125,
+      "readingTime": "兩支縮時約半分鐘 · 閱讀補充",
+      "url": "/trip-stories/kenting-yilan-starry-night-campervan-timelapse/"
+    },
+    {
+      "slug": "joyforest-campervan-born-container-factory-assembly",
+      "title": "露營車的誕生：從貨櫃抵達到工廠組裝｜揪好森團隊夢想執行紀錄",
+      "description": "記錄揪好森露營車如何從海運貨櫃抵達、現場卸貨到工廠組裝施工，呈現團隊把夢想化作白藍車體、一步步完成的幕後過程。",
+      "date": "2026-04-25",
+      "category": "客戶體驗評價",
+      "tags": [
+        "揪好森",
+        "露營車組裝",
+        "貨櫃運輸",
+        "工廠",
+        "團隊",
+        "幕後紀實"
+      ],
+      "coverImage": "/assets/images/trip-ideas/joyforest-campervan-manufacturing-assembly-process.jpg",
+      "coverImageAlt": "揪好森露營車在工廠組裝：白藍雙色車體置於施工托架，側門開啟，呈現夢想成形的施工現場",
+      "featured": false,
+      "order": 126,
+      "readingTime": "約 4 分鐘",
+      "url": "/trip-stories/joyforest-campervan-born-container-factory-assembly/"
+    },
+    {
+      "slug": "bunker-campsite-glamping-romantic-dinner-starry-night",
+      "title": "碉堡露營區｜星空下儀式感晚餐：網美露營套組 × 限時優惠道具實拍",
+      "description": "在碉堡露營區的藍調夜幕與星光下，用揪好森限時優惠可隨車附上的網美露營套組道具，布置一場充滿儀式感的戶外晚餐。附兩張壓縮實拍與網頁優化影片。",
+      "date": "2026-04-25",
+      "category": "好友旅行",
+      "tags": [
+        "碉堡露營區",
+        "網美露營套組",
+        "儀式感晚餐",
+        "星空",
+        "車邊露營",
+        "限時優惠",
+        "揪好森"
+      ],
+      "coverImage": "/assets/images/trip-ideas/joyforest-bunker-campsite-glamping-van-string-lights-twilight-dinner.jpg",
+      "coverImageAlt": "白色露營車停於碉堡露營區草地藍調夜幕，車邊燈串、折疊木桌與小印第安帳，車宿浪漫晚餐布置",
+      "featured": false,
+      "order": 127,
+      "readingTime": "影片約 1 分鐘 · 閱讀補充",
+      "url": "/trip-stories/bunker-campsite-glamping-romantic-dinner-starry-night/"
+    },
+    {
+      "slug": "baishawan-surf-campervan-relax",
+      "title": "台北白沙灣衝浪玩水｜上岸回露營車洗澡吹冷氣，好友愜意一日",
+      "description": "好友相約台北白沙灣衝浪、玩水與水上活動；上岸後回到藍白露營車沖澡、開冷氣休息聊天，把海邊的熱與鹹留在車外，是很放鬆的北海岸玩法。",
+      "date": "2026-04-25",
+      "category": "客戶體驗評價",
+      "tags": [
+        "白沙灣",
+        "衝浪",
+        "玩水",
+        "北海岸",
+        "新北",
+        "好友旅行",
+        "露營車"
+      ],
+      "coverImage": "/images/trip-stories/baishawan-surf-campervan-friends-seaside.png",
+      "coverImageAlt": "藍天海岸旁，三位好友與藍白露營車合影，白沙灣玩水後的愜意時光",
+      "featured": false,
+      "order": 128,
+      "readingTime": "約 4 分鐘",
+      "url": "/trip-stories/baishawan-surf-campervan-relax/"
     }
   ]
 }
