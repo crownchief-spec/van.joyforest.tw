@@ -18,6 +18,17 @@
 - 客戶體驗評價（Stories）：https://van.joyforest.tw/pages/trip-ideas.html
 - 立即預約（Book Now）：https://van.joyforest.tw/booking.html
 - 延伸閱讀與資源：https://van.joyforest.tw/pages/resources/index.html
+- 資源｜客人出遊紀錄與實際使用照片：https://van.joyforest.tw/pages/resources/customer-travel-photos-campervan-records.html
+- 資源｜租車心得與評價整理：https://van.joyforest.tw/pages/resources/campervan-rental-reviews-guide.html
+- 資源｜親子好友情侶與活動支援案例：https://van.joyforest.tw/pages/resources/family-friends-couple-event-campervan-cases.html
+- 資源｜推薦露營區地圖分區：https://van.joyforest.tw/pages/resources/taiwan-campsite-map-regions-guide.html
+- 資源｜適合露營車停靠地點：https://van.joyforest.tw/pages/resources/campervan-suitable-parking-stops-taiwan.html
+- 資源｜北部露營車路線：https://van.joyforest.tw/pages/resources/northern-taiwan-campervan-routes.html
+- 資源｜桃園新竹苗栗露營區建議：https://van.joyforest.tw/pages/resources/taoyuan-hsinchu-miaoli-campsites-campervan.html
+- 資源｜海邊路線五方向：https://van.joyforest.tw/pages/resources/taiwan-coastal-routes-campervan-five-itineraries.html
+- 資源｜親子景點：https://van.joyforest.tw/pages/resources/family-attractions-campervan-taiwan.html
+- 資源｜補水與充電注意事項：https://van.joyforest.tw/pages/resources/campervan-water-electricity-checklist.html
+- 資源｜露營車新手文章學習路徑：https://van.joyforest.tw/pages/resources/campervan-newbie-articles-learning-path.html
 - 部落格：https://van.joyforest.tw/blog/
 
 ## 舊頁面（已做 client-side redirect）

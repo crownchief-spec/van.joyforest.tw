@@ -1604,6 +1604,16 @@ a {
   margin-bottom: 8px;
 }
 
+.article-prose .seo-hash-line {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-border);
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--color-muted);
+  word-break: break-word;
+}
+
 /* SEO 延伸文章區：低調延伸閱讀，不搶主內容視覺 */
 .footer-resources-section {
   width: 100vw;
