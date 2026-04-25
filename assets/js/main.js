@@ -111,8 +111,8 @@
         slot.hidden = false;
         const title = (pick.title || pick.slug || "").trim();
         const summary = clipFooterSummary(pick.description || "");
-        const imgPath = (pick.coverImage || "").trim();
-        const imgAlt = (pick.coverImageAlt || title).trim();
+        const imgPath = ((pick.listVideoPoster || pick.listImage || pick.coverImage || "") + "").trim();
+        const imgAlt = ((pick.listImageAlt || pick.coverImageAlt || title || "") + "").trim();
         const category = (pick.category || "").trim();
         const url = (pick.url || `/trip-stories/${pick.slug}/`).trim();
         const link = slot.querySelector("[data-footer-trip-story-link]");

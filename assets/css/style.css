@@ -1900,27 +1900,40 @@ a {
   display: block;
 }
 
-/* 內文影片與視窗同寬（突破 .trip-article-prose 欄寬），仍受 html { overflow-x: hidden } 保護 */
+/* 內文全欄寬影片（手機優先）：與 .trip-article-prose 同寬，不用 100vw／負邊距，避免小螢幕橫向溢出 */
 .guide-figure--video.guide-figure--video-page {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  max-width: none;
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .guide-figure--video.guide-figure--video-page .video-native-wrap {
-  max-width: none;
+  max-width: 100%;
   width: 100%;
-  margin-inline: 0;
-  border-radius: 0;
-  border-left: none;
-  border-right: none;
+  margin-inline: auto;
+  min-width: 0;
+  box-sizing: border-box;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  background: #0b0d0c;
+}
+
+.guide-figure--video.guide-figure--video-page video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .guide-figure--video.guide-figure--video-page figcaption {
-  padding-inline: max(20px, env(safe-area-inset-left, 0px)) max(20px, env(safe-area-inset-right, 0px));
-  max-width: min(100% - 40px, var(--container-max));
-  margin-inline: auto;
+  padding-inline: 0;
+  max-width: none;
+  margin-inline: 0;
 }
 
 /* Trip ideas: Markdown-rendered story sections */
@@ -2227,14 +2240,8 @@ a {
 .trip-hub-card {
   margin: 0;
   height: 100%;
-}
-
-.trip-hub-card__link {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
   background: #fff;
   border-radius: 16px;
   overflow: hidden;
@@ -2243,10 +2250,20 @@ a {
   transition: box-shadow 180ms ease, border-color 180ms ease, transform 180ms ease;
 }
 
-.trip-hub-card__link:hover {
+.trip-hub-card:hover {
   border-color: rgba(31, 107, 82, 0.35);
   box-shadow: 0 14px 40px rgba(22, 51, 40, 0.1);
   transform: translateY(-2px);
+}
+
+.trip-hub-card__link {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
 }
 
 .trip-hub-card__media {
@@ -2260,6 +2277,19 @@ a {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.trip-hub-card__media--video {
+  flex-shrink: 0;
+}
+
+.trip-hub-card__video {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  background: #0b0d0c;
 }
 
 .trip-hub-card__body {

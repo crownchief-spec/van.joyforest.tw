@@ -7,6 +7,9 @@ category: "品牌合作"
 tags: ["飛利浦","廣告拍攝","形象片","露營車"]
 coverImage: "/assets/images/trip-ideas/philips-campervan-portable-power-ad-mountain-road-golden-hour.jpg"
 coverImageAlt: "飛利浦廣告劇照：露營車行駛於山林公路金色夕陽空拍"
+listVideo: "/assets/videos/trip-stories/philips-campervan-portable-power-highway-ad-web.mp4"
+listVideoPoster: "/assets/images/trip-ideas/philips-campervan-portable-power-ad-mountain-road-golden-hour.jpg"
+videoDuration: "PT66S"
 featured: false
 order: 12
 readingTime: "影片約 1 分鐘 · 閱讀補充"

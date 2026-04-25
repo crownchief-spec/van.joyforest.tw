@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-25T01:58:18.600Z",
+  "generatedAt": "2026-04-25T02:06:36.357Z",
   "articles": [
     {
       "slug": "family-beginner-3-days",
@@ -54,6 +54,9 @@
       ],
       "coverImage": "/assets/images/trip-ideas/philips-campervan-portable-power-ad-mountain-road-golden-hour.jpg",
       "coverImageAlt": "飛利浦廣告劇照：露營車行駛於山林公路金色夕陽空拍",
+      "listVideo": "/assets/videos/trip-stories/philips-campervan-portable-power-highway-ad-web.mp4",
+      "listVideoPoster": "/assets/images/trip-ideas/philips-campervan-portable-power-ad-mountain-road-golden-hour.jpg",
+      "videoDuration": "PT66S",
       "featured": false,
       "order": 12,
       "readingTime": "影片約 1 分鐘 · 閱讀補充",
@@ -433,10 +436,37 @@
       ],
       "coverImage": "/images/trip-stories/baishawan-surf-campervan-skylight-relax.png",
       "coverImageAlt": "旅人在露營車內臥區透過天窗仰望藍天白雲，玩水後吹冷氣休息的愜意氛圍",
+      "listImage": "/images/trip-stories/baishawan-surf-campervan-friends-seaside.png",
+      "listImageAlt": "藍天海岸旁，三位好友與藍白露營車合影，白沙灣玩水後的愜意時光",
       "featured": false,
       "order": 128,
       "readingTime": "約 4 分鐘",
       "url": "/trip-stories/baishawan-surf-campervan-relax/"
+    },
+    {
+      "slug": "rakuten-girls-taoyuan-campervan-birthday-glamping",
+      "title": "樂天女孩桃園露營車慶生｜網美套組、好友小聚與放鬆時光",
+      "description": "桃園樂天女孩啦啦隊成員利用休息時間，與好友體驗揪好森網美露營車與戶外套組：營地拍照、夜晚燈串小聚與慶生乾杯，享受最愜意的放鬆娛樂時光。",
+      "date": "2023-03-20",
+      "category": "客戶體驗評價",
+      "tags": [
+        "樂天女孩",
+        "桃園",
+        "露營車",
+        "慶生",
+        "網美露營",
+        "豪華露營",
+        "Rakuten Girls"
+      ],
+      "coverImage": "/images/trip-stories/rakuten-girls-taoyuan-campervan-group-selfie-campsite.jpg",
+      "coverImageAlt": "桃園營地艷陽下，旅人與藍白露營車前開心合影，樂天女孩與好友網美露營慶生之旅",
+      "listVideo": "/assets/videos/trip-stories/rakuten-girls-taoyuan-campervan-glamping-birthday-2023-web.mp4",
+      "listVideoPoster": "/assets/images/trip-ideas/rakuten-girls-taoyuan-campervan-glamping-video-poster.jpg",
+      "videoDuration": "PT86S",
+      "featured": false,
+      "order": 129,
+      "readingTime": "影片約 1 分 26 秒 · 圖文補充",
+      "url": "/trip-stories/rakuten-girls-taoyuan-campervan-birthday-glamping/"
     }
   ]
 }

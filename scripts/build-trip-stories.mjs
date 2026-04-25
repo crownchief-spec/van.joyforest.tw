@@ -140,10 +140,13 @@ const articlePageTemplate = ({
 </html>`;
 };
 
+const listThumbSrc = (a) => ((a.listImage || a.coverImage || "") + "").trim();
+const listThumbAlt = (a) => ((a.listImageAlt || a.coverImageAlt || a.title || "") + "").trim();
+
 const relatedCardHtml = (a) => `<article class="trip-hub-card trip-hub-card--compact fade-in" data-reveal>
   <a class="trip-hub-card__link" href="${escapeHtml(a.url)}">
     <div class="trip-hub-card__media">
-      <img src="${escapeHtml(a.coverImage)}" alt="${escapeHtml(a.coverImageAlt || a.title)}" width="400" height="225" loading="lazy" decoding="async" />
+      <img src="${escapeHtml(listThumbSrc(a))}" alt="${escapeHtml(listThumbAlt(a))}" width="400" height="225" loading="lazy" decoding="async" />
     </div>
     <div class="trip-hub-card__body">
       <span class="pill trip-hub-card__pill">${escapeHtml(a.category)}</span>
@@ -196,6 +199,11 @@ async function main() {
     const tags = Array.isArray(data.tags) ? data.tags.map(String) : [];
     const coverImage = (data.coverImage || "").trim();
     const coverImageAlt = (data.coverImageAlt || title).trim();
+    const listImage = (data.listImage || "").trim();
+    const listImageAlt = (data.listImageAlt || "").trim();
+    const listVideo = (data.listVideo || "").trim();
+    const listVideoPoster = (data.listVideoPoster || "").trim();
+    const videoDuration = (data.videoDuration || "").trim();
     const featured = Boolean(data.featured);
     const order = Number.isFinite(Number(data.order)) ? Number(data.order) : 999;
     const readingTime = (data.readingTime || "").trim() || "約 5 分鐘";
@@ -210,6 +218,11 @@ async function main() {
       tags,
       coverImage,
       coverImageAlt,
+      listImage,
+      listImageAlt,
+      listVideo,
+      listVideoPoster,
+      videoDuration,
       featured,
       order,
       readingTime,
@@ -223,7 +236,15 @@ async function main() {
     return String(b.date).localeCompare(String(a.date));
   });
 
-  const articles = rawList.map(({ bodyMarkdown, ...rest }) => rest);
+  const articles = rawList.map(({ bodyMarkdown, ...rest }) => {
+    const o = { ...rest };
+    if (!o.listImage) delete o.listImage;
+    if (!o.listImageAlt) delete o.listImageAlt;
+    if (!o.listVideo) delete o.listVideo;
+    if (!o.listVideoPoster) delete o.listVideoPoster;
+    if (!o.videoDuration) delete o.videoDuration;
+    return o;
+  });
   const generatedAt = new Date().toISOString();
   const payload = JSON.stringify({ generatedAt, articles }, null, 2);
   await fs.writeFile(OUT_JSON, payload, "utf8");
@@ -237,38 +258,51 @@ async function main() {
     const related = pickRelated(rawList, item.slug, 3);
     const relatedHtml = related.map((a) => relatedCardHtml(a)).join("\n");
 
-    const jsonLd = JSON.stringify({
-      "@context": "https://schema.org",
-      "@graph": [
+    const graph = [
+      {
+        "@type": "Article",
+        headline: item.title,
+        description: item.description,
+        datePublished: item.date,
+        image: `${SITE_ORIGIN}${item.coverImage}`,
+        author: { "@type": "Organization", name: "揪好森露營車出租" },
+        publisher: { "@type": "Organization", name: "揪好森露營車出租" },
+        mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_ORIGIN}${item.url}` }
+      }
+    ];
+    if (item.listVideo) {
+      const thumb = item.listVideoPoster || item.coverImage;
+      graph.push({
+        "@type": "VideoObject",
+        name: item.title,
+        description: item.description,
+        thumbnailUrl: `${SITE_ORIGIN}${thumb}`,
+        contentUrl: `${SITE_ORIGIN}${item.listVideo}`,
+        uploadDate: item.date,
+        ...(item.videoDuration ? { duration: item.videoDuration } : {})
+      });
+    }
+    graph.push({
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "首頁", item: `${SITE_ORIGIN}/` },
         {
-          "@type": "Article",
-          headline: item.title,
-          description: item.description,
-          datePublished: item.date,
-          image: `${SITE_ORIGIN}${item.coverImage}`,
-          author: { "@type": "Organization", name: "揪好森露營車出租" },
-          publisher: { "@type": "Organization", name: "揪好森露營車出租" },
-          mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_ORIGIN}${item.url}` }
+          "@type": "ListItem",
+          position: 2,
+          name: "客戶體驗評價",
+          item: `${SITE_ORIGIN}/pages/trip-ideas.html`
         },
         {
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "首頁", item: `${SITE_ORIGIN}/` },
-            {
-              "@type": "ListItem",
-              position: 2,
-              name: "客戶體驗評價",
-              item: `${SITE_ORIGIN}/pages/trip-ideas.html`
-            },
-            {
-              "@type": "ListItem",
-              position: 3,
-              name: item.title,
-              item: `${SITE_ORIGIN}${item.url}`
-            }
-          ]
+          "@type": "ListItem",
+          position: 3,
+          name: item.title,
+          item: `${SITE_ORIGIN}${item.url}`
         }
       ]
+    });
+    const jsonLd = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": graph
     });
 
     const html = articlePageTemplate({

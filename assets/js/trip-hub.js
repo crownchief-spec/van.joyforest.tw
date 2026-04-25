@@ -78,6 +78,25 @@
     return d.innerHTML;
   };
 
+  const listThumbSrc = (a) => ((a.listImage || a.coverImage || "") + "").trim();
+  const listThumbAlt = (a) => ((a.listImageAlt || a.coverImageAlt || a.title || "") + "").trim();
+  const listVideoPosterSrc = (a) => ((a.listVideoPoster || listThumbSrc(a) || "") + "").trim();
+
+  const cardMediaHtml = (a) => {
+    const v = ((a.listVideo || "") + "").trim();
+    const poster = listVideoPosterSrc(a);
+    if (v) {
+      return `<div class="trip-hub-card__media trip-hub-card__media--video">
+      <video class="trip-hub-card__video" controls playsinline preload="metadata" poster="${esc(poster)}" width="640" height="360" title="${esc(a.title)}" aria-label="影片預覽：${esc(listThumbAlt(a))}">
+        <source src="${esc(v)}" type="video/mp4" />
+      </video>
+    </div>`;
+    }
+    return `<div class="trip-hub-card__media">
+      <img src="${esc(listThumbSrc(a))}" alt="${esc(listThumbAlt(a))}" width="640" height="360" loading="lazy" decoding="async" />
+    </div>`;
+  };
+
   const cardHtml = (a) => {
     const tags = Array.isArray(a.tags) ? a.tags : [];
     const tagStr = tags
@@ -87,10 +106,8 @@
     return `<article class="trip-hub-card fade-in" data-reveal data-trip-hub-card data-category="${esc(
       a.category
     )}" data-tags="${esc(tags.join(","))}">
+  ${cardMediaHtml(a)}
   <a class="trip-hub-card__link" href="${esc(a.url)}">
-    <div class="trip-hub-card__media">
-      <img src="${esc(a.coverImage)}" alt="${esc(a.coverImageAlt || a.title)}" width="640" height="360" loading="lazy" decoding="async" />
-    </div>
     <div class="trip-hub-card__body">
       <span class="pill trip-hub-card__pill">${esc(a.category)}</span>
       <h3 class="trip-hub-card__title">${esc(a.title)}</h3>
