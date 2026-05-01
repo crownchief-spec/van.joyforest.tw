@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-25T02:06:36.357Z",
+  "generatedAt": "2026-04-30T16:23:40.461Z",
   "articles": [
     {
       "slug": "family-beginner-3-days",
@@ -198,22 +198,23 @@
     },
     {
       "slug": "seaside-van-trip",
-      "title": "露營車海邊旅行怎麼安排？看海、吹風、慢慢煮東西",
-      "description": "露營車很適合安排海邊路線。選一個可以看海、散步、拍照與慢慢煮東西的地方，把旅行節奏放慢，就是最舒服的玩法。",
+      "title": "蜜月灣車宿露營點",
+      "description": "宜蘭頭城蜜月灣緊鄰海岸，步行就能下海踩沙，很適合露營車放慢節奏；文中附 Google 地圖與兩三天『海線＋宜蘭景點』靈感行程。",
       "date": "2026-04-24",
       "category": "海邊路線",
       "tags": [
-        "海邊",
-        "拍照",
-        "北海岸",
+        "蜜月灣",
         "宜蘭",
+        "頭城",
+        "海邊",
+        "車宿",
         "慢旅行"
       ],
       "coverImage": "/images/trip-stories/seaside-van-trip.jpg",
-      "coverImageAlt": "露營車海邊旅行與戶外桌椅情境",
+      "coverImageAlt": "蜜月灣海岸與露營車車宿情境",
       "featured": true,
       "order": 20,
-      "readingTime": "約 6 分鐘",
+      "readingTime": "約 8 分鐘",
       "url": "/trip-stories/seaside-van-trip/"
     },
     {

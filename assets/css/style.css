@@ -2003,6 +2003,37 @@ a {
   margin-top: 18px;
 }
 
+/* 文章內嵌 Google 地圖（與 .video-embed 類似的響應式裁切） */
+.trip-story-prose .map-embed {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 20px 0 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  aspect-ratio: 16 / 10;
+  box-shadow: var(--shadow-sm);
+}
+
+.trip-story-prose .map-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.trip-story-prose .map-embed-caption {
+  margin: 10px 0 0;
+  font-size: var(--small);
+  color: var(--color-muted);
+}
+
+.trip-story-prose .map-embed-caption a {
+  font-weight: 600;
+}
+
 .trip-stories-error {
   text-align: center;
   color: var(--color-muted);
