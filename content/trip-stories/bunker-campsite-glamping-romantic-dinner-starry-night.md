@@ -86,4 +86,4 @@ readingTime: "影片約 1 分鐘 · 閱讀補充"
 
 ## 關於限時優惠與網美露營套組
 
-兩套組原價與 **Google 地圖五星好評兩則免費隨車附**等說明，請見 [露營車使用教學｜限時優惠](/pages/booking-guide.html#promo-bundle) 與 [第九節｜戶外套組與拍照佈置](/pages/booking-guide.html#outdoor)。車款與加購請參考 [價格與車款介紹](/pages/campervan.html)；決定日期後歡迎 [立即預約](/booking.html) 向客服確認庫存與兌換條件。
+兩套組原價與 **Google 地圖五星好評兩則免費隨車附**等說明，請見 [價格與車款介紹｜限時優惠](/pages/campervan.html#promo-bundle) 與 [露營車使用教學｜戶外套組](/pages/booking-guide.html#outdoor)。決定日期後歡迎 [立即預約](/booking.html) 向客服確認庫存與兌換條件。
