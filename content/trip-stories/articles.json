@@ -1,6 +1,57 @@
 {
-  "generatedAt": "2026-04-30T16:23:40.461Z",
+  "generatedAt": "2026-06-15T13:39:19.724Z",
   "articles": [
+    {
+      "slug": "vietnam-friends-coastal-campervan-overnight",
+      "title": "越南好友海邊過夜｜在台工作青年團與露營車車宿實拍",
+      "description": "一群從越南來台灣工作的年輕好友，相約到北海岸海邊過夜：白衫合照、藍白露營車當移動基地，把工作日後的假期過成充滿笑聲的海線車宿。",
+      "date": "2026-06-02",
+      "category": "客戶體驗評價",
+      "tags": [
+        "海邊",
+        "車宿",
+        "好友旅行",
+        "越南",
+        "國際客人",
+        "北海岸",
+        "露營車",
+        "過夜"
+      ],
+      "coverImage": "/images/trip-stories/vietnam-friends-coastal-campervan-overnight.png",
+      "coverImageAlt": "七位年輕旅人穿白色夏裝，在海岸石牆與藍白露營車前開心合影，海邊過夜的露營車好友旅行",
+      "featured": false,
+      "order": 4,
+      "readingTime": "約 3 分鐘",
+      "url": "/trip-stories/vietnam-friends-coastal-campervan-overnight/"
+    },
+    {
+      "slug": "north-coast-weekend-campervan-itinerary",
+      "title": "北海岸露營車三天兩夜行程｜週五晚上出發・碉堡露營區・白沙灣海邊車宿",
+      "h1": "北海岸露營車三天兩夜行程｜週五晚上出發也剛剛好",
+      "heroLead": "如果你只有週休二日，不一定要把露營車開到很遠。露營車最值得體驗的地方，往往不是跑了多少景點，而是把車停下來以後：在車邊吃晚餐、看戶外電影、晚上走去沙灘，回來用車外蓮蓬頭沖腳，隔天早上一睜開眼就看見海。這條北海岸三天兩夜，適合第一次租露營車的人。第一晚先住有水電與管理的碉堡露營區，安心熟悉露營車的水、電、床鋪與戶外設備；第二晚再選擇白沙灣或翡翠灣一帶的海邊停靠點，感受比較自由的車宿節奏。",
+      "description": "週五晚上取車也能安排舒服的北海岸露營車三天兩夜。第一晚住碉堡露營區熟悉水電與設備，第二天慢遊富貴角燈塔、富基漁港、老梅石槽、白沙灣，晚上可選白沙灣或翡翠灣海邊停靠，體驗看海入睡、醒來就看見海的露營車旅行。",
+      "wideBody": true,
+      "skipArticleCta": true,
+      "date": "2026-06-15",
+      "category": "新手行程",
+      "tags": [
+        "北海岸",
+        "三天兩夜",
+        "週末",
+        "碉堡露營區",
+        "白沙灣",
+        "海邊車宿",
+        "慢旅行"
+      ],
+      "coverImage": "/images/trip-stories/north-coast-campervan-seaside-overnight-view.jpg",
+      "coverImageAlt": "北海岸露營車海邊車宿，清晨醒來可看見海景",
+      "listImage": "/images/trip-stories/north-coast-campervan-outdoor-movie-night.jpg",
+      "listImageAlt": "北海岸露營車戶外電影夜，車邊燈串與投影布置",
+      "featured": true,
+      "order": 8,
+      "readingTime": "約 10 分鐘",
+      "url": "/trip-stories/north-coast-weekend-campervan-itinerary/"
+    },
     {
       "slug": "family-beginner-3-days",
       "title": "露營車三天兩夜怎麼玩？新手也適合的慢遊行程建議",

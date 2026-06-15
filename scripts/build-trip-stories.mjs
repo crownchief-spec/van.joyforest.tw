@@ -36,7 +36,9 @@ const pickRelated = (all, currentSlug, limit = 3) => {
 const articlePageTemplate = ({
   slug,
   title,
+  h1,
   description,
+  heroLead,
   date,
   category,
   tags,
@@ -45,10 +47,17 @@ const articlePageTemplate = ({
   readingTime,
   bodyHtml,
   relatedHtml,
-  jsonLd
+  jsonLd,
+  wideBody,
+  skipArticleCta
 }) => {
   const tagList = Array.isArray(tags) ? tags : [];
   const tagsMeta = tagList.map((t) => escapeHtml(t)).join("、");
+  const displayH1 = h1 || title;
+  const heroDesc = heroLead || description;
+  const proseClass = wideBody
+    ? "trip-article-prose trip-story-prose trip-article-prose--wide"
+    : "trip-article-prose trip-story-prose";
   return `<!doctype html>
 <html lang="zh-Hant">
   <head>
@@ -88,8 +97,8 @@ const articlePageTemplate = ({
             <span class="trip-article-hero__sep" aria-hidden="true">／</span>
             <span class="pill trip-article-hero__cat">${escapeHtml(category)}</span>
           </p>
-          <h1 class="trip-article-hero__title">${escapeHtml(title)}</h1>
-          <p class="trip-article-hero__desc">${escapeHtml(description)}</p>
+          <h1 class="trip-article-hero__title">${escapeHtml(displayH1)}</h1>
+          <p class="trip-article-hero__desc">${escapeHtml(heroDesc)}</p>
           <div class="trip-article-hero__stats">
             <time datetime="${escapeHtml(date)}">${escapeHtml(date)}</time>
             <span class="trip-article-hero__dot" aria-hidden="true">·</span>
@@ -115,7 +124,7 @@ const articlePageTemplate = ({
       </header>
       <main id="main" class="trip-article-main section">
         <div class="container">
-          <div class="trip-article-prose trip-story-prose">${bodyHtml}</div>
+          <div class="${proseClass}">${bodyHtml}</div>
           <section class="trip-article-related section" aria-labelledby="related-title">
             <div class="section-title" id="related-title">
               <h2>相關客戶體驗評價文章</h2>
@@ -123,7 +132,10 @@ const articlePageTemplate = ({
             </div>
             <div class="trip-hub-grid trip-hub-grid--related">${relatedHtml}</div>
           </section>
-          <section class="cta trip-article-cta fade-in" data-reveal>
+          ${
+            skipArticleCta
+              ? ""
+              : `<section class="cta trip-article-cta fade-in" data-reveal>
             <h2>想用露營車安排這樣的旅行嗎？</h2>
             <p>你可以先告訴我們日期、人數、想去的方向與是否需要送車，我們會協助確認適合的租借方式與行程安排。</p>
             <div class="hero-actions">
@@ -131,7 +143,8 @@ const articlePageTemplate = ({
               <a class="btn btn-outline" href="/pages/campervan.html">查看價格與車款介紹</a>
               <a class="btn btn-outline" href="/pages/booking-guide.html">看露營車使用教學</a>
             </div>
-          </section>
+          </section>`
+          }
         </div>
       </main>
     </article>
@@ -193,7 +206,11 @@ async function main() {
       continue;
     }
     const title = (data.title || slug).trim();
+    const h1 = (data.h1 || "").trim();
+    const heroLead = (data.heroLead || "").trim();
     const description = (data.description || "").trim();
+    const wideBody = Boolean(data.wideBody);
+    const skipArticleCta = Boolean(data.skipArticleCta);
     const date = (data.date || "").trim();
     const category = (data.category || "未分類").trim();
     const tags = Array.isArray(data.tags) ? data.tags.map(String) : [];
@@ -212,7 +229,11 @@ async function main() {
     rawList.push({
       slug,
       title,
+      h1,
+      heroLead,
       description,
+      wideBody,
+      skipArticleCta,
       date,
       category,
       tags,
@@ -243,6 +264,10 @@ async function main() {
     if (!o.listVideo) delete o.listVideo;
     if (!o.listVideoPoster) delete o.listVideoPoster;
     if (!o.videoDuration) delete o.videoDuration;
+    if (!o.h1) delete o.h1;
+    if (!o.heroLead) delete o.heroLead;
+    if (!o.wideBody) delete o.wideBody;
+    if (!o.skipArticleCta) delete o.skipArticleCta;
     return o;
   });
   const generatedAt = new Date().toISOString();
@@ -308,6 +333,8 @@ async function main() {
     const html = articlePageTemplate({
       slug: item.slug,
       title: item.title,
+      h1: item.h1,
+      heroLead: item.heroLead,
       description: item.description,
       date: item.date,
       category: item.category,
@@ -317,7 +344,9 @@ async function main() {
       readingTime: item.readingTime,
       bodyHtml,
       relatedHtml,
-      jsonLd
+      jsonLd,
+      wideBody: item.wideBody,
+      skipArticleCta: item.skipArticleCta
     });
 
     const dir = path.join(OUT_STORIES_DIR, item.slug);

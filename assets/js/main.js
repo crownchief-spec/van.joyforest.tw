@@ -191,6 +191,54 @@
     });
   };
 
+  const initItineraryCopy = () => {
+    document.querySelectorAll("[data-copy-itinerary-day]").forEach((btn) => {
+      const dayId = btn.getAttribute("data-copy-itinerary-day");
+      const template = document.querySelector(`[data-itinerary-text="${dayId}"]`);
+      const feedback = btn
+        .closest(".itinerary-card__actions")
+        ?.querySelector("[data-itinerary-copy-feedback]");
+      if (!template) return;
+
+      const setFeedback = (msg, ok = true) => {
+        if (!feedback) return;
+        feedback.textContent = msg;
+        feedback.classList.toggle("is-error", !ok);
+      };
+
+      btn.addEventListener("click", async () => {
+        const text =
+          template.tagName === "TEMPLATE"
+            ? template.content.textContent.trim()
+            : (template.textContent || "").trim();
+        if (!text) {
+          setFeedback("找不到可複製的行程內容。", false);
+          return;
+        }
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const helper = document.createElement("textarea");
+            helper.value = text;
+            helper.setAttribute("readonly", "");
+            helper.style.position = "fixed";
+            helper.style.opacity = "0";
+            document.body.appendChild(helper);
+            helper.select();
+            const ok = document.execCommand("copy");
+            document.body.removeChild(helper);
+            if (!ok) throw new Error("execCommand copy failed");
+          }
+          setFeedback("已複製這一天的行程，可貼到記事本或傳給旅伴。");
+        } catch (err) {
+          console.error("[site] Failed to copy itinerary:", err);
+          setFeedback("複製失敗，請手動選取內容。", false);
+        }
+      });
+    });
+  };
+
   const boot = async () => {
     try {
       await loadSiteIncludes();
@@ -240,6 +288,7 @@
     }
 
     initBookingTemplateCopy();
+    initItineraryCopy();
 
     const accordions = document.querySelectorAll("[data-accordion]");
     accordions.forEach((el) => {

@@ -2524,3 +2524,355 @@ a {
   }
 }
 
+/* 寬版行程文章（itinerary cards） */
+.trip-article-prose--wide {
+  max-width: 920px;
+}
+
+.trip-article-hero-actions {
+  margin: 20px 0 8px;
+}
+
+.trip-article-hero-actions .hero-actions {
+  justify-content: flex-start;
+}
+
+/* 北海岸三天兩夜行程卡 */
+.itinerary-stack {
+  display: grid;
+  gap: 24px;
+  margin: 28px 0;
+}
+
+.itinerary-card {
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.itinerary-card__media img {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.itinerary-card__head {
+  padding: 22px 22px 0;
+}
+
+.itinerary-card__day {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: rgba(31, 107, 82, 0.1);
+  border-radius: 999px;
+  padding: 5px 12px;
+  margin-bottom: 8px;
+}
+
+.itinerary-card__when {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--color-accent);
+}
+
+.itinerary-card__title {
+  margin: 0 0 6px;
+  font-size: clamp(20px, 2.8vw, 26px);
+  line-height: 1.35;
+  color: var(--color-ink);
+}
+
+.itinerary-card__subtitle {
+  margin: 0 0 14px;
+  font-size: 15px;
+  color: var(--color-muted);
+}
+
+.itinerary-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.itinerary-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--color-ink);
+  background: rgba(31, 58, 44, 0.06);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 5px 11px;
+}
+
+.itinerary-card__facts {
+  display: grid;
+  gap: 12px;
+  padding: 0 22px 18px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 640px) {
+  .itinerary-card__facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+.itinerary-card__fact {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.itinerary-card__fact-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.itinerary-card__fact-value {
+  font-size: 15px;
+  font-weight: 650;
+  color: var(--color-ink);
+  line-height: 1.45;
+}
+
+.itinerary-card__accordion {
+  margin: 16px 22px 0;
+  border-radius: 14px;
+}
+
+.itinerary-card__accordion button {
+  font-size: 16px;
+  padding: 16px;
+}
+
+.itinerary-timeline {
+  margin: 0;
+  padding: 0 0 0 1.1em;
+  display: grid;
+  gap: 16px;
+}
+
+.itinerary-timeline li {
+  color: var(--color-muted);
+}
+
+.itinerary-timeline strong {
+  display: block;
+  color: var(--color-ink);
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.itinerary-reminders {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(154, 107, 63, 0.08);
+  border: 1px solid rgba(154, 107, 63, 0.18);
+}
+
+.itinerary-reminders h4 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--color-accent);
+}
+
+.itinerary-reminders ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.itinerary-reminders li {
+  font-size: 14px;
+  color: var(--color-ink);
+  margin-bottom: 4px;
+}
+
+.itinerary-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 16px 22px 22px;
+}
+
+.itinerary-card__actions .btn {
+  flex: 1 1 auto;
+  min-width: min(100%, 160px);
+  text-align: center;
+}
+
+.itinerary-overview {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0 8px;
+}
+
+.itinerary-overview__item {
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.itinerary-overview__item h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  color: var(--color-ink);
+}
+
+.itinerary-overview__item p,
+.itinerary-overview__item li {
+  margin: 0 0 6px;
+  font-size: 15px;
+  color: var(--color-muted);
+}
+
+.itinerary-overview__item ul {
+  margin: 8px 0 0;
+  padding-left: 1.1em;
+}
+
+.audience-list {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.audience-list li {
+  position: relative;
+  padding: 12px 14px 12px 38px;
+  border-radius: 12px;
+  background: rgba(31, 107, 82, 0.06);
+  border: 1px solid rgba(31, 107, 82, 0.12);
+  color: var(--color-ink);
+  font-size: 15px;
+}
+
+.audience-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.extend-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+  margin: 18px 0 0;
+}
+
+.extend-card {
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.78);
+  min-height: 100%;
+}
+
+.extend-card h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: var(--color-ink);
+}
+
+.extend-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+.seaside-stops {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0 0;
+}
+
+.seaside-stop {
+  border-left: 3px solid var(--color-primary);
+  padding: 4px 0 4px 14px;
+}
+
+.seaside-stop h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.seaside-stop p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.itinerary-page-cta {
+  margin-top: 32px;
+  padding: 24px 22px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(31, 107, 82, 0.1), rgba(154, 107, 63, 0.08));
+  border: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.itinerary-page-cta h2 {
+  margin: 0 0 10px;
+}
+
+.itinerary-page-cta p {
+  margin: 0 auto 18px;
+  max-width: 560px;
+  color: var(--color-muted);
+}
+
+.itinerary-page-cta .hero-actions {
+  justify-content: center;
+}
+
+.itinerary-copy-feedback {
+  width: 100%;
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-primary);
+  min-height: 1.2em;
+}
+
+.itinerary-copy-feedback.is-error {
+  color: #b33636;
+}
+
+@media (max-width: 479px) {
+  .itinerary-card__head,
+  .itinerary-card__facts,
+  .itinerary-card__actions {
+    padding-inline: 16px;
+  }
+
+  .itinerary-card__accordion {
+    margin-inline: 16px;
+  }
+
+  .itinerary-card__actions .btn {
+    min-width: 100%;
+  }
+}
+
