@@ -44,9 +44,12 @@
     const headerPh = document.querySelector('[data-site-include="header"]');
     const footerPh = document.querySelector('[data-site-include="footer"]');
     if (!headerPh && !footerPh) return;
-    const en = isEnglishSite();
-    const headerPath = en ? "/components/header-en.html" : "/components/header.html";
-    const footerPath = en ? "/components/footer-en.html" : "/components/footer.html";
+    const en =
+      headerPh?.getAttribute("data-site-include-lang") === "en" ||
+      footerPh?.getAttribute("data-site-include-lang") === "en" ||
+      isEnglishSite();
+    const headerPath = en ? "/components/header-en" : "/components/header";
+    const footerPath = en ? "/components/footer-en" : "/components/footer";
     const fetches = [];
     if (headerPh) fetches.push(fetch(headerPath, { cache: "no-cache" }).then((r) => r.text()));
     else fetches.push(Promise.resolve(null));

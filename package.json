@@ -4,7 +4,7 @@
   "description": "靜態站。編輯 content/trip-stories/*.md 後請執行 npm run build 再部署，以更新 articles.json、各篇 HTML 與 sitemap。",
   "scripts": {
     "build": "node scripts/build-trip-stories.mjs",
-    "build:en": "node scripts/build-english-trip-stories.mjs",
+    "build:en": "node scripts/build-english-trip-stories.mjs && node scripts/inline-en-includes.mjs",
     "build:all": "npm run build && npm run build:en"
   },
   "devDependencies": {
