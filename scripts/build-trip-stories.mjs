@@ -109,6 +109,11 @@ const articlePageTemplate = ({
                 : ""
             }
           </div>
+          <div class="trip-article-hero-actions">
+            <div class="hero-actions" role="group" aria-label="Language">
+              <a class="btn btn-lang" href="/en/trip-stories/${escapeHtml(slug)}/" lang="en" hreflang="en">English</a>
+            </div>
+          </div>
         </div>
         <div class="trip-article-cover-wrap">
           <img

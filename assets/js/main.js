@@ -24,14 +24,27 @@
     });
   };
 
+  const isEnglishSite = () => normalizePathname(window.location.pathname).startsWith("/en");
+
+  const localizeTripStoryUrl = (url) => {
+    const u = (url || "").trim();
+    if (!u || !isEnglishSite()) return u;
+    if (u.startsWith("/en/")) return u;
+    if (u.startsWith("/trip-stories/")) return `/en${u}`;
+    return u;
+  };
+
   const loadSiteIncludes = async () => {
     const headerPh = document.querySelector('[data-site-include="header"]');
     const footerPh = document.querySelector('[data-site-include="footer"]');
     if (!headerPh && !footerPh) return;
+    const en = isEnglishSite();
+    const headerPath = en ? "/components/header-en.html" : "/components/header.html";
+    const footerPath = en ? "/components/footer-en.html" : "/components/footer.html";
     const fetches = [];
-    if (headerPh) fetches.push(fetch("/components/header.html").then((r) => r.text()));
+    if (headerPh) fetches.push(fetch(headerPath).then((r) => r.text()));
     else fetches.push(Promise.resolve(null));
-    if (footerPh) fetches.push(fetch("/components/footer.html").then((r) => r.text()));
+    if (footerPh) fetches.push(fetch(footerPath).then((r) => r.text()));
     else fetches.push(Promise.resolve(null));
     const [headerHtml, footerHtml] = await Promise.all(fetches);
     if (headerPh && headerHtml) headerPh.outerHTML = headerHtml;
@@ -57,18 +70,21 @@
   /** 與建置腳本同步；路徑優先依 main.js 位置推算，避免子路徑或 file 情境下 /assets 錯位 */
   const tripStoriesArticleJsonUrls = () => {
     const urls = [];
+    const en = isEnglishSite();
+    const jsonName = en ? "trip-stories-articles-en.json" : "trip-stories-articles.json";
     const script =
       document.querySelector('script[src*="main.js"]') || document.querySelector('script[src*="trip-hub.js"]');
     if (script && script.src) {
       try {
-        urls.push(new URL("../data/trip-stories-articles.json", script.src).href);
+        urls.push(new URL(`../data/${jsonName}`, script.src).href);
       } catch (_) {}
     }
     const o = window.location.origin;
     if (o && o !== "null") {
       try {
-        urls.push(new URL("/assets/data/trip-stories-articles.json", o).href);
-        urls.push(new URL("/content/trip-stories/articles.json", o).href);
+        urls.push(new URL(`/assets/data/${jsonName}`, o).href);
+        if (!en) urls.push(new URL("/content/trip-stories/articles.json", o).href);
+        if (en) urls.push(new URL("/content/trip-stories-en/articles.json", o).href);
       } catch (_) {}
     }
     return [...new Set(urls)];
@@ -114,7 +130,7 @@
         const imgPath = ((pick.listVideoPoster || pick.listImage || pick.coverImage || "") + "").trim();
         const imgAlt = ((pick.listImageAlt || pick.coverImageAlt || title || "") + "").trim();
         const category = (pick.category || "").trim();
-        const url = (pick.url || `/trip-stories/${pick.slug}/`).trim();
+        const url = localizeTripStoryUrl((pick.url || `/trip-stories/${pick.slug}/`).trim());
         const link = slot.querySelector("[data-footer-trip-story-link]");
         const titleEl = slot.querySelector("[data-footer-trip-story-title]");
         const summaryEl = slot.querySelector("[data-footer-trip-story-summary]");

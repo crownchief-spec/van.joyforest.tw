@@ -415,6 +415,25 @@ a {
   margin-top: 22px;
 }
 
+.btn-lang {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.btn-lang:hover,
+.btn-lang:focus-visible {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.75);
+  color: #fff;
+}
+
+.booking-page-intro .hero-lang-switch {
+  margin-top: 16px;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

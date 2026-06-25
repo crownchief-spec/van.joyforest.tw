@@ -2,7 +2,15 @@
   const hubRoot = document.querySelector("[data-trip-hub]");
   if (!hubRoot) return;
 
-  const FILTER_KEYS = [
+  const normalizePathname = (pathname) => {
+    let p = pathname || "/";
+    if (p.endsWith("/index.html")) p = p.slice(0, -"/index.html".length) || "/";
+    if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
+    return p || "/";
+  };
+  const isEnglishSite = () => normalizePathname(window.location.pathname).startsWith("/en");
+
+  const FILTER_KEYS_ZH = [
     { id: "all", label: "全部文章" },
     { id: "客戶體驗評價", label: "客戶體驗評價" },
     { id: "品牌合作", label: "品牌合作" },
@@ -16,21 +24,40 @@
     { id: "新手教學", label: "新手教學" }
   ];
 
+  const FILTER_KEYS_EN = [
+    { id: "all", label: "All stories" },
+    { id: "Customer stories", label: "Customer stories" },
+    { id: "Brand collab", label: "Brand collab" },
+    { id: "International guests", label: "International guests" },
+    { id: "Beginner itineraries", label: "Beginner itineraries" },
+    { id: "Coastal routes", label: "Coastal routes" },
+    { id: "Mountain routes", label: "Mountain routes" },
+    { id: "Friends travel", label: "Friends trips" },
+    { id: "Family travel", label: "Family travel", matchTag: "Family travel" },
+    { id: "Event support", label: "Event support" },
+    { id: "How-to guides", label: "How-to guides" }
+  ];
+
+  const FILTER_KEYS = isEnglishSite() ? FILTER_KEYS_EN : FILTER_KEYS_ZH;
+
   /** 依腳本位置推算 JSON（相容子路徑部署、避免只用 /assets 根路徑失敗） */
   const tripStoriesArticleJsonUrls = () => {
     const urls = [];
+    const en = isEnglishSite();
+    const jsonName = en ? "trip-stories-articles-en.json" : "trip-stories-articles.json";
     const script =
       document.querySelector('script[src*="trip-hub.js"]') || document.querySelector('script[src*="main.js"]');
     if (script && script.src) {
       try {
-        urls.push(new URL("../data/trip-stories-articles.json", script.src).href);
+        urls.push(new URL(`../data/${jsonName}`, script.src).href);
       } catch (_) {}
     }
     const o = window.location.origin;
     if (o && o !== "null") {
       try {
-        urls.push(new URL("/assets/data/trip-stories-articles.json", o).href);
-        urls.push(new URL("/content/trip-stories/articles.json", o).href);
+        urls.push(new URL(`/assets/data/${jsonName}`, o).href);
+        if (!en) urls.push(new URL("/content/trip-stories/articles.json", o).href);
+        if (en) urls.push(new URL("/content/trip-stories-en/articles.json", o).href);
       } catch (_) {}
     }
     return [...new Set(urls)];
@@ -122,7 +149,7 @@
           ? `<div class="trip-hub-card__tags" aria-label="標籤">${tagStr}</div>`
           : ""
       }
-      <span class="trip-hub-card__more">閱讀文章</span>
+      <span class="trip-hub-card__more">${isEnglishSite() ? "Read article" : "閱讀文章"}</span>
     </div>
   </a>
 </article>`;
@@ -143,7 +170,9 @@
       if (!data) throw new Error("articles json unavailable");
       const list = Array.isArray(data.articles) ? data.articles : [];
       if (!list.length) {
-        hubRoot.innerHTML = '<p class="trip-stories-error">目前尚無客戶體驗評價文章。</p>';
+        hubRoot.innerHTML = isEnglishSite()
+          ? '<p class="trip-stories-error">No customer stories yet.</p>'
+          : '<p class="trip-stories-error">目前尚無客戶體驗評價文章。</p>';
         return;
       }
 
@@ -196,8 +225,9 @@
       }
     } catch (err) {
       console.error("[trip-hub]", err);
-      hubRoot.innerHTML =
-        '<p class="trip-stories-error">客戶體驗評價文章清單載入失敗。若使用本機檔案開啟，請改以網址列的網站網域瀏覽，或確認已部署 <code>assets/data/trip-stories-articles.json</code> 後重新整理。</p>';
+      hubRoot.innerHTML = isEnglishSite()
+        ? '<p class="trip-stories-error">Failed to load customer stories. Please refresh or check that <code>assets/data/trip-stories-articles-en.json</code> is deployed.</p>'
+        : '<p class="trip-stories-error">客戶體驗評價文章清單載入失敗。若使用本機檔案開啟，請改以網址列的網站網域瀏覽，或確認已部署 <code>assets/data/trip-stories-articles.json</code> 後重新整理。</p>';
     }
   })();
 })();
