@@ -15,6 +15,8 @@ const FOOTER = path.join(ROOT, "components", "footer-en.html");
 
 const HEADER_PLACEHOLDER = '<div data-site-include="header"></div>';
 const FOOTER_PLACEHOLDER = '<div data-site-include="footer"></div>';
+const HEADER_RE = /<header class="site-header"[\s\S]*?<\/header>/;
+const FOOTER_RE = /<footer class="site-footer">[\s\S]*?<\/footer>/;
 
 async function walkHtml(dir, base = "") {
   const out = [];
@@ -24,6 +26,13 @@ async function walkHtml(dir, base = "") {
     else if (e.isFile() && e.name.endsWith(".html")) out.push(rel);
   }
   return out;
+}
+
+function syncEnIncludes(html, headerBlock, footerBlock) {
+  let next = html.replace(HEADER_PLACEHOLDER, headerBlock).replace(FOOTER_PLACEHOLDER, footerBlock);
+  if (HEADER_RE.test(next)) next = next.replace(HEADER_RE, headerBlock);
+  if (FOOTER_RE.test(next)) next = next.replace(FOOTER_RE, footerBlock);
+  return next;
 }
 
 async function main() {
@@ -40,7 +49,7 @@ async function main() {
     if (rel === "booking/index.html") continue;
     const full = path.join(EN_DIR, rel);
     let html = await fs.readFile(full, "utf8");
-    const next = html.replace(HEADER_PLACEHOLDER, headerBlock).replace(FOOTER_PLACEHOLDER, footerBlock);
+    const next = syncEnIncludes(html, headerBlock, footerBlock);
     if (next !== html) {
       await fs.writeFile(full, next, "utf8");
       patched++;

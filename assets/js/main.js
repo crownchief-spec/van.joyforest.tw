@@ -76,10 +76,15 @@
     return t.slice(0, maxChars).trimEnd() + "…";
   };
 
+  const footerTripStoryLang = (wrap) => {
+    const attr = (wrap?.getAttribute("data-footer-trip-story-lang") || "").trim().toLowerCase();
+    if (attr === "en" || attr === "zh") return attr;
+    return isEnglishSite() ? "en" : "zh";
+  };
+
   /** 與建置腳本同步；路徑優先依 main.js 位置推算，避免子路徑或 file 情境下 /assets 錯位 */
-  const tripStoriesArticleJsonUrls = () => {
+  const tripStoriesArticleJsonUrls = (en) => {
     const urls = [];
-    const en = isEnglishSite();
     const jsonName = en ? "trip-stories-articles-en.json" : "trip-stories-articles.json";
     const script =
       document.querySelector('script[src*="main.js"]') || document.querySelector('script[src*="trip-hub.js"]');
@@ -99,8 +104,8 @@
     return [...new Set(urls)];
   };
 
-  const fetchTripStoriesArticlesJson = async () => {
-    for (const url of tripStoriesArticleJsonUrls()) {
+  const fetchTripStoriesArticlesJson = async (en) => {
+    for (const url of tripStoriesArticleJsonUrls(en)) {
       try {
         const res = await fetch(url, { cache: "no-cache" });
         if (!res.ok) continue;
@@ -117,8 +122,9 @@
     if (!wrap) return;
     const slots = wrap.querySelectorAll("[data-footer-trip-story-slot]");
     if (!slots.length) return;
+    const en = footerTripStoryLang(wrap) === "en";
     try {
-      const data = await fetchTripStoriesArticlesJson();
+      const data = await fetchTripStoriesArticlesJson(en);
       if (!data) {
         console.error(
           "[site] Footer trip stories:",
@@ -130,7 +136,11 @@
         return;
       }
       const articles = Array.isArray(data.articles) ? data.articles : [];
-      const valid = articles.filter((a) => a && (a.slug || "").trim() && (a.url || "").trim());
+      const valid = articles.filter((a) => {
+        if (!a || !(a.slug || "").trim() || !(a.url || "").trim()) return false;
+        const url = (a.url || "").trim();
+        return en ? url.startsWith("/en/") : !url.startsWith("/en/");
+      });
       if (!valid.length) return;
       const picks = pickTwoUnique(valid);
       slots.forEach((slot, index) => {
@@ -145,7 +155,8 @@
         const imgPath = ((pick.listVideoPoster || pick.listImage || pick.coverImage || "") + "").trim();
         const imgAlt = ((pick.listImageAlt || pick.coverImageAlt || title || "") + "").trim();
         const category = (pick.category || "").trim();
-        const url = localizeTripStoryUrl((pick.url || `/trip-stories/${pick.slug}/`).trim());
+        const defaultUrl = en ? `/en/trip-stories/${pick.slug}/` : `/trip-stories/${pick.slug}/`;
+        const url = localizeTripStoryUrl((pick.url || defaultUrl).trim());
         const link = slot.querySelector("[data-footer-trip-story-link]");
         const titleEl = slot.querySelector("[data-footer-trip-story-title]");
         const summaryEl = slot.querySelector("[data-footer-trip-story-summary]");
