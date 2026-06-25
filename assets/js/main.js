@@ -24,7 +24,13 @@
     });
   };
 
-  const isEnglishSite = () => normalizePathname(window.location.pathname).startsWith("/en");
+  const isEnglishSite = () => {
+    const lang = (document.documentElement.lang || "").toLowerCase();
+    if (lang === "en" || lang.startsWith("en-")) return true;
+    return normalizePathname(window.location.pathname).startsWith("/en");
+  };
+
+  const uiText = (zh, en) => (isEnglishSite() ? en : zh);
 
   const localizeTripStoryUrl = (url) => {
     const u = (url || "").trim();
@@ -111,7 +117,13 @@
     try {
       const data = await fetchTripStoriesArticlesJson();
       if (!data) {
-        console.error("[site] Footer trip stories: 無法載入 articles JSON（請確認已部署 assets/data/trip-stories-articles.json）");
+        console.error(
+          "[site] Footer trip stories:",
+          uiText(
+            "無法載入 articles JSON（請確認已部署 assets/data/trip-stories-articles.json）",
+            "Could not load articles JSON (check assets/data/trip-stories-articles-en.json is deployed)"
+          )
+        );
         return;
       }
       const articles = Array.isArray(data.articles) ? data.articles : [];
@@ -180,7 +192,7 @@
     btn.addEventListener("click", async () => {
       const text = template.textContent ? template.textContent.trim() : "";
       if (!text) {
-        setFeedback("找不到可複製的預約內容，請重新整理後再試。", false);
+        setFeedback(uiText("找不到可複製的預約內容，請重新整理後再試。", "Nothing to copy—please refresh and try again."), false);
         return;
       }
 
@@ -199,10 +211,15 @@
           document.body.removeChild(helper);
           if (!ok) throw new Error("execCommand copy failed");
         }
-        setFeedback("已複製預約資料，直接貼到 LINE 或 WhatsApp 傳送即可。");
+        setFeedback(
+          uiText(
+            "已複製預約資料，直接貼到 LINE 或 WhatsApp 傳送即可。",
+            "Booking details copied—paste into LINE or WhatsApp to send."
+          )
+        );
       } catch (err) {
         console.error("[site] Failed to copy booking template:", err);
-        setFeedback("複製失敗，請手動選取模板內容後複製。", false);
+        setFeedback(uiText("複製失敗，請手動選取模板內容後複製。", "Copy failed—please select the template text manually."), false);
       }
     });
   };
@@ -228,7 +245,7 @@
             ? template.content.textContent.trim()
             : (template.textContent || "").trim();
         if (!text) {
-          setFeedback("找不到可複製的行程內容。", false);
+          setFeedback(uiText("找不到可複製的行程內容。", "Nothing to copy for this day."), false);
           return;
         }
         try {
@@ -246,10 +263,15 @@
             document.body.removeChild(helper);
             if (!ok) throw new Error("execCommand copy failed");
           }
-          setFeedback("已複製這一天的行程，可貼到記事本或傳給旅伴。");
+          setFeedback(
+            uiText(
+              "已複製這一天的行程，可貼到記事本或傳給旅伴。",
+              "This day's itinerary copied—paste into notes or share with your group."
+            )
+          );
         } catch (err) {
           console.error("[site] Failed to copy itinerary:", err);
-          setFeedback("複製失敗，請手動選取內容。", false);
+          setFeedback(uiText("複製失敗，請手動選取內容。", "Copy failed—please select the text manually."), false);
         }
       });
     });
@@ -275,6 +297,11 @@
         });
       });
     });
+    if (isEnglishSite()) {
+      document.documentElement.classList.add("site-lang-en");
+      document.body.classList.add("site-lang-en");
+    }
+
     setMainNavCurrent();
 
     const header = document.querySelector("[data-site-header]");

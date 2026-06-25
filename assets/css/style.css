@@ -434,6 +434,17 @@ a {
   margin-top: 16px;
 }
 
+/* English site: hide any leftover bilingual nav subtitles */
+html.site-lang-en .nav-en,
+html[lang="en"] .nav-en {
+  display: none !important;
+}
+
+html.site-lang-en .nav-links a .nav-stack,
+html[lang="en"] .nav-links a .nav-stack {
+  display: block;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

@@ -114,7 +114,7 @@
     const poster = listVideoPosterSrc(a);
     if (v) {
       return `<div class="trip-hub-card__media trip-hub-card__media--video">
-      <video class="trip-hub-card__video" controls playsinline preload="metadata" poster="${esc(poster)}" width="640" height="360" title="${esc(a.title)}" aria-label="影片預覽：${esc(listThumbAlt(a))}">
+      <video class="trip-hub-card__video" controls playsinline preload="metadata" poster="${esc(poster)}" width="640" height="360" title="${esc(a.title)}" aria-label="${isEnglishSite() ? `Video preview: ${esc(listThumbAlt(a))}` : `影片預覽：${esc(listThumbAlt(a))}`}">
         <source src="${esc(v)}" type="video/mp4" />
       </video>
     </div>`;
@@ -146,7 +146,7 @@
       </div>
       ${
         tagStr
-          ? `<div class="trip-hub-card__tags" aria-label="標籤">${tagStr}</div>`
+          ? `<div class="trip-hub-card__tags" aria-label="${isEnglishSite() ? "Tags" : "標籤"}">${tagStr}</div>`
           : ""
       }
       <span class="trip-hub-card__more">${isEnglishSite() ? "Read article" : "閱讀文章"}</span>
