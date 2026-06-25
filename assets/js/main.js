@@ -120,6 +120,7 @@
   const initFooterTripStoryRandom = async () => {
     const wrap = document.querySelector("[data-footer-trip-story]");
     if (!wrap) return;
+    if (wrap.hasAttribute("data-footer-trip-story-prefilled")) return;
     const slots = wrap.querySelectorAll("[data-footer-trip-story-slot]");
     if (!slots.length) return;
     const en = footerTripStoryLang(wrap) === "en";

@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 import { marked } from "marked";
 import { hreflangHeadHtml, enLangSwitchHtml } from "./i18n-helpers.mjs";
+import { enhanceEnTitle, enhanceEnDescription, keywordsMetaHtml } from "./en-seo-helpers.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -60,6 +61,8 @@ const articlePageTemplate = ({
   const proseClass = wideBody
     ? "trip-article-prose trip-story-prose trip-article-prose--wide"
     : "trip-article-prose trip-story-prose";
+  const seoTitle = enhanceEnTitle(title);
+  const seoDescription = enhanceEnDescription(description);
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -67,15 +70,16 @@ const articlePageTemplate = ({
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#1f6b52" />
     <meta name="robots" content="index,follow,max-image-preview:large" />
-    <title>${escapeHtml(title)}</title>
-    <meta name="description" content="${escapeHtml(description)}" />
+    <title>${escapeHtml(seoTitle)}</title>
+    <meta name="description" content="${escapeHtml(seoDescription)}" />
+${keywordsMetaHtml()}
     <link rel="canonical" href="${SITE_ORIGIN}${enUrl}" />
 ${hreflangHeadHtml({ zhCanonical: `${SITE_ORIGIN}${zhUrl}`, enCanonical: `${SITE_ORIGIN}${enUrl}` })}
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Joyforest Campervan Rental" />
-    <meta property="og:title" content="${escapeHtml(title)}" />
-    <meta property="og:description" content="${escapeHtml(description)}" />
+    <meta property="og:title" content="${escapeHtml(seoTitle)}" />
+    <meta property="og:description" content="${escapeHtml(seoDescription)}" />
     <meta property="og:url" content="${SITE_ORIGIN}${enUrl}" />
     <meta property="og:image" content="${SITE_ORIGIN}${coverImage}" />
     <meta name="twitter:card" content="summary_large_image" />
