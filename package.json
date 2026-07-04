@@ -7,10 +7,11 @@
     "build:en": "node scripts/build-english-trip-stories.mjs && node scripts/inline-en-includes.mjs && node scripts/enhance-en-seo.mjs && node scripts/generate-sitemap.mjs",
     "build:all": "npm run build && npm run build:en",
     "seo:migrate": "node scripts/migrate-clean-urls.mjs",
+    "seo:sync": "node scripts/seo-sync.mjs",
     "seo:sitemap": "node scripts/generate-sitemap.mjs",
     "seo:validate": "node scripts/validate-seo.mjs",
     "seo:images": "node scripts/generate-hero-images.mjs",
-    "seo:fix": "node scripts/migrate-clean-urls.mjs && node scripts/generate-sitemap.mjs && node scripts/validate-seo.mjs"
+    "seo:fix": "node scripts/seo-sync.mjs && node scripts/generate-sitemap.mjs && node scripts/validate-seo.mjs"
   },
   "devDependencies": {
     "gray-matter": "^4.0.3",

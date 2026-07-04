@@ -10,44 +10,34 @@
   - WeChat：travelphotographer
   - WhatsApp：+886 911 252 302
 
-## 重要頁面（新架構）
+## 重要頁面（clean URL）
 
 - 首頁（Home）：https://van.joyforest.tw/
-- 價格與車款介紹（Price & Van）：https://van.joyforest.tw/pages/campervan.html
-- 露營車使用教學（How to Use，含 Q&A）：https://van.joyforest.tw/pages/booking-guide.html
-- 客戶體驗評價（Stories）：https://van.joyforest.tw/pages/trip-ideas.html
-- 立即預約（Book Now）：https://van.joyforest.tw/booking.html
-- 延伸閱讀與資源：https://van.joyforest.tw/pages/resources/index.html
-- 資源｜客人出遊紀錄與實際使用照片：https://van.joyforest.tw/pages/resources/customer-travel-photos-campervan-records.html
-- 資源｜租車心得與評價整理：https://van.joyforest.tw/pages/resources/campervan-rental-reviews-guide.html
-- 資源｜親子好友情侶與活動支援案例：https://van.joyforest.tw/pages/resources/family-friends-couple-event-campervan-cases.html
-- 資源｜推薦露營區地圖分區：https://van.joyforest.tw/pages/resources/taiwan-campsite-map-regions-guide.html
-- 資源｜適合露營車停靠地點：https://van.joyforest.tw/pages/resources/campervan-suitable-parking-stops-taiwan.html
-- 資源｜北部露營車路線：https://van.joyforest.tw/pages/resources/northern-taiwan-campervan-routes.html
-- 資源｜桃園新竹苗栗露營區建議：https://van.joyforest.tw/pages/resources/taoyuan-hsinchu-miaoli-campsites-campervan.html
-- 資源｜海邊路線五方向：https://van.joyforest.tw/pages/resources/taiwan-coastal-routes-campervan-five-itineraries.html
-- 資源｜親子景點：https://van.joyforest.tw/pages/resources/family-attractions-campervan-taiwan.html
-- 資源｜補水與充電注意事項：https://van.joyforest.tw/pages/resources/campervan-water-electricity-checklist.html
-- 資源｜露營車新手文章學習路徑：https://van.joyforest.tw/pages/resources/campervan-newbie-articles-learning-path.html
+- 英文首頁：https://van.joyforest.tw/en/
+- 價格與車款介紹（Price & Van）：https://van.joyforest.tw/pages/campervan
+- 露營車使用教學（How to Use，含 Q&A）：https://van.joyforest.tw/pages/booking-guide
+- 客戶體驗評價（Stories）：https://van.joyforest.tw/pages/trip-ideas
+- 立即預約（Book Now）：https://van.joyforest.tw/booking
+- 延伸閱讀與資源：https://van.joyforest.tw/pages/resources/
 - 部落格：https://van.joyforest.tw/blog/
 
-## 舊頁面（已做 client-side redirect）
+## 舊頁面（client-side redirect）
 
-- /pages/guide.html → /pages/booking-guide.html
-- /pages/faq.html   → /pages/booking-guide.html#faq
+- /pages/guide → /pages/booking-guide
+- /pages/faq → /pages/booking-guide#faq
 
 ## 主題關鍵字
 
 - 露營車出租、露營車到府、到府交車
-- 租露營車費用、台灣露營車出租價格、平價露營車出租（比較時應含最低租期、衛浴、送車條件）
+- 租露營車費用、台灣露營車出租價格、平價露營車出租
 - 露營車出租台北、租露營車桃園、新竹露營車出租洽詢
-- 自走式露營車出租、大型露營車（車長約 5m、車高約 3m，須留意限高與迴車）
-- 台北露營車出租、桃園露營車出租、新竹露營車出租
-- 露營車價格、露營車租借方案、3天2夜、加天費用、押金
+- 自走式露營車出租、大型露營車（車長約 5m、車高約 3m）
 - 露營車使用教學、水電冷氣、衛浴、還車檢查、常見問題 Q&A
 - 露營車客戶體驗評價、親子露營車、好友露營車、海邊山區、活動支援
 
-## 說明
+## SEO 維護
 
-本網站為靜態 HTML 網站，SEO/OG/Schema 直接寫於各頁 HTML head；延伸閱讀資源列表與各資源文之社群分享圖（OG）以站內圖檔為主，利於載入與品牌一致。
-共用的 header 與 footer 透過 /components/*.html + fetch 動態注入。
+- 每頁 SEO 資料集中於 `seo-map.json`
+- 執行 `npm run seo:sync` 將 meta / OG / Twitter 套用到各 HTML head
+- 每頁 og:image 優先使用該頁 hero 主圖；詳見 seo-map 的 `ogImage` 欄位
+- 共用 header/footer 由 `/components/*.html` + fetch 動態注入（不含 SEO meta）

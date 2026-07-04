@@ -154,15 +154,45 @@ async function checkTitlesDescriptions() {
   pass(`Unique titles: ${titles.size}, descriptions: ${descs.size}`);
 }
 
+async function checkOgImages() {
+  const files = await walkHtml(ROOT);
+  const ogMap = new Map();
+  let missing = 0;
+  for (const rel of files) {
+    if (rel.startsWith("components/") || rel.includes("404") || rel.includes("guide.html") || rel.includes("faq.html") || rel.includes("booking/index")) continue;
+    const html = await fs.readFile(path.join(ROOT, rel), "utf8");
+    if (/noindex/i.test(html)) continue;
+    const og = html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/i)?.[1];
+    const tw = html.match(/<meta\s+name="twitter:image"\s+content="([^"]+)"/i)?.[1];
+    if (!og) {
+      missing++;
+      fail(`Missing og:image: ${rel}`);
+      continue;
+    }
+    if (!og.startsWith("https://van.joyforest.tw/")) fail(`og:image not absolute: ${rel}`);
+    if (tw && tw !== og) warn(`twitter:image differs from og:image: ${rel}`);
+    if (!ogMap.has(og)) ogMap.set(og, []);
+    ogMap.get(og).push(rel);
+  }
+  const shared = [...ogMap.entries()].filter(([, arr]) => arr.length > 2);
+  for (const [url, arr] of shared) {
+    warn(`og:image shared by ${arr.length} pages: ${url}`);
+  }
+  pass(`og:image present on indexable pages (missing: ${missing})`);
+}
+
 async function main() {
   console.log(`[validate-seo] Mode: ${LIVE ? "live" : "local files"}\n`);
   await checkSitemap();
   const files = await walkHtml(ROOT);
   for (const rel of files) {
-    if (rel.includes("guide.html") || rel.includes("booking/index")) continue;
+    if (rel.startsWith("components/")) continue;
+    if (rel.startsWith("components/")) continue;
+    if (rel.includes("guide.html") || rel.includes("faq.html") || rel.includes("booking/index")) continue;
     await checkHtmlFile(rel);
   }
   await checkTitlesDescriptions();
+  await checkOgImages();
 
   console.log(`\n=== PASS: ${results.pass.length} ===`);
   console.log(`=== FAIL: ${results.fail.length} ===`);

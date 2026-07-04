@@ -3,7 +3,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { SITE_ORIGIN, toCanonicalUrl, shouldIndexPath } from "./seo-url-helpers.mjs";
+import { SITE_ORIGIN, toCanonicalUrl, toCleanPath, shouldIndexPath } from "./seo-url-helpers.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -17,6 +17,18 @@ const EXCLUDE_FILES = new Set([
   "booking/index.html",
   "en/booking/index.html"
 ]);
+
+const EXCLUDE_PREFIXES = ["components/"];
+
+function fileToPath(rel) {
+  if (rel === "index.html") return "/";
+  if (rel === "en/index.html") return "/en/";
+  if (rel.endsWith("/index.html")) {
+    const dir = rel.slice(0, -"/index.html".length);
+    return toCleanPath(`/${dir}/`);
+  }
+  return toCleanPath(`/${rel}`);
+}
 
 async function walkHtml(dir, base = "") {
   const out = [];
@@ -32,16 +44,6 @@ async function walkHtml(dir, base = "") {
   return out;
 }
 
-function fileToPath(rel) {
-  if (rel === "index.html") return "/";
-  if (rel === "en/index.html") return "/en/";
-  if (rel.endsWith("/")) {
-    const dir = rel.slice(0, -"/".length);
-    return toCanonicalUrl(`/${dir}/`).replace(SITE_ORIGIN, "");
-  }
-  return toCanonicalUrl(`/${rel}`).replace(SITE_ORIGIN, "");
-}
-
 async function getLastmod(rel) {
   const stat = await fs.stat(path.join(ROOT, rel));
   return stat.mtime.toISOString().slice(0, 10);
@@ -53,6 +55,7 @@ async function main() {
 
   for (const rel of files) {
     if (EXCLUDE_FILES.has(rel)) continue;
+    if (EXCLUDE_PREFIXES.some((p) => rel.startsWith(p))) continue;
     const pagePath = fileToPath(rel);
     if (!shouldIndexPath(pagePath)) continue;
     entries.push({ loc: toCanonicalUrl(pagePath), file: rel });
