@@ -372,6 +372,7 @@
       btn.addEventListener("click", () => {
         const isOpen = el.classList.contains("is-open");
         setOpen(!isOpen);
+        if (!isOpen) requestAnimationFrame(refreshOpenAccordionPanels);
       });
     });
 
@@ -393,15 +394,25 @@
       revealEls.forEach((el) => el.classList.add("is-visible"));
     }
 
+    const refreshOpenAccordionPanels = () => {
+      document.querySelectorAll("[data-accordion].is-open .panel").forEach((panel) => {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      });
+    };
+
     window.addEventListener(
       "resize",
       () => {
-        document.querySelectorAll("[data-accordion].is-open .panel").forEach((panel) => {
-          panel.style.maxHeight = panel.scrollHeight + "px";
-        });
+        refreshOpenAccordionPanels();
       },
       { passive: true }
     );
+
+    document.querySelectorAll("[data-accordion] .panel details").forEach((details) => {
+      details.addEventListener("toggle", () => {
+        requestAnimationFrame(refreshOpenAccordionPanels);
+      });
+    });
 
     // 指南頁折疊區塊：若網址帶有 #hash，自動展開對應段落及其所有 <details> 祖先。
     const openCollapsibleFromHash = () => {
