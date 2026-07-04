@@ -3,12 +3,18 @@
   "private": true,
   "description": "靜態站。編輯 content/trip-stories/*.md 後請執行 npm run build 再部署，以更新 articles.json、各篇 HTML 與 sitemap。",
   "scripts": {
-    "build": "node scripts/build-trip-stories.mjs",
-    "build:en": "node scripts/build-english-trip-stories.mjs && node scripts/inline-en-includes.mjs && node scripts/enhance-en-seo.mjs",
-    "build:all": "npm run build && npm run build:en"
+    "build": "node scripts/build-trip-stories.mjs && node scripts/generate-sitemap.mjs",
+    "build:en": "node scripts/build-english-trip-stories.mjs && node scripts/inline-en-includes.mjs && node scripts/enhance-en-seo.mjs && node scripts/generate-sitemap.mjs",
+    "build:all": "npm run build && npm run build:en",
+    "seo:migrate": "node scripts/migrate-clean-urls.mjs",
+    "seo:sitemap": "node scripts/generate-sitemap.mjs",
+    "seo:validate": "node scripts/validate-seo.mjs",
+    "seo:images": "node scripts/generate-hero-images.mjs",
+    "seo:fix": "node scripts/migrate-clean-urls.mjs && node scripts/generate-sitemap.mjs && node scripts/validate-seo.mjs"
   },
   "devDependencies": {
     "gray-matter": "^4.0.3",
-    "marked": "^12.0.2"
+    "marked": "^12.0.2",
+    "sharp": "^0.35.2"
   }
 }

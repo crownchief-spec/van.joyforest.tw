@@ -2,410 +2,426 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://van.joyforest.tw/</loc>
-    <priority>1.0</priority>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/pages/campervan.html</loc>
-    <priority>0.9</priority>
+    <loc>https://van.joyforest.tw/blog/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/pages/booking-guide.html</loc>
-    <priority>0.9</priority>
+    <loc>https://van.joyforest.tw/booking</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/pages/trip-ideas.html</loc>
-    <priority>0.8</priority>
+    <loc>https://van.joyforest.tw/components/footer</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/booking.html</loc>
-    <priority>0.9</priority>
+    <loc>https://van.joyforest.tw/components/footer-en</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/blog/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/components/header</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/pages/resources/index.html</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/taipei-campervan-rental-guide.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/campervan-beginner-how-to-use.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/campervan-3days-2nights-trip-ideas.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/campervan-price-comparison.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/family-campervan-travel.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/campervan-vs-campsite.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/taipei-taoyuan-hsinchu-campervan.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/campervan-resources-youtube-guide.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/customer-travel-photos-campervan-records.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/campervan-rental-reviews-guide.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/family-friends-couple-event-campervan-cases.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/taiwan-campsite-map-regions-guide.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/campervan-suitable-parking-stops-taiwan.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/northern-taiwan-campervan-routes.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/taoyuan-hsinchu-miaoli-campsites-campervan.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/taiwan-coastal-routes-campervan-five-itineraries.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/family-attractions-campervan-taiwan.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/campervan-water-electricity-checklist.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/pages/resources/campervan-newbie-articles-learning-path.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/family-beginner-3-days/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/seaside-van-trip/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/mountain-camping-van/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/couple-friends-photo-trip/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/event-support-van/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/water-electric-campsite/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/stargazing-sunroof/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/hola-campervan-brand-case/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/philips-campervan-brand-case/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/hsinchu-bride-lounge-campervan-story/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/taipei-north-coast-story/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/miaoli-cape-paradise-car-camping-story/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/international-guests-israel-surf-loop/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/joyforest-campervan-born-container-factory-assembly/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/wuling-farm-campervan-story/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/kenting-voucher/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/kenting-yilan-starry-night-campervan-timelapse/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/bunker-campsite-glamping-romantic-dinner-starry-night/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/customer-trip-moments/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/campervan-meetup-gathering/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/vanlife-easy-women-couple/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/baishawan-surf-campervan-relax/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/rakuten-girls-taoyuan-campervan-birthday-glamping/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/vietnam-friends-coastal-campervan-overnight/</loc>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://van.joyforest.tw/trip-stories/north-coast-weekend-campervan-itinerary/</loc>
-    <priority>0.65</priority>
+    <loc>https://van.joyforest.tw/components/header-en</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
     <loc>https://van.joyforest.tw/en/</loc>
-    <priority>0.6</priority>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/booking.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/blog/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/campervan.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/booking</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/booking-guide.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/booking-guide</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/trip-ideas.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/campervan</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/blog/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/campervan-3days-2nights-trip-ideas</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/index.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/campervan-beginner-how-to-use</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/taipei-campervan-rental-guide.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/campervan-newbie-articles-learning-path</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/campervan-beginner-how-to-use.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/campervan-price-comparison</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/campervan-3days-2nights-trip-ideas.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/campervan-rental-reviews-guide</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/campervan-price-comparison.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/campervan-resources-youtube-guide</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/family-campervan-travel.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/campervan-suitable-parking-stops-taiwan</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/campervan-vs-campsite.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/campervan-vs-campsite</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/taipei-taoyuan-hsinchu-campervan.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/campervan-water-electricity-checklist</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/campervan-resources-youtube-guide.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/customer-travel-photos-campervan-records</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/customer-travel-photos-campervan-records.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/family-attractions-campervan-taiwan</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/campervan-rental-reviews-guide.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/family-campervan-travel</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/family-friends-couple-event-campervan-cases.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/family-friends-couple-event-campervan-cases</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/taiwan-campsite-map-regions-guide.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/campervan-suitable-parking-stops-taiwan.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/northern-taiwan-campervan-routes</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/northern-taiwan-campervan-routes.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/taipei-campervan-rental-guide</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/taoyuan-hsinchu-miaoli-campsites-campervan.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/taipei-taoyuan-hsinchu-campervan</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/taiwan-coastal-routes-campervan-five-itineraries.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/taiwan-campsite-map-regions-guide</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/family-attractions-campervan-taiwan.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/taiwan-coastal-routes-campervan-five-itineraries</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/campervan-water-electricity-checklist.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/resources/taoyuan-hsinchu-miaoli-campsites-campervan</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/pages/resources/campervan-newbie-articles-learning-path.html</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/pages/trip-ideas</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/vietnam-friends-coastal-campervan-overnight/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/baishawan-surf-campervan-relax/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/north-coast-weekend-campervan-itinerary/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/bunker-campsite-glamping-romantic-dinner-starry-night/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/family-beginner-3-days/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/campervan-meetup-gathering/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/hola-campervan-brand-case/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/couple-friends-photo-trip/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/philips-campervan-brand-case/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/customer-trip-moments/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/hsinchu-bride-lounge-campervan-story/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/event-support-van/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/taipei-north-coast-story/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/family-beginner-3-days/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/stargazing-sunroof/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/hola-campervan-brand-case/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/miaoli-cape-paradise-car-camping-story/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/hsinchu-bride-lounge-campervan-story/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/international-guests-israel-surf-loop/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/international-guests-israel-surf-loop/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/wuling-farm-campervan-story/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/joyforest-campervan-born-container-factory-assembly/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/kenting-voucher/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/kenting-voucher/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/seaside-van-trip/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/kenting-yilan-starry-night-campervan-timelapse/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/customer-trip-moments/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/miaoli-cape-paradise-car-camping-story/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/campervan-meetup-gathering/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/mountain-camping-van/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/vanlife-easy-women-couple/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/north-coast-weekend-campervan-itinerary/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/mountain-camping-van/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/philips-campervan-brand-case/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/couple-friends-photo-trip/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/rakuten-girls-taoyuan-campervan-birthday-glamping/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/event-support-van/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/seaside-van-trip/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/water-electric-campsite/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/stargazing-sunroof/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/kenting-yilan-starry-night-campervan-timelapse/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/taipei-north-coast-story/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/joyforest-campervan-born-container-factory-assembly/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/vanlife-easy-women-couple/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/bunker-campsite-glamping-romantic-dinner-starry-night/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/vietnam-friends-coastal-campervan-overnight/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/baishawan-surf-campervan-relax/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/water-electric-campsite/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
   <url>
-    <loc>https://van.joyforest.tw/en/trip-stories/rakuten-girls-taoyuan-campervan-birthday-glamping/</loc>
-    <priority>0.6</priority>
+    <loc>https://van.joyforest.tw/en/trip-stories/wuling-farm-campervan-story/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/booking-guide</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/campervan</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/campervan-3days-2nights-trip-ideas</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/campervan-beginner-how-to-use</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/campervan-newbie-articles-learning-path</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/campervan-price-comparison</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/campervan-rental-reviews-guide</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/campervan-resources-youtube-guide</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/campervan-suitable-parking-stops-taiwan</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/campervan-vs-campsite</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/campervan-water-electricity-checklist</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/customer-travel-photos-campervan-records</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/family-attractions-campervan-taiwan</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/family-campervan-travel</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/family-friends-couple-event-campervan-cases</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/northern-taiwan-campervan-routes</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/taipei-campervan-rental-guide</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/taipei-taoyuan-hsinchu-campervan</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/taiwan-campsite-map-regions-guide</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/taiwan-coastal-routes-campervan-five-itineraries</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/resources/taoyuan-hsinchu-miaoli-campsites-campervan</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/pages/trip-ideas</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/baishawan-surf-campervan-relax/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/bunker-campsite-glamping-romantic-dinner-starry-night/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/campervan-meetup-gathering/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/couple-friends-photo-trip/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/customer-trip-moments/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/event-support-van/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/family-beginner-3-days/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/hola-campervan-brand-case/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/hsinchu-bride-lounge-campervan-story/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/international-guests-israel-surf-loop/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/joyforest-campervan-born-container-factory-assembly/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/kenting-voucher/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/kenting-yilan-starry-night-campervan-timelapse/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/miaoli-cape-paradise-car-camping-story/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/mountain-camping-van/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/north-coast-weekend-campervan-itinerary/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/philips-campervan-brand-case/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/rakuten-girls-taoyuan-campervan-birthday-glamping/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/seaside-van-trip/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/stargazing-sunroof/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/taipei-north-coast-story/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/vanlife-easy-women-couple/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/vietnam-friends-coastal-campervan-overnight/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/water-electric-campsite/index</loc>
+    <lastmod>2026-06-27</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/trip-stories/wuling-farm-campervan-story/index</loc>
+    <lastmod>2026-06-27</lastmod>
   </url>
 </urlset>

@@ -21,8 +21,8 @@ const SKIP_FILES = new Set([
 const fileToPublicPath = (rel) => {
   const norm = rel.replace(/\\/g, "/");
   if (norm === "index.html") return "/";
-  if (norm.endsWith("/index.html")) {
-    const dir = norm.slice(0, -"/index.html".length);
+  if (norm.endsWith("/")) {
+    const dir = norm.slice(0, -"/".length);
     return `/${dir}/`;
   }
   return `/${norm}`;

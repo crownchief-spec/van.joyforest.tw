@@ -13,7 +13,7 @@ const OUT_STORIES_DIR = path.join(ROOT, "trip-stories");
 const SITEMAP = path.join(ROOT, "sitemap.xml");
 const SITE_ORIGIN = "https://van.joyforest.tw";
 
-marked.setOptions({ gfm: true, breaks: true });
+import { hreflangHeadHtml, zhLangSwitchHtml } from "./i18n-helpers.mjs";
 
 const escapeHtml = (s) =>
   String(s)
@@ -68,6 +68,7 @@ const articlePageTemplate = ({
     <title>${escapeHtml(title)}</title>
     <meta name="description" content="${escapeHtml(description)}" />
     <link rel="canonical" href="${SITE_ORIGIN}/trip-stories/${slug}/" />
+${hreflangHeadHtml({ zhCanonical: `${SITE_ORIGIN}/trip-stories/${slug}/`, enCanonical: `${SITE_ORIGIN}/en/trip-stories/${slug}/` })}
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="zh_TW" />
     <meta property="og:site_name" content="揪好森露營車出租" />
@@ -93,7 +94,7 @@ const articlePageTemplate = ({
       <header class="trip-article-hero">
         <div class="container trip-article-hero__inner">
           <p class="trip-article-hero__meta">
-            <a class="trip-article-hero__crumb" href="/pages/trip-ideas.html">客戶體驗評價</a>
+            <a class="trip-article-hero__crumb" href="/pages/trip-ideas">客戶體驗評價</a>
             <span class="trip-article-hero__sep" aria-hidden="true">／</span>
             <span class="pill trip-article-hero__cat">${escapeHtml(category)}</span>
           </p>
@@ -144,9 +145,9 @@ const articlePageTemplate = ({
             <h2>想用露營車安排這樣的旅行嗎？</h2>
             <p>你可以先告訴我們日期、人數、想去的方向與是否需要送車，我們會協助確認適合的租借方式與行程安排。</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="/booking.html">立即預約露營車</a>
-              <a class="btn btn-outline" href="/pages/campervan.html">查看價格與車款介紹</a>
-              <a class="btn btn-outline" href="/pages/booking-guide.html">看露營車使用教學</a>
+              <a class="btn btn-primary" href="/booking">立即預約露營車</a>
+              <a class="btn btn-outline" href="/pages/campervan">查看價格與車款介紹</a>
+              <a class="btn btn-outline" href="/pages/booking-guide">看露營車使用教學</a>
             </div>
           </section>`
           }
@@ -320,7 +321,7 @@ async function main() {
           "@type": "ListItem",
           position: 2,
           name: "客戶體驗評價",
-          item: `${SITE_ORIGIN}/pages/trip-ideas.html`
+          item: `${SITE_ORIGIN}/pages/trip-ideas`
         },
         {
           "@type": "ListItem",

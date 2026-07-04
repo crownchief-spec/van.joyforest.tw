@@ -100,7 +100,7 @@ ${hreflangHeadHtml({ zhCanonical: `${SITE_ORIGIN}${zhUrl}`, enCanonical: `${SITE
       <header class="trip-article-hero">
         <div class="container trip-article-hero__inner">
           <p class="trip-article-hero__meta">
-            <a class="trip-article-hero__crumb" href="/en/pages/trip-ideas.html">Customer stories</a>
+            <a class="trip-article-hero__crumb" href="/en/pages/trip-ideas">Customer stories</a>
             <span class="trip-article-hero__sep" aria-hidden="true">／</span>
             <span class="pill trip-article-hero__cat">${escapeHtml(category)}</span>
           </p>
@@ -151,9 +151,9 @@ ${hreflangHeadHtml({ zhCanonical: `${SITE_ORIGIN}${zhUrl}`, enCanonical: `${SITE
             <h2>Want to plan a trip like this?</h2>
             <p>Tell us your dates, group size, direction and whether you need delivery—we’ll help confirm rental options and pacing.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="/en/booking.html">Book the campervan</a>
-              <a class="btn btn-outline" href="/en/pages/campervan.html">Price &amp; van details</a>
-              <a class="btn btn-outline" href="/en/pages/booking-guide.html">How to use the van</a>
+              <a class="btn btn-primary" href="/en/booking">Book the campervan</a>
+              <a class="btn btn-outline" href="/en/pages/campervan">Price &amp; van details</a>
+              <a class="btn btn-outline" href="/en/pages/booking-guide">How to use the van</a>
             </div>
           </section>`
           }
@@ -292,7 +292,7 @@ async function main() {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_ORIGIN}/en/` },
-        { "@type": "ListItem", position: 2, name: "Customer stories", item: `${SITE_ORIGIN}/en/pages/trip-ideas.html` },
+        { "@type": "ListItem", position: 2, name: "Customer stories", item: `${SITE_ORIGIN}/en/pages/trip-ideas` },
         { "@type": "ListItem", position: 3, name: item.title, item: `${SITE_ORIGIN}${enUrl}` }
       ]
     });
@@ -305,12 +305,12 @@ async function main() {
 
   const staticEnUrls = [
     `${SITE_ORIGIN}/en/`,
-    `${SITE_ORIGIN}/en/booking.html`,
-    `${SITE_ORIGIN}/en/pages/campervan.html`,
-    `${SITE_ORIGIN}/en/pages/booking-guide.html`,
-    `${SITE_ORIGIN}/en/pages/trip-ideas.html`,
+    `${SITE_ORIGIN}/en/booking`,
+    `${SITE_ORIGIN}/en/pages/campervan`,
+    `${SITE_ORIGIN}/en/pages/booking-guide`,
+    `${SITE_ORIGIN}/en/pages/trip-ideas`,
     `${SITE_ORIGIN}/en/blog/`,
-    `${SITE_ORIGIN}/en/pages/resources/index.html`,
+    `${SITE_ORIGIN}/en/pages/resources/`,
     ...[
       "taipei-campervan-rental-guide",
       "campervan-beginner-how-to-use",
@@ -331,7 +331,7 @@ async function main() {
       "family-attractions-campervan-taiwan",
       "campervan-water-electricity-checklist",
       "campervan-newbie-articles-learning-path"
-    ].map((s) => `${SITE_ORIGIN}/en/pages/resources/${s}.html`)
+    ].map((s) => `${SITE_ORIGIN}/en/pages/resources/${s}`)
   ];
 
   await patchSitemap([...staticEnUrls, ...rawList.map((a) => `${SITE_ORIGIN}${a.url}`)]);

@@ -4,7 +4,7 @@
 
   const normalizePathname = (pathname) => {
     let p = pathname || "/";
-    if (p.endsWith("/index.html")) p = p.slice(0, -"/index.html".length) || "/";
+    if (p.endsWith("/")) p = p.slice(0, -"/".length) || "/";
     if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
     return p || "/";
   };

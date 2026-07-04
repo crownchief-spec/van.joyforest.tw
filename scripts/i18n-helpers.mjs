@@ -1,12 +1,13 @@
 /** Shared i18n path helpers for zh ↔ en URL mapping */
-export const SITE_ORIGIN = "https://van.joyforest.tw";
+import { SITE_ORIGIN, toCleanPath } from "./seo-url-helpers.mjs";
+
+export { SITE_ORIGIN };
 
 export const normalizePathname = (pathname) => {
-  let p = pathname || "/";
-  if (p.endsWith("/index.html")) {
-    p = p.slice(0, -"/index.html".length) || "/";
+  const p = toCleanPath(pathname || "/");
+  if (p.length > 1 && p.endsWith("/") && p !== "/en/") {
+    return p.slice(0, -1);
   }
-  if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
   return p || "/";
 };
 

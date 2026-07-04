@@ -111,7 +111,7 @@ function bakeFooterTripStories(html, articles, relPath) {
   const slotsHtml = picks.map(bakeFooterTripStorySlot).join("\n");
   const block = `<div class="footer-trip-story-random" data-footer-trip-story data-footer-trip-story-lang="en" data-footer-trip-story-prefilled="true">
       <h3 class="footer-trip-story-random__heading">
-        <a href="/en/pages/trip-ideas.html">Campervan customer stories</a>
+        <a href="/en/pages/trip-ideas">Campervan customer stories</a>
       </h3>
       <ul class="footer-trip-story-random__list" role="list" aria-label="Two recommended campervan customer stories">
 ${slotsHtml}
