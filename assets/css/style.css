@@ -1291,12 +1291,18 @@ html[lang="en"] .nav-links a .nav-stack {
   box-shadow: var(--shadow-sm);
 }
 
-.video-embed iframe {
+.video-embed iframe,
+.video-embed video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.video-embed video {
+  object-fit: contain;
+  background: #0b0d0c;
 }
 
 /* 教學頁主影片：手機版左右貼齊螢幕、最大化可視區 */
