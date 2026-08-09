@@ -8,10 +8,15 @@
     "build:all": "npm run build && npm run build:en",
     "seo:migrate": "node scripts/migrate-clean-urls.mjs",
     "seo:sync": "node scripts/seo-sync.mjs",
+    "seo:repair": "node scripts/repair-malformed-seo.mjs",
     "seo:sitemap": "node scripts/generate-sitemap.mjs",
     "seo:validate": "node scripts/validate-seo.mjs",
+    "seo:og": "node scripts/generate-og-images.mjs",
+    "seo:media": "node scripts/optimize-html-images.mjs",
+    "seo:paths": "node scripts/normalize-static-paths.mjs",
+    "seo:links": "node scripts/validate-site-assets.mjs",
     "seo:images": "node scripts/generate-hero-images.mjs",
-    "seo:fix": "node scripts/seo-sync.mjs && node scripts/generate-sitemap.mjs && node scripts/validate-seo.mjs"
+    "seo:fix": "node scripts/repair-malformed-seo.mjs && node scripts/normalize-static-paths.mjs && node scripts/generate-og-images.mjs && node scripts/seo-sync.mjs && node scripts/optimize-html-images.mjs && node scripts/generate-sitemap.mjs && node scripts/validate-site-assets.mjs && node scripts/validate-seo.mjs"
   },
   "devDependencies": {
     "gray-matter": "^4.0.3",

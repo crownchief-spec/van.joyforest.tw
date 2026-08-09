@@ -145,19 +145,17 @@ export function extractSchemaTypes(html) {
 }
 
 export function pickOgImage(pageFile, heroImage, currentOg, explicitOg) {
-  if (OG_IMAGE_OVERRIDES[pageFile]) return OG_IMAGE_OVERRIDES[pageFile];
   if (explicitOg) return explicitOg;
+  if (OG_IMAGE_OVERRIDES[pageFile]) return OG_IMAGE_OVERRIDES[pageFile];
   if (heroImage) return heroImage;
   if (currentOg && !currentOg.includes("shared/default")) return currentOg;
   return "";
 }
 
 export function inferOgType(route, html) {
-  if (route.includes("/trip-stories/") || extractMeta(html, "og:type") === "article") {
-    return "article";
-  }
-  if (route === "/" || route === "/en/") return "website";
-  return extractMeta(html, "og:type") || "article";
+  if (route.includes("/trip-stories/")) return "article";
+  if (route.includes("/pages/resources/") && !route.endsWith("/resources/")) return "article";
+  return "website";
 }
 
 export function setMetaContent(html, attr, key, value) {
@@ -166,7 +164,9 @@ export function setMetaContent(html, attr, key, value) {
     `(<meta\\s+(?:name|property)="${key}"\\s+content=")([^"]*)(")`,
     "i"
   );
-  if (re.test(html)) return html.replace(re, `$1${val}$3`);
+  if (re.test(html)) {
+    return html.replace(re, (_match, prefix, _oldValue, suffix) => `${prefix}${val}${suffix}`);
+  }
   const insertAfter = attr === "property" ? "og:site_name" : "description";
   const anchor = new RegExp(
     `(<meta\\s+(?:name|property)="${insertAfter}"[^>]*\\/?>)`,
@@ -178,28 +178,67 @@ export function setMetaContent(html, attr, key, value) {
       `$1\n    <meta ${attr}="${key}" content="${val}" />`
     );
   }
-  return html;
+  return html.replace(
+    /<\/head>/i,
+    `    <meta ${attr}="${key}" content="${val}" />\n  </head>`
+  );
 }
 
 export function setLinkHref(html, rel, href) {
   const val = escapeHtml(href);
   const re = new RegExp(`(<link\\s+rel="${rel}"\\s+href=")([^"]*)(")`, "i");
-  if (re.test(html)) return html.replace(re, `$1${val}$3`);
+  if (re.test(html)) {
+    return html.replace(re, (_match, prefix, _oldValue, suffix) => `${prefix}${val}${suffix}`);
+  }
   return html;
 }
 
 export function setTitle(html, title) {
-  return html.replace(/<title>[^<]*<\/title>/i, `<title>${escapeHtml(title)}</title>`);
+  return html.replace(/<title>[^<]*<\/title>/i, () => `<title>${escapeHtml(title)}</title>`);
 }
 
 export function ensureFaviconBlock(html) {
-  if (html.includes('rel="manifest"')) return html;
-  const block = `
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-64.png" type="image/png" sizes="64x64" />
-    <link rel="apple-touch-icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-180.png" />
-    <link rel="manifest" href="/manifest.webmanifest" />`;
-  return html.replace(/<\/head>/i, `${block}\n  </head>`);
+  const tags = [
+    ['href="/favicon.ico"', '<link rel="icon" href="/favicon.ico" sizes="any" />'],
+    ['href="/assets/images/shared/favicon.svg"', '<link rel="icon" href="/assets/images/shared/favicon.svg" type="image/svg+xml" />'],
+    ['joyforest-campervan-rental-logo-icon-64.png', '<link rel="icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-64.png" type="image/png" sizes="64x64" />'],
+    ['rel="apple-touch-icon"', '<link rel="apple-touch-icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-180.png" sizes="180x180" />'],
+    ['rel="manifest"', '<link rel="manifest" href="/manifest.webmanifest" />']
+  ];
+  const missing = tags.filter(([needle]) => !html.includes(needle)).map(([, tag]) => `    ${tag}`);
+  if (!missing.length) return html;
+  return html.replace(/<\/head>/i, `${missing.join("\n")}\n  </head>`);
+}
+
+function ensureWebPageSchema(html, page, brandName) {
+  if (page.noindex || extractSchemaTypes(html).includes("WebPage")) return html;
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${page.canonical}#webpage`,
+    url: page.canonical,
+    name: page.title,
+    description: page.description,
+    inLanguage: page.route.startsWith("/en") ? "en" : "zh-Hant",
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${SITE_ORIGIN}/#website`,
+      url: `${SITE_ORIGIN}/`,
+      name: brandName
+    },
+    ...(page.ogImage
+      ? {
+          primaryImageOfPage: {
+            "@type": "ImageObject",
+            url: page.ogImage,
+            width: 1200,
+            height: 630
+          }
+        }
+      : {})
+  };
+  const block = `    <script type="application/ld+json" data-seo-managed="webpage">\n${JSON.stringify(schema, null, 2)}\n    </script>\n`;
+  return html.replace(/<\/head>/i, `${block}  </head>`);
 }
 
 export function applyPageSeo(html, page, brandName) {
@@ -242,6 +281,8 @@ export function applyPageSeo(html, page, brandName) {
   if (ogImage) {
     out = setMetaContent(out, "property", "og:image", ogImage);
     if (ogImageAlt) out = setMetaContent(out, "property", "og:image:alt", ogImageAlt);
+    out = setMetaContent(out, "property", "og:image:width", "1200");
+    out = setMetaContent(out, "property", "og:image:height", "630");
   }
 
   out = setMetaContent(out, "name", "twitter:card", "summary_large_image");
@@ -259,6 +300,13 @@ export function applyPageSeo(html, page, brandName) {
       `<meta charset="utf-8" />\n    <meta name="theme-color" content="${BRAND.themeColor}" />`
     );
   }
+  if (!out.includes("Analytics placeholder:")) {
+    out = out.replace(
+      /<\/head>/i,
+      "    <!-- Analytics placeholder: add GA4/GTM only after the measurement ID and consent policy are confirmed. -->\n  </head>"
+    );
+  }
+  out = ensureWebPageSchema(out, page, brandName);
   return out;
 }
 
@@ -275,7 +323,8 @@ export function buildPageRecord(rel, html, mapEntry = {}) {
     /<meta\s+http-equiv="refresh"/i.test(html) || /location\.replace\s*\(/i.test(html);
   const noindex =
     isRedirect || (mapEntry.noindex ?? extractRobotsNoindex(html) ?? false);
-  const schemaType = mapEntry.schemaType || extractSchemaTypes(html);
+  const schemaType = [...(mapEntry.schemaType || extractSchemaTypes(html))];
+  if (!noindex && !schemaType.includes("WebPage")) schemaType.push("WebPage");
 
   return {
     file: rel,

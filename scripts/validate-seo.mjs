@@ -7,6 +7,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { SITE_ORIGIN, toCanonicalUrl, toCleanPath } from "./seo-url-helpers.mjs";
+import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -88,6 +89,13 @@ async function checkHtmlFile(rel) {
   const pagePath = fileToPath(rel);
   const { html, url } = LIVE ? await fetchText(pagePath) : await readLocal(rel);
 
+  const meta = (key) =>
+    html.match(new RegExp(`<meta\\s+(?:name|property)="${key}"\\s+content="([^"]*)"`, "i"))?.[1] || "";
+  const noindex = /<meta\s+name="robots"\s+content="[^"]*noindex/i.test(html);
+  const isRedirect = /<meta\s+http-equiv="refresh"/i.test(html) || /location\.replace\s*\(/i.test(html);
+  const indexable = !noindex && !isRedirect && !rel.includes("404");
+  if (/content="[^"\n]*<meta/i.test(html)) fail(`Malformed nested meta tag: ${rel}`);
+
   const canonicalM = html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/i);
   const canonical = canonicalM?.[1];
   if (!canonical) {
@@ -97,6 +105,36 @@ async function checkHtmlFile(rel) {
   if (canonical.includes(".html")) fail(`Canonical has .html: ${rel} → ${canonical}`);
   if (canonical !== url) fail(`Canonical mismatch: ${rel} canonical=${canonical} expected=${url}`);
   else pass(`Canonical OK: ${pagePath}`);
+
+  if (indexable) {
+    const title = html.match(/<title>([^<]+)<\/title>/i)?.[1]?.trim();
+    const description = meta("description");
+    const lang = html.match(/<html\s+lang="([^"]+)"/i)?.[1] || "";
+    if (!title) fail(`Missing title: ${rel}`);
+    if (!description) fail(`Missing description: ${rel}`);
+    if (rel.startsWith("en/") ? lang !== "en" : lang !== "zh-Hant") {
+      fail(`Incorrect html lang (${lang || "missing"}): ${rel}`);
+    }
+    for (const key of ["og:title", "og:description", "og:url", "og:type", "og:image"]) {
+      const count = [...html.matchAll(new RegExp(`(?:name|property)="${key}"`, "gi"))].length;
+      if (!meta(key)) fail(`Missing ${key}: ${rel}`);
+      if (count !== 1) fail(`${key} count ${count}, expected 1: ${rel}`);
+    }
+    for (const key of ["twitter:card", "twitter:title", "twitter:description", "twitter:image"]) {
+      const count = [...html.matchAll(new RegExp(`(?:name|property)="${key}"`, "gi"))].length;
+      if (!meta(key)) fail(`Missing ${key}: ${rel}`);
+      if (count !== 1) fail(`${key} count ${count}, expected 1: ${rel}`);
+    }
+    const descriptionCount = [...html.matchAll(/<meta\s+name="description"/gi)].length;
+    if (descriptionCount !== 1) fail(`description count ${descriptionCount}, expected 1: ${rel}`);
+    if (meta("twitter:card") !== "summary_large_image") fail(`Wrong twitter:card: ${rel}`);
+    if (meta("og:url") !== canonical) fail(`og:url differs from canonical: ${rel}`);
+    if (!html.includes('name="theme-color"')) fail(`Missing theme-color: ${rel}`);
+    if (!html.includes('rel="manifest"')) fail(`Missing manifest link: ${rel}`);
+    if (!html.includes('href="/favicon.ico"')) fail(`Missing favicon.ico link: ${rel}`);
+    if (!html.includes('href="/assets/images/shared/favicon.svg"')) fail(`Missing SVG favicon link: ${rel}`);
+    if (!html.includes('rel="apple-touch-icon"')) fail(`Missing apple-touch-icon: ${rel}`);
+  }
 
   const h1s = [...html.matchAll(/<h1\b[^>]*>/gi)];
   if (h1s.length !== 1) fail(`H1 count ${h1s.length}: ${rel}`);
@@ -122,13 +160,41 @@ async function checkHtmlFile(rel) {
     }
   }
 
-  const ldBlocks = [...html.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)];
+  const ldBlocks = [...html.matchAll(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)];
+  const schemaTypes = new Set();
   for (const [, json] of ldBlocks) {
     try {
-      JSON.parse(json);
+      const parsed = JSON.parse(json);
+      const collect = (value) => {
+        if (!value || typeof value !== "object") return;
+        if (typeof value["@type"] === "string") schemaTypes.add(value["@type"]);
+        for (const nested of Object.values(value)) {
+          if (Array.isArray(nested)) nested.forEach(collect);
+          else collect(nested);
+        }
+      };
+      collect(parsed);
       if (json.includes(".html")) fail(`JSON-LD .html URL in ${rel}`);
     } catch {
       fail(`Invalid JSON-LD in ${rel}`);
+    }
+  }
+  if (indexable && !schemaTypes.has("WebPage")) fail(`Missing WebPage schema: ${rel}`);
+
+  const headings = [...html.matchAll(/<h([1-6])\b[^>]*>/gi)].map((m) => Number(m[1]));
+  for (let i = 1; indexable && i < headings.length; i++) {
+    if (headings[i] > headings[i - 1] + 1) warn(`Heading level jump h${headings[i - 1]}→h${headings[i]}: ${rel}`);
+  }
+
+  const images = [...html.matchAll(/<img\b[^>]*>/gi)];
+  for (const match of images) {
+    const tag = match[0];
+    if (!/\salt="[^"]*"/i.test(tag)) fail(`Image missing alt: ${rel}`);
+    if (!/\swidth="\d+"/i.test(tag) || !/\sheight="\d+"/i.test(tag)) {
+      fail(`Image missing intrinsic width/height: ${rel}`);
+    }
+    if (/class="[^"]*(?:hero|trip-article-cover)[^"]*"/i.test(tag) && /\sloading="lazy"/i.test(tag)) {
+      fail(`Hero image must not be lazy-loaded: ${rel}`);
     }
   }
 }
@@ -170,13 +236,26 @@ async function checkOgImages() {
       continue;
     }
     if (!og.startsWith("https://van.joyforest.tw/")) fail(`og:image not absolute: ${rel}`);
-    if (tw && tw !== og) warn(`twitter:image differs from og:image: ${rel}`);
+    if (!tw) fail(`Missing twitter:image: ${rel}`);
+    else if (tw !== og) fail(`twitter:image differs from og:image: ${rel}`);
+    if (!og.includes("/assets/images/og/")) fail(`og:image is not a dedicated page asset: ${rel}`);
+    if (!LIVE) {
+      const imagePath = path.join(ROOT, decodeURIComponent(new URL(og).pathname.replace(/^\/+/, "")));
+      try {
+        const meta = await sharp(imagePath).metadata();
+        if (meta.width !== 1200 || meta.height !== 630) {
+          fail(`og:image must be 1200x630: ${rel} (${meta.width}x${meta.height})`);
+        }
+      } catch {
+        fail(`og:image file missing or unreadable: ${rel} → ${og}`);
+      }
+    }
     if (!ogMap.has(og)) ogMap.set(og, []);
     ogMap.get(og).push(rel);
   }
-  const shared = [...ogMap.entries()].filter(([, arr]) => arr.length > 2);
+  const shared = [...ogMap.entries()].filter(([, arr]) => arr.length > 1);
   for (const [url, arr] of shared) {
-    warn(`og:image shared by ${arr.length} pages: ${url}`);
+    fail(`og:image shared by ${arr.length} pages: ${url} (${arr.join(", ")})`);
   }
   pass(`og:image present on indexable pages (missing: ${missing})`);
 }
@@ -197,6 +276,10 @@ async function main() {
   console.log(`\n=== PASS: ${results.pass.length} ===`);
   console.log(`=== FAIL: ${results.fail.length} ===`);
   console.log(`=== WARN: ${results.warn.length} ===`);
+  if (results.warn.length) {
+    console.log("\nWarnings:");
+    results.warn.slice(0, 40).forEach((item) => console.log("  !", item));
+  }
   if (results.fail.length) {
     console.log("\nFailures:");
     results.fail.slice(0, 40).forEach((f) => console.log("  ✗", f));

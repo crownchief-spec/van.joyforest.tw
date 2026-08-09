@@ -119,7 +119,7 @@ This route puts **night one in a campsite** so beginners can safely pull out tab
         <li><strong>22:00 Outdoor movie & first van night</strong>Projection screen, one movie; sleep aboard—two doubles, heat/AC, learn power, tanks, lights, storage.</li>
       </ol>
       <div class="itinerary-reminders">
-        <h4>Reminders</h4>
+        <h3>Reminders</h3>
         <ul>
           <li>Night one at campsite best for learning hookups and gear.</li>
           <li>Keep projection, lights, and appliances out of rain.</li>
@@ -190,7 +190,7 @@ Transport: Taipei or agreed handover → North Coast Bunker Campsite</template>
         <li><strong>19:00 Night two seaside stop</strong>Baishawan parking or Fulong UFO area parking—"sea beside you" freedom: beach at night, drinks, supper, rinse feet, sleep aboard, wake to sea.</li>
       </ol>
       <div class="itinerary-reminders">
-        <h4>Reminders</h4>
+        <h3>Reminders</h3>
         <ul>
           <li>Baishawan, Fulong stops per signs and law—we can't guarantee overnight every period.</li>
           <li>Generator outdoors ventilated; don't disturb others.</li>
@@ -258,7 +258,7 @@ Transport: Bunker → Fugui Cape → Fugui Harbor → Laomei → Baishawan / Ful
         <li><strong>Evening Return & deposit settlement</strong>Return per agreed time and place. ETC, parking, cleaning, loss or damage per actual from deposit.</li>
       </ol>
       <div class="itinerary-reminders">
-        <h4>Reminders</h4>
+        <h3>Reminders</h3>
         <ul>
           <li>Allow pack and return travel time before handover.</li>
           <li>Refill diesel per agreement.</li>

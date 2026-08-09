@@ -168,10 +168,10 @@ async function writeReport(records, totalHtml) {
     "",
     "## 維護說明",
     "",
-    "1. 編輯 `seo-map.json` 中對應頁面的 `title`、`description`、`ogImage`、`noindex`",
-    "2. 執行 `npm run seo:sync` 套用到各 HTML head",
-    "3. 執行 `npm run seo:sitemap` 更新 sitemap",
-    "4. 執行 `npm run seo:validate` 驗收",
+    "1. 編輯 `seo-map.json` 中對應頁面的 `title`、`description`、`heroImage`、`noindex`",
+    "2. 執行 `npm run seo:fix` 產生該頁獨立 1200×630 分享圖並同步 HTML head",
+    "3. 流程會自動更新 sitemap、圖片尺寸與根路徑資源",
+    "4. 流程最後會驗證站內連結、圖片、canonical、schema、OG 與 Twitter meta",
     ""
   ];
 
