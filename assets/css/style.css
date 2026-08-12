@@ -2725,6 +2725,98 @@ html[lang="en"] .nav-links a .nav-stack {
   gap: 18px;
 }
 
+/* 溫泉車宿文章：手機先讀摘要卡，再展開地點與照片。 */
+.route-theme-grid,
+.hot-spring-place-list {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0 26px;
+}
+
+.route-theme-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.route-theme-card,
+.hot-spring-place-card {
+  min-width: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: var(--shadow-sm);
+}
+
+.route-theme-card {
+  padding: 16px;
+}
+
+.route-theme-card > span {
+  display: block;
+  font-size: 26px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.route-theme-card h3,
+.hot-spring-place-card h3 {
+  margin: 0 0 7px;
+  color: var(--color-ink);
+}
+
+.route-theme-card p,
+.hot-spring-place-card p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.hot-spring-place-card {
+  padding: 18px;
+}
+
+.hot-spring-place-card__area {
+  margin-bottom: 7px !important;
+  color: var(--color-accent) !important;
+  font-size: 12px !important;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.hot-spring-place-card__check {
+  margin-top: 12px !important;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-primary-2) !important;
+  font-weight: 650;
+}
+
+.hot-spring-photo-grid .guide-figure {
+  margin-bottom: 0;
+}
+
+.hot-spring-photo-grid img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.hot-spring-inquiry-list,
+.hot-spring-booking-checklist {
+  display: grid;
+  gap: 10px;
+  margin-block: 18px 26px;
+}
+
+@media (min-width: 760px) {
+  .route-theme-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .hot-spring-place-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (min-width: 760px) {
   .guide-grid-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3083,4 +3175,3 @@ html[lang="en"] .nav-links a .nav-stack {
     min-width: 100%;
   }
 }
-

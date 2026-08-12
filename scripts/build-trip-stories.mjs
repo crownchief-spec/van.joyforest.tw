@@ -44,6 +44,8 @@ const articlePageTemplate = ({
   tags,
   coverImage,
   coverImageAlt,
+  coverImageWidth,
+  coverImageHeight,
   readingTime,
   bodyHtml,
   relatedHtml,
@@ -76,13 +78,20 @@ ${hreflangHeadHtml({ zhCanonical: `${SITE_ORIGIN}/trip-stories/${slug}/`, enCano
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:url" content="${SITE_ORIGIN}/trip-stories/${slug}/" />
     <meta property="og:image" content="${SITE_ORIGIN}${coverImage}" />
+    <meta property="og:image:width" content="${escapeHtml(coverImageWidth)}" />
+    <meta property="og:image:height" content="${escapeHtml(coverImageHeight)}" />
+    <meta property="og:image:alt" content="${escapeHtml(coverImageAlt || title)}" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeHtml(title)}" />
+    <meta name="twitter:description" content="${escapeHtml(description)}" />
     <meta name="twitter:image" content="${SITE_ORIGIN}${coverImage}" />
     <meta name="twitter:image:alt" content="${escapeHtml(coverImageAlt || title)}" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/images/shared/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-64.png" type="image/png" sizes="64x64" />
     <link rel="apple-touch-icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preload" as="image" href="${escapeHtml(coverImage)}" fetchpriority="high" />
     <link rel="stylesheet" href="../../assets/css/style.css" />
     <script defer src="../../assets/js/main.js"></script>
     <script type="application/ld+json">${jsonLd}</script>
@@ -121,9 +130,11 @@ ${hreflangHeadHtml({ zhCanonical: `${SITE_ORIGIN}/trip-stories/${slug}/`, enCano
             class="trip-article-cover"
             src="${escapeHtml(coverImage)}"
             alt="${escapeHtml(coverImageAlt || title)}"
-            width="1200"
-            height="630"
+            title="${escapeHtml(coverImageAlt || title)}"
+            width="${escapeHtml(coverImageWidth)}"
+            height="${escapeHtml(coverImageHeight)}"
             loading="eager"
+            fetchpriority="high"
             decoding="async"
           />
         </div>
@@ -222,6 +233,8 @@ async function main() {
     const tags = Array.isArray(data.tags) ? data.tags.map(String) : [];
     const coverImage = (data.coverImage || "").trim();
     const coverImageAlt = (data.coverImageAlt || title).trim();
+    const coverImageWidth = Number.isFinite(Number(data.coverImageWidth)) ? Number(data.coverImageWidth) : 1200;
+    const coverImageHeight = Number.isFinite(Number(data.coverImageHeight)) ? Number(data.coverImageHeight) : 630;
     const listImage = (data.listImage || "").trim();
     const listImageAlt = (data.listImageAlt || "").trim();
     const listVideo = (data.listVideo || "").trim();
@@ -245,6 +258,8 @@ async function main() {
       tags,
       coverImage,
       coverImageAlt,
+      coverImageWidth,
+      coverImageHeight,
       listImage,
       listImageAlt,
       listVideo,
@@ -347,6 +362,8 @@ async function main() {
       tags: item.tags,
       coverImage: item.coverImage,
       coverImageAlt: item.coverImageAlt,
+      coverImageWidth: item.coverImageWidth,
+      coverImageHeight: item.coverImageHeight,
       readingTime: item.readingTime,
       bodyHtml,
       relatedHtml,
