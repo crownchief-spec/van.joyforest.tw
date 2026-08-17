@@ -151,6 +151,25 @@
       "ogImageOverride": true
     },
     {
+      "file": "en/pages/campervan-insurance.html",
+      "route": "/en/pages/campervan-insurance",
+      "title": "Campervan Insurance &amp; Renter Liability｜Joyforest Taiwan",
+      "description": "Joyforest campervan insurance explained: up to NT$20 million third-party and passenger excess liability per accident, passenger and vehicle cover, renter liability, NT$5,000 deposit, and camper cabin damage.",
+      "canonical": "https://van.joyforest.tw/en/pages/campervan-insurance",
+      "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-rental-scenic-coast-guide-hero.jpg",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/en--pages--campervan-insurance.jpg",
+      "schemaType": [
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
       "file": "en/pages/campervan.html",
       "route": "/en/pages/campervan",
       "title": "Taiwan Campervan Rental Prices &amp; Van Details｜Taipei｜Joyforest",
@@ -610,6 +629,24 @@
       "ogImageOverride": true
     },
     {
+      "file": "en/trip-stories/hot-spring-campervan-overnight-taiwan/index.html",
+      "route": "/en/trip-stories/hot-spring-campervan-overnight-taiwan/",
+      "title": "Hot-spring campervan overnights in Taiwan｜Guanziling photos &amp; places to ask",
+      "description": "A practical introduction to hot-spring campervan overnights in Taiwan, with real photos from Guanziling and a checklist for confirming legal, vehicle-friendly stays.",
+      "canonical": "https://van.joyforest.tw/en/trip-stories/hot-spring-campervan-overnight-taiwan/",
+      "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/hot-spring-campervan-overnight/guanziling-sen-spa-infinity-pool-twilight.webp",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/en--trip-stories--hot-spring-campervan-overnight-taiwan.jpg",
+      "schemaType": [
+        "Article",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
       "file": "en/trip-stories/hsinchu-bride-lounge-campervan-story/index.html",
       "route": "/en/trip-stories/hsinchu-bride-lounge-campervan-story/",
       "title": "Hsinchu military dependents&amp;#39; village wedding｜Campervan as bride&amp;#39;s lounge｜Taiwan",
@@ -946,6 +983,25 @@
         "WebPage",
         "BreadcrumbList",
         "FAQPage"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
+      "file": "pages/campervan-insurance.html",
+      "route": "/pages/campervan-insurance",
+      "title": "露營車保險與車損責任｜保障額度、押金與理賠說明｜揪好森",
+      "description": "揪好森露營車保險完整說明：第三人及乘客超額責任每事故最高 NT$2,000 萬、乘客與車體保障、一般事故責任上限、NT$5,000 押金用途，以及露營車廂與設備損傷處理。",
+      "canonical": "https://van.joyforest.tw/pages/campervan-insurance",
+      "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-rental-scenic-coast-guide-hero.jpg",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/pages--campervan-insurance.jpg",
+      "schemaType": [
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer"
       ],
       "noindex": false,
       "ogImageOverride": true
@@ -1428,6 +1484,24 @@
       "canonical": "https://van.joyforest.tw/trip-stories/hola-campervan-brand-case/",
       "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/hola-snow-touch-outdoor-popup-tent.png",
       "ogImage": "https://van.joyforest.tw/assets/images/og/trip-stories--hola-campervan-brand-case.jpg",
+      "schemaType": [
+        "Article",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
+      "file": "trip-stories/hot-spring-campervan-overnight-taiwan/index.html",
+      "route": "/trip-stories/hot-spring-campervan-overnight-taiwan/",
+      "title": "台灣溫泉車宿怎麼找？關子嶺森之湯實拍與全台泡湯過夜地點",
+      "description": "露營車旅行也能安排溫泉車宿。以台南關子嶺森之湯實拍為例，整理全台可詢問的泡湯車宿與溫泉露營地點，以及訂位前確認清單。",
+      "canonical": "https://van.joyforest.tw/trip-stories/hot-spring-campervan-overnight-taiwan/",
+      "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/hot-spring-campervan-overnight/guanziling-sen-spa-infinity-pool-twilight.webp",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/trip-stories--hot-spring-campervan-overnight-taiwan.jpg",
       "schemaType": [
         "Article",
         "Organization",

@@ -1,12 +1,12 @@
 # SEO 維護總表（自動產生）
 
-產生時間：2026-08-09
+產生時間：2026-08-17
 
 ## 摘要
 
-- HTML 檔案總數：108
-- seo-map 條目：108
-- 可索引頁面：102
+- HTML 檔案總數：112
+- seo-map 條目：112
+- 可索引頁面：106
 - 缺 og:image（可索引）：0
 
 ## 主要頁面 SEO 總表
@@ -23,6 +23,7 @@
 | en/booking/index.html | /en/booking/ | — |  | true |
 | en/index.html | /en/ | /assets/images/og/en--home.jpg | Organization, WebSite, LocalBusiness, WebPage | false |
 | en/pages/booking-guide.html | /en/pages/booking-guide | /assets/images/og/en--pages--booking-guide.jpg | WebPage, BreadcrumbList, ListItem | false |
+| en/pages/campervan-insurance.html | /en/pages/campervan-insurance | /assets/images/og/en--pages--campervan-insurance | WebPage, BreadcrumbList, ListItem, FAQPage, Question, Answer | false |
 | en/pages/campervan.html | /en/pages/campervan | /assets/images/og/en--pages--campervan.jpg | WebPage, ImageObject, Product, Brand, BreadcrumbList, ListItem | false |
 | en/pages/resources/campervan-3days-2nights-trip-ideas.html | /en/pages/resources/campervan-3days-2nights-trip-ideas | /assets/images/og/en--pages--resources--camperva | WebPage | false |
 | en/pages/resources/campervan-beginner-how-to-use.html | /en/pages/resources/campervan-beginner-how-to-use | /assets/images/og/en--pages--resources--camperva | WebPage | false |
@@ -48,11 +49,10 @@
 | en/trip-stories/family-beginner-3-days/index.html | /en/trip-stories/family-beginner-3-days/ | /assets/images/og/en--trip-stories--family-begin | Article, Organization, WebPage, BreadcrumbList, ListItem | false |
 | index.html | / | /assets/images/og/zh--home.jpg | Organization, WebSite, LocalBusiness, WebPage | false |
 | pages/booking-guide.html | /pages/booking-guide | /assets/images/og/pages--booking-guide.jpg | WebPage, BreadcrumbList, FAQPage | false |
+| pages/campervan-insurance.html | /pages/campervan-insurance | /assets/images/og/pages--campervan-insurance.jpg | WebPage, BreadcrumbList, ListItem, FAQPage, Question, Answer | false |
 | pages/campervan.html | /pages/campervan | /assets/images/og/pages--campervan.jpg | WebPage, Service, OfferCatalog, BreadcrumbList | false |
 | pages/faq.html | /pages/faq | — |  | true |
 | pages/guide.html | /pages/guide | — |  | true |
-| pages/resources/campervan-3days-2nights-trip-ideas.html | /pages/resources/campervan-3days-2nights-trip-ideas | /assets/images/og/pages--resources--campervan-3d | WebPage | false |
-| pages/resources/campervan-beginner-how-to-use.html | /pages/resources/campervan-beginner-how-to-use | /assets/images/og/pages--resources--campervan-be | WebPage | false |
 
 > 完整清單見根目錄 `seo-map.json`
 
