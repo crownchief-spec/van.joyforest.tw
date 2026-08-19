@@ -33,7 +33,7 @@ function alternateLinks(file, canonical) {
 }
 
 function cleanBlock(page) {
-  const brand = page.file.startsWith("en/") ? "Joyforest Campervan Rental" : "揪好森露營車出租";
+  const brand = page.file.startsWith("en/") ? "JoyForest CamperVan Rental" : "揪好森露營車出租";
   const locale = page.file.startsWith("en/") ? "en_US" : "zh_TW";
   const ogType = page.file.includes("trip-stories/") || page.file.includes("pages/resources/") ? "article" : "website";
   return `    <title>${escape(page.title)}</title>

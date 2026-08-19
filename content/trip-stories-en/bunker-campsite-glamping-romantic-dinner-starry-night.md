@@ -1,10 +1,10 @@
 ---
 title: "Bunker Campsite｜Romantic starlit dinner: aesthetic camping kit × limited-time promo props"
 slug: "bunker-campsite-glamping-romantic-dinner-starry-night"
-description: "Blue-hour and stars at Bunker Campsite—a Joyforest limited-time promo aesthetic camping kit for a ritual outdoor dinner. Two compressed photos and web-optimized video."
+description: "Blue-hour and stars at Bunker Campsite—a JoyForest CamperVan Rental limited-time promo aesthetic camping kit for a ritual outdoor dinner. Two compressed photos and web-optimized video."
 date: "2026-04-25"
 category: "Friends travel"
-tags: ["Bunker Campsite", "Aesthetic camping kit", "Ritual dinner", "Stargazing", "Beside-van camping", "Limited promo", "Joyforest"]
+tags: ["Bunker Campsite", "Aesthetic camping kit", "Ritual dinner", "Stargazing", "Beside-van camping", "Limited promo", "JoyForest CamperVan Rental"]
 coverImage: "/assets/images/trip-ideas/joyforest-bunker-campsite-glamping-van-string-lights-twilight-dinner.jpg"
 coverImageAlt: "White campervan on Bunker Campsite grass at blue hour, string lights, folding wood table and small teepee—romantic van-side dinner setup"
 featured: false

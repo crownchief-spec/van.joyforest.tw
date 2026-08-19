@@ -79,7 +79,7 @@ ${keywordsMetaHtml()}
 ${hreflangHeadHtml({ zhCanonical: `${SITE_ORIGIN}${zhUrl}`, enCanonical: `${SITE_ORIGIN}${enUrl}` })}
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Joyforest Campervan Rental" />
+    <meta property="og:site_name" content="JoyForest CamperVan Rental" />
     <meta property="og:title" content="${escapeHtml(seoTitle)}" />
     <meta property="og:description" content="${escapeHtml(seoDescription)}" />
     <meta property="og:url" content="${SITE_ORIGIN}${enUrl}" />
@@ -285,8 +285,8 @@ async function main() {
         datePublished: item.date,
         image: `${SITE_ORIGIN}${item.coverImage}`,
         inLanguage: "en",
-        author: { "@type": "Organization", name: "Joyforest Campervan Rental" },
-        publisher: { "@type": "Organization", name: "Joyforest Campervan Rental" },
+        author: { "@type": "Organization", name: "JoyForest CamperVan Rental" },
+        publisher: { "@type": "Organization", name: "JoyForest CamperVan Rental" },
         mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_ORIGIN}${enUrl}` }
       }
     ];

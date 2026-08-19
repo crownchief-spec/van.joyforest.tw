@@ -1,12 +1,12 @@
 ---
-title: "How our campervan is born: container arrival to factory assembly｜Joyforest team build diary"
+title: "How our campervan is born: container arrival to factory assembly｜JoyForest CamperVan Rental team build diary"
 slug: "joyforest-campervan-born-container-factory-assembly"
-description: "From shipping container arrival and on-site unloading to factory assembly—how the Joyforest team turned a dream into white-and-blue vans, step by step."
+description: "From shipping container arrival and on-site unloading to factory assembly—how the JoyForest CamperVan Rental team turned a dream into white-and-blue vans, step by step."
 date: "2026-04-25"
 category: "Customer stories"
-tags: ["Joyforest", "Campervan assembly", "Container shipping", "Factory", "Team", "Behind the scenes"]
+tags: ["JoyForest CamperVan Rental", "Campervan assembly", "Container shipping", "Factory", "Team", "Behind the scenes"]
 coverImage: "/assets/images/trip-ideas/joyforest-campervan-manufacturing-assembly-process.jpg"
-coverImageAlt: "Joyforest campervan factory assembly: white-and-blue body on build stand, side door open—dream taking shape on site"
+coverImageAlt: "JoyForest CamperVan Rental campervan factory assembly: white-and-blue body on build stand, side door open—dream taking shape on site"
 featured: false
 order: 126
 readingTime: "About 4 min"
@@ -25,7 +25,7 @@ Before every van that drives families to the sea becomes a "mobile home," it tra
     decoding="async"
     style="max-width: 720px; width: 100%; height: auto; margin-inline: auto; display: block"
     title="Starting point: campervan module container arrival and unloading"
-    alt="Joyforest build diary: forklift unloading wrapped campervan body module from ocean container, outdoor unload under blue sky"
+    alt="JoyForest CamperVan Rental build diary: forklift unloading wrapped campervan body module from ocean container, outdoor unload under blue sky"
   />
   <figcaption>
     <span class="guide-img-title">Container arrival｜Outdoor unload</span>
@@ -67,11 +67,11 @@ Inside the factory the body sits on stands—**plumbing, doors/windows, interior
     decoding="async"
     style="max-width: 720px; width: 100%; height: auto; margin-inline: auto; display: block"
     title="Campervan birth: professional factory assembly and build diary"
-    alt="Joyforest campervan factory assembly: white-and-blue body on black build stand, side door and screen open, bright factory lighting"
+    alt="JoyForest CamperVan Rental campervan factory assembly: white-and-blue body on black build stand, side door and screen open, bright factory lighting"
   />
   <figcaption>
     <span class="guide-img-title">Factory assembly｜Dream taking shape</span>
-    From container to line—Joyforest keeps one standard to put road-ready vans in travelers' hands.
+    From container to line—JoyForest CamperVan Rental keeps one standard to put road-ready vans in travelers' hands.
   </figcaption>
 </figure>
 

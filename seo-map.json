@@ -68,8 +68,8 @@
     {
       "file": "en/404.html",
       "route": "/en/404",
-      "title": "Page not found｜Joyforest Campervan Rental Taiwan",
-      "description": "This page could not be found. Return to Joyforest campervan rental in Taipei, Taiwan.",
+      "title": "Page not found｜JoyForest CamperVan Rental Taiwan",
+      "description": "This page could not be found. Return to JoyForest CamperVan Rental in Taipei, Taiwan.",
       "canonical": "https://van.joyforest.tw/en/404",
       "heroImage": "",
       "schemaType": [],
@@ -78,8 +78,8 @@
     {
       "file": "en/blog/index.html",
       "route": "/en/blog/",
-      "title": "Taiwan Campervan Tips &amp; Travel Notes｜Joyforest",
-      "description": "Campervan travel tips, Taiwan road-trip notes, and rental how-tos from Joyforest—based in Taipei with delivery across northern Taiwan.",
+      "title": "Taiwan Campervan Tips &amp; Travel Notes｜JoyForest CamperVan Rental",
+      "description": "Campervan travel tips, Taiwan road-trip notes, and rental how-tos from JoyForest CamperVan Rental—based in Taipei with delivery across northern Taiwan.",
       "canonical": "https://van.joyforest.tw/en/blog/",
       "heroImage": "https://van.joyforest.tw/assets/images/shared/hero-blog.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/og/en--blog.jpg",
@@ -96,8 +96,8 @@
     {
       "file": "en/booking.html",
       "route": "/en/booking",
-      "title": "Book a Campervan in Taiwan｜Taipei Delivery｜Joyforest",
-      "description": "Book Joyforest campervan rental in Taiwan: share dates, group size, delivery in Taipei (Taoyuan and Hsinchu on request), and your route. We confirm availability, pricing, and handover.",
+      "title": "Book a Campervan in Taiwan｜Taipei Delivery｜JoyForest CamperVan Rental",
+      "description": "Book JoyForest CamperVan Rental in Taiwan: share dates, group size, delivery in Taipei (Taoyuan and Hsinchu on request), and your route. We confirm availability, pricing, and handover.",
       "canonical": "https://van.joyforest.tw/en/booking",
       "heroImage": "",
       "ogImage": "https://van.joyforest.tw/assets/images/og/en--booking.jpg",
@@ -110,7 +110,7 @@
     {
       "file": "en/booking/index.html",
       "route": "/en/booking/",
-      "title": "Redirecting to booking｜Joyforest Campervan Rental",
+      "title": "Redirecting to booking｜JoyForest CamperVan Rental",
       "description": "",
       "canonical": "https://van.joyforest.tw/en/booking",
       "heroImage": "",
@@ -120,7 +120,7 @@
     {
       "file": "en/index.html",
       "route": "/en/",
-      "title": "Taiwan Campervan Rental Taipei｜Delivered to Your Door・Wake by the Sea｜Joyforest",
+      "title": "Taiwan Campervan Rental Taipei｜Delivered to Your Door・Wake by the Sea｜JoyForest CamperVan Rental",
       "description": "Rent a self-drive campervan in Taiwan—delivered in Taipei with Taoyuan and Hsinchu on request. Two double beds, A/C, fridge and bathroom for families and friends. Wake by the sea, outdoor movies, and slow North Coast trips.",
       "canonical": "https://van.joyforest.tw/en/",
       "heroImage": "https://van.joyforest.tw/assets/images/home/joyforest-campervan-at-white-villa-staycation-hero.jpg",
@@ -137,8 +137,8 @@
     {
       "file": "en/pages/booking-guide.html",
       "route": "/en/pages/booking-guide",
-      "title": "How to Use a Campervan in Taiwan｜Handover Guide｜Joyforest Taipei",
-      "description": "First-time campervan rental in Taiwan: Joyforest handover walkthrough, driving height, power, water, beds, bathroom, outdoor gear, and return checklist—Taipei delivery.",
+      "title": "How to Use a Campervan in Taiwan｜Handover Guide｜JoyForest CamperVan Rental Taipei",
+      "description": "First-time campervan rental in Taiwan: JoyForest CamperVan Rental handover walkthrough, driving height, power, water, beds, bathroom, outdoor gear, and return checklist—Taipei delivery.",
       "canonical": "https://van.joyforest.tw/en/pages/booking-guide",
       "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-rental-scenic-coast-guide-hero.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/og/en--pages--booking-guide.jpg",
@@ -153,8 +153,8 @@
     {
       "file": "en/pages/campervan-insurance.html",
       "route": "/en/pages/campervan-insurance",
-      "title": "Campervan Insurance &amp; Renter Liability｜Joyforest Taiwan",
-      "description": "Joyforest campervan insurance explained: up to NT$20 million third-party and passenger excess liability per accident, passenger and vehicle cover, renter liability, NT$5,000 deposit, and camper cabin damage.",
+      "title": "Campervan Insurance &amp; Renter Liability｜JoyForest CamperVan Rental Taiwan",
+      "description": "JoyForest CamperVan Rental campervan insurance explained: up to NT$20 million third-party and passenger excess liability per accident, passenger and vehicle cover, renter liability, NT$5,000 deposit, and camper cabin damage.",
       "canonical": "https://van.joyforest.tw/en/pages/campervan-insurance",
       "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-rental-scenic-coast-guide-hero.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/og/en--pages--campervan-insurance.jpg",
@@ -172,8 +172,8 @@
     {
       "file": "en/pages/campervan.html",
       "route": "/en/pages/campervan",
-      "title": "Taiwan Campervan Rental Prices &amp; Van Details｜Taipei｜Joyforest",
-      "description": "Joyforest campervan rental in Taiwan: 3-day/2-night rates, weekday and holiday pricing, NT$5,000 deposit, van specs, glamping bundles, and doorstep delivery in Taipei, Taoyuan, and Hsinchu.",
+      "title": "Taiwan Campervan Rental Prices &amp; Van Details｜Taipei｜JoyForest CamperVan Rental",
+      "description": "JoyForest CamperVan Rental in Taiwan: 3-day/2-night rates, weekday and holiday pricing, NT$5,000 deposit, van specs, glamping bundles, and doorstep delivery in Taipei, Taoyuan, and Hsinchu.",
       "canonical": "https://van.joyforest.tw/en/pages/campervan",
       "heroImage": "https://van.joyforest.tw/assets/images/campervan/taipei-campervan-rental-white-rv-coastal-ocean-view-hero.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/og/en--pages--campervan.jpg",
@@ -191,7 +191,7 @@
     {
       "file": "en/pages/resources/campervan-3days-2nights-trip-ideas.html",
       "route": "/en/pages/resources/campervan-3days-2nights-trip-ideas",
-      "title": "3-Day 2-Night Campervan Trip Ideas for Beginners ｜Taiwan｜Joyforest",
+      "title": "3-Day 2-Night Campervan Trip Ideas for Beginners ｜Taiwan｜JoyForest CamperVan Rental",
       "description": "Plan a 3-day 2-night campervan trip with a slow-travel mindset—ideal for Taipei departures and first-timers. Includes route inspiration and further resources.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/campervan-3days-2nights-trip-ideas",
       "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/taiwan-north-coast-campervan-night-beach-stars-shore.jpg",
@@ -205,8 +205,8 @@
     {
       "file": "en/pages/resources/campervan-beginner-how-to-use.html",
       "route": "/en/pages/resources/campervan-beginner-how-to-use",
-      "title": "Campervan How-To Cheat Sheet: Water, Drainage &amp; Power ｜Taiwan｜Joyforest",
-      "description": "Campervan water fill/drain, electrical basics, and A/C concepts—linked to Joyforest’s official how-to page. Ideal reading be… Campervan rental in Taipei, Taiwan.",
+      "title": "Campervan How-To Cheat Sheet: Water, Drainage &amp; Power ｜Taiwan｜JoyForest CamperVan Rental",
+      "description": "Campervan water fill/drain, electrical basics, and A/C concepts—linked to JoyForest CamperVan Rental’s official how-to page. Ideal reading be… Campervan rental in Taipei, Taiwan.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/campervan-beginner-how-to-use",
       "heroImage": "https://van.joyforest.tw/assets/images/guide/hero-guide.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/og/en--pages--resources--campervan-beginner-how-to-use.jpg",
@@ -219,7 +219,7 @@
     {
       "file": "en/pages/resources/campervan-newbie-articles-learning-path.html",
       "route": "/en/pages/resources/campervan-newbie-articles-learning-path",
-      "title": "Campervan Beginner Learning Path｜From Tent Camping to Van Life｜Taiwan｜Joyforest",
+      "title": "Campervan Beginner Learning Path｜From Tent Camping to Van Life｜Taiwan｜JoyForest CamperVan Rental",
       "description": "A reading order for campervan beginners: tent camping concepts, onboard water and power, routes, and booking—with tourism bu… Campervan rental in Taipei, Taiwan.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/campervan-newbie-articles-learning-path",
       "heroImage": "https://van.joyforest.tw/assets/images/resources-wikimedia/beginner-tent-camping.jpg",
@@ -233,8 +233,8 @@
     {
       "file": "en/pages/resources/campervan-price-comparison.html",
       "route": "/en/pages/resources/campervan-price-comparison",
-      "title": "How to Read Campervan Rental Pricing: Packages, Extensions &amp; Features ｜Taiwan｜Joyforest",
-      "description": "Understand Taiwan campervan rental pricing: equipment differences, delivery service, and 3-day/2-night packages. Avoid comparing sticker prices only when searching for budget campervan rental. Links to Joyforest self-drive Class C options (Taipei, Taoyuan, Hsinchu).",
+      "title": "How to Read Campervan Rental Pricing: Packages, Extensions &amp; Features ｜Taiwan｜JoyForest CamperVan Rental",
+      "description": "Understand Taiwan campervan rental pricing: equipment differences, delivery service, and 3-day/2-night packages. Avoid comparing sticker prices only when searching for budget campervan rental. Links to JoyForest CamperVan Rental self-drive Class C options (Taipei, Taoyuan, Hsinchu).",
       "canonical": "https://van.joyforest.tw/en/pages/resources/campervan-price-comparison",
       "heroImage": "https://van.joyforest.tw/assets/images/home/exterior-01.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/og/en--pages--resources--campervan-price-comparison.jpg",
@@ -247,7 +247,7 @@
     {
       "file": "en/pages/resources/campervan-rental-reviews-guide.html",
       "route": "/en/pages/resources/campervan-rental-reviews-guide",
-      "title": "How to Read Campervan Rental Reviews｜What to Check Before Booking｜Taiwan｜Joyforest",
+      "title": "How to Read Campervan Rental Reviews｜What to Check Before Booking｜Taiwan｜JoyForest CamperVan Rental",
       "description": "When reading campervan rental reviews, cross-check pricing transparency, minimum rental period, delivery fees, and add-ons. Look at orientation quality, equipment, and support. Includes government tourism and highway references for Taipei and Taoyuan route planning.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/campervan-rental-reviews-guide",
       "heroImage": "https://van.joyforest.tw/assets/images/resources-wikimedia/rental-reviews-stars.png",
@@ -261,8 +261,8 @@
     {
       "file": "en/pages/resources/campervan-resources-youtube-guide.html",
       "route": "/en/pages/resources/campervan-resources-youtube-guide",
-      "title": "Campervan Travel Resources: Videos, Tutorials &amp; Guides ｜Taiwan｜Joyforest",
-      "description": "Curated YouTube tutorials, travel inspiration, and official Joyforest how-to links—build your own campervan learning path. Campervan rental in Taipei, Taiwan.",
+      "title": "Campervan Travel Resources: Videos, Tutorials &amp; Guides ｜Taiwan｜JoyForest CamperVan Rental",
+      "description": "Curated YouTube tutorials, travel inspiration, and official JoyForest CamperVan Rental how-to links—build your own campervan learning path. Campervan rental in Taipei, Taiwan.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/campervan-resources-youtube-guide",
       "heroImage": "https://van.joyforest.tw/assets/images/home/entertainment-01.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/og/en--pages--resources--campervan-resources-youtube-guide.jpg",
@@ -275,7 +275,7 @@
     {
       "file": "en/pages/resources/campervan-suitable-parking-stops-taiwan.html",
       "route": "/en/pages/resources/campervan-suitable-parking-stops-taiwan",
-      "title": "Suitable Campervan Stops in Taiwan｜Legal Parking &amp; Safety｜Joyforest",
+      "title": "Suitable Campervan Stops in Taiwan｜Legal Parking &amp; Safety｜JoyForest CamperVan Rental",
       "description": "How to judge campervan stops: campsites, designated parking, and road rules—with references from tourism authorities, the Hi… Campervan rental in Taipei, Taiwan.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/campervan-suitable-parking-stops-taiwan",
       "heroImage": "https://van.joyforest.tw/assets/images/resources-wikimedia/campsite-parking-area.jpg",
@@ -289,8 +289,8 @@
     {
       "file": "en/pages/resources/campervan-vs-campsite.html",
       "route": "/en/pages/resources/campervan-vs-campsite",
-      "title": "Campervan Rental vs. Campsite Stay: Which Suits Beginners? ｜Taiwan｜Joyforest",
-      "description": "Compare self-drive campervan, campsite cabins, and tent camping on mobility and prep cost—then return to Joyforest home and… Campervan rental in Taipei, Taiwan.",
+      "title": "Campervan Rental vs. Campsite Stay: Which Suits Beginners? ｜Taiwan｜JoyForest CamperVan Rental",
+      "description": "Compare self-drive campervan, campsite cabins, and tent camping on mobility and prep cost—then return to JoyForest CamperVan Rental home and… Campervan rental in Taipei, Taiwan.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/campervan-vs-campsite",
       "heroImage": "https://van.joyforest.tw/assets/images/home/camping-scene.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/og/en--pages--resources--campervan-vs-campsite.jpg",
@@ -303,8 +303,8 @@
     {
       "file": "en/pages/resources/campervan-water-electricity-checklist.html",
       "route": "/en/pages/resources/campervan-water-electricity-checklist",
-      "title": "Campervan Water &amp; Electricity Checklist｜Safety &amp; Campsite Etiquette｜Taiwan｜Joyforest",
-      "description": "Water fill, drainage, and shore power safety: amps, cables, grounding, and campsite etiquette—with links to Joyforest How to… Campervan rental in Taipei, Taiwan.",
+      "title": "Campervan Water &amp; Electricity Checklist｜Safety &amp; Campsite Etiquette｜Taiwan｜JoyForest CamperVan Rental",
+      "description": "Water fill, drainage, and shore power safety: amps, cables, grounding, and campsite etiquette—with links to JoyForest CamperVan Rental How to… Campervan rental in Taipei, Taiwan.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/campervan-water-electricity-checklist",
       "heroImage": "https://van.joyforest.tw/assets/images/resources-wikimedia/water-tap-outdoor.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/og/en--pages--resources--campervan-water-electricity-checklist.jpg",
@@ -317,7 +317,7 @@
     {
       "file": "en/pages/resources/customer-travel-photos-campervan-records.html",
       "route": "/en/pages/resources/customer-travel-photos-campervan-records",
-      "title": "Customer Trip Photos &amp; Real-World Campervan Use ｜Taiwan｜Joyforest",
+      "title": "Customer Trip Photos &amp; Real-World Campervan Use ｜Taiwan｜JoyForest CamperVan Rental",
       "description": "Learn how campervans are used in real trips—from customer stories and photos covering family, friends, and events—with links… Campervan rental in Taipei, Taiwan.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/customer-travel-photos-campervan-records",
       "heroImage": "https://van.joyforest.tw/assets/images/resources-wikimedia/rv-customer-travel-records.jpg",
@@ -331,7 +331,7 @@
     {
       "file": "en/pages/resources/family-attractions-campervan-taiwan.html",
       "route": "/en/pages/resources/family-attractions-campervan-taiwan",
-      "title": "Family Attractions &amp; Campervan Trips｜Routes, Rest &amp; Safety｜Taiwan｜Joyforest",
+      "title": "Family Attractions &amp; Campervan Trips｜Routes, Rest &amp; Safety｜Taiwan｜JoyForest CamperVan Rental",
       "description": "How to combine zoos, museums, and outdoor attractions into a campervan family trip: nap breaks, meals, and safety—with tourism bureau and Taipei Zoo public information.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/family-attractions-campervan-taiwan",
       "heroImage": "https://van.joyforest.tw/assets/images/resources-wikimedia/family-taipei-zoo-entrance.jpg",
@@ -345,7 +345,7 @@
     {
       "file": "en/pages/resources/family-campervan-travel.html",
       "route": "/en/pages/resources/family-campervan-travel",
-      "title": "Is Family Campervan Travel a Good Fit? Beds, Bathroom &amp; Beginner Tips ｜Taiwan｜Joyforest",
+      "title": "Is Family Campervan Travel a Good Fit? Beds, Bathroom &amp; Beginner Tips ｜Taiwan｜JoyForest CamperVan Rental",
       "description": "Why family campervan travel is easier with two double beds, a private bathroom, fridge, and A/C—plus links to van specs. Campervan rental in Taipei, Taiwan.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/family-campervan-travel",
       "heroImage": "https://van.joyforest.tw/assets/images/home/friends-group-campervan-trip.jpg",
@@ -359,7 +359,7 @@
     {
       "file": "en/pages/resources/family-friends-couple-event-campervan-cases.html",
       "route": "/en/pages/resources/family-friends-couple-event-campervan-cases",
-      "title": "Family, Friends, Couples &amp; Event Support｜Campervan Use Cases｜Taiwan｜Joyforest",
+      "title": "Family, Friends, Couples &amp; Event Support｜Campervan Use Cases｜Taiwan｜JoyForest CamperVan Rental",
       "description": "Plan by scenario: families, friend groups, couples, and event support. Covers beds, bathroom rhythm, traffic flow, and venue… Campervan rental in Taipei, Taiwan.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/family-friends-couple-event-campervan-cases",
       "heroImage": "https://van.joyforest.tw/assets/images/resources-wikimedia/family-friends-group-picnic.jpg",
@@ -373,7 +373,7 @@
     {
       "file": "en/pages/resources/index.html",
       "route": "/en/pages/resources/",
-      "title": "Taiwan Campervan Travel Resources｜Taipei Rental Guides｜Joyforest",
+      "title": "Taiwan Campervan Travel Resources｜Taipei Rental Guides｜JoyForest CamperVan Rental",
       "description": "Campervan rental guides for Taiwan: Taipei and Taoyuan delivery, coastal routes, 3-day/2-night itineraries, pricing, family trips, campsites, and beginner how-tos.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/",
       "heroImage": "https://van.joyforest.tw/assets/images/campervan/taipei-campervan-rental-white-rv-coastal-ocean-view-hero.jpg",
@@ -387,7 +387,7 @@
     {
       "file": "en/pages/resources/northern-taiwan-campervan-routes.html",
       "route": "/en/pages/resources/northern-taiwan-campervan-routes",
-      "title": "Northern Taiwan Campervan Routes｜North Coast &amp; Urban Access｜Joyforest",
+      "title": "Northern Taiwan Campervan Routes｜North Coast &amp; Urban Access｜JoyForest CamperVan Rental",
       "description": "Northern Taiwan campervan route framework: urban pickup, North Coast, northeast corner, and mountain transfers—with North Coast National Scenic Area and tourism bureau references.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/northern-taiwan-campervan-routes",
       "heroImage": "https://van.joyforest.tw/assets/images/resources-wikimedia/north-taiwan-yehliu.jpg",
@@ -401,7 +401,7 @@
     {
       "file": "en/pages/resources/taipei-campervan-rental-guide.html",
       "route": "/en/pages/resources/taipei-campervan-rental-guide",
-      "title": "How to Choose Taipei Campervan Rental? A Beginner’s Guide | Joyforest",
+      "title": "How to Choose Taipei Campervan Rental? A Beginner’s Guide | JoyForest CamperVan Rental",
       "description": "How to choose Taipei campervan rental: evaluate pickup/delivery, onboard bathroom, 3-day/2-night trips, and Taiwan campervan pricing together. A beginner-friendly checklist for self-drive motorhome rental before heading to Taoyuan or the coast.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/taipei-campervan-rental-guide",
       "heroImage": "https://van.joyforest.tw/assets/images/campervan/taipei-campervan-rental-white-rv-coastal-ocean-view-hero.jpg",
@@ -415,7 +415,7 @@
     {
       "file": "en/pages/resources/taipei-taoyuan-hsinchu-campervan.html",
       "route": "/en/pages/resources/taipei-taoyuan-hsinchu-campervan",
-      "title": "Taipei, Taoyuan &amp; Hsinchu Campervan Rental: Regional Service Guide | Joyforest",
+      "title": "Taipei, Taoyuan &amp; Hsinchu Campervan Rental: Regional Service Guide | JoyForest CamperVan Rental",
       "description": "How Taipei-first campervan service extends to Taoyuan and Hsinchu—and how designated delivery shapes your itinerary.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/taipei-taoyuan-hsinchu-campervan",
       "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/taipei-101-campervan-rental-departure-twilight-parking.jpg",
@@ -429,7 +429,7 @@
     {
       "file": "en/pages/resources/taiwan-campsite-map-regions-guide.html",
       "route": "/en/pages/resources/taiwan-campsite-map-regions-guide",
-      "title": "Taiwan Campsite Map by Region｜Planning Framework &amp; Official Resources｜Joyforest",
+      "title": "Taiwan Campsite Map by Region｜Planning Framework &amp; Official Resources｜JoyForest CamperVan Rental",
       "description": "Use a regional map mindset to find campsites: north Taiwan, Hsinchu–Miaoli hills, central Taiwan, south, east coast and outlying islands—with tourism bureau and county travel site references.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/taiwan-campsite-map-regions-guide",
       "heroImage": "https://van.joyforest.tw/assets/images/resources-wikimedia/taiwan-map-cia.png",
@@ -443,7 +443,7 @@
     {
       "file": "en/pages/resources/taiwan-coastal-routes-campervan-five-itineraries.html",
       "route": "/en/pages/resources/taiwan-coastal-routes-campervan-five-itineraries",
-      "title": "Taiwan Coastal Campervan Routes｜Five Directions &amp; Safety Tips｜Joyforest",
+      "title": "Taiwan Coastal Campervan Routes｜Five Directions &amp; Safety Tips｜JoyForest CamperVan Rental",
       "description": "Five Taiwan coastal route directions for campervan trips: North Coast, Taoyuan–Hsinchu coast, central Changhua coast, Yunlin–Chiayi–Tainan coast, and Kenting–Hengchun—with tourism and scenic area references.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/taiwan-coastal-routes-campervan-five-itineraries",
       "heroImage": "https://van.joyforest.tw/assets/images/resources-wikimedia/coastal-kenting-beach.jpg",
@@ -457,7 +457,7 @@
     {
       "file": "en/pages/resources/taoyuan-hsinchu-miaoli-campsites-campervan.html",
       "route": "/en/pages/resources/taoyuan-hsinchu-miaoli-campsites-campervan",
-      "title": "Taoyuan, Hsinchu &amp; Miaoli Campsites｜Choosing a Pitch for Your Campervan｜Taiwan｜Joyforest",
+      "title": "Taoyuan, Hsinchu &amp; Miaoli Campsites｜Choosing a Pitch for Your Campervan｜Taiwan｜JoyForest CamperVan Rental",
       "description": "How to choose campsites when renting a campervan in Taoyuan, Hsinchu, and Miaoli: official tourism resources, pitch essentials, and large self-drive campervan tips for trips from Taipei.",
       "canonical": "https://van.joyforest.tw/en/pages/resources/taoyuan-hsinchu-miaoli-campsites-campervan",
       "heroImage": "https://van.joyforest.tw/assets/images/resources-wikimedia/taoyuan-daxi-landscape.jpg",
@@ -471,7 +471,7 @@
     {
       "file": "en/pages/trip-ideas.html",
       "route": "/en/pages/trip-ideas",
-      "title": "Taiwan Campervan Customer Stories｜Real Trips from Taipei｜Joyforest",
+      "title": "Taiwan Campervan Customer Stories｜Real Trips from Taipei｜JoyForest CamperVan Rental",
       "description": "Real campervan trips in Taiwan: North Coast 3-day routes, seaside van-camping, family slow travel, mountain stargazing, and event support—guest stories from Taipei and northern Taiwan.",
       "canonical": "https://van.joyforest.tw/en/pages/trip-ideas",
       "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/customer-experience-hero-two-women-campervan-interior.png",
@@ -506,7 +506,7 @@
       "file": "en/trip-stories/bunker-campsite-glamping-romantic-dinner-starry-night/index.html",
       "route": "/en/trip-stories/bunker-campsite-glamping-romantic-dinner-starry-night/",
       "title": "Bunker Campsite｜Romantic starlit dinner: aesthetic camping kit × limited-time promo props｜Taiwan",
-      "description": "Blue-hour and stars at Bunker Campsite—a Joyforest limited-time promo aesthetic camping kit for a ritual outdoor dinner. Two… Campervan rental in Taipei, Taiwan.",
+      "description": "Blue-hour and stars at Bunker Campsite—a JoyForest CamperVan Rental limited-time promo aesthetic camping kit for a ritual outdoor dinner. Two… Campervan rental in Taipei, Taiwan.",
       "canonical": "https://van.joyforest.tw/en/trip-stories/bunker-campsite-glamping-romantic-dinner-starry-night/",
       "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/joyforest-bunker-campsite-glamping-van-string-lights-twilight-dinner.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/og/en--trip-stories--bunker-campsite-glamping-romantic-dinner-starry-night.jpg",
@@ -685,8 +685,8 @@
     {
       "file": "en/trip-stories/joyforest-campervan-born-container-factory-assembly/index.html",
       "route": "/en/trip-stories/joyforest-campervan-born-container-factory-assembly/",
-      "title": "How our campervan is born: container arrival to factory assembly｜Taiwan｜Joyforest team build diary",
-      "description": "From shipping container arrival and on-site unloading to factory assembly—how the Joyforest team turned a dream into white-a… Campervan rental in Taipei, Taiwan.",
+      "title": "How our campervan is born: container arrival to factory assembly｜Taiwan｜JoyForest CamperVan Rental team build diary",
+      "description": "From shipping container arrival and on-site unloading to factory assembly—how the JoyForest CamperVan Rental team turned a dream into white-a… Campervan rental in Taipei, Taiwan.",
       "canonical": "https://van.joyforest.tw/en/trip-stories/joyforest-campervan-born-container-factory-assembly/",
       "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/joyforest-campervan-manufacturing-assembly-process.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/og/en--trip-stories--joyforest-campervan-born-container-factory-assembly.jpg",
@@ -813,7 +813,7 @@
       "file": "en/trip-stories/rakuten-girls-taoyuan-campervan-birthday-glamping/index.html",
       "route": "/en/trip-stories/rakuten-girls-taoyuan-campervan-birthday-glamping/",
       "title": "Rakuten Girls Taoyuan campervan birthday｜Aesthetic kit, friends &amp; chill time｜Taiwan",
-      "description": "Taoyuan Rakuten Girls cheer squad on a break with friends—Joyforest aesthetic campervan and outdoor kit: camp photos, night… Campervan rental in Taipei, Taiwan.",
+      "description": "Taoyuan Rakuten Girls cheer squad on a break with friends—JoyForest CamperVan Rental aesthetic campervan and outdoor kit: camp photos, night… Campervan rental in Taipei, Taiwan.",
       "canonical": "https://van.joyforest.tw/en/trip-stories/rakuten-girls-taoyuan-campervan-birthday-glamping/",
       "heroImage": "https://van.joyforest.tw/images/trip-stories/rakuten-girls-taoyuan-campervan-group-selfie-campsite.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/og/en--trip-stories--rakuten-girls-taoyuan-campervan-birthday-glamping.jpg",

@@ -3,7 +3,7 @@ import { SITE_ORIGIN, toCanonicalUrl } from "./seo-url-helpers.mjs";
 /** Confirmed business facts — do not add unverified address or sameAs */
 export const BUSINESS = {
   name: "揪好森露營車出租",
-  alternateName: "Joyforest Campervan Rental",
+  alternateName: "JoyForest CamperVan Rental",
   telephone: "+886-911-252-302",
   email: "crownchief@gmail.com",
   logo: `${SITE_ORIGIN}/assets/images/shared/joyforest-campervan-rental-logo-icon-512.png`,

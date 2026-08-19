@@ -5,7 +5,7 @@ import { SITE_ORIGIN, toCanonicalUrl, toCleanPath } from "./seo-url-helpers.mjs"
 
 export const BRAND = {
   zh: "揪好森露營車出租",
-  en: "Joyforest Campervan Rental",
+  en: "JoyForest CamperVan Rental",
   themeColor: "#1f6b52"
 };
 

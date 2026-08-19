@@ -1,7 +1,7 @@
 ---
 title: "Rakuten Girls Taoyuan campervan birthday｜Aesthetic kit, friends & chill time"
 slug: "rakuten-girls-taoyuan-campervan-birthday-glamping"
-description: "Taoyuan Rakuten Girls cheer squad on a break with friends—Joyforest aesthetic campervan and outdoor kit: camp photos, night string-light hangout and birthday toast, most relaxed fun time."
+description: "Taoyuan Rakuten Girls cheer squad on a break with friends—JoyForest CamperVan Rental aesthetic campervan and outdoor kit: camp photos, night string-light hangout and birthday toast, most relaxed fun time."
 date: "2023-03-20"
 category: "Customer stories"
 tags: ["Rakuten Girls", "Taoyuan", "Campervan", "Birthday", "Aesthetic camping", "Glamping", "Rakuten Girls"]

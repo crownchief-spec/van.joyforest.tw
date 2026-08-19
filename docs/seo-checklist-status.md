@@ -19,7 +19,7 @@
 | 6 | manifest 引用 | ✅ | `seo-sync` 自動補齊 |
 | 7 | theme-color | ✅ | `#1f6b52`（`BRAND.themeColor`） |
 | 8 | logo alt | ✅ | header 使用品牌名稱 |
-| 9 | 品牌名稱一致 | ✅ | 繁中「揪好森露營車出租」/ 英文「Joyforest Campervan Rental」 |
+| 9 | 品牌名稱一致 | ✅ | 繁中「揪好森露營車出租」/ 英文「JoyForest CamperVan Rental」 |
 | 10 | 品牌名稱集中管理 | ✅ | `scripts/seo-page-helpers.mjs` → `BRAND` + `seo-map.json` |
 
 ## 二、每頁基礎 SEO
