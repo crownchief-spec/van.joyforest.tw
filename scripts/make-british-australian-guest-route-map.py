@@ -247,8 +247,8 @@ def render(lang: str, output_name: str):
 
 def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    render("zh", "taiwan-campervan-road-trip-route-map-zh.webp")
-    render("en", "taiwan-campervan-road-trip-route-map-en.webp")
+    render("zh", "taiwan-campervan-road-trip-accurate-taiwan-route-map-zh.webp")
+    render("en", "taiwan-campervan-road-trip-accurate-taiwan-route-map-en.webp")
 
 
 if __name__ == "__main__":
