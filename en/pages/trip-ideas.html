@@ -47,7 +47,7 @@
 
     <link rel="stylesheet" href="../../assets/css/style.css" />
     <script defer src="../../assets/js/main.js"></script>
-    <script defer src="../../assets/js/trip-hub.js"></script>
+    <script defer src="../../assets/js/trip-hub.js?v=20260820-category-filter-v2"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -172,8 +172,8 @@
         <section class="section" id="trip-articles-all">
           <div class="container">
             <div class="section-title">
-              <h2>All customer stories</h2>
-              <p>Sorted by order and date; each card links to its own page.</p>
+              <h2 data-trip-hub-results-title>All customer stories</h2>
+              <p data-trip-hub-results-summary aria-live="polite">Sorted by order and date; each card links to its own page.</p>
             </div>
             <div class="trip-hub-grid" data-trip-hub-list></div>
           </div>

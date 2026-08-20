@@ -121,39 +121,50 @@
       </video>
     </div>`;
     }
-    return `<div class="trip-hub-card__media">
+    return `<a class="trip-hub-card__media trip-hub-card__media-link" href="${esc(a.url)}" aria-label="${
+      isEnglishSite() ? `Read ${esc(a.title)}` : `閱讀${esc(a.title)}`
+    }">
       <img src="${esc(listThumbSrc(a))}" alt="${esc(listThumbAlt(a))}" width="640" height="360" loading="lazy" decoding="async" />
-    </div>`;
+    </a>`;
   };
 
   const cardHtml = (a) => {
     const tags = Array.isArray(a.tags) ? a.tags : [];
     const tagStr = tags
       .slice(0, 5)
-      .map((t) => `<span class="trip-hub-tag">${esc(t)}</span>`)
+      .map(
+        (t) =>
+          `<button type="button" class="trip-hub-tag" data-trip-card-tag="${esc(t)}" aria-label="${
+            isEnglishSite() ? `Show stories tagged ${esc(t)}` : `顯示標籤「${esc(t)}」的文章`
+          }">${esc(t)}</button>`
+      )
       .join("");
     return `<article class="trip-hub-card fade-in" data-reveal data-trip-hub-card data-category="${esc(
       a.category
-    )}" data-tags="${esc(tags.join(","))}">
+  )}" data-tags="${esc(tags.join(","))}">
   ${cardMediaHtml(a)}
-  <a class="trip-hub-card__link" href="${esc(a.url)}">
-    <div class="trip-hub-card__body">
-      <span class="pill trip-hub-card__pill">${esc(a.category)}</span>
-      <h3 class="trip-hub-card__title">${esc(a.title)}</h3>
-      <p class="trip-hub-card__excerpt">${esc(a.description)}</p>
-      <div class="trip-hub-card__meta">
-        <time datetime="${esc(a.date)}">${esc(a.date)}</time>
-        <span class="trip-hub-card__dot" aria-hidden="true">·</span>
-        <span>${esc(a.readingTime || "")}</span>
-      </div>
-      ${
-        tagStr
-          ? `<div class="trip-hub-card__tags" aria-label="${isEnglishSite() ? "Tags" : "標籤"}">${tagStr}</div>`
-          : ""
-      }
-      <span class="trip-hub-card__more">${isEnglishSite() ? "Read article" : "閱讀文章"}</span>
+  <div class="trip-hub-card__body">
+    <button type="button" class="pill trip-hub-card__pill trip-hub-card__filter" data-trip-card-category="${esc(
+      a.category
+    )}" aria-label="${
+      isEnglishSite() ? `Show ${esc(a.category)} stories` : `顯示「${esc(a.category)}」分類文章`
+    }">${esc(a.category)}</button>
+    <a class="trip-hub-card__title-link" href="${esc(a.url)}"><h3 class="trip-hub-card__title">${esc(
+      a.title
+    )}</h3></a>
+    <p class="trip-hub-card__excerpt">${esc(a.description)}</p>
+    <div class="trip-hub-card__meta">
+      <time datetime="${esc(a.date)}">${esc(a.date)}</time>
+      <span class="trip-hub-card__dot" aria-hidden="true">·</span>
+      <span>${esc(a.readingTime || "")}</span>
     </div>
-  </a>
+    ${
+      tagStr
+        ? `<div class="trip-hub-card__tags" aria-label="${isEnglishSite() ? "Tags" : "標籤"}">${tagStr}</div>`
+        : ""
+    }
+    <a class="trip-hub-card__more" href="${esc(a.url)}">${isEnglishSite() ? "Read article" : "閱讀文章"}</a>
+  </div>
 </article>`;
   };
 
@@ -182,13 +193,18 @@
       const filterHost = hubRoot.querySelector("[data-trip-hub-filters]");
       const featuredHost = hubRoot.querySelector("[data-trip-hub-featured]");
       const listHost = hubRoot.querySelector("[data-trip-hub-list]");
+      const resultsSection = hubRoot.querySelector("#trip-articles-all");
+      const resultsTitle = hubRoot.querySelector("[data-trip-hub-results-title]");
+      const resultsSummary = hubRoot.querySelector("[data-trip-hub-results-summary]");
 
       if (filterHost) {
         filterHost.innerHTML = FILTER_KEYS.map(
           (f, i) =>
             `<button type="button" class="trip-hub-filter${i === 0 ? " is-active" : ""}" data-trip-filter="${esc(
               f.id
-            )}" data-trip-filter-tag="${f.matchTag ? esc(f.matchTag) : ""}">${esc(f.label)}</button>`
+            )}" data-trip-filter-tag="${f.matchTag ? esc(f.matchTag) : ""}" data-trip-filter-label="${esc(
+              f.label
+            )}" aria-pressed="${i === 0 ? "true" : "false"}">${esc(f.label)}</button>`
         ).join("");
       }
 
@@ -198,10 +214,34 @@
       };
 
       const renderList = (filterId, matchTag) => {
-        if (!listHost) return;
+        if (!listHost) return 0;
         const filtered = list.filter((a) => matchesFilter(a, filterId, matchTag));
         listHost.innerHTML = filtered.map((a) => cardHtml(a)).join("");
         observeReveal(listHost.querySelectorAll(".fade-in[data-reveal]"));
+        return filtered.length;
+      };
+
+      const updateResultsMeta = (filterId, matchTag, label, count) => {
+        if (resultsTitle) {
+          if (filterId === "all") {
+            resultsTitle.textContent = isEnglishSite() ? "All customer stories" : "全部客戶體驗評價文章";
+          } else if (matchTag) {
+            resultsTitle.textContent = isEnglishSite() ? `Stories tagged “${label}”` : `標籤「${label}」的文章`;
+          } else {
+            resultsTitle.textContent = isEnglishSite() ? `${label} stories` : `「${label}」分類文章`;
+          }
+        }
+        if (resultsSummary) {
+          resultsSummary.textContent = isEnglishSite()
+            ? `${count} ${count === 1 ? "story" : "stories"}. Choose a thumbnail below to read.`
+            : `共 ${count} 篇，請從下方縮圖選擇想閱讀的文章。`;
+        }
+      };
+
+      const scrollToResults = () => {
+        if (!resultsSection) return;
+        const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        resultsSection.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
       };
 
       renderFeatured();
@@ -211,20 +251,54 @@
 
       let activeFilter = "all";
       let activeTag = "";
-      renderList(activeFilter, activeTag);
+      let activeLabel = FILTER_KEYS[0].label;
+
+      const applyFilter = (filterId, matchTag, label, shouldScroll) => {
+        activeFilter = filterId || "all";
+        activeTag = matchTag || "";
+        activeLabel = label || activeFilter;
+        if (filterHost) {
+          filterHost.querySelectorAll("[data-trip-filter]").forEach((button) => {
+            const isActive =
+              !activeTag && (button.getAttribute("data-trip-filter") || "all") === activeFilter;
+            button.classList.toggle("is-active", isActive);
+            button.setAttribute("aria-pressed", isActive ? "true" : "false");
+          });
+        }
+        const count = renderList(activeFilter, activeTag);
+        updateResultsMeta(activeFilter, activeTag, activeLabel, count);
+        if (shouldScroll) window.requestAnimationFrame(scrollToResults);
+      };
+
+      applyFilter(activeFilter, activeTag, activeLabel, false);
 
       if (filterHost) {
         filterHost.addEventListener("click", (e) => {
           const btn = e.target && e.target.closest ? e.target.closest("[data-trip-filter]") : null;
           if (!btn) return;
-          activeFilter = btn.getAttribute("data-trip-filter") || "all";
-          activeTag = btn.getAttribute("data-trip-filter-tag") || "";
-          filterHost.querySelectorAll("[data-trip-filter]").forEach((b) => {
-            b.classList.toggle("is-active", b === btn);
-          });
-          renderList(activeFilter, activeTag);
+          applyFilter(
+            btn.getAttribute("data-trip-filter") || "all",
+            btn.getAttribute("data-trip-filter-tag") || "",
+            btn.getAttribute("data-trip-filter-label") || btn.textContent.trim(),
+            true
+          );
         });
       }
+
+      hubRoot.addEventListener("click", (e) => {
+        const categoryButton = e.target && e.target.closest ? e.target.closest("[data-trip-card-category]") : null;
+        if (categoryButton && hubRoot.contains(categoryButton)) {
+          const category = categoryButton.getAttribute("data-trip-card-category") || "all";
+          applyFilter(category, "", category, true);
+          return;
+        }
+
+        const tagButton = e.target && e.target.closest ? e.target.closest("[data-trip-card-tag]") : null;
+        if (tagButton && hubRoot.contains(tagButton)) {
+          const tag = tagButton.getAttribute("data-trip-card-tag") || "";
+          if (tag) applyFilter(`tag:${tag}`, tag, tag, true);
+        }
+      });
     } catch (err) {
       console.error("[trip-hub]", err);
       hubRoot.innerHTML = isEnglishSite()
