@@ -2637,6 +2637,10 @@ html[lang="en"] .nav-links a .nav-stack {
   scroll-margin-top: 88px;
 }
 
+[data-trip-hub-featured-section][hidden] {
+  display: none;
+}
+
 .trip-hub-card--compact .trip-hub-card__link {
   flex-direction: row;
   align-items: stretch;

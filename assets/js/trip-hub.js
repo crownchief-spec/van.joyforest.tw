@@ -191,9 +191,9 @@
 
       const featured = list.filter((a) => a.featured).slice(0, 3);
       const filterHost = hubRoot.querySelector("[data-trip-hub-filters]");
+      const featuredSection = hubRoot.querySelector("[data-trip-hub-featured-section]");
       const featuredHost = hubRoot.querySelector("[data-trip-hub-featured]");
       const listHost = hubRoot.querySelector("[data-trip-hub-list]");
-      const resultsSection = hubRoot.querySelector("#trip-articles-all");
       const resultsTitle = hubRoot.querySelector("[data-trip-hub-results-title]");
       const resultsSummary = hubRoot.querySelector("[data-trip-hub-results-summary]");
 
@@ -238,12 +238,6 @@
         }
       };
 
-      const scrollToResults = () => {
-        if (!resultsSection) return;
-        const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        resultsSection.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
-      };
-
       renderFeatured();
       if (featuredHost) {
         observeReveal(featuredHost.querySelectorAll(".fade-in[data-reveal]"));
@@ -253,10 +247,13 @@
       let activeTag = "";
       let activeLabel = FILTER_KEYS[0].label;
 
-      const applyFilter = (filterId, matchTag, label, shouldScroll) => {
+      const applyFilter = (filterId, matchTag, label) => {
         activeFilter = filterId || "all";
         activeTag = matchTag || "";
         activeLabel = label || activeFilter;
+        if (featuredSection) {
+          featuredSection.hidden = activeFilter !== "all" || Boolean(activeTag);
+        }
         if (filterHost) {
           filterHost.querySelectorAll("[data-trip-filter]").forEach((button) => {
             const isActive =
@@ -267,10 +264,9 @@
         }
         const count = renderList(activeFilter, activeTag);
         updateResultsMeta(activeFilter, activeTag, activeLabel, count);
-        if (shouldScroll) window.requestAnimationFrame(scrollToResults);
       };
 
-      applyFilter(activeFilter, activeTag, activeLabel, false);
+      applyFilter(activeFilter, activeTag, activeLabel);
 
       if (filterHost) {
         filterHost.addEventListener("click", (e) => {
@@ -279,8 +275,7 @@
           applyFilter(
             btn.getAttribute("data-trip-filter") || "all",
             btn.getAttribute("data-trip-filter-tag") || "",
-            btn.getAttribute("data-trip-filter-label") || btn.textContent.trim(),
-            true
+            btn.getAttribute("data-trip-filter-label") || btn.textContent.trim()
           );
         });
       }
@@ -289,14 +284,14 @@
         const categoryButton = e.target && e.target.closest ? e.target.closest("[data-trip-card-category]") : null;
         if (categoryButton && hubRoot.contains(categoryButton)) {
           const category = categoryButton.getAttribute("data-trip-card-category") || "all";
-          applyFilter(category, "", category, true);
+          applyFilter(category, "", category);
           return;
         }
 
         const tagButton = e.target && e.target.closest ? e.target.closest("[data-trip-card-tag]") : null;
         if (tagButton && hubRoot.contains(tagButton)) {
           const tag = tagButton.getAttribute("data-trip-card-tag") || "";
-          if (tag) applyFilter(`tag:${tag}`, tag, tag, true);
+          if (tag) applyFilter(`tag:${tag}`, tag, tag);
         }
       });
     } catch (err) {
