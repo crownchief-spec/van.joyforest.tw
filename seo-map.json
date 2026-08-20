@@ -503,6 +503,24 @@
       "ogImageOverride": true
     },
     {
+      "file": "en/trip-stories/british-australian-guests-taiwan-campervan-road-trip/index.html",
+      "route": "/en/trip-stories/british-australian-guests-taiwan-campervan-road-trip/",
+      "title": "A British Traveler from Australia Discovers Taiwan by Campervan",
+      "description": "A British traveler based in Australia stopped merely transiting through Taiwan and explored it for the first time—from Taipei&#39;s airport gateway to the coast, mountains, Sun Moon Lake and a final half-day in Taipei.",
+      "canonical": "https://van.joyforest.tw/en/trip-stories/british-australian-guests-taiwan-campervan-road-trip/",
+      "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/british-australian-guests-taiwan-campervan-road-trip/hualien-mountain-campsite-sunset.webp",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/en--trip-stories--british-australian-guests-taiwan-campervan-road-trip.jpg",
+      "schemaType": [
+        "Article",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
       "file": "en/trip-stories/bunker-campsite-glamping-romantic-dinner-starry-night/index.html",
       "route": "/en/trip-stories/bunker-campsite-glamping-romantic-dinner-starry-night/",
       "title": "Bunker Campsite｜Romantic starlit dinner: aesthetic camping kit × limited-time promo props｜Taiwan",
@@ -1358,6 +1376,24 @@
       "canonical": "https://van.joyforest.tw/trip-stories/baishawan-surf-campervan-relax/",
       "heroImage": "https://van.joyforest.tw/images/trip-stories/baishawan-surf-campervan-skylight-relax.png",
       "ogImage": "https://van.joyforest.tw/assets/images/og/trip-stories--baishawan-surf-campervan-relax.jpg",
+      "schemaType": [
+        "Article",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
+      "file": "trip-stories/british-australian-guests-taiwan-campervan-road-trip/index.html",
+      "route": "/trip-stories/british-australian-guests-taiwan-campervan-road-trip/",
+      "title": "住在澳洲的英國旅人｜第一次來台灣的露營車半環島與台北半日行",
+      "description": "住在澳洲、往返英國工作的英國旅人，第一次真正走進台灣，就從桃園國際機場開著露營車看海、翻山、抵達日月潭；還車後再用半天走訪台北 101。",
+      "canonical": "https://van.joyforest.tw/trip-stories/british-australian-guests-taiwan-campervan-road-trip/",
+      "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/british-australian-guests-taiwan-campervan-road-trip/hualien-mountain-campsite-sunset.webp",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/trip-stories--british-australian-guests-taiwan-campervan-road-trip.jpg",
       "schemaType": [
         "Article",
         "Organization",
