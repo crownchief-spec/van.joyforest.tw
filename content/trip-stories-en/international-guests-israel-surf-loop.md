@@ -4,7 +4,7 @@ slug: "international-guests-israel-surf-loop"
 description: "Inspired by a real handover: international guests pick up in Taipei, load surf gear, loop the island from North Coast to Kenting and back—the campervan as mobile living room and beds."
 date: "2026-04-24"
 category: "International guests"
-tags: ["Island loop","Surfing","International guests","Coastal"]
+tags: ["International guests","Israeli travelers","Taiwan island loop","Surfing","Taiwan campervan rental","Coastal"]
 coverImage: "/assets/images/trip-ideas/israeli-guests-taipei-regent-handover-campervan-island-surf-trip.jpg"
 coverImageAlt: "International travelers group photo with campervan at Taipei street handover"
 featured: false

@@ -1,20 +1,26 @@
 {
-  "generatedAt": "2026-08-20T12:31:59.319Z",
+  "generatedAt": "2026-08-20T12:55:25.993Z",
   "articles": [
     {
       "slug": "british-australian-guests-taiwan-campervan-road-trip",
       "title": "住在澳洲的英國旅人｜第一次來台灣的露營車半環島與台北半日行",
-      "description": "住在澳洲、往返英國工作的英國旅人，第一次真正走進台灣，就從桃園國際機場開著露營車看海、翻山、抵達日月潭；還車後再用半天走訪台北 101。",
+      "description": "住在澳洲的英國旅人第一次用露營車走台灣半環島：桃園機場、北海岸野柳、宜蘭、清水斷崖、花蓮崇德、太魯閣、中橫武嶺、日月潭，再用半天走訪台北 101。",
       "date": "2026-08-20",
       "category": "國際客人",
       "tags": [
         "英國旅人",
         "澳洲旅客",
+        "台灣露營車出租",
         "台灣半環島",
-        "台灣環島",
-        "台北旅行",
-        "國際客人",
-        "露營車出租"
+        "北海岸",
+        "野柳",
+        "清水斷崖",
+        "花蓮崇德",
+        "太魯閣",
+        "中橫公路",
+        "武嶺",
+        "日月潭",
+        "台北101"
       ],
       "coverImage": "/assets/images/trip-ideas/british-australian-guests-taiwan-campervan-road-trip/hualien-mountain-campsite-sunset.webp",
       "coverImageAlt": "住在澳洲的英國旅人開著台灣露營車，在花蓮山景營地迎接夕陽",
@@ -22,7 +28,7 @@
       "coverImageHeight": 630,
       "featured": true,
       "order": 1,
-      "readingTime": "約 10 分鐘",
+      "readingTime": "約 12 分鐘",
       "url": "/trip-stories/british-australian-guests-taiwan-campervan-road-trip/"
     },
     {
@@ -262,9 +268,11 @@
       "date": "2026-04-24",
       "category": "國際客人",
       "tags": [
-        "環島",
+        "國際客人",
+        "以色列旅客",
+        "台灣環島",
         "衝浪",
-        "外國客人",
+        "台灣露營車出租",
         "海線"
       ],
       "coverImage": "/assets/images/trip-ideas/israeli-guests-taipei-regent-handover-campervan-island-surf-trip.jpg",

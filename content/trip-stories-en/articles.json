@@ -1,19 +1,25 @@
 {
-  "generatedAt": "2026-08-20T12:31:59.567Z",
+  "generatedAt": "2026-08-20T12:55:26.230Z",
   "articles": [
     {
       "slug": "british-australian-guests-taiwan-campervan-road-trip",
       "title": "A British Traveler from Australia Discovers Taiwan by Campervan",
-      "description": "A British traveler based in Australia stopped merely transiting through Taiwan and explored it for the first time—from Taipei's airport gateway to the coast, mountains, Sun Moon Lake and a final half-day in Taipei.",
+      "description": "A British traveler based in Australia takes a Taiwan campervan road trip from Taoyuan Airport to Yehliu, Yilan, Qingshui Cliff, Chongde, Taroko Gorge, the Central Cross-Island Highway, Wuling and Sun Moon Lake, then visits Taipei 101.",
       "date": "2026-08-20",
       "category": "International guests",
       "tags": [
         "British traveler",
         "Australia",
+        "Taiwan campervan rental",
         "Taiwan road trip",
-        "Taipei travel",
-        "international guests",
-        "Taiwan campervan rental"
+        "Yehliu",
+        "Qingshui Cliff",
+        "Hualien Chongde",
+        "Taroko Gorge",
+        "Central Cross-Island Highway",
+        "Wuling",
+        "Sun Moon Lake",
+        "Taipei 101"
       ],
       "coverImage": "/assets/images/trip-ideas/british-australian-guests-taiwan-campervan-road-trip/hualien-mountain-campsite-sunset.webp",
       "coverImageAlt": "A British traveler based in Australia camping with a Taiwan campervan at sunset in the Hualien mountains",
@@ -21,7 +27,7 @@
       "coverImageHeight": 630,
       "featured": true,
       "order": 1,
-      "readingTime": "10 min read",
+      "readingTime": "12 min read",
       "url": "/en/trip-stories/british-australian-guests-taiwan-campervan-road-trip/"
     },
     {
@@ -260,9 +266,11 @@
       "date": "2026-04-24",
       "category": "International guests",
       "tags": [
-        "Island loop",
-        "Surfing",
         "International guests",
+        "Israeli travelers",
+        "Taiwan island loop",
+        "Surfing",
+        "Taiwan campervan rental",
         "Coastal"
       ],
       "coverImage": "/assets/images/trip-ideas/israeli-guests-taipei-regent-handover-campervan-island-surf-trip.jpg",

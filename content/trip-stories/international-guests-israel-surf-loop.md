@@ -4,7 +4,7 @@ slug: "international-guests-israel-surf-loop"
 description: "依真實交車情境發想：外國旅人在台北領車後，載著衝浪裝備與兄弟默契環島，從北海岸到墾丁再北上，露營車是移動客廳與床位。"
 date: "2026-04-24"
 category: "國際客人"
-tags: ["環島","衝浪","外國客人","海線"]
+tags: ["國際客人","以色列旅客","台灣環島","衝浪","台灣露營車出租","海線"]
 coverImage: "/assets/images/trip-ideas/israeli-guests-taipei-regent-handover-campervan-island-surf-trip.jpg"
 coverImageAlt: "國際旅人在台北街區與露營車交車合影"
 featured: false
