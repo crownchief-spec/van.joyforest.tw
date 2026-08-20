@@ -1,6 +1,29 @@
 {
-  "generatedAt": "2026-08-12T14:54:15.002Z",
+  "generatedAt": "2026-08-20T12:09:11.363Z",
   "articles": [
+    {
+      "slug": "british-australian-guests-taiwan-campervan-road-trip",
+      "title": "A British Traveler from Australia Discovers Taiwan by Campervan",
+      "description": "A British traveler based in Australia stopped merely transiting through Taiwan and explored it for the first time—from Taipei's airport gateway to the coast, mountains, Sun Moon Lake and a final half-day in Taipei.",
+      "date": "2026-08-20",
+      "category": "International guests",
+      "tags": [
+        "British traveler",
+        "Australia",
+        "Taiwan road trip",
+        "Taipei travel",
+        "international guests",
+        "Taiwan campervan rental"
+      ],
+      "coverImage": "/assets/images/trip-ideas/british-australian-guests-taiwan-campervan-road-trip/hualien-mountain-campsite-sunset.webp",
+      "coverImageAlt": "A British traveler based in Australia camping with a Taiwan campervan at sunset in the Hualien mountains",
+      "coverImageWidth": 1200,
+      "coverImageHeight": 630,
+      "featured": true,
+      "order": 1,
+      "readingTime": "10 min read",
+      "url": "/en/trip-stories/british-australian-guests-taiwan-campervan-road-trip/"
+    },
     {
       "slug": "vietnam-friends-coastal-campervan-overnight",
       "title": "Vietnamese friends coastal overnight｜Young workers in Taiwan & real van-camping photos",

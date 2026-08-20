@@ -1,6 +1,30 @@
 {
-  "generatedAt": "2026-08-12T14:54:14.766Z",
+  "generatedAt": "2026-08-20T12:09:11.124Z",
   "articles": [
+    {
+      "slug": "british-australian-guests-taiwan-campervan-road-trip",
+      "title": "住在澳洲的英國旅人｜第一次來台灣的露營車半環島與台北半日行",
+      "description": "住在澳洲、往返英國工作的英國旅人，第一次真正走進台灣，就從桃園國際機場開著露營車看海、翻山、抵達日月潭；還車後再用半天走訪台北 101。",
+      "date": "2026-08-20",
+      "category": "國際客人",
+      "tags": [
+        "英國旅人",
+        "澳洲旅客",
+        "台灣半環島",
+        "台灣環島",
+        "台北旅行",
+        "國際客人",
+        "露營車出租"
+      ],
+      "coverImage": "/assets/images/trip-ideas/british-australian-guests-taiwan-campervan-road-trip/hualien-mountain-campsite-sunset.webp",
+      "coverImageAlt": "住在澳洲的英國旅人開著台灣露營車，在花蓮山景營地迎接夕陽",
+      "coverImageWidth": 1200,
+      "coverImageHeight": 630,
+      "featured": true,
+      "order": 1,
+      "readingTime": "約 10 分鐘",
+      "url": "/trip-stories/british-australian-guests-taiwan-campervan-road-trip/"
+    },
     {
       "slug": "vietnam-friends-coastal-campervan-overnight",
       "title": "越南好友海邊過夜｜在台工作青年團與露營車車宿實拍",
