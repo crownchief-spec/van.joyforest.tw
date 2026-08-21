@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T13:21:19.364Z",
+  "generatedAt": "2026-08-21T02:26:17.639Z",
   "articles": [
     {
       "slug": "british-australian-guests-taiwan-campervan-road-trip",
@@ -108,24 +108,25 @@
     },
     {
       "slug": "hot-spring-campervan-overnight-taiwan",
-      "title": "Hot-spring campervan overnights in Taiwan｜Guanziling photos & places to ask",
-      "description": "A practical introduction to hot-spring campervan overnights in Taiwan, with real photos from Guanziling and a checklist for confirming legal, vehicle-friendly stays.",
+      "title": "Taiwan Hot-Spring Campervan Trips｜Campervan + Hot Spring",
+      "description": "Campervan + hot spring is a distinctive Taiwan experience. Find vehicle-stay and bathing options around Ruisui, Zhiben and Jinlun, then see a real Guanziling example and booking checklist.",
       "wideBody": true,
       "date": "2026-08-12",
       "category": "Hot-spring van trips",
       "tags": [
-        "Hot springs",
+        "Taiwan hot springs",
+        "Campervan + Hot Spring",
         "Campervan overnight",
-        "Guanziling",
-        "Mountain routes"
+        "Mountain slow travel",
+        "Guanziling example"
       ],
       "coverImage": "/assets/images/trip-ideas/hot-spring-campervan-overnight/guanziling-sen-spa-infinity-pool-twilight.webp",
-      "coverImageAlt": "Guanziling Sen Spa infinity pool and mountain view at twilight, a hot-spring campervan trip idea",
+      "coverImageAlt": "Guanziling Sen Spa mountain view and hot-spring pool at twilight, a real Taiwan Campervan + Hot Spring example",
       "coverImageWidth": 1200,
       "coverImageHeight": 900,
       "featured": true,
       "order": 11,
-      "readingTime": "About 7 min",
+      "readingTime": "About 9 min",
       "url": "/en/trip-stories/hot-spring-campervan-overnight-taiwan/"
     },
     {

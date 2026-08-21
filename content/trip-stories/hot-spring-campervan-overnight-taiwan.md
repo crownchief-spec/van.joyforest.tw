@@ -1,36 +1,70 @@
 ---
-title: "台灣溫泉車宿怎麼找？關子嶺森之湯實拍與全台泡湯過夜地點"
+title: "台灣溫泉車宿｜Campervan + Hot Spring 的獨特泡湯旅行"
 slug: "hot-spring-campervan-overnight-taiwan"
-description: "露營車旅行也能安排溫泉車宿。以台南關子嶺森之湯實拍為例，整理全台可詢問的泡湯車宿與溫泉露營地點，以及訂位前確認清單。"
+description: "露營車加溫泉，是台灣很有特色的山區慢旅行。特別整理花蓮瑞穗與台東知本、金崙的車宿泡湯候選，並以台南關子嶺實拍說明如何詢問自駕露營車方案。"
 date: "2026-08-12"
 category: "溫泉車宿"
-tags: ["溫泉車宿","關子嶺","泡湯","山區路線","親子旅行"]
+tags: ["台灣溫泉車宿","Campervan + Hot Spring","泡湯旅行","山區慢旅","關子嶺實例"]
 coverImage: "/assets/images/trip-ideas/hot-spring-campervan-overnight/guanziling-sen-spa-infinity-pool-twilight.webp"
-coverImageAlt: "台南關子嶺森之湯傍晚山景與無邊際溫泉池，呈現溫泉車宿慢旅行氛圍"
+coverImageAlt: "台南關子嶺森之湯傍晚山景與溫泉池，作為台灣 Campervan + Hot Spring 旅行實例"
 coverImageWidth: 1200
 coverImageHeight: 900
 featured: true
 order: 11
-readingTime: "約 9 分鐘"
+readingTime: "約 10 分鐘"
 wideBody: true
 ---
 
-## 露營車過夜，不一定只能選傳統露營區
+## Campervan + Hot Spring，是很有台灣特色的旅行方式
 
-<p class="intro-lead">台灣露營車旅行大致可以發展成幾種主題：<strong>溫泉泡湯＋車宿</strong>、<strong>海邊慢旅</strong>、<strong>正規露營區</strong>，以及<strong>親子特色公園或樂園周邊</strong>。這一篇先談一種很舒服、卻常被新手忽略的玩法：把可以合法停留過夜的地點，和泡湯排在同一站。</p>
+<p class="intro-lead">台灣露營車旅行大致可以發展成四種主題：<strong>海邊慢旅</strong>、<strong>溫泉泡湯＋車宿</strong>、<strong>正規露營區</strong>，以及<strong>親子特色公園或樂園周邊</strong>。其中「Campervan + Hot Spring」特別能代表台灣：白天走進山谷與森林，傍晚舒服泡湯，再到事先確認、合法且獲允許的地點於車內休息。</p>
 
 <div class="route-theme-grid" aria-label="露營車過夜四種主題">
-  <article class="route-theme-card"><span aria-hidden="true">♨️</span><h3>溫泉車宿</h3><p>泡完湯不用再趕長途，回到車上慢慢休息。</p></article>
   <article class="route-theme-card"><span aria-hidden="true">🌊</span><h3>海邊慢旅</h3><p>依合法停車與過夜規定，安排日落、海風與晨景。</p></article>
+  <article class="route-theme-card"><span aria-hidden="true">♨️</span><h3>溫泉車宿</h3><p>泡完湯不用再趕長途，回到車上慢慢休息。</p></article>
   <article class="route-theme-card"><span aria-hidden="true">🏕️</span><h3>正規露營區</h3><p>水電、浴廁與營位最容易先確認，適合第一次租車。</p></article>
   <article class="route-theme-card"><span aria-hidden="true">🛝</span><h3>親子路線</h3><p>找特色公園、樂園附近的合法營地或允許過夜場域。</p></article>
 </div>
 
+台灣的高山深處雖然景色迷人，但山路常較狹窄，能讓約 3 公尺高露營車安全進出、平整停放又可合法過夜的位置，通常比海線或正規露營區少。溫泉聚落多半已有道路、旅宿與公共服務，是親近山景又能舒服休息的好起點；不過「有停車場」仍不等於「可以車宿」，過夜地點一定要先確認。
+
 <div class="callout"><strong>先說最重要的：</strong>一般停車場可以停車，不代表可以車宿；「露營車住宿」也可能是業者固定在場內的車屋，不一定接受自駕露營車。訂位時要明確說：<strong>我們會開一台自走式露營車進場，車高約 3 公尺，要在自己的車內過夜</strong>。</div>
 
-## 這次的實例：台南關子嶺森之湯
+### 這篇談的是「指定車位＋車內過夜＋泡湯」整合服務
 
-這組照片是實際到訪台南關子嶺「森之湯 脈衝 SPA 親子水樂園」的紀錄。傍晚的山景、戶外水池、SPA 池與親子玩水區都集中在同一個場域；照片中也能看到露營車停在池畔旁，正好呈現「白天移動、傍晚泡湯、晚上在車內休息」的旅行想像。
+到溫泉消費時，把車停在業者或附近依法設置的停車場，通常就是一般停車；但若要在營業時間外留車、人在車內睡覺，仍要看停車場告示、土地管理單位與業者規定，不能把所有溫泉停車場一概視為開放車宿。本文特別整理的不是「到了再找一格停車位睡」，而是業者已提供或曾公開接受的<strong>自駕露營車停泊、車內過夜與泡湯</strong>服務。這種方案通常還能事先問清楚水電、廁所、進退場時間與泡湯次數，旅行會比較安心。
+
+## 全台有哪些溫泉帶？先選想去的山海風景
+
+交通部觀光署整理的溫泉路線遍及北、中、南、東部；經濟部水利署也指出，台灣已有 25 處公告溫泉區。下面列的是適合拿來規劃旅程的<strong>溫泉目的地</strong>，不是保證可車宿的停車名單。正確做法是先選溫泉，再找鄰近合法露營場，或直接詢問業者是否有接受自走式露營車的營位。
+
+<div class="hot-spring-place-list">
+  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">北部・台北／新北</p><h3>北投、陽明山、烏來、金山萬里</h3><p>北投適合結合城市散步與溫泉，烏來可安排溪谷與山景；金山萬里則能把北海岸和泡湯排進同一段路線。</p><p class="hot-spring-place-card__check">規劃重點：市區與山區停車條件差異大，先確認車高、進出動線及合法過夜點。</p></article>
+  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">東北部・宜蘭</p><h3>礁溪、蘇澳</h3><p>礁溪是交通便利、機能完整的平地溫泉聚落；蘇澳則以冷泉與海線行程有辨識度，很適合和東北角慢旅行搭配。</p><p class="hot-spring-place-card__check">規劃重點：市區湯屋停車場不一定能過夜，可改找鄰近合法營地再日歸泡湯。</p></article>
+  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">中部・苗栗／台中／南投</p><h3>泰安、谷關、東埔</h3><p>三地都能感受山谷、溪流與森林。谷關適合台八線山景，東埔可串聯信義鄉，泰安則可安排苗栗山區慢旅。</p><p class="hot-spring-place-card__check">規劃重點：山路、低垂樹枝、道路施工與豪雨後路況，都要在出發前重新查詢。</p></article>
+  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">南部・台南／高雄／屏東</p><h3>關子嶺、寶來／不老、四重溪</h3><p>關子嶺以泥漿溫泉聞名，本文後面有實拍案例；寶來、不老可感受荖濃溪山區，四重溪則可和恆春半島行程組合。</p><p class="hot-spring-place-card__check">規劃重點：先分清楚「可停車泡湯」、「合法露營」與「可在自己的車內過夜」三種不同服務。</p></article>
+  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">東部・花蓮／台東</p><h3>瑞穗、安通、知本、金崙</h3><p>瑞穗、安通適合花東縱谷慢行，知本是成熟的溫泉聚落，金崙則可把南迴海景與泡湯排在一起。</p><p class="hot-spring-place-card__check">規劃重點：東部距離長，泡湯後不要疲勞駕駛；找不到合適車宿時，就採合法營地＋日歸溫泉。</p></article>
+</div>
+
+<div class="callout"><strong>最實用的找法：</strong>搜尋「地名＋合法露營場」與「地名＋日歸溫泉」，通常比只找「溫泉車宿」更容易排出安全路線。露營場可先用<a href="https://camp.tad.gov.tw/CMA/web_page/CMA030100.jsp" target="_blank" rel="noopener">交通部觀光署合法露營場查詢</a>篩選；全台溫泉區則可參考<a href="https://www.taiwan.net.tw/m1.aspx?sno=0001035" target="_blank" rel="noopener">觀光署溫泉之旅</a>與<a href="https://www.wra.gov.tw/epaper/Article_Detail.aspx?n=30173&s=4850" target="_blank" rel="noopener">水利署溫泉區資料</a>。</div>
+
+## 東海岸特別整理：花蓮、台東的車宿＋泡湯地點
+
+花東距離長，泡完湯若還要摸黑趕路很累，因此「在同一園區停泊、過夜、泡湯」特別有價值。以下依目前公開資料分成<strong>官網已明列車宿</strong>與<strong>有車宿紀錄、但要再確認當期方案</strong>兩類；沒有查到最新官網方案的地點，不會寫成永久保證。
+
+<div class="hot-spring-place-list">
+  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">台東・知本｜官網已明列車宿</p><h3>東遊季溫泉渡假村</h3><p><a href="https://www.toyugi.com.tw/" target="_blank" rel="noopener">官方網站</a>目前同時列出「新開放車宿營位」與溫泉 SPA，另有<a href="https://www.toyugi.com.tw/fac-detail/bbq-area/" target="_blank" rel="noopener">露營車位／車宿設施頁</a>，是花東公開資訊最完整的自駕露營車候選。</p><p class="hot-spring-place-card__check">預約仍要問：車宿費是否已含 SPA、可用人數與次數、營位尺寸、3 公尺車高動線、供電和進退場時間。</p></article>
+  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">花蓮・瑞穗｜有近期車宿紀錄</p><h3>瑞峰溫泉民宿</h3><p><a href="https://ruifeng.970bnb.net/" target="_blank" rel="noopener">業者網站</a>明列露天大眾溫泉池；2024 至 2025 年間的車宿資料也記錄「泡湯＋車泊」、水、廁所與供電。官方資料另顯示其溫泉標章有效至 2026 年 9 月，且曾列入合法申請使用國有土地的露營場清單。</p><p class="hot-spring-place-card__check">網站目前沒有完整車宿價目與車型限制，務必先問：現在是否仍收自走式露營車、泡湯是否包含、可停尺寸及當日營業狀態。</p></article>
+  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">花蓮・瑞穗｜適合直接詢問</p><h3>東岡秀川湯之館</h3><p><a href="https://csa.hl.gov.tw/hakkaIndus/News_Content.aspx?n=17791&s=97136" target="_blank" rel="noopener">花蓮縣官方介紹</a>確認這裡是瑞穗溫泉湯屋與住宿場域；官方清單曾列為合法申請使用國有土地的露營場，也能查到自駕車宿紀錄。</p><p class="hot-spring-place-card__check">目前未查到業者公開的最新車宿方案，先電話確認是否仍營業、是否接受自己的露營車，以及泡湯、草地、水電和衛浴如何計費。</p></article>
+  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">台東・知本｜溫泉露營候選</p><h3>江媽媽溫泉露營區</h3><p>觀光署公開資料曾列為合法申請使用國有土地的露營場；近期旅遊資料仍介紹其位於知本內溫泉區、自有溫泉井、露營與泡湯設施。</p><p class="hot-spring-place-card__check">目前缺少完整最新官網，先確認是否仍對外營運、能否停自走式露營車、道路與營位尺寸，以及泡湯是否包含。</p></article>
+  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">台東・金崙｜有車露＋泡湯紀錄</p><h3>千坪溫泉露營區</h3><p>公開露營紀錄曾明確介紹車露營位、園內溫泉池及露營含泡湯的組合，地點就在金崙溫泉區，符合「停泊、過夜、泡湯在同一站」的主題。</p><p class="hot-spring-place-card__check">目前未找到足以確認 2026 營運狀態的官方頁面，因此只列為詢問候選；不要直接照舊文章的價格與規則前往。</p></article>
+</div>
+
+<div class="callout"><strong>查證結論：</strong>目前花東最能由業者官網直接確認「有車宿營位＋有溫泉 SPA」的是<strong>台東知本東遊季</strong>；瑞穗瑞峰、東岡秀川、知本江媽媽與金崙千坪都有溫泉露營或車宿紀錄，但最新營業項目、是否接受約 3 公尺高自走式露營車，以及泡湯是否含在車宿費，都要在預約時再次確認。</div>
+
+## 實際案例：這組照片來自台南關子嶺
+
+關子嶺只是全台溫泉旅行的其中一個例子，也是這篇照片的實際拍攝地點。這組紀錄來自台南關子嶺「森之湯 脈衝 SPA 親子水樂園」：傍晚山景、戶外水池、SPA 池與親子玩水區集中在同一個場域，照片中也能看到露營車停在池畔旁，具體呈現「白天移動、傍晚泡湯、晚上在車內休息」的旅行節奏。
 
 <figure class="guide-figure">
   <img src="/assets/images/trip-ideas/hot-spring-campervan-overnight/guanziling-sen-spa-infinity-pool-twilight.webp" width="1200" height="900" loading="lazy" decoding="async" title="關子嶺森之湯傍晚山景與無邊際溫泉池" alt="傍晚藍調天空下的關子嶺森之湯，前方是無邊際溫泉池、躺椅與山林景觀" />
@@ -66,35 +100,7 @@ wideBody: true
 
 <div class="callout"><strong>關子嶺森之湯的查證提醒：</strong>近期公開旅遊資訊仍列有泡湯、露營與車宿內容，但地方露營場清冊曾出現「整備中／未營業」紀錄。兩者可能是不同時間、不同營業項目的狀態，本文不把它寫成永久保證。<strong>出發前請直接詢問業者：當日是否接受自走式露營車、車宿費用、泡湯是否已含在方案內，以及可停車型與進出時間。</strong>可參考<a href="https://www.abic.com.tw/place/view/id/15921" target="_blank" rel="noopener">近期場域資訊</a>與<a href="https://admin.twtainan.net/file/30960/" target="_blank" rel="noopener">台南市露營場清冊</a>交叉確認。</div>
 
-## 全台可以怎麼找？先從溫泉帶開始詢問
-
-不是每個溫泉場館都會把「車宿」寫在網站首頁，有些是露營營位、有些是停車加湯屋方案，也有些只提供場內固定式露營車住宿。下面先把目前查到的地點分成兩層：<strong>公開資訊較明確</strong>與<strong>旅人分享／適合直接詢問</strong>。這不是永久名單，目的是告訴你：從礁溪、內灣到關子嶺、知本，台灣確實有這種旅行形式。
-
-### 公開資訊較明確：網站可看到車宿、車位或露營＋溫泉
-
-<div class="hot-spring-place-list">
-  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">宜蘭・礁溪</p><h3>春水笈／四季溫泉周邊車泊方案</h3><p><a href="https://www.youtube.com/watch?v=IU4Y9I5CJeo" target="_blank" rel="noopener">近期露營車旅人實測</a>分享「市區車泊＋湯屋」方案，並指出兩處共用停車場。這是很方便的城市型溫泉車宿例子，但公開官網未完整列出車宿規則，必須先電話確認當日是否仍接受大型自走式露營車。</p><p class="hot-spring-place-card__check">先問：車高約 3 公尺可否進場、方案是否含湯屋、是否能在車內過夜。</p></article>
-  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">台東・知本</p><h3>東遊季溫泉渡假村</h3><p><a href="https://www.toyugi.com.tw/" target="_blank" rel="noopener">官方網站</a>明確寫有固定營位、溫泉 SPA，並標示「新開放車宿營位歡迎預訂」，是目前資訊相對清楚的溫泉車宿候選。</p><p class="hot-spring-place-card__check">先問：車宿營位尺寸、供電規格，以及溫泉 SPA 是否含在當次費用。</p></article>
-  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">新竹・內灣</p><h3>威尼斯溫泉露營地</h3><p><a href="https://www.hotspring-camp.com.tw/camp/index.php" target="_blank" rel="noopener">官方訂位頁</a>同時列露營車、營位與溫泉套房；旅遊資料也提到露客可加購湯屋。要注意「場內露營車住宿」和「開自己的露營車進場」可能是不同商品。</p><p class="hot-spring-place-card__check">先問：是否有自駕露營車營位，而不是只租場內固定露營車。</p></article>
-  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">台中・東勢</p><h3>東勢林場遊樂區</h3><p>官方有<a href="https://tsfa.com.tw/page/about/index.aspx?kind=1273" target="_blank" rel="noopener">供電露營區</a>，也有<a href="https://www.tsfa.com.tw/page/about/index.aspx?kind=79" target="_blank" rel="noopener">森之湯溫泉設施</a>；很適合規劃森林＋泡湯。不過露營說明以搭帳營位為主，自走式露營車是否能停進營位要個別確認。</p><p class="hot-spring-place-card__check">先問：車輛能否停在營位旁、3 公尺車高動線與當日溫泉開放狀況。</p></article>
-  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">宜蘭・南澳</p><h3>碧候露營場＋碧候溫泉</h3><p><a href="https://pyhcamping.com/" target="_blank" rel="noopener">營地官方資訊</a>主打鄰近碧候溫泉，約需短程移動；適合把合法露營與泡湯拆成同一區域的兩個停留點，而不是強求溫泉池就在車旁。</p><p class="hot-spring-place-card__check">先問：是否收自走式露營車、營位尺寸；另查溫泉當日營業與購票方式。</p></article>
-  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">高雄・寶來</p><h3>遠山望月溫泉營區</h3><p><a href="https://www.spa-grand.com.tw/about.php" target="_blank" rel="noopener">官方介紹</a>同時有湯泉、露營營位與露營車住宿，位在寶來山區，能看出「山景＋露營＋溫泉」本來就是成熟的旅行組合。</p><p class="hot-spring-place-card__check">先問：可否開自有露營車進營位；官網的「露營車」可能是場內住宿車型。</p></article>
-  <article class="hot-spring-place-card"><p class="hot-spring-place-card__area">台南・關子嶺</p><h3>森之湯脈衝 SPA 親子水樂園</h3><p>本文實拍案例。近期旅遊平台列有車宿與自搭帳資訊，但露營場公開清冊狀態曾不一致，因此務必以業者當日答覆為準。</p><p class="hot-spring-place-card__check">先問：目前車宿是否開放、泡湯是否包含、休園日與夜間進出。</p></article>
-</div>
-
-### 還可以詢問：各溫泉帶常有季節性或小型方案
-
-<ul class="checklist hot-spring-inquiry-list">
-  <li><strong>礁溪：</strong>除了春水笈／四季溫泉，亦有旅人分享傳奇溫泉湯屋等小型「湯屋＋車泊」方案。舊文章的價格與規則不能直接沿用，務必先問是否仍營業及接受大型車。</li>
-  <li><strong>新竹尖石：</strong>會來尖石等溫泉渡假村有露營車住宿與泡湯內容；若是自己開露營車，要另問是否有自駕車宿營位。</li>
-  <li><strong>花蓮瑞穗／紅葉：</strong>可先找合法露營場，再搭配附近溫泉；瑞穗露營區的官方介紹就把紅葉溫泉列為周邊遊程。</li>
-  <li><strong>台東知本／金崙：</strong>溫泉旅宿密集，除東遊季外，也能逐間詢問是否有平面停車、車泊合作或附近合法營地；不要把一般停車場自行當成過夜營位。</li>
-  <li><strong>北投／陽明山、金山萬里、谷關、泰安、四重溪：</strong>都是適合發展山區溫泉慢旅的溫泉帶。若查不到車宿方案，可用「合法露營場＋日歸泡湯」組合，不必勉強停在湯屋停車場。</li>
-</ul>
-
-<p class="kicker">資料整理日期：2026-08-12。營運、價格、溫泉維護、露營場狀態與車宿規則都可能調整，本文刻意不刊登容易過期的價格表。</p>
-
-## 訂位前，照這 8 句問最清楚
+## 第一次聯絡溫泉業者，照這 8 句問最清楚
 
 <ol class="checklist hot-spring-booking-checklist">
   <li>我們是<strong>自己開一台自走式露營車</strong>，不是要住園區固定的露營車，可以進場嗎？</li>
@@ -115,15 +121,19 @@ wideBody: true
 
 <div class="callout"><strong>泡湯安全：</strong>長途開車或劇烈活動後先休息再入浴；飲酒後不要泡湯，也不要泡完立刻疲勞駕駛。交通部觀光署建議每次浸泡以約 15 分鐘為宜，如有心悸、頭暈或不適應立即離池休息。</div>
 
-## 這會是一整套露營車過夜主題的第一篇
+## 從旅行主題開始選，路線會更容易
 
-這篇先建立「溫泉＋車宿」的找法。接下來可再分別整理<strong>海邊慢旅、正規露營區、親子特色公園周邊</strong>，最後把幾種玩法整合成一篇「第一次租露營車，過夜地點怎麼選」的總指南。客人不用先背很多地名，只要先選自己喜歡的旅行主題，再用確認清單逐一詢問，就能開始規劃。
+溫泉車宿不是非得把車停在溫泉池旁，而是把<strong>山景、泡湯與一個合法安全的夜晚</strong>排成順路的旅程。第一次租露營車，不用先背很多地名；先選喜歡的主題，再以溫泉帶為中心尋找合法營地或獲允許的場域，就能規劃出有台灣特色的 Campervan + Hot Spring 路線。
 
 ### 查詢時可使用的公開資料
 
 - [交通部觀光署合法露營場查詢](https://camp.tad.gov.tw/CMA/web_page/CMA030100.jsp)：可查看合法露營場及車露營位資料。
-- [東遊季溫泉渡假村官方網站](https://www.toyugi.com.tw/)：官方列有溫泉 SPA、固定營位與車宿營位。
-- [東勢林場露營須知](https://tsfa.com.tw/page/about/index.aspx?kind=1273)與[森之湯溫泉資訊](https://www.tsfa.com.tw/page/about/index.aspx?kind=79)。
-- [碧候露營場官方網站](https://pyhcamping.com/)：說明營地與碧候溫泉的區域搭配。
-- [遠山望月溫泉營區官方網站](https://www.spa-grand.com.tw/about.php)：湯泉、露營與場內露營車住宿資訊。
-- [交通部觀光署溫泉之旅與泡湯注意事項](https://www.taiwan.net.tw/m1.aspx?sno=0001035)。
+- [交通部觀光署溫泉之旅與泡湯注意事項](https://www.taiwan.net.tw/m1.aspx?sno=0001035)：全台溫泉路線與入浴提醒。
+- [經濟部水利署溫泉區資料](https://www.wra.gov.tw/epaper/Article_Detail.aspx?n=30173&s=4850)：公告溫泉區與各地代表溫泉帶。
+- [東遊季溫泉渡假村官方網站](https://www.toyugi.com.tw/)：知本溫泉 SPA 與車宿營位。
+- [觀光署公開露營場資料](https://www.taiwan.net.tw/userfiles/file/6_%EF%BC%88%E8%B2%A1%E6%94%BF%E9%83%A8%EF%BC%89%E5%90%88%E6%B3%95%E7%94%B3%E8%AB%8B%E4%BD%BF%E7%94%A8%E5%9C%8B%E6%9C%89%E9%9D%9E%E5%85%AC%E7%94%A8%E5%9C%9F%E5%9C%B0.pdf)：可交叉查閱瑞峰、東岡秀川、江媽媽等場域的公開清單紀錄；最新狀態仍以露營場平台及業者答覆為準。
+- [宜蘭勁好玩・礁溪溫泉](https://travel.yilan.gov.tw/zh-tw/tour/16/)：礁溪溫泉聚落官方旅遊資料。
+- [台南旅遊網・關子嶺溫泉](https://www.twtainan.net/zh-tw/attractions/detail/590/)：關子嶺山景與泥漿溫泉介紹。
+- [台東觀光旅遊網・知本溫泉](https://tour.taitung.gov.tw/zh-tw/attraction/details/284)：知本溫泉區官方旅遊資料。
+
+<p class="kicker">資料更新日期：2026-08-21。營運、價格、溫泉維護、露營場狀態與車宿規則都可能調整，本文刻意不刊登容易過期的價格表。</p>

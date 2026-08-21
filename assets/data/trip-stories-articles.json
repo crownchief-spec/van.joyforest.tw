@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T13:21:19.123Z",
+  "generatedAt": "2026-08-21T02:25:43.729Z",
   "articles": [
     {
       "slug": "british-australian-guests-taiwan-campervan-road-trip",
@@ -109,25 +109,25 @@
     },
     {
       "slug": "hot-spring-campervan-overnight-taiwan",
-      "title": "台灣溫泉車宿怎麼找？關子嶺森之湯實拍與全台泡湯過夜地點",
-      "description": "露營車旅行也能安排溫泉車宿。以台南關子嶺森之湯實拍為例，整理全台可詢問的泡湯車宿與溫泉露營地點，以及訂位前確認清單。",
+      "title": "台灣溫泉車宿｜Campervan + Hot Spring 的獨特泡湯旅行",
+      "description": "露營車加溫泉，是台灣很有特色的山區慢旅行。特別整理花蓮瑞穗與台東知本、金崙的車宿泡湯候選，並以台南關子嶺實拍說明如何詢問自駕露營車方案。",
       "wideBody": true,
       "date": "2026-08-12",
       "category": "溫泉車宿",
       "tags": [
-        "溫泉車宿",
-        "關子嶺",
-        "泡湯",
-        "山區路線",
-        "親子旅行"
+        "台灣溫泉車宿",
+        "Campervan + Hot Spring",
+        "泡湯旅行",
+        "山區慢旅",
+        "關子嶺實例"
       ],
       "coverImage": "/assets/images/trip-ideas/hot-spring-campervan-overnight/guanziling-sen-spa-infinity-pool-twilight.webp",
-      "coverImageAlt": "台南關子嶺森之湯傍晚山景與無邊際溫泉池，呈現溫泉車宿慢旅行氛圍",
+      "coverImageAlt": "台南關子嶺森之湯傍晚山景與溫泉池，作為台灣 Campervan + Hot Spring 旅行實例",
       "coverImageWidth": 1200,
       "coverImageHeight": 900,
       "featured": true,
       "order": 11,
-      "readingTime": "約 9 分鐘",
+      "readingTime": "約 10 分鐘",
       "url": "/trip-stories/hot-spring-campervan-overnight-taiwan/"
     },
     {
