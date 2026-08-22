@@ -20,10 +20,10 @@ wideBody: true
 <p class="intro-lead">台灣露營車旅行大致可以發展成四種主題：<strong>海邊慢旅</strong>、<strong>溫泉泡湯＋車宿</strong>、<strong>正規露營區</strong>，以及<strong>親子特色公園或樂園周邊</strong>。其中「Campervan + Hot Spring」特別能代表台灣：白天走進山谷與森林，傍晚舒服泡湯，再到事先確認、合法且獲允許的地點於車內休息。</p>
 
 <div class="route-theme-grid" aria-label="露營車過夜四種主題">
-  <article class="route-theme-card"><span aria-hidden="true">🌊</span><h3>海邊慢旅</h3><p>依合法停車與過夜規定，安排日落、海風與晨景。</p></article>
+  <article class="route-theme-card"><span aria-hidden="true">🌊</span><h3><a href="/trip-stories/seaside-campervan-overnight-taiwan/">海邊慢旅</a></h3><p>依合法停車與過夜規定，安排日落、海風與晨景。</p></article>
   <article class="route-theme-card"><span aria-hidden="true">♨️</span><h3>溫泉車宿</h3><p>泡完湯不用再趕長途，回到車上慢慢休息。</p></article>
-  <article class="route-theme-card"><span aria-hidden="true">🏕️</span><h3>正規露營區</h3><p>水電、浴廁與營位最容易先確認，適合第一次租車。</p></article>
-  <article class="route-theme-card"><span aria-hidden="true">🛝</span><h3>親子路線</h3><p>找特色公園、樂園附近的合法營地或允許過夜場域。</p></article>
+  <article class="route-theme-card"><span aria-hidden="true">🏕️</span><h3><a href="/trip-stories/campsite-campervan-overnight-taiwan/">正規露營區</a></h3><p>水電、浴廁與營位最容易先確認，適合第一次租車。</p></article>
+  <article class="route-theme-card"><span aria-hidden="true">🛝</span><h3><a href="/trip-stories/family-park-campervan-overnight-taiwan/">親子路線</a></h3><p>找特色公園、樂園附近的合法營地或允許過夜場域。</p></article>
 </div>
 
 台灣的高山深處雖然景色迷人，但山路常較狹窄，能讓約 3 公尺高露營車安全進出、平整停放又可合法過夜的位置，通常比海線或正規露營區少。溫泉聚落多半已有道路、旅宿與公共服務，是親近山景又能舒服休息的好起點；不過「有停車場」仍不等於「可以車宿」，過夜地點一定要先確認。

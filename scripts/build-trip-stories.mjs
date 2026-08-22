@@ -51,7 +51,8 @@ const articlePageTemplate = ({
   relatedHtml,
   jsonLd,
   wideBody,
-  skipArticleCta
+  skipArticleCta,
+  hasEnglish = true
 }) => {
   const tagList = Array.isArray(tags) ? tags : [];
   const tagsMeta = tagList.map((t) => escapeHtml(t)).join("、");
@@ -70,7 +71,7 @@ const articlePageTemplate = ({
     <title>${escapeHtml(title)}</title>
     <meta name="description" content="${escapeHtml(description)}" />
     <link rel="canonical" href="${SITE_ORIGIN}/trip-stories/${slug}/" />
-${hreflangHeadHtml({ zhCanonical: `${SITE_ORIGIN}/trip-stories/${slug}/`, enCanonical: `${SITE_ORIGIN}/en/trip-stories/${slug}/` })}
+${hasEnglish ? hreflangHeadHtml({ zhCanonical: `${SITE_ORIGIN}/trip-stories/${slug}/`, enCanonical: `${SITE_ORIGIN}/en/trip-stories/${slug}/` }) : ""}
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="zh_TW" />
     <meta property="og:site_name" content="揪好森露營車出租" />
@@ -119,11 +120,11 @@ ${hreflangHeadHtml({ zhCanonical: `${SITE_ORIGIN}/trip-stories/${slug}/`, enCano
                 : ""
             }
           </div>
-          <div class="trip-article-hero-actions">
+          ${hasEnglish ? `<div class="trip-article-hero-actions">
             <div class="hero-actions" role="group" aria-label="Language">
               <a class="btn btn-lang" href="/en/trip-stories/${escapeHtml(slug)}/" lang="en" hreflang="en">English</a>
             </div>
-          </div>
+          </div>` : ""}
         </div>
         <div class="trip-article-cover-wrap">
           <img
@@ -228,6 +229,7 @@ async function main() {
     const description = (data.description || "").trim();
     const wideBody = Boolean(data.wideBody);
     const skipArticleCta = Boolean(data.skipArticleCta);
+    const hasEnglish = data.hasEnglish !== false;
     const date = (data.date || "").trim();
     const category = (data.category || "未分類").trim();
     const tags = Array.isArray(data.tags) ? data.tags.map(String) : [];
@@ -253,6 +255,7 @@ async function main() {
       description,
       wideBody,
       skipArticleCta,
+      hasEnglish,
       date,
       category,
       tags,
@@ -369,7 +372,8 @@ async function main() {
       relatedHtml,
       jsonLd,
       wideBody: item.wideBody,
-      skipArticleCta: item.skipArticleCta
+      skipArticleCta: item.skipArticleCta,
+      hasEnglish: item.hasEnglish !== false
     });
 
     const dir = path.join(OUT_STORIES_DIR, item.slug);
