@@ -734,6 +734,111 @@ html[lang="en"] .nav-links a .nav-stack {
   border-bottom: 0;
 }
 
+/* The route overview needs a strong scan rhythm on a phone, not a dense spreadsheet. */
+.trip-route-table-wrap {
+  margin: 18px 0 24px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.trip-route-table {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.trip-route-table thead th {
+  color: #fff;
+  background: var(--color-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+  font-size: 15px;
+}
+
+.trip-route-table tbody tr:nth-child(odd) {
+  background: #f4f8f5;
+}
+
+.trip-route-table tbody tr:nth-child(even) {
+  background: #dcece3;
+}
+
+.trip-route-table td {
+  vertical-align: top;
+}
+
+@media (max-width: 640px) {
+  .trip-route-table-wrap {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .trip-route-table,
+  .trip-route-table tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .trip-route-table thead {
+    display: none;
+  }
+
+  .trip-route-table tbody {
+    display: grid;
+    gap: 10px;
+  }
+
+  .trip-route-table tr {
+    display: grid;
+    grid-template-columns: 66px minmax(0, 1fr);
+    gap: 5px 12px;
+    padding: 12px;
+    border: 1px solid rgba(23, 60, 58, 0.12);
+    border-radius: 14px;
+  }
+
+  .trip-route-table td {
+    display: block;
+    padding: 0;
+    border: 0;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .trip-route-table td:first-child {
+    grid-row: span 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 4px;
+    color: #fff;
+    background: var(--color-primary);
+    border-radius: 10px;
+    font-weight: 800;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  .trip-route-table td:nth-child(2)::before,
+  .trip-route-table td:nth-child(3)::before {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--color-muted);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .04em;
+  }
+
+  .trip-route-table td:nth-child(2)::before { content: "主要路線"; }
+  .trip-route-table td:nth-child(3)::before { content: "建議過夜"; }
+  html[lang="en"] .trip-route-table td:nth-child(2)::before { content: "ROUTE"; }
+  html[lang="en"] .trip-route-table td:nth-child(3)::before { content: "OVERNIGHT"; }
+}
+
 .kicker {
   font-size: var(--small);
   color: var(--color-muted);

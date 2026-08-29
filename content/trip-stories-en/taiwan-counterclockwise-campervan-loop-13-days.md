@@ -17,27 +17,35 @@ readingTime: "About 18 minutes"
 For a first campervan loop around Taiwan, our recommended length is **13 days and 12 nights**. It gives Sun Moon Lake, Alishan, Xiaoliuqiu, Kenting and the east coast enough room without turning every day into a long drive. Collect the campervan at Taoyuan International Airport, travel counterclockwise down the west side, return north along the Pacific and hand the vehicle back in Taipei on Day 13. Taipei itself is easier by MRT, taxi or a private driver than in a campervan approximately three metres high.
 
 <figure class="guide-figure">
-  <img src="/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/taiwan-counties-counterclockwise-campervan-route-map.webp" width="1800" height="1600" loading="lazy" decoding="async" title="Bilingual map of Taiwan counties and the 13-day counterclockwise campervan route" alt="An official-boundary-based map of Taiwan showing all 22 counties and cities in Chinese and English, with an orange 13-day route from Taoyuan Airport around the island to Taipei" />
+  <picture>
+    <source media="(max-width: 640px)" srcset="/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/taiwan-counties-counterclockwise-campervan-route-map-mobile.webp" />
+    <img src="/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/taiwan-counties-counterclockwise-campervan-route-map.webp" width="1800" height="1600" loading="lazy" decoding="async" title="Bilingual map of Taiwan counties and the 13-day counterclockwise campervan route" alt="An official-boundary-based map of Taiwan showing all 22 counties and cities in Chinese and English, with an orange 13-day route from Taoyuan Airport around the island to Taipei" />
+  </picture>
   <figcaption><span class="guide-img-title">Taiwan's 22 counties and cities, with the counterclockwise route</span>The map uses county boundaries from Taiwan's National Land Surveying and Mapping Center. Numbers 1–13 show the main position for each day.</figcaption>
 </figure>
 
 ## The 13-day route at a glance
 
-| Day | Main route | Suggested overnight area |
-|---|---|---|
-| Day 1 | Taoyuan Airport → supplies → Taoyuan coast | Taoyuan coast |
-| Day 2 | Miaoli Cape Paradise → Feng Chia Night Market | Taichung coastal campsite |
-| Day 3 | Lukang → Sun Moon Lake | Sun Moon Lake campsite |
-| Day 4 | Sun Moon Lake → Alishan | Legal Alishan-area accommodation or campsite |
-| Day 5 | Alishan sunrise and forest → Guanziling | Guanziling hot-spring area |
-| Day 6 | Tainan → Kaohsiung → Donggang | Donggang / Dapeng Bay |
-| Day 7 | Xiaoliuqiu day trip → Kenting | Kenting |
-| Day 8 | Full day in Kenting | Kenting |
-| Day 9 | Kenting → Jialeshui → Taitung | Taitung |
-| Day 10 | Taitung → Luye / Chishang → Sanxiantai → Hualien | Hualien coastal campsite |
-| Day 11 | Hualien City → Qixingtan → Chongde | Chongde, Hualien |
-| Day 12 | Chongde / Qingshui Cliff → Nan'ao → Yilan | Yilan / Jiaoxi |
-| Day 13 | Yilan → campervan return in Taipei | Taipei after the return |
+<div class="trip-route-table-wrap">
+<table class="table trip-route-table">
+  <thead><tr><th>Day</th><th>Main route</th><th>Suggested overnight area</th></tr></thead>
+  <tbody>
+    <tr><td>Day 1</td><td>Taoyuan Airport → supplies → Taoyuan coast</td><td>Taoyuan coast</td></tr>
+    <tr><td>Day 2</td><td>Miaoli Cape Paradise → Feng Chia Night Market</td><td>Taichung coastal campsite</td></tr>
+    <tr><td>Day 3</td><td>Lukang → Sun Moon Lake</td><td>Sun Moon Lake campsite</td></tr>
+    <tr><td>Day 4</td><td>Sun Moon Lake → Alishan</td><td>Legal Alishan-area accommodation or campsite</td></tr>
+    <tr><td>Day 5</td><td>Alishan sunrise and forest → Guanziling</td><td>Guanziling hot-spring area</td></tr>
+    <tr><td>Day 6</td><td>Tainan → Kaohsiung → Donggang</td><td>Donggang / Dapeng Bay</td></tr>
+    <tr><td>Day 7</td><td>Xiaoliuqiu day trip → Kenting</td><td>Kenting</td></tr>
+    <tr><td>Day 8</td><td>Full day in Kenting</td><td>Kenting</td></tr>
+    <tr><td>Day 9</td><td>Kenting → Jialeshui → Taitung</td><td>Taitung</td></tr>
+    <tr><td>Day 10</td><td>Taitung → Luye / Chishang → Sanxiantai → Hualien</td><td>Hualien coastal campsite</td></tr>
+    <tr><td>Day 11</td><td>Hualien City → Qixingtan → Chongde</td><td>Chongde, Hualien</td></tr>
+    <tr><td>Day 12</td><td>Chongde / Qingshui Cliff → Nan'ao → Yilan</td><td>Yilan / Jiaoxi</td></tr>
+    <tr><td>Day 13</td><td>Yilan → campervan return in Taipei</td><td>Taipei after the return</td></tr>
+  </tbody>
+</table>
+</div>
 
 <div class="callout"><strong>This is a baseline itinerary, not a compulsory tour package.</strong> The framework is fixed at 13 days and 12 nights, while individual activities can move with flight times, season, interests and energy. Reconfirm campsite bookings, ferries, mountain roads, weather and attraction access shortly before departure.</div>
 

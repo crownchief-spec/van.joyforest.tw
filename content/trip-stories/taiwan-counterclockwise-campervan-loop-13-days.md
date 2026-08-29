@@ -17,27 +17,35 @@ readingTime: "約 18 分鐘"
 如果是第一次開露營車來臺灣環島，我會直接建議 **13 天 12 夜**。這個長度才能在日月潭、阿里山、小琉球、墾丁與東海岸之間留下合理的停留時間，不用每天都在趕路。路線從桃園國際機場取車，沿西部逆時針南下，再由東海岸北上，第 13 天於臺北還車。還車後再用捷運、計程車或包車玩臺北，會比開著約 3 公尺高的露營車進市中心更輕鬆。
 
 <figure class="guide-figure">
-  <img src="/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/taiwan-counties-counterclockwise-campervan-route-map.webp" width="1800" height="1600" loading="lazy" decoding="async" title="臺灣二十二縣市中英文與十三天逆時針環島路線圖" alt="以官方縣市界線繪製的臺灣地圖，標示二十二縣市中英文名稱，並用橘色路線畫出桃園機場出發、逆時針環島、臺北還車的十三天行程" />
+  <picture>
+    <source media="(max-width: 640px)" srcset="/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/taiwan-counties-counterclockwise-campervan-route-map-mobile.webp" />
+    <img src="/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/taiwan-counties-counterclockwise-campervan-route-map.webp" width="1800" height="1600" loading="lazy" decoding="async" title="臺灣二十二縣市中英文與十三天逆時針環島路線圖" alt="以官方縣市界線繪製的臺灣地圖，標示二十二縣市中英文名稱，並用橘色路線畫出桃園機場出發、逆時針環島、臺北還車的十三天行程" />
+  </picture>
   <figcaption><span class="guide-img-title">臺灣 22 縣市與逆時針路線</span>地圖使用內政部國土測繪中心縣市界線資料繪製；數字 1–13 對應每一天的主要位置。</figcaption>
 </figure>
 
 ## 13 天 12 夜路線一覽
 
-| 天數 | 主要路線 | 建議過夜區域 |
-|---|---|---|
-| Day 1 | 桃園機場取車→採買→桃園海邊 | 桃園海岸 |
-| Day 2 | 苗栗海角樂園→臺中逢甲夜市 | 臺中海邊營區 |
-| Day 3 | 鹿港→日月潭 | 日月潭湖邊營區 |
-| Day 4 | 日月潭→阿里山 | 阿里山合法住宿或營區 |
-| Day 5 | 阿里山日出與森林→關子嶺 | 關子嶺溫泉區 |
-| Day 6 | 臺南→高雄→東港 | 東港／大鵬灣 |
-| Day 7 | 小琉球一日→墾丁 | 墾丁 |
-| Day 8 | 墾丁完整一天 | 墾丁 |
-| Day 9 | 墾丁→嘉樂水→臺東 | 臺東 |
-| Day 10 | 臺東→鹿野／池上→三仙台→花蓮 | 花蓮海邊營區 |
-| Day 11 | 花蓮市→七星潭→崇德 | 花蓮崇德 |
-| Day 12 | 崇德／清水斷崖→南澳→宜蘭 | 宜蘭／礁溪 |
-| Day 13 | 宜蘭→臺北還車 | 還車後臺北住宿 |
+<div class="trip-route-table-wrap">
+<table class="table trip-route-table">
+  <thead><tr><th>天數</th><th>主要路線</th><th>建議過夜區域</th></tr></thead>
+  <tbody>
+    <tr><td>Day 1</td><td>桃園機場取車→採買→桃園海邊</td><td>桃園海岸</td></tr>
+    <tr><td>Day 2</td><td>苗栗海角樂園→臺中逢甲夜市</td><td>臺中海邊營區</td></tr>
+    <tr><td>Day 3</td><td>鹿港→日月潭</td><td>日月潭湖邊營區</td></tr>
+    <tr><td>Day 4</td><td>日月潭→阿里山</td><td>阿里山合法住宿或營區</td></tr>
+    <tr><td>Day 5</td><td>阿里山日出與森林→關子嶺</td><td>關子嶺溫泉區</td></tr>
+    <tr><td>Day 6</td><td>臺南→高雄→東港</td><td>東港／大鵬灣</td></tr>
+    <tr><td>Day 7</td><td>小琉球一日→墾丁</td><td>墾丁</td></tr>
+    <tr><td>Day 8</td><td>墾丁完整一天</td><td>墾丁</td></tr>
+    <tr><td>Day 9</td><td>墾丁→嘉樂水→臺東</td><td>臺東</td></tr>
+    <tr><td>Day 10</td><td>臺東→鹿野／池上→三仙台→花蓮</td><td>花蓮海邊營區</td></tr>
+    <tr><td>Day 11</td><td>花蓮市→七星潭→崇德</td><td>花蓮崇德</td></tr>
+    <tr><td>Day 12</td><td>崇德／清水斷崖→南澳→宜蘭</td><td>宜蘭／礁溪</td></tr>
+    <tr><td>Day 13</td><td>宜蘭→臺北還車</td><td>還車後臺北住宿</td></tr>
+  </tbody>
+</table>
+</div>
 
 <div class="callout"><strong>這是基準範本，不是強制套餐。</strong>天數已固定為 13 天 12 夜，但每天的景點可依客人的班機、季節、玩水喜好與當日體力調整。實際出發前仍要重新確認營區訂位、渡輪、山區道路、天氣與景點開放狀態。</div>
 
