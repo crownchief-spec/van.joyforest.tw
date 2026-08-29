@@ -1006,7 +1006,7 @@
       "file": "pages/booking-guide.html",
       "route": "/pages/booking-guide",
       "title": "露營車使用教學｜水電、衛浴、床鋪與駕駛主題導覽",
-      "description": "揪好森露營車使用教學主頁：依交車與駕駛、電力冷氣、水箱衛浴、床鋪變形、戶外影音五個主題分頁閱讀，手機也能快速找到需要的操作說明。",
+      "description": "揪好森露營車使用教學主頁：交車與車內外、駕駛安全、電、補水熱水、戶外影音、床鋪與室內使用六個主題，手機快速點選閱讀。",
       "canonical": "https://van.joyforest.tw/pages/booking-guide",
       "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-rental-scenic-coast-guide-hero.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/og/pages--booking-guide.jpg",
@@ -1020,10 +1020,20 @@
     {
       "file": "pages/booking-guide/beds.html",
       "route": "/pages/booking-guide/beds",
-      "title": "露營車床鋪變形與兩張雙人床教學｜揪好森",
+      "title": "露營車床鋪變形與室內使用教學｜揪好森",
       "description": "觀看餐桌區變成雙人床的影片，認識固定額頭床與客廳變形床的位置及建議睡眠人數。",
       "canonical": "https://van.joyforest.tw/pages/booking-guide/beds",
       "heroImage": "https://van.joyforest.tw/assets/images/booking-guide/living-area-table-to-double-bed-tutorial-poster.jpg",
+      "schemaType": ["WebPage"],
+      "noindex": false
+    },
+    {
+      "file": "pages/booking-guide/driving-safety.html",
+      "route": "/pages/booking-guide/driving-safety",
+      "title": "露營車駕駛安全｜3 公尺車高、限高與停車提醒",
+      "description": "露營車車高約 3 公尺；出發前先看限高、雨遮、路樹、轉彎、倒車與停車的安全提醒。",
+      "canonical": "https://van.joyforest.tw/pages/booking-guide/driving-safety",
+      "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-rental-driving-safety-height-parking.png",
       "schemaType": ["WebPage"],
       "noindex": false
     },
@@ -1040,7 +1050,7 @@
     {
       "file": "pages/booking-guide/power-air-conditioning.html",
       "route": "/pages/booking-guide/power-air-conditioning",
-      "title": "露營車電力、冷氣、充電與發電機教學｜揪好森",
+      "title": "露營車電、充電與冷氣使用教學｜揪好森",
       "description": "看懂伏特數、安培數與瓦數，安排冷氣用電、露營區接電、內建與外置發電機充電。",
       "canonical": "https://van.joyforest.tw/pages/booking-guide/power-air-conditioning",
       "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-power-monitor-panel-voltage-current-watt-guide.jpg",
@@ -1050,8 +1060,8 @@
     {
       "file": "pages/booking-guide/vehicle-and-driving.html",
       "route": "/pages/booking-guide/vehicle-and-driving",
-      "title": "交車、車內外設備與駕駛安全｜露營車使用教學",
-      "description": "先看完整導覽影片，再認識鑰匙、車外設備與約 3 公尺車高的駕駛注意事項。",
+      "title": "露營車交車與車內外整體介紹｜使用教學",
+      "description": "先看完整導覽影片，再認識交車流程、鑰匙用途、車外設備位置與車內配置。",
       "canonical": "https://van.joyforest.tw/pages/booking-guide/vehicle-and-driving",
       "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-rental-exterior-equipment-labeled-coast.png",
       "schemaType": ["WebPage"],
@@ -1060,8 +1070,8 @@
     {
       "file": "pages/booking-guide/water-bathroom-toilet.html",
       "route": "/pages/booking-guide/water-bathroom-toilet",
-      "title": "露營車水箱、淋浴、馬桶與瓦斯教學｜揪好森",
-      "description": "認識 110 公升清水、冷熱水、外置沖腳蓮蓬頭、馬桶分解劑與瓦斯位置。",
+      "title": "露營車補水、熱水與沖洗教學｜揪好森",
+      "description": "如何補充 110 公升清水、使用熱水與車外沖腳蓮蓬頭，並認識馬桶分解劑與瓦斯位置。",
       "canonical": "https://van.joyforest.tw/pages/booking-guide/water-bathroom-toilet",
       "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-outdoor-shower-head-left-rear-rinse-guide.jpg",
       "schemaType": ["WebPage"],

@@ -4,9 +4,9 @@
 
 ## 摘要
 
-- HTML 檔案總數：120
-- seo-map 條目：120
-- 可索引頁面：114
+- HTML 檔案總數：121
+- seo-map 條目：121
+- 可索引頁面：115
 - 缺 og:image（可索引）：0
 
 ## 主要頁面 SEO 總表
@@ -51,6 +51,7 @@
 | pages/availability.html | /pages/availability | /assets/images/og/booking.jpg | WebPage, WebSite | false |
 | pages/booking-guide.html | /pages/booking-guide | /assets/images/og/pages--booking-guide.jpg | CollectionPage, BreadcrumbList | false |
 | pages/booking-guide/beds.html | /pages/booking-guide/beds | /assets/images/booking-guide/living-area-table-to-double-bed-tutorial-poster.jpg | WebPage | false |
+| pages/booking-guide/driving-safety.html | /pages/booking-guide/driving-safety | /assets/images/guide/taipei-campervan-rental-driving-safety-height-parking.png | WebPage | false |
 | pages/booking-guide/outdoor-entertainment.html | /pages/booking-guide/outdoor-entertainment | /assets/images/guide/taipei-campervan-rental-projector-screen-bluetooth-guide.png | WebPage | false |
 | pages/booking-guide/power-air-conditioning.html | /pages/booking-guide/power-air-conditioning | /assets/images/guide/taipei-campervan-power-monitor-panel-voltage-current-watt-guide.jpg | WebPage | false |
 | pages/booking-guide/vehicle-and-driving.html | /pages/booking-guide/vehicle-and-driving | /assets/images/guide/taipei-campervan-rental-exterior-equipment-labeled-coast.png | WebPage | false |

@@ -3530,96 +3530,86 @@ html[lang="en"] .nav-links a .nav-stack {
 .guide-topic-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+  gap: 14px;
+  max-width: 900px;
+  margin-inline: auto;
 }
 
 .guide-topic-card {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 2px solid rgba(31, 107, 82, 0.5);
-  border-radius: 20px;
+  min-width: 0;
+  border: 1.5px solid rgba(31, 107, 82, 0.38);
+  border-radius: 16px;
   background: #fff;
   color: inherit;
   text-decoration: none;
-  box-shadow: 0 12px 28px rgba(24, 53, 43, 0.1);
+  box-shadow: 0 8px 20px rgba(24, 53, 43, 0.08);
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
 .guide-topic-card:hover,
 .guide-topic-card:focus-visible {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   border-color: var(--color-primary);
-  box-shadow: 0 18px 38px rgba(24, 53, 43, 0.17);
+  box-shadow: 0 13px 28px rgba(24, 53, 43, 0.15);
 }
 
 .guide-topic-card img {
-  order: 2;
   width: 100%;
-  height: 104px;
+  height: 92px;
   object-fit: cover;
-  border-top: 1px solid rgba(31, 107, 82, 0.18);
+  border-bottom: 1px solid rgba(31, 107, 82, 0.15);
 }
 
 .guide-topic-card__body {
-  order: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  min-height: 174px;
-  padding: 20px;
-  background: linear-gradient(145deg, rgba(31, 107, 82, 0.065), rgba(255, 255, 255, 0.98));
-}
-
-.guide-topic-card__heading {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  position: relative;
+  display: block;
+  min-height: 82px;
+  padding: 11px 42px 13px 13px;
+  background: linear-gradient(145deg, rgba(31, 107, 82, 0.07), rgba(255, 255, 255, 0.98));
 }
 
 .guide-topic-card__number {
   display: inline-flex;
-  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  min-width: 42px;
-  height: 34px;
-  border-radius: 10px;
+  min-width: 34px;
+  height: 25px;
+  margin-bottom: 6px;
+  border-radius: 8px;
   background: var(--color-primary);
   color: #fff;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 800;
 }
 
 .guide-topic-card strong {
+  display: block;
   color: var(--color-ink);
-  font-size: clamp(20px, 2vw, 24px);
-  line-height: 1.25;
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.3;
 }
 
-.guide-topic-card small {
-  margin-top: 12px;
-  color: var(--color-muted);
-  font-size: 14px;
-  line-height: 1.55;
-}
-
-.guide-topic-card__link {
-  display: flex;
+.guide-topic-card__arrow {
+  position: absolute;
+  right: 13px;
+  bottom: 14px;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 16px;
-  padding: 10px 13px;
-  border-radius: 10px;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   background: var(--color-primary);
   color: #fff;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 800;
 }
 
-.guide-topic-card:hover .guide-topic-card__link,
-.guide-topic-card:focus-visible .guide-topic-card__link {
+.guide-topic-card:hover .guide-topic-card__arrow,
+.guide-topic-card:focus-visible .guide-topic-card__arrow {
   background: #174d3d;
 }
 
@@ -3641,36 +3631,42 @@ html[lang="en"] .nav-links a .nav-stack {
   margin-top: 12px;
 }
 
-@media (max-width: 900px) {
-  .guide-topic-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 600px) {
   .guide-topic-grid {
-    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
 
   .guide-topic-card {
-    border-radius: 16px;
+    border-radius: 14px;
   }
 
   .guide-topic-card img {
-    height: 82px;
+    height: 72px;
   }
 
   .guide-topic-card__body {
-    min-height: 0;
-    padding: 16px;
+    min-height: 88px;
+    padding: 10px 30px 11px 10px;
   }
 
-  .guide-topic-card small {
-    font-size: 13px;
+  .guide-topic-card__number {
+    min-width: 31px;
+    height: 23px;
+    margin-bottom: 5px;
+    font-size: 11px;
   }
 
-  .guide-topic-card__link {
-    margin-top: 12px;
-    padding: 9px 12px;
+  .guide-topic-card strong {
+    font-size: 15px;
+    line-height: 1.32;
+  }
+
+  .guide-topic-card__arrow {
+    right: 8px;
+    bottom: 10px;
+    width: 23px;
+    height: 23px;
+    font-size: 14px;
   }
 }
