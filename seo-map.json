@@ -990,6 +990,19 @@
       "ogImageOverride": true
     },
     {
+      "file": "pages/availability.html",
+      "route": "/pages/availability",
+      "title": "露營車可預約日期｜查看無法預約檔期｜揪好森",
+      "description": "查看揪好森露營車目前無法預約的日期。檔期由露營車行事曆定期同步；空白日期仍須透過 LINE 或 WhatsApp 完成最終確認。",
+      "canonical": "https://van.joyforest.tw/pages/availability",
+      "heroImage": "",
+      "schemaType": [
+        "WebPage",
+        "WebSite"
+      ],
+      "noindex": false
+    },
+    {
       "file": "pages/booking-guide.html",
       "route": "/pages/booking-guide",
       "title": "露營車使用教學｜新手租露營車、水電冷氣、衛浴與還車注意事項",

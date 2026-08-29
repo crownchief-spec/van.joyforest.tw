@@ -1,0 +1,40 @@
+name: Sync Campervan Availability
+
+on:
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-campervan-availability
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build privacy-safe unavailable dates
+        run: node scripts/sync-campervan-availability.mjs
+
+      - name: Commit updated dates
+        run: |
+          if git diff --quiet -- assets/data/campervan-unavailable-dates.json; then
+            echo "No availability changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/campervan-unavailable-dates.json
+          git commit -m "chore: sync campervan unavailable dates"
+          git push

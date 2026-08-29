@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1f6b52" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <title>露營車可預約日期｜查看無法預約檔期｜揪好森</title>
+    <meta name="description" content="查看揪好森露營車目前無法預約的日期。檔期由露營車行事曆定期同步；空白日期仍須透過 LINE 或 WhatsApp 完成最終確認。" />
+    <link rel="canonical" href="https://van.joyforest.tw/pages/availability" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:site_name" content="揪好森露營車出租" />
+    <meta property="og:title" content="露營車可預約日期｜查看無法預約檔期｜揪好森" />
+    <meta property="og:description" content="查看揪好森露營車目前無法預約的日期。行事曆有標示的日期代表目前無法預約。" />
+    <meta property="og:url" content="https://van.joyforest.tw/pages/availability" />
+    <meta property="og:image" content="https://van.joyforest.tw/assets/images/og/booking.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="JoyForest CamperVan Rental 露營車預約檔期" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="露營車可預約日期｜查看無法預約檔期｜揪好森" />
+    <meta name="twitter:description" content="查看揪好森露營車目前無法預約的日期。" />
+    <meta name="twitter:image" content="https://van.joyforest.tw/assets/images/og/booking.jpg" />
+    <meta name="twitter:image:alt" content="JoyForest CamperVan Rental 露營車預約檔期" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/images/shared/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-180.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script defer src="../assets/js/main.js"></script>
+    <script defer src="../assets/js/campervan-availability.js"></script>
+    <script type="application/ld+json" data-seo-managed="webpage">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://van.joyforest.tw/pages/availability#webpage",
+        "url": "https://van.joyforest.tw/pages/availability",
+        "name": "露營車可預約日期｜查看無法預約檔期｜揪好森",
+        "description": "查看揪好森露營車目前無法預約的日期。檔期由露營車行事曆定期同步。",
+        "inLanguage": "zh-Hant",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://van.joyforest.tw/#website",
+          "url": "https://van.joyforest.tw/",
+          "name": "揪好森露營車出租"
+        }
+      }
+    </script>
+  </head>
+  <body class="availability-page">
+    <a class="skip-link" href="#main">跳到主要內容</a>
+    <div data-site-include="header"></div>
+
+    <main id="main">
+      <section class="section availability-hero">
+        <div class="container">
+          <div class="availability-hero-copy fade-in" data-reveal>
+            <p class="eyebrow">JoyForest CamperVan Rental</p>
+            <h1>露營車可預約日期</h1>
+            <p class="intro-lead">這裡只標示<strong>目前無法預約</strong>的日期。沒有標示的日期，代表行事曆目前沒有被占用；實際檔期仍以 LINE 或 WhatsApp 最後確認為準。</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#unavailable-dates">查看無法預約日期</a>
+              <a class="btn btn-outline" href="/booking">前往預約</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="unavailable-dates">
+        <div class="container" data-campervan-availability>
+          <div class="section-title">
+            <h2>目前無法預約的日期</h2>
+            <p>檔期由「露營車」行事曆定期同步；只公開日期，不公開預約人或行程內容。</p>
+          </div>
+          <div class="availability-legend" aria-label="日曆圖例">
+            <span><i class="availability-legend-block" aria-hidden="true"></i>無法預約</span>
+            <span><i class="availability-legend-open" aria-hidden="true"></i>目前沒有占用紀錄</span>
+          </div>
+          <p class="availability-load-status" data-availability-status aria-live="polite">正在讀取露營車檔期…</p>
+          <section class="card availability-summary-card" aria-labelledby="unavailable-summary-title">
+            <h3 id="unavailable-summary-title">日期清單</h3>
+            <div data-unavailable-summary><p class="availability-empty">正在整理日期…</p></div>
+          </section>
+          <div class="availability-calendar-grid" data-availability-calendars aria-live="polite"></div>
+          <div class="availability-note card">
+            <h2>預約前請注意</h2>
+            <ul class="list">
+              <li>揪好森目前只有一台露營車；標示「無法預約」的日期代表車輛已有行程或保留安排。</li>
+              <li>空白日期不是自動完成預約，仍需要傳訊確認交車地點、租借天數與實際安排。</li>
+              <li>若行事曆剛更新，網站可能需要一些時間同步；急件請直接傳訊詢問。</li>
+            </ul>
+          </div>
+          <div class="cta availability-cta">
+            <h2>想確認你的旅行日期？</h2>
+            <p>傳送預計日期、人數、天數與送車地點，我們會回覆最終檔期與報價。</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="/booking">前往預約頁</a>
+              <a class="btn btn-outline" href="https://line.me/ti/p/~0911252302" target="_blank" rel="noopener noreferrer">LINE 詢問</a>
+              <a class="btn btn-dark" href="https://wa.me/886911252302" target="_blank" rel="noopener noreferrer">WhatsApp 詢問</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-include="footer"></div>
+  </body>
+</html>

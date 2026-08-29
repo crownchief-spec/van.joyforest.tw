@@ -1,12 +1,12 @@
 # SEO 維護總表（自動產生）
 
-產生時間：2026-08-21
+產生時間：2026-08-29
 
 ## 摘要
 
-- HTML 檔案總數：114
-- seo-map 條目：114
-- 可索引頁面：108
+- HTML 檔案總數：115
+- seo-map 條目：115
+- 可索引頁面：109
 - 缺 og:image（可索引）：0
 
 ## 主要頁面 SEO 總表
@@ -48,6 +48,7 @@
 | en/pages/trip-ideas.html | /en/pages/trip-ideas | /assets/images/og/en--pages--trip-ideas.jpg | WebPage, BreadcrumbList, ListItem | false |
 | en/trip-stories/family-beginner-3-days/index.html | /en/trip-stories/family-beginner-3-days/ | /assets/images/og/en--trip-stories--family-begin | Article, Organization, WebPage, BreadcrumbList, ListItem | false |
 | index.html | / | /assets/images/og/zh--home.jpg | Organization, WebSite, LocalBusiness, WebPage | false |
+| pages/availability.html | /pages/availability | /assets/images/og/booking.jpg | WebPage, WebSite | false |
 | pages/booking-guide.html | /pages/booking-guide | /assets/images/og/pages--booking-guide.jpg | WebPage, BreadcrumbList, FAQPage | false |
 | pages/campervan-insurance.html | /pages/campervan-insurance | /assets/images/og/pages--campervan-insurance.jpg | WebPage, BreadcrumbList, ListItem, FAQPage, Question, Answer | false |
 | pages/campervan.html | /pages/campervan | /assets/images/og/pages--campervan.jpg | WebPage, Service, OfferCatalog, BreadcrumbList | false |
@@ -58,11 +59,11 @@
 
 ## 重複 og:image（≥2 頁，可索引）
 
-- 無
+- `/assets/images/og/booking.jpg` → booking.html, pages/availability.html
 
 ## 跨路由重複 og:image（排除僅中英對照）
 
-- 無
+- `/assets/images/og/booking.jpg` → booking.html, pages/availability.html
 
 ## 重複 title
 
