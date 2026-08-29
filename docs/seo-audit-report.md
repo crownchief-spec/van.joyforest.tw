@@ -4,9 +4,9 @@
 
 ## 摘要
 
-- HTML 檔案總數：115
-- seo-map 條目：115
-- 可索引頁面：109
+- HTML 檔案總數：120
+- seo-map 條目：120
+- 可索引頁面：114
 - 缺 og:image（可索引）：0
 
 ## 主要頁面 SEO 總表
@@ -49,7 +49,12 @@
 | en/trip-stories/family-beginner-3-days/index.html | /en/trip-stories/family-beginner-3-days/ | /assets/images/og/en--trip-stories--family-begin | Article, Organization, WebPage, BreadcrumbList, ListItem | false |
 | index.html | / | /assets/images/og/zh--home.jpg | Organization, WebSite, LocalBusiness, WebPage | false |
 | pages/availability.html | /pages/availability | /assets/images/og/booking.jpg | WebPage, WebSite | false |
-| pages/booking-guide.html | /pages/booking-guide | /assets/images/og/pages--booking-guide.jpg | WebPage, BreadcrumbList, FAQPage | false |
+| pages/booking-guide.html | /pages/booking-guide | /assets/images/og/pages--booking-guide.jpg | CollectionPage, BreadcrumbList | false |
+| pages/booking-guide/beds.html | /pages/booking-guide/beds | /assets/images/booking-guide/living-area-table-to-double-bed-tutorial-poster.jpg | WebPage | false |
+| pages/booking-guide/outdoor-entertainment.html | /pages/booking-guide/outdoor-entertainment | /assets/images/guide/taipei-campervan-rental-projector-screen-bluetooth-guide.png | WebPage | false |
+| pages/booking-guide/power-air-conditioning.html | /pages/booking-guide/power-air-conditioning | /assets/images/guide/taipei-campervan-power-monitor-panel-voltage-current-watt-guide.jpg | WebPage | false |
+| pages/booking-guide/vehicle-and-driving.html | /pages/booking-guide/vehicle-and-driving | /assets/images/guide/taipei-campervan-rental-exterior-equipment-labeled-coast.png | WebPage | false |
+| pages/booking-guide/water-bathroom-toilet.html | /pages/booking-guide/water-bathroom-toilet | /assets/images/guide/taipei-campervan-outdoor-shower-head-left-rear-rinse-guide.jpg | WebPage | false |
 | pages/campervan-insurance.html | /pages/campervan-insurance | /assets/images/og/pages--campervan-insurance.jpg | WebPage, BreadcrumbList, ListItem, FAQPage, Question, Answer | false |
 | pages/campervan.html | /pages/campervan | /assets/images/og/pages--campervan.jpg | WebPage, Service, OfferCatalog, BreadcrumbList | false |
 | pages/faq.html | /pages/faq | — |  | true |

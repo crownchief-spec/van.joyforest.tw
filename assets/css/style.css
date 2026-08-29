@@ -3512,3 +3512,149 @@ html[lang="en"] .nav-links a .nav-stack {
     font-size: 8px;
   }
 }
+
+/* Booking guide hub and topic pages */
+.guide-stay-ratio {
+  margin-bottom: 20px;
+}
+
+.guide-stay-ratio p {
+  margin: 8px 0 0;
+}
+
+.theme-trip-card--primary {
+  border-color: rgba(31, 107, 82, 0.45);
+  box-shadow: 0 14px 30px rgba(31, 107, 82, 0.14);
+}
+
+.guide-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.guide-topic-card {
+  display: grid;
+  grid-template-columns: minmax(150px, 38%) 1fr;
+  min-height: 210px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(24, 53, 43, 0.07);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.guide-topic-card:hover,
+.guide-topic-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(31, 107, 82, 0.45);
+  box-shadow: 0 16px 36px rgba(24, 53, 43, 0.13);
+}
+
+.guide-topic-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 210px;
+  object-fit: cover;
+}
+
+.guide-topic-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px 20px;
+}
+
+.guide-topic-card__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 28px;
+  margin-bottom: 12px;
+  border-radius: 999px;
+  background: rgba(31, 107, 82, 0.1);
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.guide-topic-card strong {
+  color: var(--color-ink);
+  font-size: clamp(18px, 2vw, 23px);
+  line-height: 1.25;
+}
+
+.guide-topic-card small {
+  margin-top: 9px;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.guide-topic-card__link {
+  margin-top: auto;
+  padding-top: 16px;
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.guide-topic-hero {
+  background:
+    radial-gradient(circle at 90% 0%, rgba(237, 193, 112, 0.2), transparent 30%),
+    linear-gradient(145deg, rgba(31, 107, 82, 0.09), rgba(255, 255, 255, 0.96));
+}
+
+.guide-topic-hero .container {
+  max-width: 900px;
+}
+
+.guide-topic-hero h1 {
+  margin: 8px 0 16px;
+}
+
+.booking-guide-hub-page #quick-notes .guide-collapsible + .guide-collapsible {
+  margin-top: 12px;
+}
+
+@media (max-width: 900px) {
+  .guide-topic-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .guide-topic-grid {
+    gap: 14px;
+  }
+
+  .guide-topic-card {
+    grid-template-columns: 112px 1fr;
+    min-height: 170px;
+    border-radius: 16px;
+  }
+
+  .guide-topic-card img {
+    min-height: 170px;
+  }
+
+  .guide-topic-card__body {
+    padding: 16px 14px;
+  }
+
+  .guide-topic-card__number {
+    margin-bottom: 8px;
+  }
+
+  .guide-topic-card small {
+    font-size: 13px;
+  }
+
+  .guide-topic-card__link {
+    padding-top: 10px;
+  }
+}
