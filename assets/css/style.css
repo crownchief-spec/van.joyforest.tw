@@ -442,6 +442,28 @@ a {
   color: #fff;
 }
 
+/* Trip-story heroes use a light background, so their language switch needs
+   the dark brand colour instead of the white-on-dark hero treatment. */
+.trip-article-hero .btn-lang {
+  border-color: rgba(23, 60, 58, 0.32);
+  background: rgba(255, 255, 255, 0.72);
+  color: #173c3a;
+}
+
+.trip-article-hero .btn-lang:hover,
+.trip-article-hero .btn-lang:focus-visible {
+  border-color: rgba(23, 60, 58, 0.56);
+  background: #fff;
+  color: #173c3a;
+}
+
+/* Full Google Maps URLs are intentionally shown so guests can copy the
+   itinerary as plain text; allow those long addresses to wrap on phones. */
+.trip-story-prose a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .booking-page-intro .hero-lang-switch {
   margin-top: 16px;
 }
@@ -2832,6 +2854,37 @@ html[lang="en"] .nav-links a .nav-stack {
   gap: 18px;
 }
 
+/* Long-form trip stories: vary image scale so a photo can lead a chapter or
+   work as a quiet visual pause without turning every section into a banner. */
+.trip-photo-wide {
+  width: min(920px, calc(100vw - 32px));
+  max-width: none;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.trip-photo-accent {
+  max-width: 520px;
+}
+
+.trip-photo-accent--left {
+  margin-right: auto;
+}
+
+.trip-photo-accent--right {
+  margin-left: auto;
+}
+
+.trip-photo-pair {
+  display: grid;
+  gap: 18px;
+  margin: 22px 0 26px;
+}
+
+.trip-photo-pair .guide-figure {
+  margin: 0;
+}
+
 /* 溫泉車宿文章：手機先讀摘要卡，再展開地點與照片。 */
 .route-theme-grid,
 .hot-spring-place-list {
@@ -2926,6 +2979,11 @@ html[lang="en"] .nav-links a .nav-stack {
 
 @media (min-width: 760px) {
   .guide-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .trip-photo-pair {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: start;
   }

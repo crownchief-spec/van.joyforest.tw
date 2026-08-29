@@ -1,6 +1,29 @@
 {
-  "generatedAt": "2026-08-22T01:44:43.710Z",
+  "generatedAt": "2026-08-29T04:04:21.833Z",
   "articles": [
+    {
+      "slug": "taiwan-counterclockwise-campervan-loop-13-days",
+      "title": "Taiwan Counterclockwise Campervan Loop | 13 Days and 12 Nights",
+      "description": "A practical 13-day, 12-night Taiwan campervan loop for first-time international visitors: collect the van at Taoyuan Airport, travel south along the west, return north on the east coast and hand it back in Taipei.",
+      "date": "2026-08-29",
+      "category": "Round-island itinerary template",
+      "tags": [
+        "Taiwan campervan itinerary",
+        "13 days 12 nights",
+        "counterclockwise Taiwan loop",
+        "Taoyuan Airport campervan",
+        "Taipei return",
+        "Taiwan road trip"
+      ],
+      "coverImage": "/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/joyforest-campervan-taiwan-coastal-sunset.webp",
+      "coverImageAlt": "A blue and white Joyforest campervan beside the Taiwan coast at sunset, representing a 13-day counterclockwise road trip",
+      "coverImageWidth": 1200,
+      "coverImageHeight": 630,
+      "featured": true,
+      "order": 0,
+      "readingTime": "About 18 minutes",
+      "url": "/en/trip-stories/taiwan-counterclockwise-campervan-loop-13-days/"
+    },
     {
       "slug": "british-australian-guests-taiwan-campervan-road-trip",
       "title": "A British Traveler from Australia Discovers Taiwan by Campervan",

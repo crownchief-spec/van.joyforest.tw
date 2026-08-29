@@ -1,6 +1,31 @@
 {
-  "generatedAt": "2026-08-22T01:44:43.445Z",
+  "generatedAt": "2026-08-29T04:04:21.567Z",
   "articles": [
+    {
+      "slug": "taiwan-counterclockwise-campervan-loop-13-days",
+      "title": "臺灣逆時針露營車環島範本｜13 天 12 夜從桃園機場到臺北",
+      "description": "給第一次來臺灣的國際旅客：13 天 12 夜逆時針露營車環島範本，桃園機場取車，經苗栗、臺中、鹿港、日月潭、阿里山、臺南、高雄、小琉球、墾丁、臺東、花蓮與宜蘭，最後在臺北還車。",
+      "hasEnglish": true,
+      "date": "2026-08-29",
+      "category": "環島行程範本",
+      "tags": [
+        "臺灣露營車環島",
+        "13天12夜",
+        "Taiwan campervan itinerary",
+        "桃園機場取車",
+        "臺北還車",
+        "逆時針環島",
+        "國際旅客"
+      ],
+      "coverImage": "/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/joyforest-campervan-taiwan-coastal-sunset.webp",
+      "coverImageAlt": "揪好森藍白露營車停在臺灣海邊夕陽下，代表十三天十二夜逆時針環島行程",
+      "coverImageWidth": 1200,
+      "coverImageHeight": 630,
+      "featured": true,
+      "order": 0,
+      "readingTime": "約 18 分鐘",
+      "url": "/trip-stories/taiwan-counterclockwise-campervan-loop-13-days/"
+    },
     {
       "slug": "british-australian-guests-taiwan-campervan-road-trip",
       "title": "住在澳洲的英國旅人｜第一次來台灣的露營車半環島與台北半日行",
