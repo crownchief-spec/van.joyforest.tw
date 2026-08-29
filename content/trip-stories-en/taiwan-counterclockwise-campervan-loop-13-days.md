@@ -182,17 +182,12 @@ In summer, check the current year's balloon programme at Luye Highlands; paragli
 
 ## Day 11 | Hualien City, Qixingtan and the mountain-and-sea landscape of Chongde
 
-If the previous evening's arrival was early, visit Dongdamen Night Market. On Day 11, walk beside the Pacific and pebble beach at Qixingtan, leaving the stones where they belong. Continue to Chongde in the afternoon and keep the night for the coast north of Hualien. The access road to Banxia Beach is narrow; if vehicle width, weather or road conditions are unsuitable, choose an easier Chongde coastal stop. Join SUP or sunrise trips only with a qualified local operator.
+If the previous evening's arrival was early, visit Dongdamen Night Market. On Day 11, walk beside the Pacific and pebble beach at Qixingtan, leaving the stones where they belong. Continue to Chongde in the afternoon and keep the night for the coast north of Hualien. The access road to Banxia Beach is narrow; if vehicle width, weather or road conditions are unsuitable, choose an easier Chongde coastal stop. Join SUP or sunrise trips only with a qualified local operator. **A campervan must stay on legal roads, car parks or campsites—never drive onto a beach or pebble shore.**
 
 - Hualien Dongdamen Night Market: https://www.google.com/maps/search/?api=1&query=Hualien+Dongdamen+Night+Market
 - Qixingtan Scenic Area: https://maps.app.goo.gl/RvmMyatkykwD6LbJ9?g_st=ic
 - Na Zuoshan Yinyin (那座山隱癮): https://maps.app.goo.gl/v5EYYvqBCmrtecDo6?g_st=ic
 - Banxia Beach (坂下海灘): https://maps.app.goo.gl/5ocXsgkbCTmWpsSJ9?g_st=ic
-
-<figure class="guide-figure trip-photo-wide">
-  <img src="/assets/images/trip-ideas/british-australian-guests-taiwan-campervan-road-trip/hualien-wide-beach-mountain-coast.webp" width="1200" height="900" loading="lazy" decoding="async" title="Chongde mountains and Pacific coast near Hualien" alt="A broad pebble beach near Chongde, Hualien, where the Pacific Ocean and Taiwan's Central Mountains meet" />
-  <figcaption><span class="guide-img-title">Chongde, where mountains and ocean share the same view</span>Not rushing onward to Yilan is one of the important margins that a 13-day itinerary preserves.</figcaption>
-</figure>
 
 ## Day 12 | Qingshui Cliff, Nan'ao and a Yilan hot-spring evening
 

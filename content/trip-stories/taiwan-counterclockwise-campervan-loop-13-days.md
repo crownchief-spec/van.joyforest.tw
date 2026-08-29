@@ -182,17 +182,12 @@ readingTime: "約 18 分鐘"
 
 ## Day 11｜花蓮市、七星潭與崇德山海
 
-若前一晚抵達時間早，可去花蓮東大門夜市；Day 11 白天到七星潭看太平洋與礫石海灘，不將石頭帶走。下午往崇德前進，把今晚留給清水斷崖北側的山海。坂下海灘的進入道路較小，若當日路況、車寬或天候不適合，就改去容易到達的崇德海邊。SUP 或日出活動應由當地業者帶領。
+若前一晚抵達時間早，可去花蓮東大門夜市；Day 11 白天到七星潭看太平洋與礫石海灘，不將石頭帶走。下午往崇德前進，把今晚留給清水斷崖北側的山海。坂下海灘的進入道路較小，若當日路況、車寬或天候不適合，就改去容易到達的崇德海邊。SUP 或日出活動應由當地業者帶領。**露營車只能停在合法道路、停車場或營區，絕對不能開進海灘或礫石灘。**
 
 - 花蓮東大門夜市：https://www.google.com/maps/search/?api=1&query=Hualien+Dongdamen+Night+Market
 - 七星潭海岸風景特定區：https://maps.app.goo.gl/RvmMyatkykwD6LbJ9?g_st=ic
 - 那座山隱癮：https://maps.app.goo.gl/v5EYYvqBCmrtecDo6?g_st=ic
 - 坂下海灘：https://maps.app.goo.gl/5ocXsgkbCTmWpsSJ9?g_st=ic
-
-<figure class="guide-figure trip-photo-wide">
-  <img src="/assets/images/trip-ideas/british-australian-guests-taiwan-campervan-road-trip/hualien-wide-beach-mountain-coast.webp" width="1200" height="900" loading="lazy" decoding="async" title="花蓮崇德山海與露營車環島" alt="花蓮崇德附近寬廣的礫石海灘、太平洋與遠方中央山脈連成壯闊海岸" />
-  <figcaption><span class="guide-img-title">花蓮崇德，山和海在同一個畫面</span>這一晚不再往宜蘭趕，是 13 天路線能保留的重要餘裕。</figcaption>
-</figure>
 
 ## Day 12｜清水斷崖、南澳與宜蘭溫泉
 
