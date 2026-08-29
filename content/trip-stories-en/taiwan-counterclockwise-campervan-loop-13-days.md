@@ -167,6 +167,11 @@ In summer, check the current year's balloon programme at Luye Highlands; paragli
 - Sanxiantai: https://maps.app.goo.gl/8zfxTTeyZ7qz1oA47?g_st=ic
 - Hualien Ocean Campground (花蓮海洋露營區): https://maps.app.goo.gl/ZUYG6Ux5kFsCMQax5?g_st=ic
 
+<figure class="guide-figure trip-photo-accent trip-photo-accent--left">
+  <img src="/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/campervan-window-ocean-sunrise-taiwan.webp" width="1024" height="768" loading="lazy" decoding="async" title="Pacific sunrise through a campervan window in Taiwan" alt="Golden sunrise and Pacific waves seen in the early morning through the window beside a campervan bed" />
+  <figcaption><span class="guide-img-title">Wake up with the ocean already outside your window</span>This is why the east coast deserves an overnight stop: watch sunrise from the van before beginning Day 11, with no hotel checkout rush.</figcaption>
+</figure>
+
 ## Day 11 | Hualien City, Qixingtan and the mountain-and-sea landscape of Chongde
 
 If the previous evening's arrival was early, visit Dongdamen Night Market. On Day 11, walk beside the Pacific and pebble beach at Qixingtan, leaving the stones where they belong. Continue to Chongde in the afternoon and keep the night for the coast north of Hualien. The access road to Banxia Beach is narrow; if vehicle width, weather or road conditions are unsuitable, choose an easier Chongde coastal stop. Join SUP or sunrise trips only with a qualified local operator.
@@ -203,6 +208,11 @@ Do not add a long Northeast Coast attraction on the final day. Keep margin for t
 
 - Taipei 101: https://www.google.com/maps/search/?api=1&query=Taipei+101
 - Taipei Metro network: https://english.metro.taipei/
+
+<figure class="guide-figure trip-photo-accent trip-photo-accent--right trip-photo-portrait">
+  <img src="/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/luis-joyforest-campervan-taipei-101-taiwan.webp" width="723" height="1086" loading="lazy" decoding="async" title="Luis's Joyforest campervan beneath Taipei 101 at night" alt="The blue-and-white Joyforest campervan rented by Luis parked beneath the illuminated Taipei 101 at the city end of a 13-day Taiwan loop" />
+  <figcaption><span class="guide-img-title">Luis's final road-trip frame: Taipei 101</span>Take one last campervan photograph before the return, then explore central Taipei more comfortably by MRT or taxi.</figcaption>
+</figure>
 
 ## Essential campervan notes for this loop
 

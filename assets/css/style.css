@@ -2867,6 +2867,10 @@ html[lang="en"] .nav-links a .nav-stack {
   max-width: 520px;
 }
 
+.trip-photo-portrait {
+  max-width: 380px;
+}
+
 .trip-photo-accent--left {
   margin-right: auto;
 }
