@@ -5,7 +5,7 @@
   const status = app.querySelector("[data-availability-status]");
   const calendars = app.querySelector("[data-availability-calendars]");
   const isEnglish = document.documentElement.lang.toLowerCase().startsWith("en");
-  const weekdayLabels = isEnglish ? ["Sun", "Sat", "Fri", "Thu", "Wed", "Tue", "Mon"] : ["日", "六", "五", "四", "三", "二", "一"];
+  const weekdayLabels = isEnglish ? ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] : ["一", "二", "三", "四", "五", "六", "日"];
   const statusMeta = {
     open: { label: isEnglish ? "Available" : "可預約", className: "is-open" },
     waitlist: { label: isEnglish ? "Still open" : "可候補", className: "is-waitlist" },
@@ -30,14 +30,15 @@
     const firstDay = new Date(year, monthIndex, 1, 12);
     const daysInMonth = new Date(year, monthIndex + 1, 0, 12).getDate();
     const monthName = new Intl.DateTimeFormat(isEnglish ? "en-US" : "zh-TW", { year: "numeric", month: "long" }).format(firstDay);
-    const weekCount = Math.ceil((firstDay.getDay() + daysInMonth) / 7);
+    const firstColumn = (firstDay.getDay() + 6) % 7;
+    const weekCount = Math.ceil((firstColumn + daysInMonth) / 7);
     const cells = Array.from({ length: weekCount * 7 }, () => '<span class="availability-day is-empty" aria-hidden="true"></span>');
 
     for (let day = 1; day <= daysInMonth; day += 1) {
       const key = `${year}-${pad(monthIndex + 1)}-${pad(day)}`;
       const dayOfWeek = new Date(year, monthIndex, day, 12).getDay();
-      const row = Math.floor((firstDay.getDay() + day - 1) / 7);
-      const column = dayOfWeek === 0 ? 0 : 7 - dayOfWeek;
+      const column = (dayOfWeek + 6) % 7;
+      const row = Math.floor((firstColumn + day - 1) / 7);
       const isPast = key < todayKey;
       const kind = isPast ? "past" : statusByDate.get(key) || "open";
       const meta = kind === "past" ? null : statusMeta[kind];
