@@ -251,8 +251,8 @@
     const link = document.createElement("a");
     link.className = "btn btn-outline btn-availability-quick";
     link.href = availabilityPath;
-    link.textContent = english ? "View Calendar" : "查看檔期與預約";
-    link.setAttribute("aria-label", english ? "View campervan availability calendar and booking options" : "查看露營車檔期與預約方式");
+    link.textContent = english ? "Check Availability" : "查看檔期與預約";
+    link.setAttribute("aria-label", english ? "Check campervan availability and booking options" : "查看露營車檔期與預約方式");
     actions.append(link);
   };
 
