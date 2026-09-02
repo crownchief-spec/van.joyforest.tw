@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const DEFAULT_SOURCE = "https://camp.8-ways.com/data/calendar-basic.ics";
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const outputPath = path.join(projectRoot, "assets/data/campervan-unavailable-dates.json");
+const outputPath = path.join(projectRoot, "assets/data/campervan-availability.json");
 const sourceFlagIndex = process.argv.indexOf("--source");
 const source = sourceFlagIndex >= 0 ? process.argv[sourceFlagIndex + 1] : DEFAULT_SOURCE;
 
@@ -72,6 +72,39 @@ function expandEventDates(start, end) {
   return dates;
 }
 
+function decodeIcsText(value = "") {
+  return value
+    .replace(/\\[nN]/g, " ")
+    .replace(/\\,/g, ",")
+    .replace(/\\;/g, ";")
+    .replace(/\\\\/g, "\\")
+    .trim();
+}
+
+function getTextProperty(lines, propertyName) {
+  const pattern = new RegExp(`^${propertyName}(?:;|:)`, "i");
+  const line = lines.find((candidate) => pattern.test(candidate));
+  if (!line) return "";
+  const separatorIndex = line.indexOf(":");
+  return separatorIndex >= 0 ? decodeIcsText(line.slice(separatorIndex + 1)) : "";
+}
+
+function classifyEvent(summary, description, dates) {
+  const title = summary.trim();
+  const text = `${title}\n${description}`;
+  const hasCampervanWord = /露營車|camper\s*van|campervan|\brv\b/i.test(text);
+  const isPending = /^[？?]/.test(title);
+  const isExplicitBlackout = /不可預訂|不可预约|停租|暫停出租|暂停出租|停止出租|自用不外租/i.test(text);
+  const isRoutineReminder = /驗車|验车|車檢|车检|檢查|检查|整理|清潔|清洁|洗車|洗车|維修|维修|保養|保养|整備|整备|收納|收纳|補給|补给|加油|換油|换油|設備檢查|设备检查/i.test(text);
+  const isUnrelatedTravel = !hasCampervanWord && /酒店|飯店|饭店|旅館|旅馆|住宿|機票|机票|航班|出國|出国|石垣島|石垣岛|日本旅遊|日本旅游/i.test(text);
+
+  if (isExplicitBlackout) return "unavailable";
+  if (isRoutineReminder || isUnrelatedTravel) return "ignore";
+  if (isPending) return "waitlist";
+  if (hasCampervanWord || dates.length >= 2) return "booked";
+  return "ignore";
+}
+
 async function readSource(sourceValue) {
   if (/^https?:\/\//i.test(sourceValue)) {
     const url = new URL(sourceValue);
@@ -89,6 +122,8 @@ async function readSource(sourceValue) {
 const ics = unfoldIcs(await readSource(source));
 const eventBlocks = ics.match(/BEGIN:VEVENT\n[\s\S]*?\nEND:VEVENT/g) ?? [];
 const today = formatTaipeiDate(new Date());
+const bookedDates = new Set();
+const waitlistDates = new Set();
 const unavailableDates = new Set();
 
 for (const block of eventBlocks) {
@@ -97,16 +132,34 @@ for (const block of eventBlocks) {
   if (!isCampervanEvent) continue;
   const start = parseIcsDate(lines.find((line) => /^DTSTART(?:;|:)/i.test(line)));
   const end = parseIcsDate(lines.find((line) => /^DTEND(?:;|:)/i.test(line)));
-  for (const date of expandEventDates(start, end)) {
-    if (date >= today) unavailableDates.add(date);
+  const dates = expandEventDates(start, end).filter((date) => date >= today);
+  if (!dates.length) continue;
+  const summary = getTextProperty(lines, "SUMMARY");
+  const description = getTextProperty(lines, "DESCRIPTION");
+  const status = classifyEvent(summary, description, dates);
+  const target = status === "booked" ? bookedDates : status === "waitlist" ? waitlistDates : status === "unavailable" ? unavailableDates : null;
+  if (!target) continue;
+  for (const date of dates) {
+    target.add(date);
   }
 }
+
+// 同一天有多筆事件時，以不可預訂 > 已預訂 > 可候補為優先顯示。
+for (const date of unavailableDates) {
+  bookedDates.delete(date);
+  waitlistDates.delete(date);
+}
+for (const date of bookedDates) waitlistDates.delete(date);
 
 const payload = {
   calendar: "露營車",
   timeZone: "Asia/Taipei",
+  bookedDates: [...bookedDates].sort(),
+  waitlistDates: [...waitlistDates].sort(),
   unavailableDates: [...unavailableDates].sort(),
 };
 
 await writeFile(outputPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
-console.log(`已更新 ${path.relative(projectRoot, outputPath)}：${payload.unavailableDates.length} 個無法預約日期`);
+console.log(
+  `已更新 ${path.relative(projectRoot, outputPath)}：已預訂 ${payload.bookedDates.length} 天、可候補 ${payload.waitlistDates.length} 天、不可預訂 ${payload.unavailableDates.length} 天`,
+);

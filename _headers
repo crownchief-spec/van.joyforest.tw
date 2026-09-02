@@ -15,3 +15,12 @@
 
 /assets/js/*
   Cache-Control: public, max-age=604800
+
+/assets/js/main.js
+  Cache-Control: public, max-age=300
+
+/assets/js/campervan-availability.js
+  Cache-Control: public, max-age=300
+
+/assets/data/campervan-availability.json
+  Cache-Control: public, max-age=300

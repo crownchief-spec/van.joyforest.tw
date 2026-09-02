@@ -239,6 +239,23 @@
     });
   };
 
+  const initAvailabilityHeroLink = () => {
+    const currentPath = normalizePathname(window.location.pathname);
+    const english = isEnglishSite();
+    const availabilityPath = english ? "/en/pages/availability" : "/pages/availability";
+    if (currentPath === availabilityPath || currentPath === `${availabilityPath}.html`) return;
+    const actions = document.querySelector(
+      "body > .hero .hero-actions, main > .hero .hero-actions, main > section:first-child .hero-actions, main header .hero-actions"
+    );
+    if (!actions || actions.querySelector(`a[href="${availabilityPath}"]`)) return;
+    const link = document.createElement("a");
+    link.className = "btn btn-outline btn-availability-quick";
+    link.href = availabilityPath;
+    link.textContent = english ? "Check dates & book" : "查看檔期與預約";
+    link.setAttribute("aria-label", english ? "Check campervan availability and booking options" : "查看露營車檔期與預約方式");
+    actions.append(link);
+  };
+
   const initItineraryCopy = () => {
     document.querySelectorAll("[data-copy-itinerary-day]").forEach((btn) => {
       const dayId = btn.getAttribute("data-copy-itinerary-day");
@@ -318,6 +335,7 @@
     }
 
     setMainNavCurrent();
+    initAvailabilityHeroLink();
 
     const header = document.querySelector("[data-site-header]");
     const navToggle = document.querySelector("[data-nav-toggle]");

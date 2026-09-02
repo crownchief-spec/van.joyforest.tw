@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1f6b52" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <title>Campervan Availability Calendar｜JoyForest CamperVan Rental Taiwan</title>
+    <meta name="description" content="Check JoyForest CamperVan Rental availability by month. Green dates are available, yellow dates have an enquiry but remain open, and grey dates are already booked." />
+    <link rel="canonical" href="https://van.joyforest.tw/en/pages/availability" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://van.joyforest.tw/pages/availability" />
+    <link rel="alternate" hreflang="en" href="https://van.joyforest.tw/en/pages/availability" />
+    <link rel="alternate" hreflang="x-default" href="https://van.joyforest.tw/pages/availability" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="JoyForest CamperVan Rental" />
+    <meta property="og:title" content="Campervan Availability Calendar｜JoyForest CamperVan Rental Taiwan" />
+    <meta property="og:description" content="View available, still-open enquiry, booked, and unavailable campervan dates in a clear monthly calendar." />
+    <meta property="og:url" content="https://van.joyforest.tw/en/pages/availability" />
+    <meta property="og:image" content="https://van.joyforest.tw/assets/images/og/en--pages--availability.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="JoyForest CamperVan Rental availability calendar" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Campervan Availability Calendar｜JoyForest CamperVan Rental Taiwan" />
+    <meta name="twitter:description" content="Check available, still-open enquiry, booked, and unavailable campervan dates by month." />
+    <meta name="twitter:image" content="https://van.joyforest.tw/assets/images/og/en--pages--availability.jpg" />
+    <meta name="twitter:image:alt" content="JoyForest CamperVan Rental availability calendar" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/images/shared/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-180.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="../../assets/css/style.css?v=20260902-2" />
+    <script defer src="../../assets/js/main.js?v=20260902-2"></script>
+    <script defer src="../../assets/js/campervan-availability.js?v=20260902-2"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://van.joyforest.tw/en/pages/availability#webpage",
+        "url": "https://van.joyforest.tw/en/pages/availability",
+        "name": "Campervan Availability Calendar｜JoyForest CamperVan Rental Taiwan",
+        "description": "Monthly availability calendar for JoyForest CamperVan Rental in Taiwan.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://van.joyforest.tw/en/#website",
+          "url": "https://van.joyforest.tw/en/",
+          "name": "JoyForest CamperVan Rental"
+        }
+      }
+    </script>
+  </head>
+  <body class="availability-page">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <div data-site-include="header" data-site-include-lang="en"></div>
+
+    <main id="main">
+      <section class="section availability-hero">
+        <div class="container">
+          <div class="availability-hero-copy fade-in" data-reveal>
+            <p class="eyebrow">JoyForest CamperVan Rental</p>
+            <h1>Campervan availability calendar</h1>
+            <p class="intro-lead">Check <strong>available, still-open enquiry, booked,</strong> and <strong>unavailable</strong> dates by month. A yellow date means someone has asked about it but has not confirmed with a deposit, so the date is <strong>still open to book</strong>. The first confirmed deposit secures the dates.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#availability-calendar">View calendar</a>
+              <a class="btn btn-outline" href="/en/booking">Book or ask</a>
+              <a class="btn btn-lang" href="/pages/availability" lang="zh-Hant" hreflang="zh-Hant">中文</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="availability-calendar">
+        <div class="container" data-campervan-availability>
+          <div class="section-title">
+            <h2>Check campervan dates</h2>
+            <p>The calendar is synced regularly. Only date status is shown; customer names and trip details remain private.</p>
+          </div>
+          <div class="availability-status-explainer" aria-label="Availability status explanation">
+            <p class="is-booked"><strong>Booked (grey):</strong> The booking is confirmed and these dates cannot be booked again.</p>
+            <p class="is-waitlist"><strong>Still open (yellow):</strong> Someone has enquired, but no deposit has been confirmed. You may still book; the first confirmed deposit has priority.</p>
+          </div>
+          <div class="availability-legend" aria-label="Calendar legend">
+            <span><i class="availability-legend-open" aria-hidden="true"></i>Available</span>
+            <span><i class="availability-legend-waitlist" aria-hidden="true"></i>Still open</span>
+            <span><i class="availability-legend-booked" aria-hidden="true"></i>Booked</span>
+            <span><i class="availability-legend-unavailable" aria-hidden="true"></i>Unavailable</span>
+          </div>
+          <p class="availability-load-status" data-availability-status aria-live="polite">Loading campervan availability…</p>
+          <div class="availability-calendar-grid" data-availability-calendars aria-live="polite"></div>
+          <div class="availability-note card">
+            <h2>Before you book</h2>
+            <ul class="list">
+              <li><strong>Available:</strong> The date currently has no confirmed booking.</li>
+              <li><strong>Still open:</strong> There is an enquiry, but no confirmed deposit. The date remains bookable.</li>
+              <li><strong>Booked:</strong> A customer has confirmed the booking; no campervan is available on that date.</li>
+              <li><strong>Unavailable:</strong> The owner has specifically closed the date for rental.</li>
+              <li>An available date is not held automatically. Please message us to confirm dates, rental length, delivery location, and price.</li>
+            </ul>
+          </div>
+          <div class="cta availability-cta">
+            <h2>Ready to book?</h2>
+            <p>Send your dates, party size, rental length, and delivery location. We will confirm the latest status and quote.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="/en/booking">Open booking page</a>
+              <a class="btn btn-outline" href="https://line.me/ti/p/~0911252302" target="_blank" rel="noopener noreferrer">Ask on LINE</a>
+              <a class="btn btn-dark" href="https://wa.me/886911252302" target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-include="footer" data-site-include-lang="en"></div>
+  </body>
+</html>

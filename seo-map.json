@@ -170,6 +170,20 @@
       "ogImageOverride": true
     },
     {
+      "file": "en/pages/availability.html",
+      "route": "/en/pages/availability",
+      "title": "Campervan Availability Calendar｜JoyForest CamperVan Rental Taiwan",
+      "description": "Check JoyForest CamperVan Rental availability by month. Green dates are available, yellow dates have an enquiry but remain open, and grey dates are already booked.",
+      "canonical": "https://van.joyforest.tw/en/pages/availability",
+      "heroImage": "",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/en--pages--availability.jpg",
+      "schemaType": [
+        "WebPage",
+        "WebSite"
+      ],
+      "noindex": false
+    },
+    {
       "file": "en/pages/campervan.html",
       "route": "/en/pages/campervan",
       "title": "Taiwan Campervan Rental Prices &amp; Van Details｜Taipei｜JoyForest CamperVan Rental",
@@ -992,10 +1006,11 @@
     {
       "file": "pages/availability.html",
       "route": "/pages/availability",
-      "title": "露營車可預約日期｜查看無法預約檔期｜揪好森",
-      "description": "查看揪好森露營車目前無法預約的日期。檔期由露營車行事曆定期同步；空白日期仍須透過 LINE 或 WhatsApp 完成最終確認。",
+      "title": "露營車檔期查詢｜可預約、可候補與已預訂日期｜揪好森",
+      "description": "查詢揪好森露營車檔期：清楚標示可預約、可候補、已預訂與不可預訂日期。問號詢問顯示可候補，完成訂金者優先。",
       "canonical": "https://van.joyforest.tw/pages/availability",
       "heroImage": "",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/zh--pages--availability.jpg",
       "schemaType": [
         "WebPage",
         "WebSite"

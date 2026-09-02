@@ -24,17 +24,17 @@ jobs:
         with:
           node-version: 20
 
-      - name: Build privacy-safe unavailable dates
+      - name: Build privacy-safe availability status
         run: node scripts/sync-campervan-availability.mjs
 
       - name: Commit updated dates
         run: |
-          if git diff --quiet -- assets/data/campervan-unavailable-dates.json; then
+          if git diff --quiet -- assets/data/campervan-availability.json; then
             echo "No availability changes"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/data/campervan-unavailable-dates.json
-          git commit -m "chore: sync campervan unavailable dates"
+          git add assets/data/campervan-availability.json
+          git commit -m "chore: sync campervan availability status"
           git push
