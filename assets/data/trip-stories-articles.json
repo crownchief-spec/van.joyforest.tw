@@ -1,6 +1,35 @@
 {
-  "generatedAt": "2026-08-29T04:04:21.567Z",
+  "generatedAt": "2026-09-05T05:56:01.445Z",
   "articles": [
+    {
+      "slug": "taiwan-campervan-overnight-database",
+      "title": "全台露營車住宿地點資料庫｜42 個值得停一晚的海景、溫泉與親子路線",
+      "h1": "從海景第一排、山林營區，到溫泉車宿與親子公園",
+      "heroLead": "不是哪裡能停，而是哪一晚值得記住。從 42 個有照片、有實住或官方資訊的地點，找出下一趟 JoyForest CamperVan Rental 旅程。",
+      "description": "全台 42 個露營車住宿與車宿候選地點，包含正規露營區、海邊、溫泉與親子公園；附照片、地圖、推薦理由及出發前注意事項。",
+      "wideBody": true,
+      "hasEnglish": true,
+      "date": "2026-09-05",
+      "category": "新手行程",
+      "tags": [
+        "全台露營車住宿",
+        "露營車車宿地點",
+        "台灣露營區",
+        "海邊車宿",
+        "溫泉車宿",
+        "親子露營車旅行"
+      ],
+      "coverImage": "/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/joyforest-campervan-taiwan-coastal-sunset.webp",
+      "coverImageAlt": "JoyForest CamperVan Rental 藍白露營車停在臺灣海岸夕陽旁",
+      "coverImageWidth": 1160,
+      "coverImageHeight": 677,
+      "listImage": "/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/taiwan-counties-counterclockwise-campervan-route-map.webp",
+      "listImageAlt": "臺灣地圖與全台露營車住宿路線概念",
+      "featured": true,
+      "order": -1,
+      "readingTime": "約 22 分鐘",
+      "url": "/trip-stories/taiwan-campervan-overnight-database/"
+    },
     {
       "slug": "taiwan-counterclockwise-campervan-loop-13-days",
       "title": "臺灣逆時針露營車環島範本｜13 天 12 夜從桃園機場到臺北",

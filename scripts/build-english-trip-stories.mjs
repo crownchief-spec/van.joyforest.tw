@@ -52,7 +52,9 @@ const articlePageTemplate = ({
   relatedHtml,
   jsonLd,
   wideBody,
-  skipArticleCta
+  skipArticleCta,
+  stylesheets = [],
+  scripts = []
 }) => {
   const tagList = Array.isArray(tags) ? tags : [];
   const tagsMeta = tagList.map((t) => escapeHtml(t)).join(", ");
@@ -65,6 +67,14 @@ const articlePageTemplate = ({
     : "trip-article-prose trip-story-prose";
   const seoTitle = enhanceEnTitle(title);
   const seoDescription = enhanceEnDescription(description);
+  const extraStylesheetHtml = stylesheets
+    .map((href) => `    <link rel="stylesheet" href="${escapeHtml(href)}" />`)
+    .join("\n");
+  const extraScriptHtml = scripts
+    .map((src) => `    <script defer src="${escapeHtml(src)}"></script>`)
+    .join("\n");
+  const extraStylesheetBlock = extraStylesheetHtml ? `\n${extraStylesheetHtml}` : "";
+  const extraScriptBlock = extraScriptHtml ? `\n${extraScriptHtml}` : "";
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -98,8 +108,8 @@ ${hreflangHeadHtml({ zhCanonical: `${SITE_ORIGIN}${zhUrl}`, enCanonical: `${SITE
     <link rel="apple-touch-icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="preload" as="image" href="${escapeHtml(coverImage)}" fetchpriority="high" />
-    <link rel="stylesheet" href="../../../assets/css/style.css" />
-    <script defer src="../../../assets/js/main.js"></script>
+    <link rel="stylesheet" href="../../../assets/css/style.css" />${extraStylesheetBlock}
+    <script defer src="../../../assets/js/main.js"></script>${extraScriptBlock}
     <script type="application/ld+json">${jsonLd}</script>
   </head>
   <body>
@@ -231,6 +241,8 @@ async function main() {
       description: (data.description || "").trim(),
       wideBody: Boolean(data.wideBody),
       skipArticleCta: Boolean(data.skipArticleCta),
+      stylesheets: Array.isArray(data.stylesheets) ? data.stylesheets.map(String) : [],
+      scripts: Array.isArray(data.scripts) ? data.scripts.map(String) : [],
       date: (data.date || "").trim(),
       category: (data.category || "Uncategorized").trim(),
       tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
@@ -263,6 +275,8 @@ async function main() {
         if (!o[k]) delete o[k];
       }
     );
+    delete o.stylesheets;
+    delete o.scripts;
     return o;
   });
 

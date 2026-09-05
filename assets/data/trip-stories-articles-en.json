@@ -1,6 +1,33 @@
 {
-  "generatedAt": "2026-08-29T04:04:21.833Z",
+  "generatedAt": "2026-09-05T05:56:01.531Z",
   "articles": [
+    {
+      "slug": "taiwan-campervan-overnight-database",
+      "title": "42 Memorable Campervan Overnight Stops Around Taiwan",
+      "h1": "From Oceanfront Mornings to Hot Springs and Family Parks",
+      "heroLead": "Not simply where a vehicle can park, but which nights are worth remembering. Explore 42 Taiwan stops supported by photos, firsthand stays or official information.",
+      "description": "Explore 42 campervan-friendly campsites, scenic vehicle stays, hot-spring stops and family routes around Taiwan, with photos, maps, reasons to go and practical cautions.",
+      "wideBody": true,
+      "date": "2026-09-05",
+      "category": "Beginner itineraries",
+      "tags": [
+        "Taiwan campervan campsites",
+        "campervan overnight Taiwan",
+        "Taiwan road trip",
+        "hot spring campervan",
+        "family campervan travel"
+      ],
+      "coverImage": "/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/joyforest-campervan-taiwan-coastal-sunset.webp",
+      "coverImageAlt": "Blue-and-white JoyForest CamperVan Rental vehicle beside the Taiwan coast at sunset",
+      "coverImageWidth": 1160,
+      "coverImageHeight": 677,
+      "listImage": "/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/taiwan-counties-counterclockwise-campervan-route-map.webp",
+      "listImageAlt": "Taiwan map and a nationwide campervan travel route",
+      "featured": true,
+      "order": -1,
+      "readingTime": "About 22 min",
+      "url": "/en/trip-stories/taiwan-campervan-overnight-database/"
+    },
     {
       "slug": "taiwan-counterclockwise-campervan-loop-13-days",
       "title": "Taiwan Counterclockwise Campervan Loop | 13 Days and 12 Nights",

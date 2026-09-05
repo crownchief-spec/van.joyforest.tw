@@ -52,6 +52,8 @@ const articlePageTemplate = ({
   jsonLd,
   wideBody,
   skipArticleCta,
+  stylesheets = [],
+  scripts = [],
   hasEnglish = true
 }) => {
   const tagList = Array.isArray(tags) ? tags : [];
@@ -61,6 +63,14 @@ const articlePageTemplate = ({
   const proseClass = wideBody
     ? "trip-article-prose trip-story-prose trip-article-prose--wide"
     : "trip-article-prose trip-story-prose";
+  const extraStylesheetHtml = stylesheets
+    .map((href) => `    <link rel="stylesheet" href="${escapeHtml(href)}" />`)
+    .join("\n");
+  const extraScriptHtml = scripts
+    .map((src) => `    <script defer src="${escapeHtml(src)}"></script>`)
+    .join("\n");
+  const extraStylesheetBlock = extraStylesheetHtml ? `\n${extraStylesheetHtml}` : "";
+  const extraScriptBlock = extraScriptHtml ? `\n${extraScriptHtml}` : "";
   return `<!doctype html>
 <html lang="zh-Hant">
   <head>
@@ -93,8 +103,8 @@ ${hasEnglish ? hreflangHeadHtml({ zhCanonical: `${SITE_ORIGIN}/trip-stories/${sl
     <link rel="apple-touch-icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="preload" as="image" href="${escapeHtml(coverImage)}" fetchpriority="high" />
-    <link rel="stylesheet" href="../../assets/css/style.css" />
-    <script defer src="../../assets/js/main.js"></script>
+    <link rel="stylesheet" href="../../assets/css/style.css" />${extraStylesheetBlock}
+    <script defer src="../../assets/js/main.js"></script>${extraScriptBlock}
     <script type="application/ld+json">${jsonLd}</script>
   </head>
   <body>
@@ -229,6 +239,8 @@ async function main() {
     const description = (data.description || "").trim();
     const wideBody = Boolean(data.wideBody);
     const skipArticleCta = Boolean(data.skipArticleCta);
+    const stylesheets = Array.isArray(data.stylesheets) ? data.stylesheets.map(String) : [];
+    const scripts = Array.isArray(data.scripts) ? data.scripts.map(String) : [];
     const hasEnglish = data.hasEnglish !== false;
     const date = (data.date || "").trim();
     const category = (data.category || "未分類").trim();
@@ -255,6 +267,8 @@ async function main() {
       description,
       wideBody,
       skipArticleCta,
+      stylesheets,
+      scripts,
       hasEnglish,
       date,
       category,
@@ -292,6 +306,8 @@ async function main() {
     if (!o.heroLead) delete o.heroLead;
     if (!o.wideBody) delete o.wideBody;
     if (!o.skipArticleCta) delete o.skipArticleCta;
+    delete o.stylesheets;
+    delete o.scripts;
     return o;
   });
   const generatedAt = new Date().toISOString();
@@ -373,6 +389,8 @@ async function main() {
       jsonLd,
       wideBody: item.wideBody,
       skipArticleCta: item.skipArticleCta,
+      stylesheets: item.stylesheets,
+      scripts: item.scripts,
       hasEnglish: item.hasEnglish !== false
     });
 
