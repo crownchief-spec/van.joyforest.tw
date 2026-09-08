@@ -83,7 +83,7 @@
   async function loadAvailability() {
     let usingBackup = false;
     try {
-      const liveUrl = `/api/campervan-availability?refresh=${Date.now()}`;
+      const liveUrl = `https://camp.8-ways.com/api/campervan-availability?refresh=${Date.now()}`;
       let response = await fetch(liveUrl, { cache: "no-store" });
       if (!response.ok) {
         usingBackup = true;
