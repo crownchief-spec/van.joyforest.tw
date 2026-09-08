@@ -81,8 +81,14 @@
   }
 
   async function loadAvailability() {
+    let usingBackup = false;
     try {
-      const response = await fetch("/assets/data/campervan-availability.json", { cache: "no-store" });
+      const liveUrl = `/api/campervan-availability?refresh=${Date.now()}`;
+      let response = await fetch(liveUrl, { cache: "no-store" });
+      if (!response.ok) {
+        usingBackup = true;
+        response = await fetch(`/assets/data/campervan-availability.json?refresh=${Date.now()}`, { cache: "no-store" });
+      }
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
       const todayKey = toDateKey(new Date());
@@ -93,8 +99,12 @@
       };
       renderCalendars(dateGroups);
       status.textContent = isEnglish
-        ? "Calendar loaded. Yellow dates have an enquiry but remain open; the first confirmed deposit secures the dates."
-        : "已載入露營車行事曆；問號檔期顯示為可候補，仍以完成訂金者優先。";
+        ? usingBackup
+          ? "The live calendar is temporarily unavailable, so the latest backup is shown. Please confirm with us before paying a deposit."
+          : "Live calendar refreshed. Yellow dates have an enquiry but remain open; the first confirmed deposit secures the dates."
+        : usingBackup
+          ? "即時行事曆暫時無法讀取，目前顯示最新備援檔期；付訂金前請再與我們確認。"
+          : "已即時重新讀取露營車行事曆；問號檔期顯示為可候補，仍以完成訂金者優先。";
       status.classList.add("is-ready");
     } catch (error) {
       status.textContent = isEnglish
