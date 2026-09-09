@@ -82,8 +82,10 @@ function classifyEvent(summary, description, dates) {
   const hasCampervanWord = /露營車|camper\s*van|campervan|\brv\b/i.test(text);
   const isPending = /^[？?]/.test(title);
   const isExplicitBlackout = /不可預訂|不可预约|停租|暫停出租|暂停出租|停止出租|自用不外租/i.test(text);
-  const isRoutineReminder = /驗車|验车|車檢|车检|檢查|检查|整理|清潔|清洁|洗車|洗车|維修|维修|保養|保养|整備|整备|收納|收纳|補給|补给|加油|換油|换油|設備檢查|设备检查/i.test(text);
-  const isUnrelatedTravel = !hasCampervanWord && /酒店|飯店|饭店|旅館|旅馆|住宿|機票|机票|航班|出國|出国|石垣島|石垣岛|日本旅遊|日本旅游/i.test(text);
+  // 只有「標題本身」是整理、清潔、驗車等才視為不佔檔提醒。
+  // 客人預訂的備註常會包含清潔或整備交付內容，不可因此忽略整筆行程。
+  const isRoutineReminder = /驗車|验车|車檢|车检|檢查|检查|整理|清潔|清洁|洗車|洗车|維修|维修|保養|保养|整備|整备|收納|收纳|補給|补给|加油|換油|换油|設備檢查|设备检查/i.test(title);
+  const isUnrelatedTravel = !hasCampervanWord && /酒店|飯店|饭店|旅館|旅馆|住宿|機票|机票|航班|出國|出国|石垣島|石垣岛|日本旅遊|日本旅游/i.test(title);
 
   if (isExplicitBlackout) return "unavailable";
   if (isRoutineReminder || isUnrelatedTravel) return "ignore";
