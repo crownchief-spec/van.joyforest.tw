@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T05:56:01.445Z",
+  "generatedAt": "2026-09-17T16:25:04.644Z",
   "articles": [
     {
       "slug": "taiwan-campervan-overnight-database",
@@ -29,6 +29,38 @@
       "order": -1,
       "readingTime": "約 22 分鐘",
       "url": "/trip-stories/taiwan-campervan-overnight-database/"
+    },
+    {
+      "slug": "israeli-women-taiwan-campervan-road-trip",
+      "title": "以色列女生的台灣露營車旅行｜東澳、花蓮、綠島、知本、墾丁與日月潭 9 天 8 夜",
+      "description": "兩位以色列女生第一次開露營車旅行台灣：從台北到東澳睡海邊、花蓮 Ocean Chill、綠島朝日溫泉、台東知本大王山居、墾丁，再到日月潭帖泊喀湖景營地。附每日路線、營地、地圖與真實影片。",
+      "hasEnglish": true,
+      "date": "2026-09-17",
+      "category": "國際客人",
+      "tags": [
+        "以色列旅客",
+        "女生露營車旅行",
+        "台灣露營車環島",
+        "東澳睡海邊",
+        "Ocean Chill",
+        "綠島朝日溫泉",
+        "大王山居露營區",
+        "墾丁露營車",
+        "帖泊喀露營區",
+        "日月潭露營",
+        "台灣公路旅行"
+      ],
+      "coverImage": "/assets/images/trip-ideas/israeli-women-taiwan-campervan-road-trip/israeli-friends-taiwan-road-trip-cover.webp",
+      "coverImageAlt": "兩位以色列女生在台灣露營車公路旅行途中開心唱歌，展開九天八夜東海岸、綠島、墾丁與日月潭旅程",
+      "coverImageWidth": 1200,
+      "coverImageHeight": 630,
+      "listVideo": "/assets/videos/trip-stories/israeli-women-taiwan-campervan-road-trip/taiwan-road-trip-diary.mp4",
+      "listVideoPoster": "/assets/images/trip-ideas/israeli-women-taiwan-campervan-road-trip/road-trip-diary-poster.webp",
+      "videoDuration": "PT27.83S",
+      "featured": true,
+      "order": 0,
+      "readingTime": "約 15 分鐘",
+      "url": "/trip-stories/israeli-women-taiwan-campervan-road-trip/"
     },
     {
       "slug": "taiwan-counterclockwise-campervan-loop-13-days",

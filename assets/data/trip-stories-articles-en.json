@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T05:56:01.531Z",
+  "generatedAt": "2026-09-17T16:25:04.855Z",
   "articles": [
     {
       "slug": "taiwan-campervan-overnight-database",
@@ -27,6 +27,35 @@
       "order": -1,
       "readingTime": "About 22 min",
       "url": "/en/trip-stories/taiwan-campervan-overnight-database/"
+    },
+    {
+      "slug": "israeli-women-taiwan-campervan-road-trip",
+      "title": "Two Israeli Women’s 9-Day Taiwan Campervan Road Trip | East Coast, Green Island, Kenting & Sun Moon Lake",
+      "description": "A detailed nine-day Taiwan campervan route by two Israeli women: Dong'ao, Ocean Chill in Hualien, Green Island's ocean hot spring, Dawang in Zhiben, Kenting and two lake-view nights at Sun Moon Lake.",
+      "date": "2026-09-17",
+      "category": "International guests",
+      "tags": [
+        "Israeli travelers",
+        "women campervan trip",
+        "Taiwan campervan rental",
+        "Taiwan east coast",
+        "Green Island",
+        "Zhiben hot spring",
+        "Kenting campervan",
+        "Sun Moon Lake camping",
+        "Taiwan road trip"
+      ],
+      "coverImage": "/assets/images/trip-ideas/israeli-women-taiwan-campervan-road-trip/israeli-friends-taiwan-road-trip-cover.webp",
+      "coverImageAlt": "Two Israeli women singing happily during a nine-day Taiwan campervan road trip along the east coast, Green Island, Kenting and Sun Moon Lake",
+      "coverImageWidth": 1200,
+      "coverImageHeight": 630,
+      "listVideo": "/assets/videos/trip-stories/israeli-women-taiwan-campervan-road-trip/taiwan-road-trip-diary.mp4",
+      "listVideoPoster": "/assets/images/trip-ideas/israeli-women-taiwan-campervan-road-trip/road-trip-diary-poster.webp",
+      "videoDuration": "PT27.83S",
+      "featured": true,
+      "order": 0,
+      "readingTime": "About 15 min",
+      "url": "/en/trip-stories/israeli-women-taiwan-campervan-road-trip/"
     },
     {
       "slug": "taiwan-counterclockwise-campervan-loop-13-days",
