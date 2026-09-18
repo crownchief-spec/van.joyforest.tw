@@ -45,6 +45,75 @@ PLACES = {
     "sunmoon": (120.9100, 23.8600),
 }
 
+# Major-road geometry for the actual driving order.  These intermediate
+# waypoints keep the infographic schematic while making the orange line follow
+# the real road corridors instead of drawing straight chords between stops:
+# National Freeway 5 / Provincial Hwy 9 and Suhua, Hwy 9 through the Rift
+# Valley, the South Link Highway, then the western Freeway 3 / 6 and Hwy 21.
+ROAD_ROUTE = [
+    # Taipei -> Yilan -> Su'ao -> Dong'ao (Freeway 5 / Hwy 9)
+    PLACES["taipei"],
+    (121.68, 24.96),
+    (121.76, 24.85),
+    (121.79, 24.75),
+    (121.85, 24.60),
+    PLACES["dongao"],
+    # Dong'ao -> Nan'ao -> Heping -> Chongde -> Hualien (Suhua / Hwy 9)
+    (121.80, 24.46),
+    (121.75, 24.31),
+    (121.65, 24.17),
+    (121.63, 24.10),
+    PLACES["hualien"],
+    # Hualien -> Ruisui -> Yuli -> Chishang -> Taitung/Fugang (Hwy 9)
+    (121.53, 23.87),
+    (121.46, 23.69),
+    (121.38, 23.50),
+    (121.32, 23.33),
+    (121.22, 23.12),
+    (121.16, 22.95),
+    PLACES["fugang"],
+    # Taitung -> Zhiben
+    (121.15, 22.75),
+    PLACES["zhiben"],
+    # Zhiben -> Taimali -> Dawu -> Shouka -> Fenggang -> Kenting
+    # (Hwy 9 South Link, then Hwy 26 around Hengchun Peninsula)
+    (121.00, 22.62),
+    (120.94, 22.50),
+    (120.90, 22.35),
+    (120.84, 22.24),
+    (120.69, 22.20),
+    (120.66, 22.10),
+    (120.74, 22.00),
+    PLACES["kenting"],
+    # Kenting -> western corridor -> Wufeng/Puli -> Sun Moon Lake
+    # (Hwy 26 / Freeway 3 / Freeway 6 / Hwy 21)
+    (120.74, 22.00),
+    (120.66, 22.10),
+    (120.62, 22.30),
+    (120.40, 22.60),
+    (120.30, 22.78),
+    (120.24, 23.00),
+    (120.33, 23.25),
+    (120.45, 23.48),
+    (120.54, 23.71),
+    (120.62, 23.90),
+    (120.70, 24.05),
+    (120.88, 23.98),
+    (120.97, 23.97),
+    PLACES["sunmoon"],
+    # Sun Moon Lake -> Puli/Wufeng -> Freeway 3 north -> Taipei
+    (120.97, 23.97),
+    (120.88, 24.00),
+    (120.70, 24.05),
+    (120.68, 24.20),
+    (120.72, 24.38),
+    (120.82, 24.56),
+    (121.00, 24.78),
+    (121.20, 24.88),
+    (121.35, 24.95),
+    PLACES["taipei"],
+]
+
 
 def fnt(lang: str, size: int, bold: bool = False):
     path = ZH_FONT if lang == "zh" else EN_FONT
@@ -112,7 +181,7 @@ def render(lang: str, filename: str):
             (7, "日月潭 / 帖泊喀", "9/13–14 湖景 B 區兩晚", "sunmoon", "left"),
             (8, "返回台北", "9/15 北上還車", "taipei", "left"),
         ]
-        note = "實線：露營車移動｜藍色虛線：富岡往返綠島的船程"
+        note = "橘線：依主要公路行駛（路線示意）｜藍線：富岡往返綠島船程"
     else:
         title = "Nine days from Taipei to the east coast, Green Island, Kenting and Sun Moon Lake"
         subtitle = "A Taiwan campervan road trip by two Israeli women (traveler names are pseudonyms)"
@@ -126,7 +195,7 @@ def render(lang: str, filename: str):
             (7, "Sun Moon Lake · Tiepoka", "Sep 13–14 | Two lake-view nights", "sunmoon", "left"),
             (8, "Return to Taipei", "Sep 15 | Northbound handback", "taipei", "left"),
         ]
-        note = "Solid line: campervan route | Blue dashes: ferry between Fugang and Green Island"
+        note = "Orange: driving via main roads (schematic) | Blue: Fugang–Green Island ferry"
 
     draw.text((70, 43), title, font=fnt(lang, 39 if lang == "zh" else 35), fill=INK)
     draw.text((72, 98), subtitle, font=fnt(lang, 22), fill=MUTED)
@@ -135,8 +204,7 @@ def render(lang: str, filename: str):
     draw.polygon(island, fill=LAND)
     dashed(draw, island, INK, width=5, dash=12, gap=9)
 
-    route_names = ["taipei", "dongao", "hualien", "fugang", "zhiben", "kenting", "sunmoon", "taipei"]
-    route = [project(PLACES[name]) for name in route_names]
+    route = [project(point) for point in ROAD_ROUTE]
     dashed(draw, route, ORANGE, width=9, dash=18, gap=12)
     dashed(draw, [project(PLACES["fugang"]), project(PLACES["green"])], BLUE, width=7, dash=12, gap=10)
 
