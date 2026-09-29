@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta name="theme-color" content="#173f34" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E🌲%3C/text%3E%3C/svg%3E" />
+    <title>露營車電子合約｜揪好森露營車出租</title>
+    <link rel="stylesheet" href="/assets/css/e-sign-contract.css" />
+    <script defer src="/assets/vendor/pdf-lib.min.js"></script>
+    <script defer src="/assets/js/e-sign-contract.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="回到電子合約管理首頁">
+        <span class="brand-mark" aria-hidden="true">森</span>
+        <span><strong>揪好森露營車出租</strong><small>電子合約</small></span>
+      </a>
+      <span class="local-badge">線上簽署</span>
+    </header>
+
+    <main>
+      <section id="admin-view" class="page-shell" hidden>
+        <div class="hero-card">
+          <p class="eyebrow">JoyForest CamperVan Rental</p>
+          <h1>建立客人的電子合約</h1>
+          <p>先用日期尋找「露營車」行事曆，再補齊資料；系統會建立一個專屬簽約網址。</p>
+        </div>
+
+        <form id="admin-form" class="stack" novalidate>
+          <section class="card">
+            <div class="section-heading">
+              <div><span class="step-number">01</span><h2>從行事曆帶入</h2></div>
+              <p>輸入租期內任一天；只有一筆時可直接套用，多筆時由你選擇。</p>
+            </div>
+            <div class="lookup-row">
+              <label><span>搜尋日期</span><input id="calendar-date" type="date" required /></label>
+              <button id="calendar-search" class="button primary" type="button">搜尋露營車行程</button>
+            </div>
+            <p id="calendar-status" class="status-line" role="status">尚未搜尋。</p>
+            <div id="calendar-results" class="result-grid"></div>
+            <button id="demo-fill" class="button text-button" type="button">沒有資料時，載入 9/29 示範資料</button>
+          </section>
+
+          <section class="card">
+            <div class="section-heading">
+              <div><span class="step-number">02</span><h2>確認合約資料</h2></div>
+              <p>客人可修改個人資料；租期、費用與地點若被更動，完成檔會留下更正紀錄。</p>
+            </div>
+            <div class="form-grid">
+              <label><span>承租人姓名</span><input name="customerName" autocomplete="name" required /></label>
+              <label><span>聯絡電話</span><input name="phone" inputmode="tel" autocomplete="tel" required /></label>
+              <label><span>出生年月日</span><input name="birthDate" type="date" /></label>
+              <label><span>身分證／護照號碼</span><input name="idNumber" autocomplete="off" /></label>
+              <label class="full"><span>戶籍／聯絡地址</span><input name="address" autocomplete="street-address" /></label>
+              <label><span>租借開始日期</span><input name="rentalStartDate" type="date" required /></label>
+              <label><span>開始時間</span><input name="rentalStartTime" type="time" /></label>
+              <label><span>租借結束日期</span><input name="rentalEndDate" type="date" required /></label>
+              <label><span>結束時間</span><input name="rentalEndTime" type="time" /></label>
+              <label class="full"><span>交車地點</span><input name="deliveryLocation" /></label>
+              <label class="full"><span>還車地點</span><input name="returnLocation" /></label>
+              <label><span>租金</span><input name="rentalFee" placeholder="例如 NT$13,800" /></label>
+              <label><span>預約訂金</span><input name="reservationDeposit" placeholder="依本次預約" /></label>
+              <label><span>還車結算押金</span><input name="securityDeposit" value="NT$5,000" /></label>
+              <label><span>行事曆狀態</span><select name="calendarStatus"><option value="booked">已確認預約</option><option value="waitlist">可候補／尚未付訂金</option><option value="manual">手動建立</option></select></label>
+              <input type="hidden" name="calendarSummary" />
+              <input type="hidden" name="createdBy" value="Joyforest" />
+              <input type="hidden" name="language" value="zh-Hant" />
+            </div>
+          </section>
+
+          <section class="card action-card">
+            <div><h2>建立專屬簽約連結</h2><p>確認資料後建立連結，再傳給客人用手機完成簽署。</p></div>
+            <button class="button primary large" type="submit">建立並開啟客戶簽約頁</button>
+          </section>
+        </form>
+      </section>
+
+      <section id="signer-view" class="page-shell signer-shell" hidden>
+        <div class="hero-card signer-hero">
+          <p class="eyebrow">揪好森露營車出租</p>
+          <h1>確認資料並完成電子簽署</h1>
+          <p>請依序確認資料、閱讀兩份合約、拍攝證件正反面，最後用手指簽名。</p>
+          <div class="progress-list" aria-label="簽約步驟">
+            <span>1 資料</span><span>2 合約</span><span>3 證件</span><span>4 簽名</span>
+          </div>
+        </div>
+
+        <form id="signer-form" class="stack" novalidate>
+          <section class="card" id="customer-info">
+            <div class="section-heading"><div><span class="step-number">01</span><h2>確認承租資料</h2></div><p>資料有錯可直接修正；租期或費用有變更時會留存修改紀錄。</p></div>
+            <div id="signer-fields" class="form-grid"></div>
+            <div id="critical-change-warning" class="notice warning" hidden>你修改了租期、地點或費用。完成檔會記錄為「客人更正」，出租方需再確認。</div>
+          </section>
+
+          <section class="card contract-section" id="contracts">
+            <div class="section-heading"><div><span class="step-number">02</span><h2>閱讀兩份合約</h2></div><p>共 5 頁。頁面由本次租借資料即時產生，點擊可放大，完成後下載 PDF。</p></div>
+            <details open><summary>借車合約｜2 頁</summary><div class="contract-pages">
+              <figure><a data-contract-link="vehicle-agreement-page-1.webp" target="_blank"><img data-contract-asset="vehicle-agreement-page-1.webp" alt="借車合約第 1 頁條款內容" title="借車合約第 1 頁" width="989" height="1400" decoding="async" /></a><figcaption>借車合約｜第 1／2 頁</figcaption></figure>
+              <figure><a data-contract-link="vehicle-agreement-page-2.webp" target="_blank"><img data-contract-asset="vehicle-agreement-page-2.webp" alt="借車合約第 2 頁雙方資料與車輛行照" title="借車合約第 2 頁" width="989" height="1400" loading="lazy" decoding="async" /></a><figcaption>借車合約｜第 2／2 頁</figcaption></figure>
+            </div></details>
+            <details open><summary>露營車廂租賃合約｜3 頁</summary><div class="contract-pages">
+              <figure><a data-contract-link="camper-cabin-agreement-page-1.webp" target="_blank"><img data-contract-asset="camper-cabin-agreement-page-1.webp" alt="露營車廂租賃合約第 1 頁租賃與付款條款" title="露營車廂租賃合約第 1 頁" width="989" height="1400" loading="lazy" decoding="async" /></a><figcaption>露營車廂租賃合約｜第 1／3 頁</figcaption></figure>
+              <figure><a data-contract-link="camper-cabin-agreement-page-2.webp" target="_blank"><img data-contract-asset="camper-cabin-agreement-page-2.webp" alt="露營車廂租賃合約第 2 頁責任與簽署資料" title="露營車廂租賃合約第 2 頁" width="989" height="1400" loading="lazy" decoding="async" /></a><figcaption>露營車廂租賃合約｜第 2／3 頁</figcaption></figure>
+              <figure><a data-contract-link="camper-cabin-agreement-page-3.webp" target="_blank"><img data-contract-asset="camper-cabin-agreement-page-3.webp" alt="露營車廂租賃合約第 3 頁車廂示意圖" title="露營車廂租賃合約第 3 頁" width="989" height="1400" loading="lazy" decoding="async" /></a><figcaption>露營車廂租賃合約｜第 3／3 頁</figcaption></figure>
+            </div></details>
+            <label class="check-row"><input id="contracts-read" type="checkbox" /><span>我已閱讀並同意以上兩份合約，共 5 頁。</span></label>
+          </section>
+
+          <section class="card" id="identity-documents">
+            <div class="section-heading"><div><span class="step-number">03</span><h2>拍攝證件正反面</h2></div><p>實際駕駛人請優先提供有效駕照；影像只會放進業者存證版。</p></div>
+            <label class="document-type"><span>證件類型</span><select id="document-type"><option value="driver-license">駕駛執照</option><option value="national-id">身分證</option><option value="passport">護照／外國駕駛文件</option></select></label>
+            <div class="upload-grid">
+              <label class="upload-card"><span class="upload-title">證件正面</span><span class="upload-help">點一下開相機或選照片；現場人工確認即可</span><input id="document-front" type="file" accept="image/*" capture="environment" /><img id="document-front-preview" alt="證件正面預覽" hidden /></label>
+              <label class="upload-card"><span class="upload-title">證件反面</span><span class="upload-help">點一下開相機或選照片；現場人工確認即可</span><input id="document-back" type="file" accept="image/*" capture="environment" /><img id="document-back-preview" alt="證件反面預覽" hidden /></label>
+            </div>
+            <div class="notice privacy">證件照片只在目前手機內用來製作 PDF，不會自動上傳網站；完成後請把業者存證版傳給揪好森保存。</div>
+          </section>
+
+          <section class="card" id="signature-section">
+            <div class="section-heading"><div><span class="step-number">04</span><h2>用手指簽名</h2></div><p>請在框內簽下與證件一致的姓名。</p></div>
+            <div class="signature-wrap"><canvas id="signature-pad" aria-label="手寫簽名區"></canvas><span id="signature-placeholder">請在這裡簽名</span></div>
+            <div class="signature-actions"><button id="clear-signature" class="button outline" type="button">清除重簽</button><span id="signature-status">尚未簽名</span></div>
+            <label class="check-row"><input id="electronic-consent" type="checkbox" /><span>我同意使用電子文件與電子簽署，並確認以上資料及證件由本人提供。</span></label>
+            <label class="check-row"><input id="privacy-consent" type="checkbox" /><span>我已閱讀個資告知，了解資料用於租賃、身分與駕駛資格核對、履約及爭議處理。</span></label>
+          </section>
+
+          <section class="card action-card submit-card">
+            <div><h2>完成簽署並產生 PDF</h2><p>會產生「客戶版」與含證件附件的「業者存證版」，請下載或用 LINE 分享保存。</p></div>
+            <button id="complete-signing" class="button primary large" type="submit">確認送出並產生 PDF</button>
+            <p id="completion-status" class="status-line" role="status"></p>
+          </section>
+        </form>
+
+        <section id="result-panel" class="card result-panel" hidden>
+          <span class="success-icon" aria-hidden="true">✓</span><h2>電子合約已完成</h2>
+          <p>客戶版不含完整證件影像；業者存證版含證件附件，請下載或用 LINE 傳給揪好森保存。</p>
+          <div class="result-actions">
+            <a id="download-customer" class="button primary" download>下載客戶版 PDF</a>
+            <button id="share-customer" class="button outline" type="button">分享到 LINE／其他 App</button>
+            <a id="download-owner" class="button dark" download>下載業者存證版</a>
+          </div>
+          <p class="document-id">文件編號：<strong id="result-document-id"></strong></p>
+        </section>
+      </section>
+    </main>
+
+    <footer>JoyForest CamperVan Rental｜揪好森露營車出租</footer>
+  </body>
+</html>
