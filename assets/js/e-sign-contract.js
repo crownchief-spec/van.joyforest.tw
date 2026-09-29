@@ -688,7 +688,24 @@
     alert("手機未支援直接分享 PDF，已下載業者存證版；請從 LINE 選擇檔案傳送給揪好森。 ");
   }
 
+  function directPublicDraft() {
+    return {
+      customerName: "", phone: "", birthDate: "", idNumber: "", address: "",
+      rentalStartDate: "", rentalStartTime: "15:00", rentalEndDate: "", rentalEndTime: "15:00",
+      deliveryLocation: "", returnLocation: "", rentalFee: "", reservationDeposit: "", securityDeposit: "NT$5,000",
+      calendarStatus: "direct", calendarSummary: "客人直接填寫", issuedAt: new Date().toISOString(), version: "direct-public-1",
+      provider: {
+        name: "陳在紳",
+        role: "聯邦國際租賃股份有限公司桃園分公司租賃小貨車長租租用人"
+      },
+      vehicle: { plate: "RBU-8280", description: "KIA 卡旺 2497cc 雙廂式" }
+    };
+  }
+
+  const queryContract = new URLSearchParams(location.search).get("contract");
   const hashMatch = location.hash.match(/^#contract=(.+)$/);
-  if (hashMatch) buildSigner(hashMatch[1]);
+  if (queryContract) buildSigner(queryContract);
+  else if (hashMatch) buildSigner(hashMatch[1]);
+  else if (location.hostname.endsWith("joyforest.tw")) buildSigner(encodeDraft(directPublicDraft()));
   else buildAdmin();
 })();
