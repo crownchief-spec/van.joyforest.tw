@@ -13,6 +13,9 @@
 /assets/css/*
   Cache-Control: public, max-age=604800
 
+/assets/css/style.css
+  Cache-Control: public, max-age=300
+
 /assets/js/*
   Cache-Control: public, max-age=604800
 
