@@ -15,7 +15,7 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="JoyForest CamperVan Rental" />
     <meta property="og:title" content="Campervan Availability Calendar｜JoyForest CamperVan Rental Taiwan" />
-    <meta property="og:description" content="View available, still-open enquiry, booked, and unavailable campervan dates in a clear monthly calendar." />
+    <meta property="og:description" content="Check JoyForest CamperVan Rental availability by month. Green dates are available, yellow dates have an enquiry but remain open, and grey dates are already booked." />
     <meta property="og:url" content="https://van.joyforest.tw/en/pages/availability" />
     <meta property="og:image" content="https://van.joyforest.tw/assets/images/og/en--pages--availability.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -23,7 +23,7 @@
     <meta property="og:image:alt" content="JoyForest CamperVan Rental availability calendar" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Campervan Availability Calendar｜JoyForest CamperVan Rental Taiwan" />
-    <meta name="twitter:description" content="Check available, still-open enquiry, booked, and unavailable campervan dates by month." />
+    <meta name="twitter:description" content="Check JoyForest CamperVan Rental availability by month. Green dates are available, yellow dates have an enquiry but remain open, and grey dates are already booked." />
     <meta name="twitter:image" content="https://van.joyforest.tw/assets/images/og/en--pages--availability.jpg" />
     <meta name="twitter:image:alt" content="JoyForest CamperVan Rental availability calendar" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -32,7 +32,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="stylesheet" href="../../assets/css/style.css?v=20260902-2" />
     <script defer src="../../assets/js/main.js?v=20260902-2"></script>
-    <script defer src="../../assets/js/campervan-availability.js?v=20260909-2"></script>
+    <script defer src="../../assets/js/campervan-availability.js?v=20261001-2"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -50,6 +50,8 @@
         }
       }
     </script>
+      <link rel="icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-64.png" type="image/png" sizes="64x64" />
+      <!-- Analytics placeholder: add GA4/GTM only after the measurement ID and consent policy are confirmed. -->
   </head>
   <body class="availability-page">
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -75,7 +77,7 @@
         <div class="container" data-campervan-availability>
           <div class="section-title">
             <h2>Check campervan dates</h2>
-            <p>The calendar is synced regularly. Only date status is shown; customer names and trip details remain private.</p>
+            <p>The calendar refreshes when you open this page. Choose your rental and return dates to carry them into the enquiry form.</p>
           </div>
           <div class="availability-status-explainer" aria-label="Availability status explanation">
             <p class="is-booked"><strong>Booked (grey):</strong> The booking is confirmed and these dates cannot be booked again.</p>
@@ -89,6 +91,10 @@
           </div>
           <p class="availability-load-status" data-availability-status aria-live="polite">Loading campervan availability…</p>
           <div class="availability-calendar-grid" data-availability-calendars aria-live="polite"></div>
+          <div class="availability-selection card" data-availability-selection>
+            <p data-availability-selection-text>Choose your rental start date.</p>
+            <a class="btn btn-primary" data-availability-selection-link href="/en/booking" hidden>Use these dates</a>
+          </div>
           <div class="availability-note card">
             <h2>Before you book</h2>
             <ul class="list">
@@ -97,6 +103,7 @@
               <li><strong>Booked:</strong> A customer has confirmed the booking; no campervan is available on that date.</li>
               <li><strong>Unavailable:</strong> The owner has specifically closed the date for rental.</li>
               <li>An available date is not held automatically. Please message us to confirm dates, rental length, delivery location, and price.</li>
+              <li>See our <a href="/en/pages/policies">booking, deposit, cancellation and privacy information</a> before sending personal details.</li>
             </ul>
           </div>
           <div class="cta availability-cta">

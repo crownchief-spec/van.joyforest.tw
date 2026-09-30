@@ -15,7 +15,7 @@
     <meta property="og:locale" content="zh_TW" />
     <meta property="og:site_name" content="揪好森露營車出租" />
     <meta property="og:title" content="露營車檔期查詢｜可預約、可候補與已預訂日期｜揪好森" />
-    <meta property="og:description" content="直接查看露營車可預約、可候補、已預訂與不可預訂日期；完成訂金者優先保留檔期。" />
+    <meta property="og:description" content="查詢揪好森露營車檔期：清楚標示可預約、可候補、已預訂與不可預訂日期。問號詢問顯示可候補，完成訂金者優先。" />
     <meta property="og:url" content="https://van.joyforest.tw/pages/availability" />
     <meta property="og:image" content="https://van.joyforest.tw/assets/images/og/zh--pages--availability.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -23,7 +23,7 @@
     <meta property="og:image:alt" content="JoyForest CamperVan Rental 露營車預約檔期" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="露營車檔期查詢｜可預約、可候補與已預訂日期｜揪好森" />
-    <meta name="twitter:description" content="直接查看露營車可預約、可候補、已預訂與不可預訂日期。" />
+    <meta name="twitter:description" content="查詢揪好森露營車檔期：清楚標示可預約、可候補、已預訂與不可預訂日期。問號詢問顯示可候補，完成訂金者優先。" />
     <meta name="twitter:image" content="https://van.joyforest.tw/assets/images/og/zh--pages--availability.jpg" />
     <meta name="twitter:image:alt" content="JoyForest CamperVan Rental 露營車預約檔期" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -32,7 +32,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="stylesheet" href="../assets/css/style.css?v=20260902-2" />
     <script defer src="../assets/js/main.js?v=20260902-2"></script>
-    <script defer src="../assets/js/campervan-availability.js?v=20260909-2"></script>
+    <script defer src="../assets/js/campervan-availability.js?v=20261001-2"></script>
     <script type="application/ld+json" data-seo-managed="webpage">
       {
         "@context": "https://schema.org",
@@ -50,6 +50,8 @@
         }
       }
     </script>
+      <link rel="icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-64.png" type="image/png" sizes="64x64" />
+      <!-- Analytics placeholder: add GA4/GTM only after the measurement ID and consent policy are confirmed. -->
   </head>
   <body class="availability-page">
     <a class="skip-link" href="#main">跳到主要內容</a>
@@ -63,8 +65,8 @@
             <h1>露營車檔期查詢</h1>
             <p class="intro-lead">直接查看<strong>可預約、可候補、已預訂</strong>與<strong>不可預訂</strong>日期。標示「可候補」代表已有客人詢問、但尚未完成訂金，檔期仍開放，<strong>以先完成訂金者優先</strong>。</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#availability-calendar">查看檔期</a>
-              <a class="btn btn-outline" href="/booking">查看檔期與預約</a>
+              <a class="btn btn-primary" href="#availability-calendar">查看月曆</a>
+              <a class="btn btn-outline" href="/booking">開始預約詢問</a>
             </div>
           </div>
         </div>
@@ -74,7 +76,7 @@
         <div class="container" data-campervan-availability>
           <div class="section-title">
             <h2>查看露營車檔期</h2>
-            <p>檔期由「露營車」行事曆定期同步；網站只公開日期狀態，不公開預約人或行程內容。</p>
+            <p>檔期會在客人開啟頁面時重新讀取；選擇租車與還車日期，可直接帶入預約詢問。</p>
           </div>
           <div class="availability-status-explainer" aria-label="檔期狀態說明">
             <p class="is-booked"><strong>已預訂（灰色）：</strong>客人已經完成預訂，這些日期無法再預約。</p>
@@ -88,6 +90,10 @@
           </div>
           <p class="availability-load-status" data-availability-status aria-live="polite">正在讀取露營車檔期…</p>
           <div class="availability-calendar-grid" data-availability-calendars aria-live="polite"></div>
+          <div class="availability-selection card" data-availability-selection>
+            <p data-availability-selection-text>請先選擇租車開始日期。</p>
+            <a class="btn btn-primary" data-availability-selection-link href="/booking" hidden>帶入日期，開始詢問</a>
+          </div>
           <div class="availability-note card">
             <h2>預約前請注意</h2>
             <ul class="list">
@@ -95,7 +101,7 @@
               <li><strong>已預訂：</strong>客人已完成確認，這段時間沒有車可以出租。</li>
               <li><strong>不可預訂：</strong>車主已明確設定為停租或不開放出租。</li>
               <li>顯示可預約不代表自動保留，仍需要傳訊確認交車地點、租借天數與實際安排。</li>
-              <li>若行事曆剛更新，網站可能需要一些時間同步；急件請直接傳訊詢問。</li>
+              <li>送出詢問不等於完成預約；正式報價、訂金、取消與個人資料說明請見<a href="/pages/policies">預約與隱私說明</a>。</li>
             </ul>
           </div>
           <div class="cta availability-cta">

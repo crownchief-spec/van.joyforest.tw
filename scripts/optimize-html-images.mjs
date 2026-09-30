@@ -41,6 +41,10 @@ function remove(tag, name) {
   return tag.replace(new RegExp(`\\s${name}="[^"]*"`, "i"), "");
 }
 
+function escapeAttribute(value) {
+  return value.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+}
+
 async function optimizeFile(rel) {
   const file = path.join(ROOT, rel);
   const html = await fs.readFile(file, "utf8");
@@ -63,6 +67,8 @@ async function optimizeFile(rel) {
       if (!/\sheight=/i.test(tag)) tag = upsert(tag, "height", size.height);
     }
     if (!/\sdecoding=/i.test(tag)) tag = upsert(tag, "decoding", "async");
+    const alt = tag.match(/\salt="([^"]*)"/i)?.[1]?.trim() || "";
+    if (alt && !/\stitle=/i.test(tag)) tag = upsert(tag, "title", escapeAttribute(alt.slice(0, 140)));
     if (aboveFold) {
       tag = remove(tag, "loading");
       if (isHero && !/\sfetchpriority=/i.test(tag)) tag = upsert(tag, "fetchpriority", "high");

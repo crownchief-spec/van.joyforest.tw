@@ -1,12 +1,12 @@
 # SEO 維護總表（自動產生）
 
-產生時間：2026-08-29
+產生時間：2026-09-30
 
 ## 摘要
 
-- HTML 檔案總數：121
-- seo-map 條目：121
-- 可索引頁面：115
+- HTML 檔案總數：136
+- seo-map 條目：136
+- 可索引頁面：129
 - 缺 og:image（可索引）：0
 
 ## 主要頁面 SEO 總表
@@ -22,9 +22,12 @@
 | en/booking.html | /en/booking | /assets/images/og/en--booking.jpg | WebPage | false |
 | en/booking/index.html | /en/booking/ | — |  | true |
 | en/index.html | /en/ | /assets/images/og/en--home.jpg | Organization, WebSite, LocalBusiness, WebPage | false |
+| en/pages/availability.html | /en/pages/availability | /assets/images/og/en--pages--availability.jpg | WebPage, WebSite | false |
 | en/pages/booking-guide.html | /en/pages/booking-guide | /assets/images/og/en--pages--booking-guide.jpg | WebPage, BreadcrumbList, ListItem | false |
 | en/pages/campervan-insurance.html | /en/pages/campervan-insurance | /assets/images/og/en--pages--campervan-insurance | WebPage, BreadcrumbList, ListItem, FAQPage, Question, Answer | false |
+| en/pages/campervan-overnight-ideas.html | /en/pages/campervan-overnight-ideas | /assets/images/og/en--pages--campervan-overnight | CollectionPage, BreadcrumbList, ListItem, WebPage | false |
 | en/pages/campervan.html | /en/pages/campervan | /assets/images/og/en--pages--campervan.jpg | WebPage, ImageObject, Product, Brand, BreadcrumbList, ListItem | false |
+| en/pages/policies.html | /en/pages/policies | /assets/images/og/en--pages--policies.jpg | WebPage | false |
 | en/pages/resources/campervan-3days-2nights-trip-ideas.html | /en/pages/resources/campervan-3days-2nights-trip-ideas | /assets/images/og/en--pages--resources--camperva | WebPage | false |
 | en/pages/resources/campervan-beginner-how-to-use.html | /en/pages/resources/campervan-beginner-how-to-use | /assets/images/og/en--pages--resources--camperva | WebPage | false |
 | en/pages/resources/campervan-newbie-articles-learning-path.html | /en/pages/resources/campervan-newbie-articles-learning-path | /assets/images/og/en--pages--resources--camperva | WebPage | false |
@@ -48,28 +51,18 @@
 | en/pages/trip-ideas.html | /en/pages/trip-ideas | /assets/images/og/en--pages--trip-ideas.jpg | WebPage, BreadcrumbList, ListItem | false |
 | en/trip-stories/family-beginner-3-days/index.html | /en/trip-stories/family-beginner-3-days/ | /assets/images/og/en--trip-stories--family-begin | Article, Organization, WebPage, BreadcrumbList, ListItem | false |
 | index.html | / | /assets/images/og/zh--home.jpg | Organization, WebSite, LocalBusiness, WebPage | false |
-| pages/availability.html | /pages/availability | /assets/images/og/booking.jpg | WebPage, WebSite | false |
-| pages/booking-guide.html | /pages/booking-guide | /assets/images/og/pages--booking-guide.jpg | CollectionPage, BreadcrumbList | false |
-| pages/booking-guide/beds.html | /pages/booking-guide/beds | /assets/images/booking-guide/living-area-table-to-double-bed-tutorial-poster.jpg | WebPage | false |
-| pages/booking-guide/driving-safety.html | /pages/booking-guide/driving-safety | /assets/images/guide/taipei-campervan-rental-driving-safety-height-parking.png | WebPage | false |
-| pages/booking-guide/outdoor-entertainment.html | /pages/booking-guide/outdoor-entertainment | /assets/images/guide/taipei-campervan-rental-projector-screen-bluetooth-guide.png | WebPage | false |
-| pages/booking-guide/power-air-conditioning.html | /pages/booking-guide/power-air-conditioning | /assets/images/guide/taipei-campervan-power-monitor-panel-voltage-current-watt-guide.jpg | WebPage | false |
-| pages/booking-guide/vehicle-and-driving.html | /pages/booking-guide/vehicle-and-driving | /assets/images/guide/taipei-campervan-rental-exterior-equipment-labeled-coast.png | WebPage | false |
-| pages/booking-guide/water-bathroom-toilet.html | /pages/booking-guide/water-bathroom-toilet | /assets/images/guide/taipei-campervan-outdoor-shower-head-left-rear-rinse-guide.jpg | WebPage | false |
-| pages/campervan-insurance.html | /pages/campervan-insurance | /assets/images/og/pages--campervan-insurance.jpg | WebPage, BreadcrumbList, ListItem, FAQPage, Question, Answer | false |
-| pages/campervan.html | /pages/campervan | /assets/images/og/pages--campervan.jpg | WebPage, Service, OfferCatalog, BreadcrumbList | false |
-| pages/faq.html | /pages/faq | — |  | true |
-| pages/guide.html | /pages/guide | — |  | true |
+| pages/availability.html | /pages/availability | /assets/images/og/zh--pages--availability.jpg | WebPage, WebSite | false |
+| pages/booking-guide.html | /pages/booking-guide | /assets/images/og/pages--booking-guide.jpg | CollectionPage, BreadcrumbList, WebPage | false |
 
 > 完整清單見根目錄 `seo-map.json`
 
 ## 重複 og:image（≥2 頁，可索引）
 
-- `/assets/images/og/booking.jpg` → booking.html, pages/availability.html
+- 無
 
 ## 跨路由重複 og:image（排除僅中英對照）
 
-- `/assets/images/og/booking.jpg` → booking.html, pages/availability.html
+- 無
 
 ## 重複 title
 

@@ -5,3 +5,7 @@
 /pages/faq.html          /pages/booking-guide  301
 /booking/                /booking              301
 /en/booking/             /en/booking           301
+/blog                    /pages/resources      301
+/blog/*                  /pages/resources      301
+/en/blog                 /en/pages/resources   301
+/en/blog/*               /en/pages/resources   301

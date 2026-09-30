@@ -48,12 +48,12 @@
       headerPh?.getAttribute("data-site-include-lang") === "en" ||
       footerPh?.getAttribute("data-site-include-lang") === "en" ||
       isEnglishSite();
-    const headerPath = en ? "/components/header-en" : "/components/header";
-    const footerPath = en ? "/components/footer-en" : "/components/footer";
+    const headerPath = en ? "/components/header-en.html" : "/components/header.html";
+    const footerPath = en ? "/components/footer-en.html" : "/components/footer.html";
     const fetches = [];
-    if (headerPh) fetches.push(fetch(headerPath, { cache: "no-cache" }).then((r) => r.text()));
+    if (headerPh) fetches.push(fetch(headerPath, { cache: "no-cache" }).then((r) => (r.ok ? r.text() : null)));
     else fetches.push(Promise.resolve(null));
-    if (footerPh) fetches.push(fetch(footerPath, { cache: "no-cache" }).then((r) => r.text()));
+    if (footerPh) fetches.push(fetch(footerPath, { cache: "no-cache" }).then((r) => (r.ok ? r.text() : null)));
     else fetches.push(Promise.resolve(null));
     const [headerHtml, footerHtml] = await Promise.all(fetches);
     if (headerPh && headerHtml) headerPh.outerHTML = headerHtml;

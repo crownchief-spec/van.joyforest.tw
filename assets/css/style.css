@@ -182,7 +182,7 @@ a {
   font-weight: 600;
 }
 
-@media (max-width: 859px) {
+@media (max-width: 1079px) {
   .nav-links a .nav-zh {
     font-size: 15px;
     line-height: 1.25;
@@ -299,7 +299,7 @@ a {
   color: #fff !important;
 }
 
-@media (min-width: 860px) {
+@media (min-width: 1080px) {
   .nav-toggle {
     display: none;
   }
@@ -591,6 +591,63 @@ html[lang="en"] .nav-links a .nav-stack {
   margin: 0;
   color: var(--color-muted);
   font-size: 14px;
+}
+
+@media (max-width: 759px) {
+  .section-title {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .section-title h2,
+  .section-title p {
+    max-width: 100%;
+  }
+}
+
+.conversion-trust {
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.conversion-trust__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.conversion-trust__item {
+  min-width: 0;
+  padding: 14px 12px;
+  background: var(--color-surface);
+}
+
+.conversion-trust__item strong,
+.conversion-trust__item span {
+  display: block;
+}
+
+.conversion-trust__item strong {
+  color: var(--color-primary);
+  font-size: clamp(15px, 2vw, 18px);
+}
+
+.conversion-trust__item span {
+  margin-top: 3px;
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+@media (min-width: 760px) {
+  .conversion-trust__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .grid {
@@ -2116,7 +2173,21 @@ html[lang="en"] .nav-links a .nav-stack {
   margin: 0;
   color: var(--color-muted);
   line-height: 1.75;
-  max-width: 52ch;
+  max-width: 76ch;
+}
+
+.booking-page-intro .btn-lang {
+  border-color: rgba(23, 60, 58, 0.34);
+  background: #fff;
+  color: #173c3a;
+  box-shadow: 0 8px 18px rgba(20, 24, 21, 0.08);
+}
+
+.booking-page-intro .btn-lang:hover,
+.booking-page-intro .btn-lang:focus-visible {
+  border-color: rgba(23, 60, 58, 0.62);
+  background: rgba(31, 107, 82, 0.08);
+  color: #173c3a;
 }
 
 .booking-steps-card,
@@ -2142,6 +2213,78 @@ html[lang="en"] .nav-links a .nav-stack {
   font-size: clamp(15px, 2.5vw, 17px);
   line-height: 1.7;
   white-space: pre-wrap;
+}
+
+.booking-inquiry-form {
+  display: grid;
+  gap: 14px;
+}
+
+.booking-form-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.booking-field {
+  display: grid;
+  gap: 6px;
+}
+
+.booking-field label {
+  color: var(--color-ink);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.booking-field input,
+.booking-field select,
+.booking-field textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--color-ink);
+  font: inherit;
+}
+
+.booking-field textarea {
+  min-height: 92px;
+  resize: vertical;
+}
+
+.booking-field input:focus-visible,
+.booking-field select:focus-visible,
+.booking-field textarea:focus-visible {
+  outline: 3px solid rgba(31, 107, 82, 0.18);
+  border-color: var(--color-primary);
+}
+
+.booking-process-note {
+  margin: 0;
+  padding: 12px 14px;
+  border-left: 4px solid var(--color-primary);
+  border-radius: 10px;
+  background: rgba(31, 107, 82, 0.07);
+  color: var(--color-ink);
+}
+
+@media (min-width: 700px) {
+  .booking-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .booking-field--wide {
+    grid-column: 1 / -1;
+  }
+}
+
+.booking-page .footer-trip-story-random,
+.booking-page .footer-resources-section,
+.availability-page .footer-trip-story-random,
+.availability-page .footer-resources-section {
+  display: none;
 }
 
 .booking-main-actions {
@@ -3599,6 +3742,37 @@ html[lang="en"] .nav-links a .nav-stack {
   border-radius: 10px;
   background: rgba(249, 250, 248, 0.9);
   text-align: center;
+  font: inherit;
+}
+
+button.availability-day {
+  width: 100%;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+button.availability-day:hover,
+button.availability-day:focus-visible {
+  z-index: 1;
+  transform: translateY(-2px);
+  outline: 3px solid rgba(31, 107, 82, 0.18);
+  box-shadow: 0 8px 18px rgba(31, 107, 82, 0.15);
+}
+
+.availability-day.is-in-range {
+  border-color: rgba(31, 107, 82, 0.55);
+  background: rgba(31, 107, 82, 0.12);
+}
+
+.availability-day.is-selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(31, 107, 82, 0.2);
+}
+
+.availability-day.is-selected .availability-day-number,
+.availability-day.is-selected .availability-day-label {
+  color: #fff;
 }
 
 .availability-day.is-empty {
@@ -3690,6 +3864,30 @@ html[lang="en"] .nav-links a .nav-stack {
   margin-top: 24px;
 }
 
+.availability-selection {
+  position: sticky;
+  bottom: 12px;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 18px 0 6px;
+  padding: 14px 16px;
+  border-color: rgba(31, 107, 82, 0.36);
+  box-shadow: 0 14px 30px rgba(24, 53, 43, 0.16);
+}
+
+.availability-selection p {
+  margin: 0;
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+.availability-selection .btn {
+  flex: 0 0 auto;
+}
+
 .availability-cta .hero-actions {
   justify-content: center;
 }
@@ -3701,6 +3899,11 @@ html[lang="en"] .nav-links a .nav-stack {
 
   .availability-calendar-grid {
     grid-template-columns: 1fr;
+  }
+
+  .availability-selection {
+    align-items: stretch;
+    flex-direction: column;
   }
 }
 

@@ -10,7 +10,6 @@
       name="description"
       content="Book JoyForest CamperVan Rental in Taiwan: share dates, group size, delivery in Taipei (Taoyuan and Hsinchu on request), and your route. We confirm availability, pricing, and handover."
     />
-    <meta name="keywords" content="book campervan Taiwan, campervan rental Taipei, reserve motorhome Taiwan, Taiwan campervan booking, Taipei delivery campervan, JoyForest CamperVan Rental" />
     <link rel="canonical" href="https://van.joyforest.tw/en/booking" />
     <link rel="alternate" hreflang="zh-Hant" href="https://van.joyforest.tw/booking" />
     <link rel="alternate" hreflang="en" href="https://van.joyforest.tw/en/booking" />
@@ -42,6 +41,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="stylesheet" href="../assets/css/style.css" />
     <script defer src="../assets/js/main.js"></script>
+    <script defer src="../assets/js/booking-inquiry.js"></script>
       <link rel="icon" href="/assets/images/shared/favicon.svg" type="image/svg+xml" />
       <!-- Analytics placeholder: add GA4/GTM only after the measurement ID and consent policy are confirmed. -->
       <script type="application/ld+json" data-seo-managed="webpage">
@@ -50,7 +50,7 @@
   "@type": "WebPage",
   "@id": "https://van.joyforest.tw/en/booking#webpage",
   "url": "https://van.joyforest.tw/en/booking",
-  "name": "Book a Campervan in Taiwan｜Taipei Delivery｜JoyForest CamperVan Rental",
+  "name": "Taiwan Campervan Booking Enquiry｜JoyForest CamperVan Rental",
   "description": "Book JoyForest CamperVan Rental in Taiwan: share dates, group size, delivery in Taipei (Taoyuan and Hsinchu on request), and your route. We confirm availability, pricing, and handover.",
   "inLanguage": "en",
   "isPartOf": {
@@ -88,11 +88,11 @@
         <a href="/en/pages/availability">Availability</a>
         <a href="/en/pages/booking-guide">How to Use</a>
         <a href="/en/pages/trip-ideas">Customer Stories</a>
-        <a class="nav-book-cta" href="/en/booking">Book Now</a>
+        <a class="nav-book-cta" href="/en/booking">Start Booking</a>
       </nav>
 
       <div class="nav-cta">
-        <a class="btn btn-book-now" href="/en/booking">Book Now</a>
+        <a class="btn btn-book-now" href="/en/booking">Start Booking</a>
       </div>
     </div>
   </div>
@@ -101,9 +101,9 @@
     <main id="main" class="section">
       <div class="container">
         <header class="booking-page-intro">
-          <h1>Book a campervan</h1>
+          <h1>Start a campervan booking enquiry</h1>
           <p>
-            Please share your <strong>planned dates, party size, rental length, delivery location, and trip direction</strong>. We will confirm vehicle availability, <strong>rental pricing</strong>, and how to use the van. Service is primarily <strong>campervan rental in Taipei</strong>, with delivery to <strong>Taoyuan</strong> and Hsinchu at agreed locations on request. Our vehicle is a <strong>self-drive large campervan</strong>; see <a href="/en/pages/campervan">Price &amp; Van</a> for packages and <strong>Taiwan campervan rental pricing</strong>, and review <a href="/en/pages/campervan-insurance">Campervan Insurance &amp; Renter Liability</a> before sending your booking.
+            Enter your dates, party size and delivery location and this page will prepare a message for LINE or WhatsApp. Sending the information is a <strong>booking enquiry</strong>, not a confirmed reservation. Dates are held only after the service details, formal quote and agreed reservation deposit are confirmed. You can first check <a href="/en/pages/availability">availability</a>, <a href="/en/pages/campervan">pricing and van details</a>, and <a href="/en/pages/campervan-insurance">insurance and renter liability</a>.
           </p>
           <div class="hero-lang-switch" role="group" aria-label="Language">
             <a class="btn btn-lang" href="/booking" lang="zh-Hant" hreflang="zh-Hant">中文</a>
@@ -112,14 +112,30 @@
 
         <section class="card fade-in booking-steps-card" data-reveal aria-label="Booking steps">
           <ol class="booking-steps">
-            <li><strong>Step 1</strong> Review pricing and <a href="/en/pages/campervan-insurance">insurance responsibilities</a></li>
-            <li><strong>Step 2</strong> Copy the template and send it via LINE or WhatsApp</li>
-            <li><strong>Step 3</strong> We confirm availability and reply with pricing and booking details</li>
+            <li><strong>Step 1</strong> Check <a href="/en/pages/availability">availability</a>, pricing and <a href="/en/pages/campervan-insurance">insurance responsibilities</a></li>
+            <li><strong>Step 2</strong> Fill in the details below and copy or send the prepared message</li>
+            <li><strong>Step 3</strong> The dates are held after the formal quote, agreement and reservation deposit are confirmed</li>
           </ol>
         </section>
 
         <section class="card fade-in booking-template-card" data-reveal aria-labelledby="booking-template-title">
-          <h2 id="booking-template-title">Copy the template below and send it to us</h2>
+          <h2 id="booking-template-title">Enter your details to prepare an enquiry</h2>
+          <form class="booking-inquiry-form" data-booking-inquiry-form novalidate>
+            <div class="booking-form-grid">
+              <div class="booking-field"><label for="booking-start">Rental date</label><input id="booking-start" name="start" type="date" /></div>
+              <div class="booking-field"><label for="booking-end">Return date</label><input id="booking-end" name="end" type="date" /></div>
+              <div class="booking-field"><label for="booking-name">Name</label><input id="booking-name" name="name" autocomplete="name" /></div>
+              <div class="booking-field"><label for="booking-phone">Phone / WhatsApp</label><input id="booking-phone" name="phone" inputmode="tel" autocomplete="tel" /></div>
+              <div class="booking-field"><label for="booking-adults">Adults</label><input id="booking-adults" name="adults" type="number" min="0" inputmode="numeric" /></div>
+              <div class="booking-field"><label for="booking-children">Children</label><input id="booking-children" name="children" type="number" min="0" inputmode="numeric" /></div>
+              <div class="booking-field"><label for="booking-pets">Pets</label><select id="booking-pets" name="pets"><option value="">Not entered</option><option value="No">No</option><option value="Yes">Yes</option></select></div>
+              <div class="booking-field"><label for="booking-delivery">Delivery / return location</label><input id="booking-delivery" name="delivery" placeholder="For example: Taipei Main Station" /></div>
+              <div class="booking-field booking-field--wide"><label for="booking-destinations">Planned destinations or campsites</label><input id="booking-destinations" name="destinations" placeholder="Leave blank if undecided" /></div>
+              <div class="booking-field booking-field--wide"><label for="booking-notes">Other needs or questions</label><textarea id="booking-notes" name="notes" placeholder="For example: first rental, family route advice"></textarea></div>
+            </div>
+          </form>
+          <p class="booking-process-note"><strong>Important:</strong> Completing or sending this form does not confirm a booking. Dates are held only after the service details, formal quote and reservation deposit are confirmed.</p>
+          <h3>Message preview</h3>
           <pre class="booking-template" data-booking-template-text>
 【Campervan booking】
 
@@ -132,14 +148,12 @@ Number of children:
 Pets (yes/no):
 Planned delivery location:
 Planned destinations:
-Glamping photo bundle needed:
-Entertainment bundle needed:
 Other questions:</pre>
 
           <div class="booking-main-actions">
-            <button type="button" class="btn btn-primary booking-btn-block" data-copy-booking-template>Copy booking template</button>
+            <button type="button" class="btn btn-primary booking-btn-block" data-copy-booking-template>Copy enquiry message</button>
             <a class="btn btn-outline booking-btn-block" href="https://line.me/ti/p/~0911252302" target="_blank" rel="noopener noreferrer">Ask on LINE</a>
-            <a class="btn btn-dark booking-btn-block" href="https://wa.me/886911252302" target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a>
+            <a class="btn btn-dark booking-btn-block" data-booking-whatsapp href="https://wa.me/886911252302" target="_blank" rel="noopener noreferrer">Send on WhatsApp</a>
           </div>
           <p class="booking-copy-feedback" data-copy-booking-feedback aria-live="polite"></p>
         </section>
@@ -154,7 +168,7 @@ Other questions:</pre>
             <li>E-mail：crownchief@gmail.com</li>
           </ul>
           <p class="kicker" style="margin-top: 12px">
-            For rental packages and equipment, see <a href="/en/pages/campervan">Price &amp; Van</a>; before booking, read <a href="/en/pages/campervan-insurance">Campervan Insurance &amp; Renter Liability</a>; for trip inspiration, see <a href="/en/pages/trip-ideas">Customer stories</a>; before departure, read the <a href="/en/pages/booking-guide">How to use the campervan</a> guide.
+            Check <a href="/en/pages/availability">live availability</a> and <a href="/en/pages/campervan">Price &amp; Van</a>. Before booking, read <a href="/en/pages/campervan-insurance">Campervan Insurance &amp; Renter Liability</a> and our <a href="/en/pages/policies">booking, cancellation and privacy information</a>.
           </p>
         </section>
       </div>
@@ -170,14 +184,12 @@ Other questions:</pre>
     <div class="footer-grid" style="padding-top: 34px; padding-bottom: 0">
       <div class="footer-col" style="grid-column: 1 / -1">
         <h3>JoyForest CamperVan Rental</h3>
-        <p>
-          <strong>JoyForest CamperVan Rental</strong> offers <strong>campervan rental in Taipei, Taiwan</strong> with <strong>delivery to your door</strong>. Taoyuan and Hsinchu drop-off can be arranged. Our <strong>self-drive large campervan</strong> is ideal for families and friends who want a <strong>3-day, 2-night slow trip</strong> across Taiwan without buying or converting a van. Check pricing on our <strong>Price &amp; Van</strong> page before booking.
-        </p>
+        <p>Self-drive campervan rental based in Taipei, with delivery to agreed locations in Taoyuan and Hsinchu on request. First-time guests receive a practical handover covering driving and onboard systems.</p>
       </div>
     </div>
     <div class="footer-grid">
       <div class="footer-col">
-        <a class="btn btn-dark" href="/en/booking">Book Now</a>
+        <a class="btn btn-dark" href="/en/booking">Start Booking</a>
         <p class="kicker" style="margin-top: 10px">Service area: Taipei · Taoyuan · Hsinchu</p>
       </div>
       <div class="footer-col">
@@ -194,11 +206,12 @@ Other questions:</pre>
         <ul>
           <li><a href="/en/">Home</a></li>
           <li><a href="/en/pages/campervan">Price &amp; Van</a></li>
-          <li><a href="/en/pages/availability">Check Dates &amp; Book</a></li>
+          <li><a href="/en/pages/trip-ideas">Customer Stories</a></li>
           <li><a href="/en/pages/booking-guide">How to Use</a></li>
           <li><a href="/en/pages/campervan-insurance">Insurance &amp; Liability</a></li>
-          <li><a href="/en/pages/trip-ideas">Customer Stories</a></li>
-          <li><a href="/en/booking">Book Now</a></li>
+          <li><a href="/en/pages/availability">Availability</a></li>
+          <li><a href="/en/pages/policies">Booking, Deposit, Cancellation &amp; Privacy</a></li>
+          <li><a href="/en/booking">Start Booking</a></li>
         </ul>
       </div>
     </div>
@@ -208,27 +221,27 @@ Other questions:</pre>
       </h3>
       <ul class="footer-trip-story-random__list" role="list" aria-label="Two recommended campervan customer stories">
         <li class="footer-trip-story-random__item" data-footer-trip-story-slot>
-          <a class="footer-trip-story-random__link" data-footer-trip-story-link href="/en/trip-stories/british-australian-guests-taiwan-campervan-road-trip/" aria-label="A British Traveler from Australia Discovers Taiwan by Campervan。A British traveler based in Australia takes a Taiwan campervan road trip from Taoyuan Ai…">
+          <a class="footer-trip-story-random__link" data-footer-trip-story-link href="/en/trip-stories/couple-friends-photo-trip/" aria-label="Campervan trips for couples &amp; friends｜Photos, birthdays &amp; short getaways。Campervan plus outdoor table, string lights, and aesthetic camping kits—great for friend…">
             <span class="footer-trip-story-random__thumb">
-              <img data-footer-trip-story-img src="/assets/images/trip-ideas/british-australian-guests-taiwan-campervan-road-trip/hualien-mountain-campsite-sunset.webp" alt="A British traveler based in Australia camping with a Taiwan campervan at sunset in the Hualien mountains" width="132" height="88" loading="lazy" decoding="async" />
+              <img data-footer-trip-story-img src="/images/trip-stories/couple-friends-photo-trip.jpg" alt="Friends and couples on a campervan trip with outdoor string lights" width="132" height="88" decoding="async" title="Friends and couples on a campervan trip with outdoor string lights" />
             </span>
             <span class="footer-trip-story-random__copy">
-              <span class="footer-trip-story-random__category" data-footer-trip-story-category>International guests</span>
-              <span class="footer-trip-story-random__title" data-footer-trip-story-title>A British Traveler from Australia Discovers Taiwan by Campervan</span>
-              <span class="footer-trip-story-random__summary" data-footer-trip-story-summary>A British traveler based in Australia takes a Taiwan campervan road trip from Taoyuan Ai…</span>
+              <span class="footer-trip-story-random__category" data-footer-trip-story-category>Friends travel</span>
+              <span class="footer-trip-story-random__title" data-footer-trip-story-title>Campervan trips for couples &amp; friends｜Photos, birthdays &amp; short getaways</span>
+              <span class="footer-trip-story-random__summary" data-footer-trip-story-summary>Campervan plus outdoor table, string lights, and aesthetic camping kits—great for friend…</span>
               <span class="footer-trip-story-random__more">Read more</span>
             </span>
           </a>
         </li>
         <li class="footer-trip-story-random__item" data-footer-trip-story-slot>
-          <a class="footer-trip-story-random__link" data-footer-trip-story-link href="/en/trip-stories/taipei-north-coast-story/" aria-label="Pickup at Taipei 101 → North Coast overnight &amp; morning light。From Xinyi pickup along the North Coast: seafood dinner, stars and surf at night, coasta…">
+          <a class="footer-trip-story-random__link" data-footer-trip-story-link href="/en/trip-stories/joyforest-campervan-born-container-factory-assembly/" aria-label="How our campervan is born: container arrival to factory assembly｜JoyForest CamperVan Rental team build diary。From shipping container arrival and on-site unloading to factory assembly—how the JoyFor…">
             <span class="footer-trip-story-random__thumb">
-              <img data-footer-trip-story-img src="/assets/images/trip-ideas/taipei-101-campervan-rental-departure-twilight-parking.jpg" alt="Campervan pickup at Taipei 101 at dusk, heading to North Coast overnight" width="132" height="88" loading="lazy" decoding="async" />
+              <img data-footer-trip-story-img src="/assets/images/trip-ideas/joyforest-campervan-manufacturing-assembly-process.jpg" alt="JoyForest CamperVan Rental campervan factory assembly: white-and-blue body on build stand, side door open—dream taking shape on site" width="132" height="88" loading="lazy" decoding="async" title="JoyForest CamperVan Rental campervan factory assembly: white-and-blue body on build stand, side door open—dream taking shape on site" />
             </span>
             <span class="footer-trip-story-random__copy">
-              <span class="footer-trip-story-random__category" data-footer-trip-story-category>Coastal routes</span>
-              <span class="footer-trip-story-random__title" data-footer-trip-story-title>Pickup at Taipei 101 → North Coast overnight &amp; morning light</span>
-              <span class="footer-trip-story-random__summary" data-footer-trip-story-summary>From Xinyi pickup along the North Coast: seafood dinner, stars and surf at night, coasta…</span>
+              <span class="footer-trip-story-random__category" data-footer-trip-story-category>Customer stories</span>
+              <span class="footer-trip-story-random__title" data-footer-trip-story-title>How our campervan is born: container arrival to factory assembly｜JoyForest CamperVan Rental team build diary</span>
+              <span class="footer-trip-story-random__summary" data-footer-trip-story-summary>From shipping container arrival and on-site unloading to factory assembly—how the JoyFor…</span>
               <span class="footer-trip-story-random__more">Read more</span>
             </span>
           </a>

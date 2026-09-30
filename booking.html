@@ -41,6 +41,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script defer src="./assets/js/main.js"></script>
+    <script defer src="./assets/js/booking-inquiry.js"></script>
       <link rel="icon" href="/assets/images/shared/favicon.svg" type="image/svg+xml" />
       <!-- Analytics placeholder: add GA4/GTM only after the measurement ID and consent policy are confirmed. -->
       <script type="application/ld+json" data-seo-managed="webpage">
@@ -49,8 +50,8 @@
   "@type": "WebPage",
   "@id": "https://van.joyforest.tw/booking#webpage",
   "url": "https://van.joyforest.tw/booking",
-  "name": "立即預約露營車｜揪好森露營車出租・到府交車洽詢",
-  "description": "預約揪好森自走式露營車出租：請提供日期、人數、天數、送車地點與旅遊方向。可協助確認檔期、租露營車費用、設備與行程；主打露營車出租台北，租露營車桃園與新竹送車可洽詢。",
+  "name": "露營車預約詢問｜填日期、人數與送車地點｜揪好森",
+  "description": "填寫租車日期、人數、送車地點與旅遊方向，自動產生可用 LINE 或 WhatsApp 傳送的預約詢問內容。",
   "inLanguage": "zh-Hant",
   "isPartOf": {
     "@type": "WebSite",
@@ -74,26 +75,41 @@
     <main id="main" class="section">
       <div class="container">
         <header class="booking-page-intro">
-          <h1>立即預約露營車</h1>
+          <h1>開始露營車預約詢問</h1>
           <p>
-            請先查看<a href="/pages/availability">露營車檔期查詢</a>，再提供<strong>預計日期、人數、天數、送車地點與旅遊方向</strong>，我們會協助確認車輛是否可租、<strong>租露營車費用</strong>與適合的使用方式。服務以<strong>露營車出租台北</strong>為主，<strong>租露營車桃園</strong>與新竹指定地點送車亦可洽詢；車款為<strong>自走式大型露營車</strong>，方案與<strong>台灣露營車出租價格</strong>區間可先參考<a href="/pages/campervan">價格與車款介紹</a>，送出預約前請閱讀<a href="/pages/campervan-insurance">露營車保險與車損責任</a>。
-
+            先填日期、人數與送車地點，頁面會自動整理成可傳送的訊息。送出資料只是<strong>預約詢問</strong>，收到正式報價並完成約定訂金後，才會保留露營車檔期。可先查看<a href="/pages/availability">檔期</a>、<a href="/pages/campervan">價格與車款</a>及<a href="/pages/campervan-insurance">保險與車損責任</a>。
+          </p>
           <div class="hero-lang-switch" role="group" aria-label="Language">
             <a class="btn btn-lang" href="/en/booking" lang="en" hreflang="en">English</a>
           </div>
-        </p>
         </header>
 
         <section class="card fade-in booking-steps-card" data-reveal aria-label="預約步驟">
           <ol class="booking-steps">
-            <li><strong>Step 1</strong> 查看<a href="/pages/availability">可預約、可候補與已預訂日期</a>、價格與<a href="/pages/campervan-insurance">保險責任說明</a></li>
-            <li><strong>Step 2</strong> 複製資料並用 LINE 或 WhatsApp 傳送</li>
-            <li><strong>Step 3</strong> 我們確認檔期後回覆費用與預約細節</li>
+            <li><strong>Step 1</strong> 查看<a href="/pages/availability">檔期</a>、價格與<a href="/pages/campervan-insurance">保險責任</a></li>
+            <li><strong>Step 2</strong> 填寫下方資料，複製或直接用 WhatsApp 傳送</li>
+            <li><strong>Step 3</strong> 確認正式報價、合約與訂金後，才完成檔期保留</li>
           </ol>
         </section>
 
         <section class="card fade-in booking-template-card" data-reveal aria-labelledby="booking-template-title">
-          <h2 id="booking-template-title">請複製以下預約資料後傳送</h2>
+          <h2 id="booking-template-title">填寫資料，自動產生預約詢問</h2>
+          <form class="booking-inquiry-form" data-booking-inquiry-form novalidate>
+            <div class="booking-form-grid">
+              <div class="booking-field"><label for="booking-start">租車日期</label><input id="booking-start" name="start" type="date" /></div>
+              <div class="booking-field"><label for="booking-end">還車日期</label><input id="booking-end" name="end" type="date" /></div>
+              <div class="booking-field"><label for="booking-name">姓名</label><input id="booking-name" name="name" autocomplete="name" /></div>
+              <div class="booking-field"><label for="booking-phone">聯絡電話</label><input id="booking-phone" name="phone" inputmode="tel" autocomplete="tel" /></div>
+              <div class="booking-field"><label for="booking-adults">大人人數</label><input id="booking-adults" name="adults" type="number" min="0" inputmode="numeric" /></div>
+              <div class="booking-field"><label for="booking-children">小孩人數</label><input id="booking-children" name="children" type="number" min="0" inputmode="numeric" /></div>
+              <div class="booking-field"><label for="booking-pets">是否有寵物</label><select id="booking-pets" name="pets"><option value="">尚未填寫</option><option value="無">無</option><option value="有">有</option></select></div>
+              <div class="booking-field"><label for="booking-delivery">送車／還車地點</label><input id="booking-delivery" name="delivery" placeholder="例如：台北車站" /></div>
+              <div class="booking-field booking-field--wide"><label for="booking-destinations">預計旅遊地點或露營區</label><input id="booking-destinations" name="destinations" placeholder="還沒決定也可以留白" /></div>
+              <div class="booking-field booking-field--wide"><label for="booking-notes">其他需求或問題</label><textarea id="booking-notes" name="notes" placeholder="例如：第一次租、需要親子路線建議"></textarea></div>
+            </div>
+          </form>
+          <p class="booking-process-note"><strong>重要：</strong>填寫或傳送此表單不代表完成預約；檔期以雙方確認服務內容、正式報價與訂金後為準。</p>
+          <h3>預約訊息預覽</h3>
           <pre class="booking-template" data-booking-template-text>
 【露營車預約】
 
@@ -106,14 +122,12 @@
 是否有寵物：
 預計送車地點：
 預計旅遊地點：
-是否需要網美露營套組：
-是否需要影音娛樂套組：
 其他問題：</pre>
 
           <div class="booking-main-actions">
-            <button type="button" class="btn btn-primary booking-btn-block" data-copy-booking-template>複製預約資料</button>
+            <button type="button" class="btn btn-primary booking-btn-block" data-copy-booking-template>複製預約訊息</button>
             <a class="btn btn-outline booking-btn-block" href="https://line.me/ti/p/~0911252302" target="_blank" rel="noopener noreferrer">用 LINE 詢問</a>
-            <a class="btn btn-dark booking-btn-block" href="https://wa.me/886911252302" target="_blank" rel="noopener noreferrer">用 WhatsApp 詢問</a>
+            <a class="btn btn-dark booking-btn-block" data-booking-whatsapp href="https://wa.me/886911252302" target="_blank" rel="noopener noreferrer">用 WhatsApp 傳送</a>
           </div>
           <p class="booking-copy-feedback" data-copy-booking-feedback aria-live="polite"></p>
         </section>
@@ -128,7 +142,7 @@
             <li>E-mail：crownchief@gmail.com</li>
           </ul>
           <p class="kicker" style="margin-top: 12px">
-            想先確認日期，請看<a href="/pages/availability">露營車檔期查詢</a>；租車方案與設備請到<a href="/pages/campervan">價格與車款介紹</a>；下訂前請讀<a href="/pages/campervan-insurance">露營車保險與車損責任</a>；找行程靈感可看<a href="/pages/trip-ideas">客戶體驗評價</a>；出發前請讀<a href="/pages/booking-guide">露營車使用教學</a>。
+            想先確認日期，請看<a href="/pages/availability">露營車檔期查詢</a>；租車方案與設備請到<a href="/pages/campervan">價格與車款介紹</a>；下訂前請讀<a href="/pages/campervan-insurance">露營車保險與車損責任</a>及<a href="/pages/policies">預約、取消與隱私說明</a>；找行程靈感可看<a href="/pages/trip-ideas">客戶故事</a>。
           </p>
         </section>
       </div>

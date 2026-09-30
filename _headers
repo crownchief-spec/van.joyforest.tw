@@ -16,6 +16,21 @@
 /assets/js/*
   Cache-Control: public, max-age=604800
 
+/assets/js/main.js
+  Cache-Control: public, max-age=300
+
+/assets/js/campervan-availability.js
+  Cache-Control: public, max-age=300
+
+/assets/js/booking-inquiry.js
+  Cache-Control: public, max-age=300
+
+/assets/data/campervan-availability.json
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
+/api/campervan-availability
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+
 /pages/e-sign-contract.html
   Cache-Control: no-store
   X-Robots-Tag: noindex, nofollow, noarchive, nosnippet

@@ -135,6 +135,19 @@
       "ogImageOverride": true
     },
     {
+      "file": "en/pages/availability.html",
+      "route": "/en/pages/availability",
+      "title": "Campervan Availability Calendar｜JoyForest CamperVan Rental Taiwan",
+      "description": "Check JoyForest CamperVan Rental availability by month. Green dates are available, yellow dates have an enquiry but remain open, and grey dates are already booked.",
+      "canonical": "https://van.joyforest.tw/en/pages/availability",
+      "heroImage": "",
+      "schemaType": [
+        "WebPage",
+        "WebSite"
+      ],
+      "noindex": false
+    },
+    {
       "file": "en/pages/booking-guide.html",
       "route": "/en/pages/booking-guide",
       "title": "How to Use a Campervan in Taiwan｜Handover Guide｜JoyForest CamperVan Rental Taipei",
@@ -170,18 +183,21 @@
       "ogImageOverride": true
     },
     {
-      "file": "en/pages/availability.html",
-      "route": "/en/pages/availability",
-      "title": "Campervan Availability Calendar｜JoyForest CamperVan Rental Taiwan",
-      "description": "Check JoyForest CamperVan Rental availability by month. Green dates are available, yellow dates have an enquiry but remain open, and grey dates are already booked.",
-      "canonical": "https://van.joyforest.tw/en/pages/availability",
-      "heroImage": "",
-      "ogImage": "https://van.joyforest.tw/assets/images/og/en--pages--availability.jpg",
+      "file": "en/pages/campervan-overnight-ideas.html",
+      "route": "/en/pages/campervan-overnight-ideas",
+      "title": "Campervan Overnight Ideas in Taiwan｜Four Ways to Travel｜JoyForest",
+      "description": "Explore four campervan overnight styles in Taiwan: campsites, seaside slow travel, hot spring stays, and family park routes. Choose one and open the guide for practical trip ideas.",
+      "canonical": "https://van.joyforest.tw/en/pages/campervan-overnight-ideas",
+      "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/seaside-campervan-overnight/oceanfront-campervan-rocky-shore.webp",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/en--pages--campervan-overnight-ideas.jpg",
       "schemaType": [
-        "WebPage",
-        "WebSite"
+        "CollectionPage",
+        "BreadcrumbList",
+        "ListItem",
+        "WebPage"
       ],
-      "noindex": false
+      "noindex": false,
+      "ogImageOverride": true
     },
     {
       "file": "en/pages/campervan.html",
@@ -201,6 +217,18 @@
       ],
       "noindex": false,
       "ogImageOverride": true
+    },
+    {
+      "file": "en/pages/policies.html",
+      "route": "/en/pages/policies",
+      "title": "Booking, Deposit, Cancellation &amp; Privacy｜JoyForest CamperVan Rental",
+      "description": "Read JoyForest CamperVan Rental's booking enquiry, deposit, date-change, cancellation and privacy information. A booking is held only after the formal quote and agreed deposit.",
+      "canonical": "https://van.joyforest.tw/en/pages/policies",
+      "heroImage": "",
+      "schemaType": [
+        "WebPage"
+      ],
+      "noindex": false
     },
     {
       "file": "en/pages/resources/campervan-3days-2nights-trip-ideas.html",
@@ -715,6 +743,25 @@
       "ogImageOverride": true
     },
     {
+      "file": "en/trip-stories/israeli-women-taiwan-campervan-road-trip/index.html",
+      "route": "/en/trip-stories/israeli-women-taiwan-campervan-road-trip/",
+      "title": "Two Israeli Women’s 9-Day Taiwan Campervan Road Trip | East Coast, Green Island, Kenting &amp; Sun Moon Lake",
+      "description": "A detailed nine-day Taiwan campervan route by two Israeli women: Dong&#39;ao, Ocean Chill in Hualien, Green Island&#39;s ocean hot spring, Dawang in Zhiben, Kenting and two lake-view nights at Sun Moon Lake.",
+      "canonical": "https://van.joyforest.tw/en/trip-stories/israeli-women-taiwan-campervan-road-trip/",
+      "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/israeli-women-taiwan-campervan-road-trip/israeli-friends-taiwan-road-trip-cover.webp",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/en--trip-stories--israeli-women-taiwan-campervan-road-trip.jpg",
+      "schemaType": [
+        "Article",
+        "Organization",
+        "WebPage",
+        "VideoObject",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
       "file": "en/trip-stories/joyforest-campervan-born-container-factory-assembly/index.html",
       "route": "/en/trip-stories/joyforest-campervan-born-container-factory-assembly/",
       "title": "How our campervan is born: container arrival to factory assembly｜Taiwan｜JoyForest CamperVan Rental team build diary",
@@ -915,6 +962,42 @@
       "ogImageOverride": true
     },
     {
+      "file": "en/trip-stories/taiwan-campervan-overnight-database/index.html",
+      "route": "/en/trip-stories/taiwan-campervan-overnight-database/",
+      "title": "42 Memorable Campervan Overnight Stops Around Taiwan",
+      "description": "Explore 42 campervan-friendly campsites, scenic vehicle stays, hot-spring stops and family routes around Taiwan, with photos, maps, reasons to go and practical cautions.",
+      "canonical": "https://van.joyforest.tw/en/trip-stories/taiwan-campervan-overnight-database/",
+      "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/joyforest-campervan-taiwan-coastal-sunset.webp",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/en--trip-stories--taiwan-campervan-overnight-database.jpg",
+      "schemaType": [
+        "Article",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
+      "file": "en/trip-stories/taiwan-counterclockwise-campervan-loop-13-days/index.html",
+      "route": "/en/trip-stories/taiwan-counterclockwise-campervan-loop-13-days/",
+      "title": "Taiwan Counterclockwise Campervan Loop | 13 Days and 12 Nights",
+      "description": "A practical 13-day, 12-night Taiwan campervan loop for first-time international visitors: collect the van at Taoyuan Airport, travel south along the west, return north on the east coast and hand it back in Taipei.",
+      "canonical": "https://van.joyforest.tw/en/trip-stories/taiwan-counterclockwise-campervan-loop-13-days/",
+      "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/joyforest-campervan-taiwan-coastal-sunset.webp",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/en--trip-stories--taiwan-counterclockwise-campervan-loop-13-days.jpg",
+      "schemaType": [
+        "Article",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
       "file": "en/trip-stories/vanlife-easy-women-couple/index.html",
       "route": "/en/trip-stories/vanlife-easy-women-couple/",
       "title": "Van Life for women &amp; couples｜Outdoor kitchen, string lights &amp; cab-over morning light｜Taiwan",
@@ -1010,7 +1093,6 @@
       "description": "查詢揪好森露營車檔期：清楚標示可預約、可候補、已預訂與不可預訂日期。問號詢問顯示可候補，完成訂金者優先。",
       "canonical": "https://van.joyforest.tw/pages/availability",
       "heroImage": "",
-      "ogImage": "https://van.joyforest.tw/assets/images/og/zh--pages--availability.jpg",
       "schemaType": [
         "WebPage",
         "WebSite"
@@ -1027,7 +1109,8 @@
       "ogImage": "https://van.joyforest.tw/assets/images/og/pages--booking-guide.jpg",
       "schemaType": [
         "CollectionPage",
-        "BreadcrumbList"
+        "BreadcrumbList",
+        "WebPage"
       ],
       "noindex": false,
       "ogImageOverride": true
@@ -1039,8 +1122,12 @@
       "description": "觀看餐桌區變成雙人床的影片，認識固定額頭床與客廳變形床的位置及建議睡眠人數。",
       "canonical": "https://van.joyforest.tw/pages/booking-guide/beds",
       "heroImage": "https://van.joyforest.tw/assets/images/booking-guide/living-area-table-to-double-bed-tutorial-poster.jpg",
-      "schemaType": ["WebPage"],
-      "noindex": false
+      "ogImage": "https://van.joyforest.tw/assets/images/og/pages--booking-guide--beds.jpg",
+      "schemaType": [
+        "WebPage"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
     },
     {
       "file": "pages/booking-guide/driving-safety.html",
@@ -1049,8 +1136,12 @@
       "description": "露營車其實不難開：掌握約 3 公尺車高、轉彎與停車，再了解保險保障、NT$5,000 押金、一般刮痕與重大車損責任。",
       "canonical": "https://van.joyforest.tw/pages/booking-guide/driving-safety",
       "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-rental-driving-safety-height-parking.png",
-      "schemaType": ["WebPage"],
-      "noindex": false
+      "ogImage": "https://van.joyforest.tw/assets/images/og/pages--booking-guide--driving-safety.jpg",
+      "schemaType": [
+        "WebPage"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
     },
     {
       "file": "pages/booking-guide/outdoor-entertainment.html",
@@ -1059,8 +1150,12 @@
       "description": "戶外桌椅、燈串、投影機、布幕、藍牙喇叭、Switch 與 Type-C 轉 HDMI 使用及收納提醒。",
       "canonical": "https://van.joyforest.tw/pages/booking-guide/outdoor-entertainment",
       "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-rental-projector-screen-bluetooth-guide.png",
-      "schemaType": ["WebPage"],
-      "noindex": false
+      "ogImage": "https://van.joyforest.tw/assets/images/og/pages--booking-guide--outdoor-entertainment.jpg",
+      "schemaType": [
+        "WebPage"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
     },
     {
       "file": "pages/booking-guide/power-air-conditioning.html",
@@ -1069,8 +1164,12 @@
       "description": "看懂伏特數、安培數與瓦數，安排冷氣用電、露營區接電、內建與外置發電機充電。",
       "canonical": "https://van.joyforest.tw/pages/booking-guide/power-air-conditioning",
       "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-power-monitor-panel-voltage-current-watt-guide.jpg",
-      "schemaType": ["WebPage"],
-      "noindex": false
+      "ogImage": "https://van.joyforest.tw/assets/images/og/pages--booking-guide--power-air-conditioning.jpg",
+      "schemaType": [
+        "WebPage"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
     },
     {
       "file": "pages/booking-guide/vehicle-and-driving.html",
@@ -1079,8 +1178,12 @@
       "description": "先看完整導覽影片，再認識交車流程、鑰匙用途、車外設備位置與車內配置。",
       "canonical": "https://van.joyforest.tw/pages/booking-guide/vehicle-and-driving",
       "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-rental-exterior-equipment-labeled-coast.png",
-      "schemaType": ["WebPage"],
-      "noindex": false
+      "ogImage": "https://van.joyforest.tw/assets/images/og/pages--booking-guide--vehicle-and-driving.jpg",
+      "schemaType": [
+        "WebPage"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
     },
     {
       "file": "pages/booking-guide/water-bathroom-toilet.html",
@@ -1089,8 +1192,12 @@
       "description": "如何補充 110 公升清水、使用熱水與車外沖腳蓮蓬頭，並認識馬桶分解劑與瓦斯位置。",
       "canonical": "https://van.joyforest.tw/pages/booking-guide/water-bathroom-toilet",
       "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-outdoor-shower-head-left-rear-rinse-guide.jpg",
-      "schemaType": ["WebPage"],
-      "noindex": false
+      "ogImage": "https://van.joyforest.tw/assets/images/og/pages--booking-guide--water-bathroom-toilet.jpg",
+      "schemaType": [
+        "WebPage"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
     },
     {
       "file": "pages/campervan-insurance.html",
@@ -1107,6 +1214,23 @@
         "FAQPage",
         "Question",
         "Answer"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
+      "file": "pages/campervan-overnight-ideas.html",
+      "route": "/pages/campervan-overnight-ideas",
+      "title": "露營車過夜方式｜四種台灣露營車旅行靈感｜揪好森",
+      "description": "快速認識四種露營車過夜方式：正規露營區、海邊慢旅、溫泉車宿與親子路線。點進各篇看實拍、找點原則與出發前注意事項。",
+      "canonical": "https://van.joyforest.tw/pages/campervan-overnight-ideas",
+      "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/seaside-campervan-overnight/oceanfront-campervan-rocky-shore.webp",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/pages--campervan-overnight-ideas.jpg",
+      "schemaType": [
+        "CollectionPage",
+        "BreadcrumbList",
+        "ListItem",
+        "WebPage"
       ],
       "noindex": false,
       "ogImageOverride": true
@@ -1129,6 +1253,16 @@
       "ogImageOverride": true
     },
     {
+      "file": "pages/e-sign-contract.html",
+      "route": "/pages/e-sign-contract",
+      "title": "露營車電子合約｜揪好森露營車出租",
+      "description": "",
+      "canonical": "https://van.joyforest.tw/pages/e-sign-contract",
+      "heroImage": "",
+      "schemaType": [],
+      "noindex": true
+    },
+    {
       "file": "pages/faq.html",
       "route": "/pages/faq",
       "title": "（已移除）原 FAQ 頁",
@@ -1147,6 +1281,18 @@
       "heroImage": "",
       "schemaType": [],
       "noindex": true
+    },
+    {
+      "file": "pages/policies.html",
+      "route": "/pages/policies",
+      "title": "露營車預約、訂金、取消與隱私說明｜揪好森",
+      "description": "揪好森露營車出租的預約流程、訂金保留、行程變更與取消、個人資料使用方式。送出詢問不等於完成預約，實際條件以正式報價與合約為準。",
+      "canonical": "https://van.joyforest.tw/pages/policies",
+      "heroImage": "",
+      "schemaType": [
+        "WebPage"
+      ],
+      "noindex": false
     },
     {
       "file": "pages/resources/campervan-3days-2nights-trip-ideas.html",
@@ -1528,6 +1674,24 @@
       "ogImageOverride": true
     },
     {
+      "file": "trip-stories/campsite-campervan-overnight-taiwan/index.html",
+      "route": "/trip-stories/campsite-campervan-overnight-taiwan/",
+      "title": "台灣露營區車宿｜第一次租露營車最安心的過夜方式｜揪好森",
+      "description": "第一次租露營車，先住正規露營區最安心。從合法露營場查詢、營位尺寸、水電浴廁到進退場，整理台灣露營區車宿的找法、實拍例子與訂位注意事項。",
+      "canonical": "https://van.joyforest.tw/trip-stories/campsite-campervan-overnight-taiwan/",
+      "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/joyforest-bunker-campsite-glamping-van-string-lights-twilight-dinner.jpg",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/trip-stories--campsite-campervan-overnight-taiwan.jpg",
+      "schemaType": [
+        "Article",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
       "file": "trip-stories/couple-friends-photo-trip/index.html",
       "route": "/trip-stories/couple-friends-photo-trip/",
       "title": "好友與情侶露營車旅行｜適合拍照、生日與小旅行的玩法",
@@ -1589,6 +1753,24 @@
       "canonical": "https://van.joyforest.tw/trip-stories/family-beginner-3-days/",
       "heroImage": "https://van.joyforest.tw/images/trip-stories/family-beginner-3-days.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/og/trip-stories--family-beginner-3-days.jpg",
+      "schemaType": [
+        "Article",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
+      "file": "trip-stories/family-park-campervan-overnight-taiwan/index.html",
+      "route": "/trip-stories/family-park-campervan-overnight-taiwan/",
+      "title": "親子特色公園露營車旅行｜白天玩公園，住旁邊停車場｜揪好森",
+      "description": "親子租露營車，不必每天趕景點。整理「特色公園或樂園＋合法營地／允許過夜場域」的規劃方式、找點方法、照片例子與帶孩子車宿的注意事項。",
+      "canonical": "https://van.joyforest.tw/trip-stories/family-park-campervan-overnight-taiwan/",
+      "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/customer-children-campervan-window-smile.jpg",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/trip-stories--family-park-campervan-overnight-taiwan.jpg",
       "schemaType": [
         "Article",
         "Organization",
@@ -1665,6 +1847,25 @@
         "Article",
         "Organization",
         "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
+      "file": "trip-stories/israeli-women-taiwan-campervan-road-trip/index.html",
+      "route": "/trip-stories/israeli-women-taiwan-campervan-road-trip/",
+      "title": "以色列女生的台灣露營車旅行｜東澳、花蓮、綠島、知本、墾丁與日月潭 9 天 8 夜",
+      "description": "兩位以色列女生第一次開露營車旅行台灣：從台北到東澳睡海邊、花蓮 Ocean Chill、綠島朝日溫泉、台東知本大王山居、墾丁，再到日月潭帖泊喀湖景營地。附每日路線、營地、地圖與真實影片。",
+      "canonical": "https://van.joyforest.tw/trip-stories/israeli-women-taiwan-campervan-road-trip/",
+      "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/israeli-women-taiwan-campervan-road-trip/israeli-friends-taiwan-road-trip-cover.webp",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/trip-stories--israeli-women-taiwan-campervan-road-trip.jpg",
+      "schemaType": [
+        "Article",
+        "Organization",
+        "WebPage",
+        "VideoObject",
         "BreadcrumbList",
         "ListItem"
       ],
@@ -1818,6 +2019,24 @@
       "ogImageOverride": true
     },
     {
+      "file": "trip-stories/seaside-campervan-overnight-taiwan/index.html",
+      "route": "/trip-stories/seaside-campervan-overnight-taiwan/",
+      "title": "台灣海邊車宿｜海線露營車慢旅的找點與過夜提醒｜揪好森",
+      "description": "想用露營車停在看得到海、走得到沙灘的位置？以揪好森海邊停泊實拍，整理蜜月灣、苗栗海角樂園、野柳翡翠灣、白沙灣等候選與全台找點原則。",
+      "canonical": "https://van.joyforest.tw/trip-stories/seaside-campervan-overnight-taiwan/",
+      "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/seaside-campervan-overnight/oceanfront-campervan-rocky-shore.webp",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/trip-stories--seaside-campervan-overnight-taiwan.jpg",
+      "schemaType": [
+        "Article",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
       "file": "trip-stories/seaside-van-trip/index.html",
       "route": "/trip-stories/seaside-van-trip/",
       "title": "蜜月灣車宿露營點",
@@ -1861,6 +2080,42 @@
       "canonical": "https://van.joyforest.tw/trip-stories/taipei-north-coast-story/",
       "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/taipei-101-campervan-rental-departure-twilight-parking.jpg",
       "ogImage": "https://van.joyforest.tw/assets/images/og/trip-stories--taipei-north-coast-story.jpg",
+      "schemaType": [
+        "Article",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
+      "file": "trip-stories/taiwan-campervan-overnight-database/index.html",
+      "route": "/trip-stories/taiwan-campervan-overnight-database/",
+      "title": "全台露營車住宿地點資料庫｜42 個值得停一晚的海景、溫泉與親子路線",
+      "description": "全台 42 個露營車住宿與車宿候選地點，包含正規露營區、海邊、溫泉與親子公園；附照片、地圖、推薦理由及出發前注意事項。",
+      "canonical": "https://van.joyforest.tw/trip-stories/taiwan-campervan-overnight-database/",
+      "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/joyforest-campervan-taiwan-coastal-sunset.webp",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/trip-stories--taiwan-campervan-overnight-database.jpg",
+      "schemaType": [
+        "Article",
+        "Organization",
+        "WebPage",
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "noindex": false,
+      "ogImageOverride": true
+    },
+    {
+      "file": "trip-stories/taiwan-counterclockwise-campervan-loop-13-days/index.html",
+      "route": "/trip-stories/taiwan-counterclockwise-campervan-loop-13-days/",
+      "title": "臺灣逆時針露營車環島範本｜13 天 12 夜從桃園機場到臺北",
+      "description": "給第一次來臺灣的國際旅客：13 天 12 夜逆時針露營車環島範本，桃園機場取車，經苗栗、臺中、鹿港、日月潭、阿里山、臺南、高雄、小琉球、墾丁、臺東、花蓮與宜蘭，最後在臺北還車。",
+      "canonical": "https://van.joyforest.tw/trip-stories/taiwan-counterclockwise-campervan-loop-13-days/",
+      "heroImage": "https://van.joyforest.tw/assets/images/trip-ideas/taiwan-counterclockwise-campervan-loop-13-days/joyforest-campervan-taiwan-coastal-sunset.webp",
+      "ogImage": "https://van.joyforest.tw/assets/images/og/trip-stories--taiwan-counterclockwise-campervan-loop-13-days.jpg",
       "schemaType": [
         "Article",
         "Organization",
@@ -1947,6 +2202,10 @@
   "todo": [
     "補上真正的 favicon.ico 二進位檔案",
     "若未來新增文章單頁，請為每篇文章指定專屬 heroImage 與 ogImage",
-    "若有 staging/demo 頁面，請設定 noindex 並從 sitemap 排除"
+    "若有 staging/demo 頁面，請設定 noindex 並從 sitemap 排除",
+    "OG source missing: en/pages/availability.html: no hero/og image",
+    "OG source missing: en/pages/policies.html: no hero/og image",
+    "OG source missing: pages/availability.html: no hero/og image",
+    "OG source missing: pages/policies.html: no hero/og image"
   ]
 }

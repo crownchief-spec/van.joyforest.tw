@@ -4,6 +4,9 @@
 
   const status = app.querySelector("[data-availability-status]");
   const calendars = app.querySelector("[data-availability-calendars]");
+  const selection = app.querySelector("[data-availability-selection]");
+  const selectionText = app.querySelector("[data-availability-selection-text]");
+  const selectionLink = app.querySelector("[data-availability-selection-link]");
   const isEnglish = document.documentElement.lang.toLowerCase().startsWith("en");
   const weekdayLabels = isEnglish ? ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] : ["一", "二", "三", "四", "五", "六", "日"];
   const statusMeta = {
@@ -49,7 +52,10 @@
       const spokenStatus = isPast ? (isEnglish ? "Past date" : "日期已過") : meta.label;
       const visibleLabel = isPast ? "" : `<span class="availability-day-label">${meta.label}</span>`;
       const spokenDate = isEnglish ? `${monthName} ${day}, ${spokenStatus}` : `${monthIndex + 1}月${day}日，${spokenStatus}`;
-      cells[row * 7 + column] = `<span class="${classes.join(" ")}" aria-label="${spokenDate}"><span class="availability-day-number">${day}</span>${visibleLabel}</span>`;
+      const selectable = !isPast && (kind === "open" || kind === "waitlist");
+      const element = selectable ? "button" : "span";
+      const attributes = selectable ? ` type="button" data-availability-date="${key}" aria-pressed="false"` : "";
+      cells[row * 7 + column] = `<${element} class="${classes.join(" ")}"${attributes} aria-label="${spokenDate}"><span class="availability-day-number">${day}</span>${visibleLabel}</${element}>`;
     }
 
     return `<section class="availability-month" aria-label="${monthName}"><h3>${monthName}</h3><div class="availability-weekdays" aria-hidden="true">${weekdayLabels.map((label) => `<span>${label}</span>`).join("")}</div><div class="availability-days">${cells.join("")}</div></section>`;
@@ -78,6 +84,71 @@
       months.push(renderMonth(cursor.getFullYear(), cursor.getMonth(), statusByDate, todayKey));
     }
     calendars.innerHTML = months.join("");
+    enableDateSelection();
+  }
+
+  function enableDateSelection() {
+    if (!selection || !selectionText || !selectionLink) return;
+    let start = "";
+    let end = "";
+    let selectionNotice = "";
+    const buttons = [...calendars.querySelectorAll("[data-availability-date]")];
+    const selectableDates = new Set(buttons.map((button) => button.dataset.availabilityDate));
+
+    function rangeIsAvailable(from, to) {
+      const cursor = parseDateKey(from);
+      const last = parseDateKey(to);
+      while (cursor <= last) {
+        if (!selectableDates.has(toDateKey(cursor))) return false;
+        cursor.setDate(cursor.getDate() + 1);
+      }
+      return true;
+    }
+
+    function paint() {
+      buttons.forEach((button) => {
+        const date = button.dataset.availabilityDate;
+        const selected = date === start || date === end;
+        const inRange = start && end && date > start && date < end;
+        button.classList.toggle("is-selected", selected);
+        button.classList.toggle("is-in-range", Boolean(inRange));
+        button.setAttribute("aria-pressed", selected ? "true" : "false");
+      });
+      if (!start) {
+        selectionText.textContent = isEnglish ? "Choose your rental start date." : "請先選擇租車開始日期。";
+        selectionLink.hidden = true;
+        return;
+      }
+      if (!end) {
+        selectionText.textContent = selectionNotice || (isEnglish ? `${start} selected. Now choose the return date.` : `已選擇 ${start}，請再選擇還車日期。`);
+        selectionLink.hidden = true;
+        return;
+      }
+      selectionText.textContent = isEnglish ? `Selected dates: ${start} to ${end}` : `已選擇：${start} 至 ${end}`;
+      selectionLink.href = `${isEnglish ? "/en/booking" : "/booking"}?start=${encodeURIComponent(start)}&end=${encodeURIComponent(end)}`;
+      selectionLink.hidden = false;
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const date = button.dataset.availabilityDate;
+        selectionNotice = "";
+        if (!start || end || date < start) {
+          start = date;
+          end = "";
+        } else if (!rangeIsAvailable(start, date)) {
+          start = date;
+          end = "";
+          selectionNotice = isEnglish
+            ? "The dates in between include a booked or unavailable day. This date is now your new start date."
+            : "中間包含已預訂或不可預訂日期，已將本日改為新的租車開始日期。";
+        } else {
+          end = date;
+        }
+        paint();
+      });
+    });
+    paint();
   }
 
   async function loadAvailability() {

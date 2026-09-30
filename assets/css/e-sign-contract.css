@@ -44,7 +44,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .page-shell { width: min(1120px, calc(100% - 2rem)); margin: 1.5rem auto 4rem; }
 .hero-card, .card { border: 1px solid rgba(23, 63, 52, .13); background: rgba(255, 253, 249, .96); box-shadow: var(--shadow); }
 .hero-card { padding: clamp(1.6rem, 5vw, 3.2rem); border-radius: 2rem; background: linear-gradient(135deg, #173f34, #2d745c); color: white; }
-.hero-card h1 { margin: .3rem 0 .8rem; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.08; letter-spacing: -.035em; }
+.hero-card h1,
+.hero-card .page-title { margin: .3rem 0 .8rem; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.08; letter-spacing: -.035em; }
 .hero-card p { max-width: 48rem; margin: 0; color: rgba(255,255,255,.82); font-size: 1.05rem; line-height: 1.7; }
 .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-weight: 800; font-size: .75rem !important; }
 .stack { display: grid; gap: 1rem; margin-top: 1rem; }
