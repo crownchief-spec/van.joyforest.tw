@@ -602,6 +602,7 @@ html[lang="en"] .nav-links a .nav-stack {
 
   .section-title h2,
   .section-title p {
+    width: 100%;
     max-width: 100%;
   }
 }
