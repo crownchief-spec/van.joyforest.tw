@@ -3889,6 +3889,10 @@ button.availability-day:focus-visible {
   flex: 0 0 auto;
 }
 
+.availability-selection [hidden] {
+  display: none !important;
+}
+
 .availability-cta .hero-actions {
   justify-content: center;
 }
