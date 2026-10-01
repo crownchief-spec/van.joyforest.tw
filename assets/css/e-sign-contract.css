@@ -100,8 +100,6 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 .status-pill.waitlist { color: #805d00; background: #fff1bd; }
 .action-card { display: flex; justify-content: space-between; align-items: center; gap: 1.2rem; }
 
-.progress-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: .45rem; margin-top: 1.35rem; }
-.progress-list span { padding: .55rem .35rem; border-radius: .75rem; background: rgba(255,255,255,.13); text-align: center; font-size: .82rem; font-weight: 800; }
 .notice { margin-top: 1rem; padding: .9rem 1rem; border-radius: .9rem; line-height: 1.55; }
 .notice.warning { border-left: 4px solid var(--warning-line); background: var(--warning); }
 .notice.privacy { background: #edf2ef; color: #43504a; }
@@ -139,7 +137,10 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 .contract-clause p { margin: .38rem 0; color: #35423d; line-height: 1.72; }
 .contract-clause p[data-list-item="true"] { padding-left: 1.15rem; text-indent: -1.15rem; }
 .contract-visual-appendix { margin: 0; padding: 0 clamp(1rem, 3vw, 1.5rem) 1.5rem; text-align: center; }
-.contract-visual-appendix img { display: block; width: min(100%, 38rem); height: auto; margin: 0 auto; border: 1px solid var(--line); border-radius: 1rem; background: #fff; }
+.contract-visual-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; max-width: 42rem; margin: 0 auto; }
+.contract-visual-item { display: grid; grid-template-rows: minmax(5.5rem, 8rem) auto; overflow: hidden; border: 1px solid var(--line); border-radius: .85rem; background: #f8faf8; }
+.contract-visual-item img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; background: #fff; }
+.contract-visual-item span { padding: .45rem .35rem .5rem; color: var(--forest); font-size: clamp(.66rem, 2.2vw, .82rem); font-weight: 900; line-height: 1.25; }
 .contract-visual-appendix figcaption { margin-top: .7rem; color: var(--muted); font-size: .88rem; line-height: 1.55; }
 .reward-option { display: flex; align-items: flex-start; gap: .8rem; margin-top: 1rem; padding: 1.05rem; border: 2px solid #d9b84e; border-radius: 1rem; background: #fff7d8; cursor: pointer; }
 .reward-option input { width: 1.4rem; min-height: 1.4rem; margin-top: .12rem; accent-color: var(--forest); }
@@ -193,7 +194,6 @@ footer { padding: 2rem 1rem 3rem; color: var(--muted); text-align: center; font-
   .action-card .button { width: 100%; }
   .copy-contract-row { display: grid; }
   .copy-contract-row .button { width: 100%; }
-  .progress-list { position: sticky; top: 4.4rem; z-index: 5; }
   .upload-card { min-height: 12rem; }
   .result-actions { display: grid; }
   .result-actions .button { width: 100%; }

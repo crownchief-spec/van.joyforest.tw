@@ -288,9 +288,8 @@
         };
         grouped.push(group);
       }
-      if (model.visualAppendixSrc) {
-        group.visualAppendixSrc = model.visualAppendixSrc;
-        group.visualAppendixAlt = model.visualAppendixAlt;
+      if (Array.isArray(model.visualAppendixImages)) {
+        group.visualAppendixImages = model.visualAppendixImages;
       }
       group.sections.push(...model.sections);
     });
@@ -326,7 +325,7 @@
       image.decoding = "async";
       const badge = document.createElement("span");
       badge.className = "contract-scope-figure__badge";
-      badge.textContent = group.scopeType === "vehicle" ? "本契約：K2500 車體" : "本契約：藍色露營車廂";
+      badge.textContent = group.scopeType === "vehicle" ? "本契約：KIA 卡旺 K2500 車體" : "本契約：藍色露營車廂";
       media.append(image, badge);
       const caption = document.createElement("figcaption");
       caption.textContent = group.scopeCaption;
@@ -349,20 +348,30 @@
         body.append(clause);
       });
       article.append(header, scopeFigure, body);
-      if (group.visualAppendixSrc) {
+      if (group.visualAppendixImages?.length) {
         const appendix = document.createElement("figure");
         appendix.className = "contract-visual-appendix";
-        const appendixImage = document.createElement("img");
-        appendixImage.src = group.visualAppendixSrc;
-        appendixImage.alt = group.visualAppendixAlt;
-        appendixImage.title = group.visualAppendixAlt;
-        appendixImage.width = 760;
-        appendixImage.height = 1160;
-        appendixImage.loading = "lazy";
-        appendixImage.decoding = "async";
+        const appendixGrid = document.createElement("div");
+        appendixGrid.className = "contract-visual-grid";
+        group.visualAppendixImages.forEach((item) => {
+          const card = document.createElement("div");
+          card.className = "contract-visual-item";
+          const appendixImage = document.createElement("img");
+          appendixImage.src = item.src;
+          appendixImage.alt = item.alt;
+          appendixImage.title = item.alt;
+          appendixImage.width = item.width;
+          appendixImage.height = item.height;
+          appendixImage.loading = "lazy";
+          appendixImage.decoding = "async";
+          const label = document.createElement("span");
+          label.textContent = item.label;
+          card.append(appendixImage, label);
+          appendixGrid.append(card);
+        });
         const appendixCaption = document.createElement("figcaption");
-        appendixCaption.textContent = "露營車廂結構尺寸與內外觀，作為第二份合約的租賃標的參考。";
-        appendix.append(appendixImage, appendixCaption);
+        appendixCaption.textContent = "露營車廂外觀與內裝示意，作為第二份合約的租賃標的參考。";
+        appendix.append(appendixGrid, appendixCaption);
         article.append(appendix);
       }
       root.replaceChildren(article);
@@ -383,19 +392,19 @@
         partId: "contract-vehicle",
         partNumber: "第一份契約",
         partTitle: "借車合約",
-        partSummary: "K2500 車體無償借用，規範合法駕駛、行車費用、車況、故障與交通事故處理。",
-        illustrationSrc: "/assets/images/contract/campervan-vehicle-and-cabin-overview-line-diagram.webp",
-        illustrationAlt: "JoyForest CamperVan 的 K2500 前方車體、底盤與後方露營車廂區分線稿",
+        partSummary: "KIA 卡旺 K2500 車體無償借用，規範合法駕駛、行車費用、車況、故障與交通事故處理。",
+        illustrationSrc: "/assets/images/contract/kia-kawang-k2500-vehicle-scope-diagram-v2.webp",
+        illustrationAlt: "深灰色標示 KIA 卡旺 K2500 車體、底盤與行駛系統，後方露營車廂以淺色呈現",
         scopeType: "vehicle",
-        scopeCaption: "第一份契約標的是前方 K2500 車體、底盤、動力與行駛系統；不包含後方露營車廂與露營設備。",
+        scopeCaption: "第一份契約標的是前方 KIA 卡旺 K2500 車體、底盤、動力與行駛系統；不包含後方露營車廂與露營設備。",
         title: "第一部分｜借車合約",
         subtitle: "借用車輛與行車責任",
         sections: [
           { heading: "合約雙方", paragraphs: [`車輛提供方（甲方）：${providerLine}`, `車輛借用方（乙方）：${customer}`, `乙方出生年月日：${data.birthDate || "____________"}｜戶籍／聯絡地址：${data.address || "____________"}`] },
           { heading: "借用車輛", paragraphs: [`車牌：${vehicle.plate || "____________"}｜車型：${vehicle.description || "____________"}`, `借用期間：${rentalPeriod}`, `交車地點：${data.deliveryLocation || "____________"}`, `還車地點：${data.returnLocation || "____________"}`] },
           { heading: "借用內容", paragraphs: [
-            "• 借用標的：K2500 車體、底盤、動力與行駛系統；不包含第二份契約的露營車廂與露營設備。",
-            "• 借用費用：甲方將前述 K2500 車體無償借予乙方使用，本份契約不收取車輛租金。",
+            "• 借用標的：KIA 卡旺 K2500 車體、底盤、動力與行駛系統；不包含第二份契約的露營車廂與露營設備。",
+            "• 借用費用：甲方將前述 KIA 卡旺 K2500 車體無償借予乙方使用，本份契約不收取車輛租金。",
             "• 乙方使用本車輛期間，須承擔使用本車輛產生的所有燃油費（滿油出車、滿油還車）、高速公路 ETC 費用、停車費等相關費用。",
             "• 乙方須具備合法小型車駕駛執照，並隨身攜帶。無照駕駛、酒駕、毒駕或交由他人駕駛（有駕照或無照）發生事故，導致保險公司拒絕理賠時，乙方須負擔所有相關責任與費用。",
             "• 簽訂本合約後，甲方須將本車輛的行照、車輛保險證等文件隨車提供給乙方，乙方應妥善保管。如有遺失，乙方應賠償相應損失。",
@@ -407,11 +416,11 @@
         partId: "contract-vehicle",
         partNumber: "第一份契約",
         partTitle: "借車合約",
-        partSummary: "K2500 車體無償借用，規範合法駕駛、行車費用、車況、故障與交通事故處理。",
-        illustrationSrc: "/assets/images/contract/campervan-vehicle-and-cabin-overview-line-diagram.webp",
-        illustrationAlt: "JoyForest CamperVan 的 K2500 前方車體、底盤與後方露營車廂區分線稿",
+        partSummary: "KIA 卡旺 K2500 車體無償借用，規範合法駕駛、行車費用、車況、故障與交通事故處理。",
+        illustrationSrc: "/assets/images/contract/kia-kawang-k2500-vehicle-scope-diagram-v2.webp",
+        illustrationAlt: "深灰色標示 KIA 卡旺 K2500 車體、底盤與行駛系統，後方露營車廂以淺色呈現",
         scopeType: "vehicle",
-        scopeCaption: "第一份契約標的是前方 K2500 車體、底盤、動力與行駛系統；不包含後方露營車廂與露營設備。",
+        scopeCaption: "第一份契約標的是前方 KIA 卡旺 K2500 車體、底盤、動力與行駛系統；不包含後方露營車廂與露營設備。",
         title: "第一部分｜借車合約",
         subtitle: "故障、事故與雙方資料",
         sections: [
@@ -433,13 +442,13 @@
         illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
         illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
         scopeType: "cabin",
-        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 K2500 車體。",
+        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 KIA 卡旺 K2500 車體。",
         title: "第二部分｜露營車廂租賃合約",
         subtitle: "租賃標的、期間與費用",
         sections: [
           { heading: "合約雙方", paragraphs: [`出租人（甲方）：${providerLine}`, `承租人（乙方）：${cabinCustomer}`, `乙方出生年月日：${cabin.birthDate || "____________"}｜戶籍／聯絡地址：${cabin.address || "____________"}`] },
           { heading: "租賃規定", paragraphs: [
-            "租賃物：圖中藍色露營車廂及交車時點交的露營設備；不包含第一份契約無償借用的 K2500 車體。",
+            "租賃物：圖中藍色露營車廂及交車時點交的露營設備；不包含第一份契約無償借用的 KIA 卡旺 K2500 車體。",
             `租賃期間：${cabinRentalPeriod}`,
             `交付地點：${cabin.deliveryLocation || "____________"}｜返還地點：${cabin.returnLocation || "____________"}`,
             `露營車廂與設備租賃費用：${data.rentalFee || "____________"}｜預約訂金：${data.reservationDeposit || "____________"}｜還車結算押金：${data.securityDeposit || "____________"}`,
@@ -460,7 +469,7 @@
         illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
         illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
         scopeType: "cabin",
-        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 K2500 車體。",
+        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 KIA 卡旺 K2500 車體。",
         title: "第二部分｜露營車廂租賃合約",
         subtitle: "使用、事故與賠償責任",
         sections: [
@@ -483,7 +492,7 @@
         illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
         illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
         scopeType: "cabin",
-        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 K2500 車體。",
+        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 KIA 卡旺 K2500 車體。",
         title: "第二部分｜露營車廂租賃合約",
         subtitle: "雙方資料與電子簽署",
         sections: [
@@ -499,11 +508,46 @@
         illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
         illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
         scopeType: "cabin",
-        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 K2500 車體。",
+        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 KIA 卡旺 K2500 車體。",
         title: "第二部分｜露營車廂租賃合約",
-        subtitle: "露營車廂結構圖與內外觀",
-        visualAppendixSrc: "/assets/images/contract/camper-cabin-structure-and-interior-reference.webp",
-        visualAppendixAlt: "露營車廂長寬高尺寸、外觀、設備艙、遮陽棚、客廳座位與浴廁內裝參考圖",
+        subtitle: "露營車廂外觀與內裝示意",
+        visualAppendixImages: [
+          {
+            src: "/assets/images/contract/campervan-cabin-exterior-side.webp",
+            alt: "揪好森藍白色露營車廂側面外觀",
+            label: "車廂側面",
+            width: 324,
+            height: 230
+          },
+          {
+            src: "/assets/images/contract/campervan-cabin-exterior-awning.webp",
+            alt: "揪好森露營車廂後側與展開的戶外遮陽棚",
+            label: "遮陽棚外觀",
+            width: 324,
+            height: 168
+          },
+          {
+            src: "/assets/images/contract/campervan-cabin-dinette.webp",
+            alt: "揪好森露營車廂內的餐桌與環繞座位",
+            label: "餐桌座位",
+            width: 270,
+            height: 170
+          },
+          {
+            src: "/assets/images/contract/campervan-cabin-lounge.webp",
+            alt: "揪好森露營車廂內的客廳座位與窗景",
+            label: "客廳座位",
+            width: 324,
+            height: 204
+          },
+          {
+            src: "/assets/images/contract/campervan-cabin-bathroom.webp",
+            alt: "揪好森露營車廂內的獨立浴廁與洗手台",
+            label: "獨立浴廁",
+            width: 270,
+            height: 349
+          }
+        ],
         sections: []
       }
     ];
@@ -549,11 +593,27 @@
     ctx.font = "24px -apple-system, sans-serif";
     ctx.fillText(model.subtitle, 74, 145);
     ctx.fillText(`第 ${index + 1}／${total} 頁`, 1030, 145);
-    if (model.visualAppendixSrc) {
-      const appendixImage = await loadImage(model.visualAppendixSrc);
-      ctx.fillStyle = "#ffffff";
-      ctx.fillRect(74, 250, 1092, 1290);
-      drawImageContain(ctx, appendixImage, 94, 270, 1052, 1250);
+    if (model.visualAppendixImages?.length) {
+      const appendixImages = await Promise.all(model.visualAppendixImages.map((item) => loadImage(item.src)));
+      const columns = 3;
+      const gap = 24;
+      const cellWidth = 348;
+      const cellHeight = 500;
+      appendixImages.forEach((appendixImage, imageIndex) => {
+        const column = imageIndex % columns;
+        const row = Math.floor(imageIndex / columns);
+        const x = 74 + column * (cellWidth + gap);
+        const y = 270 + row * (cellHeight + 28);
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(x, y, cellWidth, cellHeight);
+        ctx.strokeStyle = "#cad8d1";
+        ctx.lineWidth = 2;
+        ctx.strokeRect(x, y, cellWidth, cellHeight);
+        drawImageContain(ctx, appendixImage, x + 16, y + 16, cellWidth - 32, 408);
+        ctx.fillStyle = "#173f34";
+        ctx.font = "800 23px -apple-system, sans-serif";
+        ctx.fillText(model.visualAppendixImages[imageIndex].label, x + 18, y + 466);
+      });
     } else {
       let y = 275;
       model.sections.forEach((section) => {
@@ -599,12 +659,12 @@
     ctx.fillRect(0, 0, canvas.width, 240);
     ctx.fillStyle = "#ffffff";
     ctx.font = "800 49px -apple-system, sans-serif";
-    ctx.fillText(vehiclePart ? "第一份契約標的｜K2500 車體" : "第二份契約標的｜藍色露營車廂", 70, 105);
+    ctx.fillText(vehiclePart ? "第一份契約標的｜KIA 卡旺 K2500 車體" : "第二份契約標的｜藍色露營車廂", 70, 105);
     ctx.font = "25px -apple-system, sans-serif";
     ctx.fillText(vehiclePart ? "無償借用｜不收取車輛租金" : "有償租賃｜租金僅對應車廂與露營設備", 70, 160);
 
     const illustration = await loadImage(vehiclePart
-      ? "/assets/images/contract/campervan-vehicle-and-cabin-overview-line-diagram.webp"
+      ? "/assets/images/contract/kia-kawang-k2500-vehicle-scope-diagram-v2.webp"
       : "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp");
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(70, 300, 1100, 700);
@@ -615,12 +675,12 @@
     else ctx.strokeRect(355, 385, 700, 455);
     ctx.fillStyle = vehiclePart ? "#7c4f26" : "#173f34";
     ctx.font = "800 32px -apple-system, sans-serif";
-    ctx.fillText(vehiclePart ? "本契約：前方 K2500 車體與行駛系統" : "本契約：圖中藍色露營車廂與露營設備", 90, 1080);
+    ctx.fillText(vehiclePart ? "本契約：前方 KIA 卡旺 K2500 車體與行駛系統" : "本契約：圖中藍色露營車廂與露營設備", 90, 1080);
     ctx.font = "25px -apple-system, sans-serif";
     ctx.fillStyle = "#34423c";
     const scopeText = vehiclePart
-      ? "第一份契約標的是 K2500 車體、底盤、動力與行駛系統；不包含後方露營車廂與露營設備。車體由甲方無償借予乙方使用。"
-      : "第二份契約標的是藍色露營車廂與交車時點交的露營設備；不包含前方 K2500 車體。租金、訂金與押金均記載在本份契約。";
+      ? "第一份契約標的是 KIA 卡旺 K2500 車體、底盤、動力與行駛系統；不包含後方露營車廂與露營設備。車體由甲方無償借予乙方使用。"
+      : "第二份契約標的是藍色露營車廂與交車時點交的露營設備；不包含前方 KIA 卡旺 K2500 車體。租金、訂金與押金均記載在本份契約。";
     drawContractParagraph(ctx, scopeText, 90, 1140, 1060, 40);
     ctx.strokeStyle = "#b8c9c0";
     ctx.beginPath();
