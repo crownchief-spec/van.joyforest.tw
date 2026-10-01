@@ -105,14 +105,44 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 .notice { margin-top: 1rem; padding: .9rem 1rem; border-radius: .9rem; line-height: 1.55; }
 .notice.warning { border-left: 4px solid var(--warning-line); background: var(--warning); }
 .notice.privacy { background: #edf2ef; color: #43504a; }
+.notice.contract-separation { display: grid; gap: .25rem; margin: 0 0 1rem; border-left: 4px solid var(--forest-2); background: #eef8f3; color: #29483e; }
+.notice.contract-separation strong { color: var(--forest); }
 
-details { border-top: 1px solid var(--line); padding: 1rem 0; }
-details:last-of-type { border-bottom: 1px solid var(--line); }
-summary { cursor: pointer; font-size: 1.1rem; font-weight: 850; }
-.contract-pages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
-.contract-pages figure { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 1rem; background: white; }
-.contract-pages img { display: block; width: 100%; height: auto; }
-.contract-pages figcaption { padding: .7rem .85rem; color: var(--muted); font-size: .82rem; }
+.contract-jump { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin-bottom: 1rem; }
+.contract-jump a { display: grid; gap: .22rem; min-height: 7.2rem; padding: 1rem; border: 1px solid #bad0c5; border-radius: 1rem; background: #f4faf7; color: var(--ink); text-decoration: none; }
+.contract-jump a:hover, .contract-jump a:focus-visible { border-color: var(--forest-2); box-shadow: 0 0 0 3px rgba(39,109,85,.12); }
+.contract-jump span { color: var(--forest-2); font-size: .76rem; font-weight: 900; letter-spacing: .08em; }
+.contract-jump strong { font-size: 1.18rem; }
+.contract-jump small { color: var(--muted); font-size: .84rem; line-height: 1.45; }
+.contract-text { display: grid; gap: 1rem; }
+.contract-document { scroll-margin-top: 5.5rem; overflow: hidden; border: 1px solid #cbd8d1; border-radius: 1.25rem; background: #fff; }
+.contract-document__header { padding: 1.2rem clamp(1rem, 3vw, 1.5rem); background: linear-gradient(135deg, #173f34, #286c55); color: #fff; }
+.contract-document__part { display: inline-block; margin-bottom: .35rem; color: #bde4d2; font-size: .75rem; font-weight: 900; letter-spacing: .1em; }
+.contract-document__header h3 { margin: 0; font-size: clamp(1.35rem, 3vw, 1.75rem); }
+.contract-document__header p { margin: .45rem 0 0; color: rgba(255,255,255,.82); line-height: 1.55; }
+.contract-scope-figure { margin: 0; padding: 1rem clamp(1rem, 3vw, 1.5rem); border-bottom: 1px solid var(--line); background: #f8faf8; }
+.contract-scope-figure__media { position: relative; max-width: 42rem; margin: 0 auto; overflow: hidden; border: 1px solid #d7e1db; border-radius: 1rem; background: #fff; }
+.contract-scope-figure img { display: block; width: 100%; height: auto; aspect-ratio: 1182 / 665; object-fit: contain; }
+.contract-scope-figure__badge { position: absolute; left: .75rem; bottom: .75rem; padding: .48rem .7rem; border-radius: .65rem; background: rgba(23,63,52,.92); color: #fff; font-size: .78rem; font-weight: 900; box-shadow: 0 5px 20px rgba(0,0,0,.15); }
+.contract-scope-figure--vehicle .contract-scope-figure__badge { left: 8%; bottom: 15%; background: rgba(166,103,39,.94); }
+.contract-scope-figure--cabin .contract-scope-figure__badge { left: auto; right: 8%; bottom: 18%; }
+.contract-scope-figure figcaption { max-width: 42rem; margin: .75rem auto 0; color: #4c5a54; font-size: .9rem; font-weight: 700; line-height: 1.55; }
+.contract-document__body { padding: .35rem clamp(1rem, 3vw, 1.5rem) 1.2rem; }
+.contract-clause { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.contract-clause:last-child { border-bottom: 0; }
+.contract-clause h4 { margin: 0 0 .55rem; color: var(--forest); font-size: 1rem; }
+.contract-clause p { margin: .38rem 0; color: #35423d; line-height: 1.72; }
+.contract-clause p[data-list-item="true"] { padding-left: 1.15rem; text-indent: -1.15rem; }
+.contract-visual-appendix { margin: 0; padding: 0 clamp(1rem, 3vw, 1.5rem) 1.5rem; text-align: center; }
+.contract-visual-appendix img { display: block; width: min(100%, 38rem); height: auto; margin: 0 auto; border: 1px solid var(--line); border-radius: 1rem; background: #fff; }
+.contract-visual-appendix figcaption { margin-top: .7rem; color: var(--muted); font-size: .88rem; line-height: 1.55; }
+.reward-option { display: flex; align-items: flex-start; gap: .8rem; margin-top: 1rem; padding: 1.05rem; border: 2px solid #d9b84e; border-radius: 1rem; background: #fff7d8; cursor: pointer; }
+.reward-option input { width: 1.4rem; min-height: 1.4rem; margin-top: .12rem; accent-color: var(--forest); }
+.reward-option span { display: grid; gap: .25rem; }
+.reward-option strong { color: #5f4700; font-size: 1rem; }
+.reward-option small { color: #6a5a25; font-size: .86rem; line-height: 1.55; }
+.contract-consents { display: grid; gap: .7rem; margin-top: 1rem; }
+.contract-consents .check-row { margin-top: 0; }
 .check-row { display: flex; align-items: flex-start; gap: .7rem; margin-top: 1rem; padding: 1rem; border: 1px solid var(--line); border-radius: 1rem; background: #fff; cursor: pointer; }
 .check-row input { width: 1.35rem; min-height: 1.35rem; margin-top: .05rem; accent-color: var(--forest); }
 .check-row span { margin: 0; line-height: 1.55; }
@@ -120,10 +150,12 @@ summary { cursor: pointer; font-size: 1.1rem; font-weight: 850; }
 .document-type { display: block; max-width: 28rem; margin-bottom: 1rem; }
 .upload-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .upload-card { position: relative; display: grid; place-items: center; min-height: 15rem; padding: 1rem; overflow: hidden; border: 2px dashed #a8b8b0; border-radius: 1.2rem; background: #f7faf8; text-align: center; cursor: pointer; }
-.upload-card input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.upload-card input { position: absolute; z-index: 3; inset: 0; opacity: 0; cursor: pointer; }
 .upload-title { margin: 0; color: var(--forest); font-size: 1.1rem; }
 .upload-help { margin: .3rem 0 0; color: var(--muted); font-size: .86rem; font-weight: 500; }
 .upload-card img { position: absolute; inset: .5rem; width: calc(100% - 1rem); height: calc(100% - 1rem); object-fit: contain; border-radius: .85rem; background: white; }
+.upload-card.has-preview { border-style: solid; border-color: var(--forest-2); }
+.upload-card.has-preview::after { content: "已選擇照片｜點一下可重拍或更換"; position: absolute; z-index: 2; right: .75rem; bottom: .75rem; left: .75rem; padding: .45rem .6rem; border-radius: .65rem; background: rgba(23,63,52,.88); color: #fff; font-size: .76rem; font-weight: 800; }
 
 .signature-wrap { position: relative; overflow: hidden; min-height: 14rem; border: 2px solid var(--forest); border-radius: 1.1rem; background: #fff; touch-action: none; }
 #signature-pad { display: block; width: 100%; height: 14rem; cursor: crosshair; }
@@ -149,7 +181,7 @@ footer { padding: 2rem 1rem 3rem; color: var(--muted); text-align: center; font-
   .card { border-radius: 1.15rem; }
   .section-heading, .action-card { display: grid; align-items: start; }
   .section-heading > div { align-items: flex-start; }
-  .lookup-row, .form-grid, .contract-pages, .upload-grid { grid-template-columns: 1fr; }
+  .lookup-row, .form-grid, .contract-jump, .upload-grid { grid-template-columns: 1fr; }
   label.full { grid-column: auto; }
   .calendar-result { grid-template-columns: 1fr; }
   .calendar-result .button { width: 100%; }

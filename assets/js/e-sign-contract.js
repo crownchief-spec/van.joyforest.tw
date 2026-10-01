@@ -10,7 +10,7 @@
   const fieldLabels = {
     customerName: "承租人姓名", phone: "聯絡電話", birthDate: "出生年月日", idNumber: "身分證／護照號碼", address: "戶籍／聯絡地址",
     rentalStartDate: "租借開始日期", rentalStartTime: "開始時間", rentalEndDate: "租借結束日期", rentalEndTime: "結束時間",
-    deliveryLocation: "交車地點", returnLocation: "還車地點", rentalFee: "租金", reservationDeposit: "預約訂金", securityDeposit: "還車結算押金"
+    deliveryLocation: "交車地點", returnLocation: "還車地點", rentalFee: "第二份｜車廂設備租金", reservationDeposit: "第二份｜預約訂金", securityDeposit: "第二份｜還車結算押金"
   };
   let draft = null;
   let originalDraft = null;
@@ -19,8 +19,12 @@
   let signatureDataUrl = "";
   let documentFront = "";
   let documentBack = "";
-  let customerPdfBlob = null;
+  let vehiclePdfBlob = null;
+  let cabinPdfBlob = null;
   let ownerPdfBlob = null;
+  let vehiclePdfUrl = "";
+  let cabinPdfUrl = "";
+  let ownerPdfUrl = "";
   let localConfig = null;
 
   function encodeDraft(data) {
@@ -176,25 +180,125 @@
     originalDraft = structuredClone(draft);
     draftToken = crypto.randomUUID().replaceAll("-", "").slice(0, 20);
     signerView.hidden = false;
-    setupContractAssets();
     const fieldRoot = $("#signer-fields");
     Object.keys(fieldLabels).forEach((key) => fieldRoot.append(makeSignerField(key, draft[key])));
+    renderContractText(draft);
     fieldRoot.addEventListener("input", (event) => {
       if (criticalKeys.has(event.target.name) && event.target.value !== String(originalDraft[event.target.name] || "")) {
         $("#critical-change-warning").hidden = false;
       }
+      renderContractText({ ...draft, ...collectForm($("#signer-form")) });
+    });
+    $("#reward-bundle-selected").addEventListener("change", (event) => {
+      renderContractText({ ...draft, ...collectForm($("#signer-form")), rewardBundleSelected: event.target.checked });
     });
     setupImageInput("document-front", "document-front-preview", (value) => { documentFront = value; });
     setupImageInput("document-back", "document-back-preview", (value) => { documentBack = value; });
     setupSignaturePad();
     $("#signer-form").addEventListener("submit", completeSigning);
-    $("#share-customer").addEventListener("click", shareOwnerEvidence);
+    $("#share-vehicle").addEventListener("click", () => sharePdf("vehicle"));
+    $("#share-cabin").addEventListener("click", () => sharePdf("cabin"));
+    $("#share-owner").addEventListener("click", () => sharePdf("owner"));
   }
 
-  async function setupContractAssets() {
-    const images = await createContractPageImages(draft, "尚未簽署", "預覽", "");
-    $$('[data-contract-asset]').forEach((image, index) => { image.src = images[index]; });
-    $$('[data-contract-link]').forEach((link, index) => { link.href = images[index]; });
+  function renderContractText(data) {
+    const root = $("#contract-text");
+    if (!root) return;
+    const grouped = [];
+    contractPageModels(data).forEach((model) => {
+      let group = grouped.find((item) => item.partId === model.partId);
+      if (!group) {
+        group = {
+          partId: model.partId,
+          partNumber: model.partNumber,
+          partTitle: model.partTitle,
+          partSummary: model.partSummary,
+          illustrationSrc: model.illustrationSrc,
+          illustrationAlt: model.illustrationAlt,
+          scopeType: model.scopeType,
+          scopeCaption: model.scopeCaption,
+          sections: []
+        };
+        grouped.push(group);
+      }
+      if (model.visualAppendixSrc) {
+        group.visualAppendixSrc = model.visualAppendixSrc;
+        group.visualAppendixAlt = model.visualAppendixAlt;
+      }
+      group.sections.push(...model.sections);
+    });
+    root.replaceChildren();
+    grouped.forEach((group) => {
+      const article = document.createElement("article");
+      article.className = "contract-document";
+      article.id = group.partId;
+
+      const header = document.createElement("header");
+      header.className = "contract-document__header";
+      const part = document.createElement("span");
+      part.className = "contract-document__part";
+      part.textContent = group.partNumber;
+      const title = document.createElement("h3");
+      title.textContent = group.partTitle;
+      const summary = document.createElement("p");
+      summary.textContent = group.partSummary;
+      header.append(part, title, summary);
+
+      const scopeFigure = document.createElement("figure");
+      scopeFigure.className = `contract-scope-figure contract-scope-figure--${group.scopeType}`;
+      const media = document.createElement("div");
+      media.className = "contract-scope-figure__media";
+      const image = document.createElement("img");
+      image.src = group.illustrationSrc;
+      image.alt = group.illustrationAlt;
+      image.title = group.illustrationAlt;
+      image.width = 1182;
+      image.height = 665;
+      image.loading = "lazy";
+      image.decoding = "async";
+      const badge = document.createElement("span");
+      badge.className = "contract-scope-figure__badge";
+      badge.textContent = group.scopeType === "vehicle" ? "本契約：K2500 車體" : "本契約：藍色露營車廂";
+      media.append(image, badge);
+      const caption = document.createElement("figcaption");
+      caption.textContent = group.scopeCaption;
+      scopeFigure.append(media, caption);
+
+      const body = document.createElement("div");
+      body.className = "contract-document__body";
+      group.sections.forEach((section) => {
+        const clause = document.createElement("section");
+        clause.className = "contract-clause";
+        const heading = document.createElement("h4");
+        heading.textContent = section.heading;
+        clause.append(heading);
+        section.paragraphs.forEach((paragraph) => {
+          const text = document.createElement("p");
+          text.textContent = paragraph;
+          if (String(paragraph).trim().startsWith("•")) text.dataset.listItem = "true";
+          clause.append(text);
+        });
+        body.append(clause);
+      });
+      article.append(header, scopeFigure, body);
+      if (group.visualAppendixSrc) {
+        const appendix = document.createElement("figure");
+        appendix.className = "contract-visual-appendix";
+        const appendixImage = document.createElement("img");
+        appendixImage.src = group.visualAppendixSrc;
+        appendixImage.alt = group.visualAppendixAlt;
+        appendixImage.title = group.visualAppendixAlt;
+        appendixImage.width = 760;
+        appendixImage.height = 1160;
+        appendixImage.loading = "lazy";
+        appendixImage.decoding = "async";
+        const appendixCaption = document.createElement("figcaption");
+        appendixCaption.textContent = "露營車廂結構尺寸與內外觀，作為第二份合約的租賃標的參考。";
+        appendix.append(appendixImage, appendixCaption);
+        article.append(appendix);
+      }
+      root.append(article);
+    });
   }
 
   function contractPageModels(data) {
@@ -205,80 +309,132 @@
     const providerLine = `${provider.name || "揪好森露營車出租"}${provider.role ? `（${provider.role}）` : ""}`;
     return [
       {
-        title: "借車合約書",
+        partId: "contract-vehicle",
+        partNumber: "第一份契約",
+        partTitle: "借車合約",
+        partSummary: "K2500 車體無償借用，規範合法駕駛、行車費用、車況、故障與交通事故處理。",
+        illustrationSrc: "/assets/images/contract/campervan-vehicle-and-cabin-overview-line-diagram.webp",
+        illustrationAlt: "JoyForest CamperVan 的 K2500 前方車體、底盤與後方露營車廂區分線稿",
+        scopeType: "vehicle",
+        scopeCaption: "第一份契約標的是前方 K2500 車體、底盤、動力與行駛系統；不包含後方露營車廂與露營設備。",
+        title: "第一部分｜借車合約",
         subtitle: "借用車輛與行車責任",
         sections: [
           { heading: "合約雙方", paragraphs: [`車輛提供方（甲方）：${providerLine}`, `車輛借用方（乙方）：${customer}`] },
           { heading: "借用車輛", paragraphs: [`車牌：${vehicle.plate || "RBU-8280"}｜車型：${vehicle.description || "KIA 卡旺 2497cc 雙廂式"}`, `借用期間：${rentalPeriod}`] },
           { heading: "借用內容", paragraphs: [
-            "• 甲方將車輛無償借給乙方使用。乙方使用期間須負擔燃油費（滿油出車、滿油還車）、高速公路 ETC、停車費等相關費用。",
-            "• 乙方須具備合法小型車駕駛執照並隨身攜帶。無照、酒駕、毒駕或交由未經甲方同意的人駕駛，致保險拒賠時，相關責任及費用由乙方負擔。",
-            "• 甲方隨車提供行照、車輛保險證等文件，乙方應妥善保管；如有遺失，應賠償相應損失。",
-            "• 乙方不得買賣、抵押、質押、贈與車輛，亦不得使用車輛從事營業性活動。"
+            "• 借用標的：K2500 車體、底盤、動力與行駛系統；不包含第二份契約的露營車廂與露營設備。",
+            "• 借用費用：甲方將前述 K2500 車體無償借予乙方使用，本份契約不收取車輛租金。",
+            "• 乙方使用本車輛期間，須承擔使用本車輛產生的所有燃油費（滿油出車、滿油還車）、高速公路 ETC 費用、停車費等相關費用。",
+            "• 乙方須具備合法小型車駕駛執照，並隨身攜帶。無照駕駛、酒駕、毒駕或交由他人駕駛（有駕照或無照）發生事故，導致保險公司拒絕理賠時，乙方須負擔所有相關責任與費用。",
+            "• 簽訂本合約後，甲方須將本車輛的行照、車輛保險證等文件隨車提供給乙方，乙方應妥善保管。如有遺失，乙方應賠償相應損失。",
+            "• 在乙方使用本車輛期間，乙方不得將該車買賣、抵押、質押或贈與，亦不得使用該車輛從事營業性活動。"
           ] }
         ]
       },
       {
-        title: "借車合約書",
+        partId: "contract-vehicle",
+        partNumber: "第一份契約",
+        partTitle: "借車合約",
+        partSummary: "K2500 車體無償借用，規範合法駕駛、行車費用、車況、故障與交通事故處理。",
+        illustrationSrc: "/assets/images/contract/campervan-vehicle-and-cabin-overview-line-diagram.webp",
+        illustrationAlt: "JoyForest CamperVan 的 K2500 前方車體、底盤與後方露營車廂區分線稿",
+        scopeType: "vehicle",
+        scopeCaption: "第一份契約標的是前方 K2500 車體、底盤、動力與行駛系統；不包含後方露營車廂與露營設備。",
+        title: "第一部分｜借車合約",
         subtitle: "故障、事故與雙方資料",
         sections: [
           { heading: "車況與故障", paragraphs: [
-            "• 交還時應保持車輛運作良好。使用期間如出現故障或異常，乙方應立即通知甲方，並依甲方指示送至指定維修廠檢查；不得自行拆卸、更換原車裝置或零件。",
-            "• 因非正常使用造成的事故、損失及費用，由乙方負擔。"
+            "• 交還時應保證車輛運行良好。車輛使用過程中出現故障或異常，乙方應及時通知甲方，並將本車輛運至甲方指定維修廠進行檢查維修。乙方不得拆卸或更換原車裝置及零件；因非正常使用造成的事故責任及損失費用，均由乙方承擔。"
           ] },
           { heading: "事故與保險", paragraphs: [
-            "• 借用期間發生事故，乙方應立即通知甲方並報案，甲方協助向保險公司申請理賠。屬保險賠付範圍者由保險公司負擔；免賠、拒賠或保險不受理的損失，由乙方負擔。",
-            "• 乙方並應負擔依法或依實際情形應由其負擔的修理費、修理期間經濟損失及本案相關費用。"
+            "• 車輛借用期間如發生事故，乙方應立即通知甲方，甲方及時協助乙方向保險公司報案，乙方支付因此產生的一切費用。",
+            "• 如屬保險賠付範圍，費用由保險公司承擔；屬保險責任免賠或其他原因導致保險公司拒賠的損失，由乙方承擔。如保險公司不受理此案，則由乙方全部負責，同時承擔車輛修理費、修理期間的經濟損失及與本案相關所產生的費用。"
           ] },
-          { heading: "甲方資料", paragraphs: [`姓名：${provider.name || ""}`, `出生年月日：${provider.birthDate || ""}｜身分證字號：${provider.idNumber || ""}`, `聯絡電話：${provider.phone || ""}｜戶籍地址：${provider.address || ""}`] },
-          { heading: "乙方資料", paragraphs: [`${customer}`, `地址：${data.address || "____________"}`] }
+          { heading: "甲方", paragraphs: [`姓名：${provider.name || ""}（${provider.role || "聯邦國際租賃股份有限公司桃園分公司租賃小貨車長租租用人"}）`, `出生年月日：${provider.birthDate || "民國 71 年 7 月 22 日"}`, `身分證字號：${provider.idNumber || "J122062030"}`, `聯絡電話：${provider.phone || "0911252302"}`, `戶籍地址：${provider.address || "桃園市中壢區元化路 95 巷 14 號 4 樓"}`, "甲方簽名：____________________"] },
+          { heading: "乙方", paragraphs: [`姓名：${data.customerName || "____________"}`, `出生年月日：${data.birthDate || "____________"}`, `身分證字號：${data.idNumber || "____________"}`, `聯絡電話：${data.phone || "____________"}`, `戶籍地址：${data.address || "____________"}`, "乙方簽名：見本電子文件每頁所附手寫電子簽名"] }
         ]
       },
       {
-        title: "露營車廂租賃合約",
+        partId: "contract-cabin",
+        partNumber: "第二份契約",
+        partTitle: "露營車廂租賃合約",
+        partSummary: "藍色露營車廂與露營設備有償租賃，規範租金、使用方式、返還與損害責任。",
+        illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
+        illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
+        scopeType: "cabin",
+        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 K2500 車體。",
+        title: "第二部分｜露營車廂租賃合約",
         subtitle: "租賃標的、期間與費用",
         sections: [
           { heading: "合約雙方", paragraphs: [`出租人（甲方）：${providerLine}`, `承租人（乙方）：${customer}`] },
           { heading: "租賃規定", paragraphs: [
-            "租賃物：露營車廂及交車時點交的隨車設備。",
+            "租賃物：圖中藍色露營車廂及交車時點交的露營設備；不包含第一份契約無償借用的 K2500 車體。",
             `租賃期間：${rentalPeriod}`,
-            `租賃費用：${data.rentalFee || "____________"}｜預約訂金：${data.reservationDeposit || "____________"}｜還車結算押金：${data.securityDeposit || "____________"}`,
-            "本票：無需本票。押金於還車檢查後退還，並得扣除 ETC、未補足費用或車體／設備損傷。"
+            `露營車廂與設備租賃費用：${data.rentalFee || "____________"}｜預約訂金：${data.reservationDeposit || "____________"}｜還車結算押金：${data.securityDeposit || "____________"}`,
+            "押金：新臺幣伍仟元整（還車時退還；扣除 ETC 或如有露營車廂、車體、設備損傷及其他未結清費用）。",
+            "本票：無需本票。"
           ] },
           { heading: "五星評價回饋活動", paragraphs: [
-            "網美露營套組／影音娛樂套組得依當期活動優惠免費體驗（原租賃費用 NT$3,800）。活動條件為交車時完成指定打卡與評論，例如 Google 兩則五星附圖評論，或 Google、Instagram 各一則；實際內容以交車時說明為準。"
+            "網美露營套組／影音娛樂套組優惠免費體驗免租金（原租賃費用 NT$3,800）。交車時完成評論附圖：Google 地圖商家兩則五星評論，或 Google 地圖商家五星評論及 Instagram 追蹤、發文標註各一則。",
+            `本次選擇：${data.rewardBundleSelected ? "☑ 參加五星評價回饋活動並體驗套組" : "☐ 未選擇參加五星評價回饋活動"}`
           ] }
         ]
       },
       {
-        title: "露營車廂租賃合約",
+        partId: "contract-cabin",
+        partNumber: "第二份契約",
+        partTitle: "露營車廂租賃合約",
+        partSummary: "藍色露營車廂與露營設備有償租賃，規範租金、使用方式、返還與損害責任。",
+        illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
+        illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
+        scopeType: "cabin",
+        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 K2500 車體。",
+        title: "第二部分｜露營車廂租賃合約",
         subtitle: "使用、事故與賠償責任",
         sections: [
           { heading: "租賃內容", paragraphs: [
-            "• 超出預定租賃期間，每小時加收 NT$300，並應事先取得甲方同意。",
-            "• 發生交通事故致露營車廂損壞時，乙方應立即通知甲方並報案。屬保險賠付範圍者由保險公司負擔；免賠、拒賠或其他不受理損失，由乙方負擔修理費、修理期間經濟損失及相關費用。",
-            "• 露營車廂並非車體；事故理賠時可能按財物損失處理，一般強制險無法賠償財損。",
-            "• 維修費用依指定維修廠報價。指定維修廠：家吼勝 HOME FUN／露營車俱樂部，桃園市八德區廣興路 1320 號。",
-            "• 租用期間不得買賣、抵押、質押、贈與露營車廂，或用於營業性活動。",
-            "• 交還時應維持物品完整與功能正常，並以交車時錄影、照片及點交內容為憑。",
-            "• 使用中出現故障或異常應立即通知甲方，不得自行拆卸或更換裝置與零件；非正常使用造成的責任與損失由乙方負擔。"
+            "• 租賃時間超出預定期間，加收費用每小時 NT$300，並請預先與甲方確認。",
+            "• 租賃期間如發生交通事故導致露營車廂損壞，乙方應立即通知甲方並報案。如屬保險賠付範圍，費用由保險公司承擔；屬保險責任免賠或其他原因導致保險公司拒賠的損失，由乙方承擔露營車廂修理費、修理期間的經濟損失及與本案相關所產生的費用。",
+            "• 露營車廂並非車體，因此事故保險賠付時並非視為車損，而是財損（財物損失）；一般強制險無法賠償財損。",
+            "• 露營車廂維修費用依維修廠報價。指定維修廠：家吼勝 HOME FUN／露營車俱樂部，桃園市八德區廣興路 1320 號。",
+            "• 乙方租用露營車廂期間，不得將其買賣、抵押、質押、贈與或用於從事營業性活動。",
+            "• 交還時應保證露營車廂物品完整、功能正常，並以租賃時錄影憑證為準。",
+            "• 露營車廂使用過程中出現故障或異常，乙方應及時通知甲方。歸還時甲方將交由指定維修廠維修。乙方不得拆卸或更換裝置及零件；因非正常使用造成的事故責任及損失費用，均由乙方承擔。"
           ] }
         ]
       },
       {
-        title: "露營車廂租賃合約",
-        subtitle: "雙方資料與車廂點交",
+        partId: "contract-cabin",
+        partNumber: "第二份契約",
+        partTitle: "露營車廂租賃合約",
+        partSummary: "藍色露營車廂與露營設備有償租賃，規範租金、使用方式、返還與損害責任。",
+        illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
+        illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
+        scopeType: "cabin",
+        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 K2500 車體。",
+        title: "第二部分｜露營車廂租賃合約",
+        subtitle: "雙方資料與電子簽署",
         sections: [
-          { heading: "甲方資料", paragraphs: [`姓名：${provider.name || ""}`, `出生年月日：${provider.birthDate || ""}｜身分證字號：${provider.idNumber || ""}`, `聯絡電話：${provider.phone || ""}`, `戶籍地址：${provider.address || ""}`] },
-          { heading: "乙方資料", paragraphs: [`${customer}`, `地址：${data.address || "____________"}`] },
-          { heading: "車廂結構與內外觀", paragraphs: [
-            "露營車廂的床鋪、桌椅、櫃體、廚房、冰箱、冷暖氣、供電、供水、熱水與浴廁等設備，以交車現場說明、點交照片及錄影為準。",
-            "承租人已於交車時確認外觀、車廂結構、隨車物品及各項設備狀態；如現場發現異常，應立即提出並留存照片或錄影。",
-            `交車地點：${data.deliveryLocation || "____________"}`,
-            `還車地點：${data.returnLocation || "____________"}`
-          ] },
-          { heading: "電子簽署", paragraphs: ["乙方於本系統完成手寫簽名後，本頁與前述合約頁、資料確認頁、簽署時間及同一文件編號共同構成完整電子文件。"] }
+          { heading: "甲方", paragraphs: [`姓名：${provider.name || ""}（${provider.role || "聯邦國際租賃股份有限公司桃園分公司租賃小貨車長租租用人"}）`, `出生年月日：${provider.birthDate || "民國 71 年 7 月 22 日"}`, `身分證字號：${provider.idNumber || "J122062030"}`, `聯絡電話：${provider.phone || "0911252302"}`, `戶籍地址：${provider.address || "桃園市中壢區元化路 95 巷 14 號 4 樓"}`, "甲方簽名：____________________"] },
+          { heading: "乙方", paragraphs: [`姓名：${data.customerName || "____________"}`, `出生年月日：${data.birthDate || "____________"}`, `身分證字號：${data.idNumber || "____________"}`, `聯絡電話：${data.phone || "____________"}`, `戶籍地址：${data.address || "____________"}`, "乙方簽名：見本電子文件每頁所附手寫電子簽名"] },
+          { heading: "電子簽署", paragraphs: ["乙方於本系統完成手寫簽名後，本份合約的文字、租賃標的圖片、資料確認頁、簽署時間、文件編號及電子簽名共同構成完整電子文件。"] }
         ]
+      },
+      {
+        partId: "contract-cabin",
+        partNumber: "第二份契約",
+        partTitle: "露營車廂租賃合約",
+        partSummary: "藍色露營車廂與露營設備有償租賃，規範租金、使用方式、返還與損害責任。",
+        illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
+        illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
+        scopeType: "cabin",
+        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 K2500 車體。",
+        title: "第二部分｜露營車廂租賃合約",
+        subtitle: "露營車廂結構圖與內外觀",
+        visualAppendixSrc: "/assets/images/contract/camper-cabin-structure-and-interior-reference.webp",
+        visualAppendixAlt: "露營車廂長寬高尺寸、外觀、設備艙、遮陽棚、客廳座位與浴廁內裝參考圖",
+        sections: []
       }
     ];
   }
@@ -301,6 +457,13 @@
     return y;
   }
 
+  function drawImageContain(ctx, image, x, y, width, height) {
+    const scale = Math.min(width / image.naturalWidth, height / image.naturalHeight);
+    const drawWidth = image.naturalWidth * scale;
+    const drawHeight = image.naturalHeight * scale;
+    ctx.drawImage(image, x + (width - drawWidth) / 2, y + (height - drawHeight) / 2, drawWidth, drawHeight);
+  }
+
   async function contractPagePng(model, index, total, signedAt, documentId, signatureSrc) {
     const canvas = document.createElement("canvas");
     canvas.width = 1240;
@@ -316,19 +479,26 @@
     ctx.font = "24px -apple-system, sans-serif";
     ctx.fillText(model.subtitle, 74, 145);
     ctx.fillText(`第 ${index + 1}／${total} 頁`, 1030, 145);
-    let y = 275;
-    model.sections.forEach((section) => {
-      ctx.fillStyle = "#173f34";
-      ctx.font = "800 29px -apple-system, sans-serif";
-      ctx.fillText(section.heading, 74, y);
-      y += 49;
-      ctx.fillStyle = "#1d2925";
-      ctx.font = "23px -apple-system, sans-serif";
-      section.paragraphs.forEach((paragraph) => {
-        y = drawContractParagraph(ctx, paragraph, 86, y, 1060, 35) + 12;
+    if (model.visualAppendixSrc) {
+      const appendixImage = await loadImage(model.visualAppendixSrc);
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(74, 250, 1092, 1290);
+      drawImageContain(ctx, appendixImage, 94, 270, 1052, 1250);
+    } else {
+      let y = 275;
+      model.sections.forEach((section) => {
+        ctx.fillStyle = "#173f34";
+        ctx.font = "800 29px -apple-system, sans-serif";
+        ctx.fillText(section.heading, 74, y);
+        y += 49;
+        ctx.fillStyle = "#1d2925";
+        ctx.font = "23px -apple-system, sans-serif";
+        section.paragraphs.forEach((paragraph) => {
+          y = drawContractParagraph(ctx, paragraph, 86, y, 1060, 35) + 12;
+        });
+        y += 18;
       });
-      y += 18;
-    });
+    }
     ctx.strokeStyle = "#b8c9c0";
     ctx.beginPath();
     ctx.moveTo(74, 1590);
@@ -347,25 +517,88 @@
     return canvas.toDataURL("image/png");
   }
 
-  async function createContractPageImages(data, signedAt, documentId, signatureSrc) {
-    const models = contractPageModels(data);
+  async function contractScopePagePng(partId, signedAt, documentId, signatureSrc) {
+    const vehiclePart = partId === "contract-vehicle";
+    const canvas = document.createElement("canvas");
+    canvas.width = 1240;
+    canvas.height = 1754;
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#fffdfa";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = vehiclePart ? "#7c4f26" : "#173f34";
+    ctx.fillRect(0, 0, canvas.width, 240);
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "800 49px -apple-system, sans-serif";
+    ctx.fillText(vehiclePart ? "第一份契約標的｜K2500 車體" : "第二份契約標的｜藍色露營車廂", 70, 105);
+    ctx.font = "25px -apple-system, sans-serif";
+    ctx.fillText(vehiclePart ? "無償借用｜不收取車輛租金" : "有償租賃｜租金僅對應車廂與露營設備", 70, 160);
+
+    const illustration = await loadImage(vehiclePart
+      ? "/assets/images/contract/campervan-vehicle-and-cabin-overview-line-diagram.webp"
+      : "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp");
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(70, 300, 1100, 700);
+    drawImageContain(ctx, illustration, 90, 320, 1060, 660);
+    ctx.strokeStyle = vehiclePart ? "#b36c2f" : "#2d89ad";
+    ctx.lineWidth = 8;
+    if (vehiclePart) ctx.strokeRect(180, 525, 475, 355);
+    else ctx.strokeRect(355, 385, 700, 455);
+    ctx.fillStyle = vehiclePart ? "#7c4f26" : "#173f34";
+    ctx.font = "800 32px -apple-system, sans-serif";
+    ctx.fillText(vehiclePart ? "本契約：前方 K2500 車體與行駛系統" : "本契約：圖中藍色露營車廂與露營設備", 90, 1080);
+    ctx.font = "25px -apple-system, sans-serif";
+    ctx.fillStyle = "#34423c";
+    const scopeText = vehiclePart
+      ? "第一份契約標的是 K2500 車體、底盤、動力與行駛系統；不包含後方露營車廂與露營設備。車體由甲方無償借予乙方使用。"
+      : "第二份契約標的是藍色露營車廂與交車時點交的露營設備；不包含前方 K2500 車體。租金、訂金與押金均記載在本份契約。";
+    drawContractParagraph(ctx, scopeText, 90, 1140, 1060, 40);
+    ctx.fillStyle = "#eef5f1";
+    ctx.fillRect(80, 1320, 1080, 120);
+    ctx.fillStyle = "#29483e";
+    ctx.font = "700 24px -apple-system, sans-serif";
+    drawContractParagraph(ctx, "兩份契約在同一個電子流程填寫與簽署，但標的、費用及責任分開記載。", 110, 1370, 1020, 36);
+    ctx.strokeStyle = "#b8c9c0";
+    ctx.beginPath();
+    ctx.moveTo(74, 1590);
+    ctx.lineTo(1166, 1590);
+    ctx.stroke();
+    ctx.fillStyle = "#54615b";
+    ctx.font = "18px -apple-system, sans-serif";
+    ctx.fillText(`文件編號：${documentId}｜簽署時間：${signedAt}`, 74, 1630);
+    if (signatureSrc) {
+      const signature = await loadImage(signatureSrc);
+      ctx.drawImage(signature, 820, 1588, 300, 105);
+      ctx.fillText("承租人電子簽名", 820, 1710);
+    }
+    return canvas.toDataURL("image/png");
+  }
+
+  async function createContractPageImages(data, partId, signedAt, documentId, signatureSrc) {
+    const models = contractPageModels(data).filter((model) => model.partId === partId);
     return Promise.all(models.map((model, index) => contractPagePng(model, index, models.length, signedAt, documentId, signatureSrc)));
   }
 
   function setupImageInput(inputId, previewId, setter) {
     const input = $(`#${inputId}`);
     const preview = $(`#${previewId}`);
+    const card = input.closest(".upload-card");
+    const status = $(`#${inputId}-status`);
     input.addEventListener("change", async () => {
       const file = input.files?.[0];
       if (!file) return;
+      if (status) status.textContent = "正在處理照片…";
       try {
         const dataUrl = await resizeImage(file, 1800, .86);
         setter(dataUrl);
         preview.src = dataUrl;
         preview.hidden = false;
+        card?.classList.add("has-preview");
+        if (status) status.textContent = `已選擇：${file.name || "相機照片"}`;
       } catch {
         setter("");
         preview.hidden = true;
+        card?.classList.remove("has-preview");
+        if (status) status.textContent = "這張照片無法讀取，請重新拍攝或選擇其他照片。";
       }
     });
   }
@@ -420,6 +653,7 @@
     };
     const start = (event) => {
       drawing = true;
+      canvas.setPointerCapture?.(event.pointerId);
       const p = point(event);
       context.beginPath();
       context.moveTo(p.x, p.y);
@@ -435,12 +669,20 @@
       $("#signature-status").textContent = "已完成簽名";
       event.preventDefault();
     };
-    const end = () => { drawing = false; };
+    const end = (event) => {
+      drawing = false;
+      if (event?.pointerId !== undefined && canvas.hasPointerCapture?.(event.pointerId)) canvas.releasePointerCapture(event.pointerId);
+    };
     canvas.addEventListener("pointerdown", start);
     canvas.addEventListener("pointermove", move);
+    canvas.addEventListener("pointerup", end);
+    canvas.addEventListener("pointercancel", end);
     window.addEventListener("pointerup", end);
     $("#clear-signature").addEventListener("click", () => {
+      context.save();
+      context.setTransform(1, 0, 0, 1, 0, 0);
       context.clearRect(0, 0, canvas.width, canvas.height);
+      context.restore();
       signatureHasInk = false;
       signatureDataUrl = "";
       $("#signature-placeholder").hidden = false;
@@ -459,7 +701,9 @@
       ...values,
       changedFields: changed,
       documentType: $("#document-type").value,
-      contractsRead: $("#contracts-read").checked,
+      rewardBundleSelected: $("#reward-bundle-selected").checked,
+      vehicleContractRead: $("#vehicle-contract-read").checked,
+      cabinContractRead: $("#cabin-contract-read").checked,
       electronicConsent: $("#electronic-consent").checked,
       privacyConsent: $("#privacy-consent").checked
     };
@@ -483,7 +727,7 @@
     if (lineIndex < maxLines) ctx.fillText(line, x, y + lineIndex * lineHeight);
   }
 
-  async function confirmationPagePng(data, signedAt, documentId) {
+  async function confirmationPagePng(data, signedAt, documentId, copyType = "owner") {
     const canvas = document.createElement("canvas");
     canvas.width = 1240;
     canvas.height = 1754;
@@ -496,7 +740,8 @@
     ctx.font = "700 34px -apple-system, sans-serif";
     ctx.fillText("揪好森露營車出租", 80, 88);
     ctx.font = "800 58px -apple-system, sans-serif";
-    ctx.fillText("電子簽署暨資料確認頁", 80, 174);
+    const confirmationTitle = copyType === "vehicle" ? "借車合約｜資料確認" : copyType === "cabin" ? "露營車廂租賃｜資料確認" : "業者存證包｜資料確認";
+    ctx.fillText(confirmationTitle, 80, 174);
     ctx.fillStyle = "#1d2925";
     ctx.font = "700 28px -apple-system, sans-serif";
     ctx.fillText(`文件編號：${documentId}`, 80, 310);
@@ -504,13 +749,25 @@
     ctx.fillStyle = "#54615b";
     ctx.fillText(`簽署時間：${signedAt}`, 80, 354);
 
-    const rows = [
+    const commonRows = [
       ["承租人姓名", data.customerName], ["聯絡電話", data.phone], ["出生年月日", data.birthDate], ["證件號碼", data.idNumber],
       ["聯絡地址", data.address], ["租借期間", `${data.rentalStartDate || ""} ${data.rentalStartTime || ""} 至 ${data.rentalEndDate || ""} ${data.rentalEndTime || ""}`],
-      ["交車地點", data.deliveryLocation], ["還車地點", data.returnLocation], ["租金", data.rentalFee],
-      ["預約訂金", data.reservationDeposit], ["還車結算押金", data.securityDeposit], ["身分證明", `${documentTypeLabel(data.documentType)}正反面已提供（完整影像僅存於業者存證版）`]
+      ["交車地點", data.deliveryLocation], ["還車地點", data.returnLocation]
     ];
-    let y = 430;
+    const vehicleRows = [["借用標的", "K2500 車體、底盤、動力與行駛系統"], ["車體借用費用", "無償（NT$0）"]];
+    const cabinRows = [
+      ["租賃標的", "藍色露營車廂與交車時點交設備"],
+      ["車廂設備租金", data.rentalFee],
+      ["訂金／押金", `${data.reservationDeposit || "—"}／${data.securityDeposit || "—"}`],
+      ["回饋套組", data.rewardBundleSelected ? "已勾選參加五星評價回饋活動" : "未選擇參加"]
+    ];
+    const rows = [
+      ...commonRows,
+      ...(copyType === "vehicle" ? vehicleRows : copyType === "cabin" ? cabinRows : [...vehicleRows, ...cabinRows]),
+      ["身分證明", `${documentTypeLabel(data.documentType)}正反面已提供（完整影像僅存於業者存證版）`]
+    ];
+    let y = 410;
+    const rowGap = rows.length > 12 ? 60 : 70;
     rows.forEach(([label, value]) => {
       ctx.fillStyle = "#65716c";
       ctx.font = "700 24px -apple-system, sans-serif";
@@ -523,7 +780,7 @@
       ctx.moveTo(80, y + 24);
       ctx.lineTo(1160, y + 24);
       ctx.stroke();
-      y += label === "聯絡地址" || label.includes("地點") ? 92 : 72;
+      y += rowGap;
     });
 
     if (data.changedFields?.length) {
@@ -538,7 +795,12 @@
 
     ctx.fillStyle = "#65716c";
     ctx.font = "22px -apple-system, sans-serif";
-    const consentText = `合約閱讀：${data.contractsRead ? "已勾選" : "未勾選"}｜電子簽署：${data.electronicConsent ? "已勾選" : "未勾選"}｜個資告知：${data.privacyConsent ? "已勾選" : "未勾選"}`;
+    const readStatus = copyType === "vehicle"
+      ? `借車合約：${data.vehicleContractRead ? "已勾選" : "未勾選"}`
+      : copyType === "cabin"
+        ? `車廂租賃：${data.cabinContractRead ? "已勾選" : "未勾選"}`
+        : `借車：${data.vehicleContractRead ? "已勾選" : "未勾選"}｜車廂：${data.cabinContractRead ? "已勾選" : "未勾選"}`;
+    const consentText = `${readStatus}｜電子簽署：${data.electronicConsent ? "已勾選" : "未勾選"}｜個資：${data.privacyConsent ? "已勾選" : "未勾選"}`;
     ctx.fillText(consentText, 80, 1450);
     ctx.fillStyle = "#1d2925";
     ctx.font = "700 24px -apple-system, sans-serif";
@@ -552,7 +814,8 @@
     ctx.strokeRect(280, 1460, 800, 210);
     ctx.fillStyle = "#65716c";
     ctx.font = "18px -apple-system, sans-serif";
-    ctx.fillText("本確認頁與後續 5 頁合約以同一文件編號及簽署時間綁定。", 80, 1710);
+    const bindingText = copyType === "vehicle" ? "本確認頁與第一份借車合約，以同一文件編號及簽署時間綁定。" : copyType === "cabin" ? "本確認頁與第二份露營車廂租賃合約，以同一文件編號及簽署時間綁定。" : "本存證包包含兩份分開製作的契約與證件附件。";
+    ctx.fillText(bindingText, 80, 1710);
     return canvas.toDataURL("image/png");
   }
 
@@ -607,14 +870,14 @@
     return canvas.toDataURL("image/jpeg", .9);
   }
 
-  async function buildPdf(data, signedAt, documentId, includeEvidence, contractImages) {
+  async function buildPdf(data, signedAt, documentId, copyType, includeEvidence, contractImages) {
     const { PDFDocument } = window.PDFLib;
     const output = await PDFDocument.create();
     output.setTitle(`Joyforest Campervan Rental Agreement ${documentId}`);
     output.setAuthor("Joyforest CamperVan Rental");
-    output.setSubject(includeEvidence ? "Owner evidence copy" : "Customer signed copy");
+    output.setSubject(copyType === "vehicle" ? "Vehicle loan agreement" : copyType === "cabin" ? "Camper cabin rental agreement" : "Owner evidence package");
     output.setKeywords(["Joyforest", "CamperVan", "Rental", "Agreement", documentId]);
-    const confirmationPng = await confirmationPagePng(data, signedAt, documentId);
+    const confirmationPng = await confirmationPagePng(data, signedAt, documentId, copyType);
     const confirmationImage = await output.embedPng(confirmationPng);
     const cover = output.addPage([595.28, 841.89]);
     cover.drawImage(confirmationImage, { x: 0, y: 0, width: 595.28, height: 841.89 });
@@ -641,51 +904,77 @@
     const button = $("#complete-signing");
     button.disabled = true;
     status.className = "status-line";
-    status.textContent = "正在整理 5 頁合約、簽名與證件，產生兩份 PDF…";
+    status.textContent = "正在分別製作借車合約、露營車廂租賃合約與業者存證包…";
     try {
       signatureDataUrl = signatureHasInk ? $("#signature-pad").toDataURL("image/png") : "";
       const data = currentSignerData();
       const signedAt = new Intl.DateTimeFormat("zh-TW", { dateStyle: "medium", timeStyle: "medium", timeZone: "Asia/Taipei" }).format(new Date());
       const documentId = `JF-${todayYmd().replaceAll("-", "")}-${draftToken.toUpperCase()}`;
-      const contractImages = await createContractPageImages(data, signedAt, documentId, signatureDataUrl);
-      const [customerBytes, ownerBytes] = await Promise.all([
-        buildPdf(data, signedAt, documentId, false, contractImages),
-        buildPdf(data, signedAt, documentId, true, contractImages)
+      const vehicleDocumentId = `${documentId}-V`;
+      const cabinDocumentId = `${documentId}-C`;
+      const [vehicleScopeImage, cabinScopeImage, vehicleContractPages, cabinContractPages] = await Promise.all([
+        contractScopePagePng("contract-vehicle", signedAt, vehicleDocumentId, signatureDataUrl),
+        contractScopePagePng("contract-cabin", signedAt, cabinDocumentId, signatureDataUrl),
+        createContractPageImages(data, "contract-vehicle", signedAt, vehicleDocumentId, signatureDataUrl),
+        createContractPageImages(data, "contract-cabin", signedAt, cabinDocumentId, signatureDataUrl)
       ]);
-      customerPdfBlob = new Blob([customerBytes], { type: "application/pdf" });
+      const vehicleContractImages = [vehicleScopeImage, ...vehicleContractPages];
+      const cabinContractImages = [cabinScopeImage, ...cabinContractPages];
+      const [vehicleBytes, cabinBytes, ownerBytes] = await Promise.all([
+        buildPdf(data, signedAt, vehicleDocumentId, "vehicle", false, vehicleContractImages),
+        buildPdf(data, signedAt, cabinDocumentId, "cabin", false, cabinContractImages),
+        buildPdf(data, signedAt, documentId, "owner", true, [...vehicleContractImages, ...cabinContractImages])
+      ]);
+      vehiclePdfBlob = new Blob([vehicleBytes], { type: "application/pdf" });
+      cabinPdfBlob = new Blob([cabinBytes], { type: "application/pdf" });
       ownerPdfBlob = new Blob([ownerBytes], { type: "application/pdf" });
-      const customerUrl = URL.createObjectURL(customerPdfBlob);
-      const ownerUrl = URL.createObjectURL(ownerPdfBlob);
-      $("#download-customer").href = customerUrl;
-      $("#download-customer").download = `${documentId}-客戶版.pdf`;
-      $("#download-owner").href = ownerUrl;
-      $("#download-owner").download = `${documentId}-業者存證版.pdf`;
+      if (vehiclePdfUrl) URL.revokeObjectURL(vehiclePdfUrl);
+      if (cabinPdfUrl) URL.revokeObjectURL(cabinPdfUrl);
+      if (ownerPdfUrl) URL.revokeObjectURL(ownerPdfUrl);
+      vehiclePdfUrl = URL.createObjectURL(vehiclePdfBlob);
+      cabinPdfUrl = URL.createObjectURL(cabinPdfBlob);
+      ownerPdfUrl = URL.createObjectURL(ownerPdfBlob);
+      $("#download-vehicle").href = vehiclePdfUrl;
+      $("#download-vehicle").download = `${vehicleDocumentId}-借車合約.pdf`;
+      $("#download-cabin").href = cabinPdfUrl;
+      $("#download-cabin").download = `${cabinDocumentId}-露營車廂租賃合約.pdf`;
+      $("#download-owner").href = ownerPdfUrl;
+      $("#download-owner").download = `${documentId}-業者存證包.pdf`;
       $("#result-document-id").textContent = documentId;
       $("#result-panel").hidden = false;
       $("#result-panel").scrollIntoView({ behavior: "smooth" });
-      status.textContent = "兩份 PDF 已產生完成。請下載客戶版，並把業者存證版分享給揪好森保存。";
+      status.textContent = "兩份獨立契約與業者存證包都已產生。請保存兩份契約，並把業者存證包分享給揪好森。";
     } catch (error) {
       console.error(error);
       status.className = "status-line error";
       status.textContent = "PDF 產生失敗，請保留此頁並聯絡揪好森重新處理。";
+    } finally {
       button.disabled = false;
     }
   }
 
-  async function shareOwnerEvidence() {
-    if (!ownerPdfBlob) return;
+  async function sharePdf(kind) {
+    const pdfMap = {
+      vehicle: { blob: vehiclePdfBlob, name: "借車合約", selector: "#download-vehicle" },
+      cabin: { blob: cabinPdfBlob, name: "露營車廂租賃合約", selector: "#download-cabin" },
+      owner: { blob: ownerPdfBlob, name: "業者存證包", selector: "#download-owner" }
+    };
+    const selected = pdfMap[kind];
+    const blob = selected?.blob;
+    if (!blob) return;
     const documentId = $("#result-document-id").textContent;
-    const file = new File([ownerPdfBlob], `${documentId}-業者存證版.pdf`, { type: "application/pdf" });
+    const copyName = selected.name;
+    const file = new File([blob], `${documentId}-${copyName}.pdf`, { type: "application/pdf" });
     if (navigator.canShare?.({ files: [file] })) {
       try {
-        await navigator.share({ title: "揪好森露營車電子合約", text: "已完成簽署，附件為業者存證版 PDF。", files: [file] });
+        await navigator.share({ title: "揪好森露營車電子合約", text: `已完成簽署，附件為${copyName} PDF。`, files: [file] });
         return;
       } catch (error) {
         if (error?.name === "AbortError") return;
       }
     }
-    $("#download-owner").click();
-    alert("手機未支援直接分享 PDF，已下載業者存證版；請從 LINE 選擇檔案傳送給揪好森。 ");
+    $(selected.selector).click();
+    alert(`這支手機未支援從網頁直接分享 PDF，已開啟／下載${copyName}；請在 LINE 中選擇檔案傳送。`);
   }
 
   function directPublicDraft() {
@@ -693,7 +982,7 @@
       customerName: "", phone: "", birthDate: "", idNumber: "", address: "",
       rentalStartDate: "", rentalStartTime: "15:00", rentalEndDate: "", rentalEndTime: "15:00",
       deliveryLocation: "", returnLocation: "", rentalFee: "", reservationDeposit: "", securityDeposit: "NT$5,000",
-      calendarStatus: "direct", calendarSummary: "客人直接填寫", issuedAt: new Date().toISOString(), version: "direct-public-1",
+      calendarStatus: "direct", calendarSummary: "客人直接填寫", issuedAt: new Date().toISOString(), version: "direct-public-2",
       provider: {
         name: "陳在紳",
         role: "聯邦國際租賃股份有限公司桃園分公司租賃小貨車長租租用人"
