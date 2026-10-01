@@ -8,9 +8,9 @@
     <link rel="canonical" href="https://van.joyforest.tw/pages/e-sign-contract" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E🌲%3C/text%3E%3C/svg%3E" />
     <title>露營車電子合約｜揪好森露營車出租</title>
-    <link rel="stylesheet" href="/assets/css/e-sign-contract.css?v=20261001-3" />
+    <link rel="stylesheet" href="/assets/css/e-sign-contract.css?v=20261001-4" />
     <script defer src="/assets/vendor/pdf-lib.min.js"></script>
-    <script defer src="/assets/js/e-sign-contract.js?v=20261001-2"></script>
+    <script defer src="/assets/js/e-sign-contract.js?v=20261001-3"></script>
   </head>
   <body>
     <header class="site-header">
@@ -82,34 +82,33 @@
         <div class="hero-card signer-hero">
           <p class="eyebrow">揪好森露營車出租</p>
           <h1>露營車租借電子合約</h1>
-          <p>這是空白合約版本。請依序填寫承租資料、分別閱讀兩份契約、拍攝證件正反面，最後用手指簽名並產生 PDF。</p>
+          <p>請依序填寫兩份合約、拍攝證件正反面，最後用手指簽名並產生 PDF。</p>
           <div class="progress-list" aria-label="簽約步驟">
-            <span>1 資料</span><span>2 合約</span><span>3 證件</span><span>4 簽名</span>
+            <span>1 借車</span><span>2 車廂</span><span>3 證件</span><span>4 簽名</span>
           </div>
         </div>
 
         <form id="signer-form" class="stack" novalidate>
-          <section class="card" id="customer-info">
-            <div class="section-heading"><div><span class="step-number">01</span><h2>確認承租資料</h2></div><p>資料有錯可直接修正；租期或費用有變更時會留存修改紀錄。</p></div>
-            <div id="signer-fields" class="form-grid"></div>
-            <div id="critical-change-warning" class="notice warning" hidden>你修改了租期、地點或費用。完成檔會記錄為「客人更正」，出租方需再確認。</div>
+          <section class="card contract-section" id="contract-one">
+            <div class="section-heading"><div><span class="step-number">01</span><h2>合約一｜借車合約</h2></div><p>請填寫借用資料並閱讀合約。</p></div>
+            <div id="vehicle-fields" class="form-grid contract-fields" aria-label="借車合約資料"></div>
+            <div id="vehicle-contract-text" class="contract-text" aria-live="polite"></div>
+            <label class="check-row"><input id="vehicle-contract-read" type="checkbox" /><span>我已閱讀並同意「借車合約」的全部內容。</span></label>
           </section>
 
-          <section class="card contract-section" id="contracts">
-            <div class="section-heading"><div><span class="step-number">02</span><h2>閱讀兩份合約</h2></div><p>請依序閱讀，完成後分別勾選確認。</p></div>
-            <nav class="contract-jump" aria-label="合約兩大部分">
-              <a href="#contract-vehicle"><span>第一份契約</span><strong>K2500 車體借用</strong><small>無償借用｜車輛、駕駛與事故處理</small></a>
-              <a href="#contract-cabin"><span>第二份契約</span><strong>露營車廂租賃</strong><small>有償租賃｜藍色車廂、設備與損害責任</small></a>
-            </nav>
-            <div id="contract-text" class="contract-text" aria-live="polite"></div>
+          <section class="card contract-section" id="contract-two">
+            <div class="section-heading"><div><span class="step-number">02</span><h2>合約二｜露營車廂租賃合約</h2></div><p>先帶入上一份資料，再填寫費用。</p></div>
+            <div class="copy-contract-row">
+              <button id="copy-first-contract" class="button primary" type="button">帶入合約一資料</button>
+              <span id="copy-first-contract-status" class="status-line" role="status">姓名、電話、證件、租期與地點可一次帶入。</span>
+            </div>
+            <div id="cabin-fields" class="form-grid contract-fields" aria-label="露營車廂租賃合約資料"></div>
             <label class="reward-option">
               <input id="reward-bundle-selected" type="checkbox" />
               <span><strong>參加五星評價回饋活動</strong><small>選擇免費體驗網美露營套組／影音娛樂套組（原租賃費 NT$3,800）；交車時依活動說明完成附圖評論或社群打卡。</small></span>
             </label>
-            <div class="contract-consents" aria-label="兩份契約分別確認">
-              <label class="check-row"><input id="vehicle-contract-read" type="checkbox" /><span>我已閱讀並同意第一份「K2500 車體借車合約」的全部內容，並了解本部分為無償借用。</span></label>
-              <label class="check-row"><input id="cabin-contract-read" type="checkbox" /><span>我已閱讀並同意第二份「露營車廂租賃合約」的全部內容，並了解租金對應藍色露營車廂與隨車設備。</span></label>
-            </div>
+            <div id="cabin-contract-text" class="contract-text" aria-live="polite"></div>
+            <label class="check-row"><input id="cabin-contract-read" type="checkbox" /><span>我已閱讀並同意「露營車廂租賃合約」的全部內容。</span></label>
           </section>
 
           <section class="card" id="identity-documents">

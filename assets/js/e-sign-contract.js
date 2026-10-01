@@ -6,12 +6,39 @@
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const adminView = $("#admin-view");
   const signerView = $("#signer-view");
+  const vehicleFieldDefinitions = [
+    { key: "customerName", label: "借用人姓名", autocomplete: "name", required: true },
+    { key: "phone", label: "聯絡電話", inputmode: "tel", autocomplete: "tel", required: true },
+    { key: "birthDate", label: "出生年月日", type: "date" },
+    { key: "idNumber", label: "身分證／護照號碼", autocomplete: "off" },
+    { key: "address", label: "戶籍／聯絡地址", autocomplete: "street-address", full: true },
+    { key: "vehiclePlate", label: "借用車輛車牌" },
+    { key: "vehicleDescription", label: "借用車輛／車型" },
+    { key: "rentalStartDate", label: "借用開始日期", type: "date", required: true },
+    { key: "rentalStartTime", label: "開始時間", type: "time" },
+    { key: "rentalEndDate", label: "借用結束日期", type: "date", required: true },
+    { key: "rentalEndTime", label: "結束時間", type: "time" },
+    { key: "deliveryLocation", label: "交車地點", full: true },
+    { key: "returnLocation", label: "還車地點", full: true }
+  ];
+  const cabinFieldDefinitions = [
+    { key: "cabinCustomerName", source: "customerName", label: "承租人姓名", autocomplete: "name", required: true },
+    { key: "cabinPhone", source: "phone", label: "聯絡電話", inputmode: "tel", autocomplete: "tel", required: true },
+    { key: "cabinBirthDate", source: "birthDate", label: "出生年月日", type: "date" },
+    { key: "cabinIdNumber", source: "idNumber", label: "身分證／護照號碼", autocomplete: "off" },
+    { key: "cabinAddress", source: "address", label: "戶籍／聯絡地址", autocomplete: "street-address", full: true },
+    { key: "cabinRentalStartDate", source: "rentalStartDate", label: "租賃開始日期", type: "date", required: true },
+    { key: "cabinRentalStartTime", source: "rentalStartTime", label: "開始時間", type: "time" },
+    { key: "cabinRentalEndDate", source: "rentalEndDate", label: "租賃結束日期", type: "date", required: true },
+    { key: "cabinRentalEndTime", source: "rentalEndTime", label: "結束時間", type: "time" },
+    { key: "cabinDeliveryLocation", source: "deliveryLocation", label: "交付地點", full: true },
+    { key: "cabinReturnLocation", source: "returnLocation", label: "返還地點", full: true },
+    { key: "rentalFee", label: "露營車廂與設備租金", placeholder: "例如 NT$13,800" },
+    { key: "reservationDeposit", label: "預約訂金", placeholder: "依本次預約" },
+    { key: "securityDeposit", label: "還車結算押金", placeholder: "例如 NT$5,000" }
+  ];
+  const fieldLabels = Object.fromEntries([...vehicleFieldDefinitions, ...cabinFieldDefinitions].map((field) => [field.key, field.label]));
   const criticalKeys = new Set(["rentalStartDate", "rentalStartTime", "rentalEndDate", "rentalEndTime", "deliveryLocation", "returnLocation", "rentalFee", "reservationDeposit", "securityDeposit"]);
-  const fieldLabels = {
-    customerName: "承租人姓名", phone: "聯絡電話", birthDate: "出生年月日", idNumber: "身分證／護照號碼", address: "戶籍／聯絡地址",
-    rentalStartDate: "租借開始日期", rentalStartTime: "開始時間", rentalEndDate: "租借結束日期", rentalEndTime: "結束時間",
-    deliveryLocation: "交車地點", returnLocation: "還車地點", rentalFee: "第二份｜車廂設備租金", reservationDeposit: "第二份｜預約訂金", securityDeposit: "第二份｜還車結算押金"
-  };
   let draft = null;
   let originalDraft = null;
   let draftToken = "";
@@ -160,14 +187,42 @@
     });
   }
 
-  function makeSignerField(key, value) {
+  function makeSignerField(definition, value) {
+    const { key, label: labelText, type = "text", inputmode, autocomplete, placeholder, required, full } = definition;
     const label = document.createElement("label");
-    if (key === "address" || key === "deliveryLocation" || key === "returnLocation") label.className = "full";
-    const type = key.includes("Date") ? "date" : key.includes("Time") ? "time" : key === "phone" ? "tel" : "text";
-    label.innerHTML = `<span>${fieldLabels[key]}</span><input name="${key}" type="${type}" />`;
-    $("input", label).value = value || "";
-    if (["customerName", "phone", "rentalStartDate", "rentalEndDate"].includes(key)) $("input", label).required = true;
+    if (full) label.className = "full";
+    label.innerHTML = `<span>${labelText}</span><input name="${key}" type="${type}" />`;
+    const input = $("input", label);
+    input.value = value || "";
+    if (inputmode) input.inputMode = inputmode;
+    if (autocomplete) input.autocomplete = autocomplete;
+    if (placeholder) input.placeholder = placeholder;
+    if (required) input.required = true;
     return label;
+  }
+
+  function editableSignerData() {
+    const values = collectForm($("#signer-form"));
+    const cabin = Object.fromEntries(cabinFieldDefinitions
+      .filter((field) => field.source)
+      .map((field) => [field.source, values[field.key] || ""]));
+    return {
+      ...draft,
+      ...values,
+      vehicle: {
+        ...(draft?.vehicle || {}),
+        plate: values.vehiclePlate || "",
+        description: values.vehicleDescription || ""
+      },
+      cabin,
+      rewardBundleSelected: $("#reward-bundle-selected")?.checked || false
+    };
+  }
+
+  function originalDraftValue(key) {
+    if (key === "vehiclePlate") return originalDraft?.vehicle?.plate || "";
+    if (key === "vehicleDescription") return originalDraft?.vehicle?.description || "";
+    return originalDraft?.[key] || "";
   }
 
   function buildSigner(encoded) {
@@ -180,17 +235,31 @@
     originalDraft = structuredClone(draft);
     draftToken = crypto.randomUUID().replaceAll("-", "").slice(0, 20);
     signerView.hidden = false;
-    const fieldRoot = $("#signer-fields");
-    Object.keys(fieldLabels).forEach((key) => fieldRoot.append(makeSignerField(key, draft[key])));
-    renderContractText(draft);
-    fieldRoot.addEventListener("input", (event) => {
-      if (criticalKeys.has(event.target.name) && event.target.value !== String(originalDraft[event.target.name] || "")) {
-        $("#critical-change-warning").hidden = false;
-      }
-      renderContractText({ ...draft, ...collectForm($("#signer-form")) });
+    const vehicleFieldRoot = $("#vehicle-fields");
+    const cabinFieldRoot = $("#cabin-fields");
+    vehicleFieldDefinitions.forEach((field) => {
+      const value = field.key === "vehiclePlate" ? draft.vehicle?.plate : field.key === "vehicleDescription" ? draft.vehicle?.description : draft[field.key];
+      vehicleFieldRoot.append(makeSignerField(field, value));
+    });
+    cabinFieldDefinitions.forEach((field) => {
+      const value = field.source ? draft.cabin?.[field.source] : draft[field.key];
+      cabinFieldRoot.append(makeSignerField(field, value));
+    });
+    renderContractText(editableSignerData());
+    $("#signer-form").addEventListener("input", () => {
+      renderContractText(editableSignerData());
+    });
+    $("#copy-first-contract").addEventListener("click", () => {
+      cabinFieldDefinitions.filter((field) => field.source).forEach((field) => {
+        const source = $("#signer-form").elements.namedItem(field.source);
+        const target = $("#signer-form").elements.namedItem(field.key);
+        if (source && target) target.value = source.value;
+      });
+      $("#copy-first-contract-status").textContent = "已帶入合約一資料；請確認費用與回饋活動。";
+      renderContractText(editableSignerData());
     });
     $("#reward-bundle-selected").addEventListener("change", (event) => {
-      renderContractText({ ...draft, ...collectForm($("#signer-form")), rewardBundleSelected: event.target.checked });
+      renderContractText({ ...editableSignerData(), rewardBundleSelected: event.target.checked });
     });
     setupImageInput("document-front", "document-front-preview", (value) => { documentFront = value; });
     setupImageInput("document-back", "document-back-preview", (value) => { documentBack = value; });
@@ -202,8 +271,6 @@
   }
 
   function renderContractText(data) {
-    const root = $("#contract-text");
-    if (!root) return;
     const grouped = [];
     contractPageModels(data).forEach((model) => {
       let group = grouped.find((item) => item.partId === model.partId);
@@ -227,8 +294,9 @@
       }
       group.sections.push(...model.sections);
     });
-    root.replaceChildren();
     grouped.forEach((group) => {
+      const root = group.partId === "contract-vehicle" ? $("#vehicle-contract-text") : $("#cabin-contract-text");
+      if (!root) return;
       const article = document.createElement("article");
       article.className = "contract-document";
       article.id = group.partId;
@@ -297,15 +365,18 @@
         appendix.append(appendixImage, appendixCaption);
         article.append(appendix);
       }
-      root.append(article);
+      root.replaceChildren(article);
     });
   }
 
   function contractPageModels(data) {
     const provider = data.provider || {};
     const vehicle = data.vehicle || {};
+    const cabin = data.cabin || {};
     const rentalPeriod = `${data.rentalStartDate || "____-__-__"} ${data.rentalStartTime || "__:__"} 至 ${data.rentalEndDate || "____-__-__"} ${data.rentalEndTime || "__:__"}`;
+    const cabinRentalPeriod = `${cabin.rentalStartDate || "____-__-__"} ${cabin.rentalStartTime || "__:__"} 至 ${cabin.rentalEndDate || "____-__-__"} ${cabin.rentalEndTime || "__:__"}`;
     const customer = `${data.customerName || "____________"}｜證件號碼：${data.idNumber || "____________"}｜電話：${data.phone || "____________"}`;
+    const cabinCustomer = `${cabin.customerName || "____________"}｜證件號碼：${cabin.idNumber || "____________"}｜電話：${cabin.phone || "____________"}`;
     const providerLine = `${provider.name || "揪好森露營車出租"}${provider.role ? `（${provider.role}）` : ""}`;
     return [
       {
@@ -320,8 +391,8 @@
         title: "第一部分｜借車合約",
         subtitle: "借用車輛與行車責任",
         sections: [
-          { heading: "合約雙方", paragraphs: [`車輛提供方（甲方）：${providerLine}`, `車輛借用方（乙方）：${customer}`] },
-          { heading: "借用車輛", paragraphs: [`車牌：${vehicle.plate || "RBU-8280"}｜車型：${vehicle.description || "KIA 卡旺 2497cc 雙廂式"}`, `借用期間：${rentalPeriod}`] },
+          { heading: "合約雙方", paragraphs: [`車輛提供方（甲方）：${providerLine}`, `車輛借用方（乙方）：${customer}`, `乙方出生年月日：${data.birthDate || "____________"}｜戶籍／聯絡地址：${data.address || "____________"}`] },
+          { heading: "借用車輛", paragraphs: [`車牌：${vehicle.plate || "____________"}｜車型：${vehicle.description || "____________"}`, `借用期間：${rentalPeriod}`, `交車地點：${data.deliveryLocation || "____________"}`, `還車地點：${data.returnLocation || "____________"}`] },
           { heading: "借用內容", paragraphs: [
             "• 借用標的：K2500 車體、底盤、動力與行駛系統；不包含第二份契約的露營車廂與露營設備。",
             "• 借用費用：甲方將前述 K2500 車體無償借予乙方使用，本份契約不收取車輛租金。",
@@ -351,8 +422,7 @@
             "• 車輛借用期間如發生事故，乙方應立即通知甲方，甲方及時協助乙方向保險公司報案，乙方支付因此產生的一切費用。",
             "• 如屬保險賠付範圍，費用由保險公司承擔；屬保險責任免賠或其他原因導致保險公司拒賠的損失，由乙方承擔。如保險公司不受理此案，則由乙方全部負責，同時承擔車輛修理費、修理期間的經濟損失及與本案相關所產生的費用。"
           ] },
-          { heading: "甲方", paragraphs: [`姓名：${provider.name || ""}（${provider.role || "聯邦國際租賃股份有限公司桃園分公司租賃小貨車長租租用人"}）`, `出生年月日：${provider.birthDate || "民國 71 年 7 月 22 日"}`, `身分證字號：${provider.idNumber || "J122062030"}`, `聯絡電話：${provider.phone || "0911252302"}`, `戶籍地址：${provider.address || "桃園市中壢區元化路 95 巷 14 號 4 樓"}`, "甲方簽名：____________________"] },
-          { heading: "乙方", paragraphs: [`姓名：${data.customerName || "____________"}`, `出生年月日：${data.birthDate || "____________"}`, `身分證字號：${data.idNumber || "____________"}`, `聯絡電話：${data.phone || "____________"}`, `戶籍地址：${data.address || "____________"}`, "乙方簽名：見本電子文件每頁所附手寫電子簽名"] }
+          { heading: "雙方簽署", paragraphs: [`甲方：${provider.name || "揪好森露營車出租"}｜簽名：____________________`, `乙方：${data.customerName || "____________"}｜簽名：見本電子文件每頁所附手寫電子簽名`] }
         ]
       },
       {
@@ -367,10 +437,11 @@
         title: "第二部分｜露營車廂租賃合約",
         subtitle: "租賃標的、期間與費用",
         sections: [
-          { heading: "合約雙方", paragraphs: [`出租人（甲方）：${providerLine}`, `承租人（乙方）：${customer}`] },
+          { heading: "合約雙方", paragraphs: [`出租人（甲方）：${providerLine}`, `承租人（乙方）：${cabinCustomer}`, `乙方出生年月日：${cabin.birthDate || "____________"}｜戶籍／聯絡地址：${cabin.address || "____________"}`] },
           { heading: "租賃規定", paragraphs: [
             "租賃物：圖中藍色露營車廂及交車時點交的露營設備；不包含第一份契約無償借用的 K2500 車體。",
-            `租賃期間：${rentalPeriod}`,
+            `租賃期間：${cabinRentalPeriod}`,
+            `交付地點：${cabin.deliveryLocation || "____________"}｜返還地點：${cabin.returnLocation || "____________"}`,
             `露營車廂與設備租賃費用：${data.rentalFee || "____________"}｜預約訂金：${data.reservationDeposit || "____________"}｜還車結算押金：${data.securityDeposit || "____________"}`,
             "押金：新臺幣伍仟元整（還車時退還；扣除 ETC 或如有露營車廂、車體、設備損傷及其他未結清費用）。",
             "本票：無需本票。"
@@ -416,8 +487,7 @@
         title: "第二部分｜露營車廂租賃合約",
         subtitle: "雙方資料與電子簽署",
         sections: [
-          { heading: "甲方", paragraphs: [`姓名：${provider.name || ""}（${provider.role || "聯邦國際租賃股份有限公司桃園分公司租賃小貨車長租租用人"}）`, `出生年月日：${provider.birthDate || "民國 71 年 7 月 22 日"}`, `身分證字號：${provider.idNumber || "J122062030"}`, `聯絡電話：${provider.phone || "0911252302"}`, `戶籍地址：${provider.address || "桃園市中壢區元化路 95 巷 14 號 4 樓"}`, "甲方簽名：____________________"] },
-          { heading: "乙方", paragraphs: [`姓名：${data.customerName || "____________"}`, `出生年月日：${data.birthDate || "____________"}`, `身分證字號：${data.idNumber || "____________"}`, `聯絡電話：${data.phone || "____________"}`, `戶籍地址：${data.address || "____________"}`, "乙方簽名：見本電子文件每頁所附手寫電子簽名"] },
+          { heading: "雙方簽署", paragraphs: [`甲方：${provider.name || "揪好森露營車出租"}｜簽名：____________________`, `乙方：${cabin.customerName || "____________"}｜簽名：見本電子文件每頁所附手寫電子簽名`] },
           { heading: "電子簽署", paragraphs: ["乙方於本系統完成手寫簽名後，本份合約的文字、租賃標的圖片、資料確認頁、簽署時間、文件編號及電子簽名共同構成完整電子文件。"] }
         ]
       },
@@ -552,11 +622,6 @@
       ? "第一份契約標的是 K2500 車體、底盤、動力與行駛系統；不包含後方露營車廂與露營設備。車體由甲方無償借予乙方使用。"
       : "第二份契約標的是藍色露營車廂與交車時點交的露營設備；不包含前方 K2500 車體。租金、訂金與押金均記載在本份契約。";
     drawContractParagraph(ctx, scopeText, 90, 1140, 1060, 40);
-    ctx.fillStyle = "#eef5f1";
-    ctx.fillRect(80, 1320, 1080, 120);
-    ctx.fillStyle = "#29483e";
-    ctx.font = "700 24px -apple-system, sans-serif";
-    drawContractParagraph(ctx, "兩份契約在同一個電子流程填寫與簽署，但標的、費用及責任分開記載。", 110, 1370, 1020, 36);
     ctx.strokeStyle = "#b8c9c0";
     ctx.beginPath();
     ctx.moveTo(74, 1590);
@@ -694,11 +759,10 @@
     const values = collectForm($("#signer-form"));
     const changed = [];
     criticalKeys.forEach((key) => {
-      if (String(values[key] || "") !== String(originalDraft[key] || "")) changed.push(fieldLabels[key]);
+      if (String(values[key] || "") !== String(originalDraftValue(key))) changed.push(fieldLabels[key]);
     });
     return {
-      ...draft,
-      ...values,
+      ...editableSignerData(),
       changedFields: changed,
       documentType: $("#document-type").value,
       rewardBundleSelected: $("#reward-bundle-selected").checked,
@@ -749,12 +813,13 @@
     ctx.fillStyle = "#54615b";
     ctx.fillText(`簽署時間：${signedAt}`, 80, 354);
 
+    const commonSource = copyType === "cabin" ? (data.cabin || {}) : data;
     const commonRows = [
-      ["承租人姓名", data.customerName], ["聯絡電話", data.phone], ["出生年月日", data.birthDate], ["證件號碼", data.idNumber],
-      ["聯絡地址", data.address], ["租借期間", `${data.rentalStartDate || ""} ${data.rentalStartTime || ""} 至 ${data.rentalEndDate || ""} ${data.rentalEndTime || ""}`],
-      ["交車地點", data.deliveryLocation], ["還車地點", data.returnLocation]
+      [copyType === "vehicle" ? "借用人姓名" : "承租人姓名", commonSource.customerName], ["聯絡電話", commonSource.phone], ["出生年月日", commonSource.birthDate], ["證件號碼", commonSource.idNumber],
+      ["聯絡地址", commonSource.address], [copyType === "vehicle" ? "借用期間" : "租賃期間", `${commonSource.rentalStartDate || ""} ${commonSource.rentalStartTime || ""} 至 ${commonSource.rentalEndDate || ""} ${commonSource.rentalEndTime || ""}`],
+      [copyType === "vehicle" ? "交車地點" : "交付地點", commonSource.deliveryLocation], [copyType === "vehicle" ? "還車地點" : "返還地點", commonSource.returnLocation]
     ];
-    const vehicleRows = [["借用標的", "K2500 車體、底盤、動力與行駛系統"], ["車體借用費用", "無償（NT$0）"]];
+    const vehicleRows = [["借用車輛", `${data.vehicle?.plate || "—"}｜${data.vehicle?.description || "—"}`], ["車體借用費用", "無償（NT$0）"]];
     const cabinRows = [
       ["租賃標的", "藍色露營車廂與交車時點交設備"],
       ["車廂設備租金", data.rentalFee],
