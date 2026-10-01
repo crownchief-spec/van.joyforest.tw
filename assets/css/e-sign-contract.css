@@ -105,9 +105,6 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 .notice { margin-top: 1rem; padding: .9rem 1rem; border-radius: .9rem; line-height: 1.55; }
 .notice.warning { border-left: 4px solid var(--warning-line); background: var(--warning); }
 .notice.privacy { background: #edf2ef; color: #43504a; }
-.notice.contract-separation { display: grid; gap: .25rem; margin: 0 0 1rem; border-left: 4px solid var(--forest-2); background: #eef8f3; color: #29483e; }
-.notice.contract-separation strong { color: var(--forest); }
-
 .contract-jump { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin-bottom: 1rem; }
 .contract-jump a { display: grid; gap: .22rem; min-height: 7.2rem; padding: 1rem; border: 1px solid #bad0c5; border-radius: 1rem; background: #f4faf7; color: var(--ink); text-decoration: none; }
 .contract-jump a:hover, .contract-jump a:focus-visible { border-color: var(--forest-2); box-shadow: 0 0 0 3px rgba(39,109,85,.12); }
