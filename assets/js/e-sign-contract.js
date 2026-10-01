@@ -1159,9 +1159,41 @@
     };
   }
 
+  async function buildTodaySigner() {
+    const loading = document.createElement("section");
+    loading.className = "page-shell";
+    loading.innerHTML = '<section class="card"><h1>正在帶入最近一位客人資料</h1><p class="status-line">正在重新讀取露營車行事曆，請稍候。</p></section>';
+    document.querySelector("main")?.prepend(loading);
+    try {
+      const response = await fetch(`/api/e-sign-contract-today?refresh=${Date.now()}`, {
+        cache: "no-store",
+        headers: { "X-Joyforest-Contract-Mode": "today" },
+      });
+      if (!response.ok) {
+        const payload = await response.json().catch(() => ({}));
+        if (payload.error === "no_upcoming_booking") throw new Error("目前行事曆沒有找到今天或接下來的正式露營車預約。");
+        throw new Error("目前無法讀取露營車行事曆，請稍後重新整理。");
+      }
+      const payload = await response.json();
+      loading.remove();
+      buildSigner(encodeDraft(payload.draft));
+    } catch (error) {
+      const status = $(".status-line", loading);
+      status.className = "status-line error";
+      status.textContent = error.message;
+      const link = document.createElement("a");
+      link.className = "button outline";
+      link.href = "/pages/e-sign-contract";
+      link.textContent = "改開空白合約";
+      $(".card", loading)?.append(link);
+    }
+  }
+
   const queryContract = new URLSearchParams(location.search).get("contract");
   const hashMatch = location.hash.match(/^#contract=(.+)$/);
-  if (queryContract) buildSigner(queryContract);
+  const todayContractPage = /\/pages\/e-sign-contract-today(?:\.html)?\/?$/.test(location.pathname);
+  if (todayContractPage) buildTodaySigner();
+  else if (queryContract) buildSigner(queryContract);
   else if (hashMatch) buildSigner(hashMatch[1]);
   else if (location.hostname.endsWith("joyforest.tw")) buildSigner(encodeDraft(directPublicDraft()));
   else buildAdmin();

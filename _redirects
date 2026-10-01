@@ -9,3 +9,5 @@
 /blog/*                  /pages/resources      301
 /en/blog                 /en/pages/resources   301
 /en/blog/*               /en/pages/resources   301
+/pages/e-sign-contract-today.html  /pages/e-sign-contract-today  301
+/pages/e-sign-contract-today       /pages/e-sign-contract.html   200
