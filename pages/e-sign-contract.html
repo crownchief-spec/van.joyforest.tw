@@ -8,9 +8,9 @@
     <link rel="canonical" href="https://van.joyforest.tw/pages/e-sign-contract" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E🌲%3C/text%3E%3C/svg%3E" />
     <title>露營車電子合約｜揪好森露營車出租</title>
-    <link rel="stylesheet" href="/assets/css/e-sign-contract.css?v=20261001-6" />
+    <link rel="stylesheet" href="/assets/css/e-sign-contract.css?v=20261001-7" />
     <script defer src="/assets/vendor/pdf-lib.min.js"></script>
-    <script defer src="/assets/js/e-sign-contract.js?v=20261001-6"></script>
+    <script defer src="/assets/js/e-sign-contract.js?v=20261001-7"></script>
   </head>
   <body>
     <header class="site-header">
@@ -80,23 +80,11 @@
 
       <section id="signer-view" class="page-shell signer-shell" hidden>
         <form id="signer-form" class="stack" novalidate>
-          <section class="card contract-section" id="contract-one">
-            <div class="section-heading"><div><span class="step-number">01</span><h2>合約一｜借車合約</h2></div><p>請填寫借用資料並閱讀合約。</p></div>
-            <div id="vehicle-fields" class="form-grid contract-fields" aria-label="借車合約資料"></div>
+          <section class="contract-flow-section" id="contract-one" aria-label="第一份契約：借車合約">
             <div id="vehicle-contract-text" class="contract-text" aria-live="polite"></div>
           </section>
 
-          <section class="card contract-section" id="contract-two">
-            <div class="section-heading"><div><span class="step-number">02</span><h2>合約二｜露營車廂租賃合約</h2></div><p>先帶入上一份資料，再填寫費用。</p></div>
-            <div class="copy-contract-row">
-              <button id="copy-first-contract" class="button primary" type="button">帶入合約一資料</button>
-              <span id="copy-first-contract-status" class="status-line" role="status">姓名、電話、證件、租期與地點可一次帶入。</span>
-            </div>
-            <div id="cabin-fields" class="form-grid contract-fields" aria-label="露營車廂租賃合約資料"></div>
-            <label class="reward-option">
-              <input id="reward-bundle-selected" type="checkbox" />
-              <span><strong>參加五星評價回饋活動</strong><small>選擇免費體驗網美露營套組／影音娛樂套組（原租賃費 NT$3,800）；交車時依活動說明完成附圖評論或社群打卡。</small></span>
-            </label>
+          <section class="contract-flow-section" id="contract-two" aria-label="第二份契約：露營車廂租賃合約">
             <div id="cabin-contract-text" class="contract-text" aria-live="polite"></div>
           </section>
 

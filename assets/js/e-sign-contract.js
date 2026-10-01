@@ -7,11 +7,11 @@
   const adminView = $("#admin-view");
   const signerView = $("#signer-view");
   const vehicleFieldDefinitions = [
-    { key: "customerName", label: "借用人姓名", autocomplete: "name", required: true },
-    { key: "phone", label: "聯絡電話", inputmode: "tel", autocomplete: "tel", required: true },
-    { key: "birthDate", label: "出生年月日", type: "date" },
-    { key: "idNumber", label: "身分證／護照號碼", autocomplete: "off" },
-    { key: "address", label: "戶籍／聯絡地址", autocomplete: "street-address", full: true },
+    { key: "customerName", label: "車輛借用方（乙方）", autocomplete: "name", required: true },
+    { key: "phone", label: "電話", inputmode: "tel", autocomplete: "tel", required: true },
+    { key: "birthDate", label: "乙方出生年月日", type: "date" },
+    { key: "idNumber", label: "證件號碼", autocomplete: "off" },
+    { key: "address", label: "乙方戶籍／聯絡地址", autocomplete: "street-address", full: true },
     { key: "vehiclePlate", label: "借用車輛車牌" },
     { key: "vehicleDescription", label: "借用車輛／車型" },
     { key: "rentalStartDate", label: "借用開始日期", type: "date", required: true },
@@ -22,11 +22,11 @@
     { key: "returnLocation", label: "還車地點", full: true }
   ];
   const cabinFieldDefinitions = [
-    { key: "cabinCustomerName", source: "customerName", label: "承租人姓名", autocomplete: "name", required: true },
-    { key: "cabinPhone", source: "phone", label: "聯絡電話", inputmode: "tel", autocomplete: "tel", required: true },
-    { key: "cabinBirthDate", source: "birthDate", label: "出生年月日", type: "date" },
-    { key: "cabinIdNumber", source: "idNumber", label: "身分證／護照號碼", autocomplete: "off" },
-    { key: "cabinAddress", source: "address", label: "戶籍／聯絡地址", autocomplete: "street-address", full: true },
+    { key: "cabinCustomerName", source: "customerName", label: "承租人（乙方）", autocomplete: "name", required: true },
+    { key: "cabinPhone", source: "phone", label: "電話", inputmode: "tel", autocomplete: "tel", required: true },
+    { key: "cabinBirthDate", source: "birthDate", label: "乙方出生年月日", type: "date" },
+    { key: "cabinIdNumber", source: "idNumber", label: "證件號碼", autocomplete: "off" },
+    { key: "cabinAddress", source: "address", label: "乙方戶籍／聯絡地址", autocomplete: "street-address", full: true },
     { key: "cabinRentalStartDate", source: "rentalStartDate", label: "租賃開始日期", type: "date", required: true },
     { key: "cabinRentalStartTime", source: "rentalStartTime", label: "開始時間", type: "time" },
     { key: "cabinRentalEndDate", source: "rentalEndDate", label: "租賃結束日期", type: "date", required: true },
@@ -37,6 +37,7 @@
     { key: "reservationDeposit", label: "預約訂金", placeholder: "依本次預約" },
     { key: "securityDeposit", label: "還車結算押金", placeholder: "例如 NT$5,000" }
   ];
+  const signerFieldDefinitions = new Map([...vehicleFieldDefinitions, ...cabinFieldDefinitions].map((field) => [field.key, field]));
   const fieldLabels = Object.fromEntries([...vehicleFieldDefinitions, ...cabinFieldDefinitions].map((field) => [field.key, field.label]));
   const criticalKeys = new Set(["rentalStartDate", "rentalStartTime", "rentalEndDate", "rentalEndTime", "deliveryLocation", "returnLocation", "rentalFee", "reservationDeposit", "securityDeposit"]);
   let draft = null;
@@ -201,6 +202,13 @@
     return label;
   }
 
+  function signerFieldValue(data, definition) {
+    if (definition.key === "vehiclePlate") return data.vehicle?.plate || "";
+    if (definition.key === "vehicleDescription") return data.vehicle?.description || "";
+    if (definition.source) return data.cabin?.[definition.source] || data[definition.key] || "";
+    return data[definition.key] || "";
+  }
+
   function editableSignerData() {
     const values = collectForm($("#signer-form"));
     const cabin = Object.fromEntries(cabinFieldDefinitions
@@ -235,19 +243,11 @@
     originalDraft = structuredClone(draft);
     draftToken = crypto.randomUUID().replaceAll("-", "").slice(0, 20);
     signerView.hidden = false;
-    const vehicleFieldRoot = $("#vehicle-fields");
-    const cabinFieldRoot = $("#cabin-fields");
-    vehicleFieldDefinitions.forEach((field) => {
-      const value = field.key === "vehiclePlate" ? draft.vehicle?.plate : field.key === "vehicleDescription" ? draft.vehicle?.description : draft[field.key];
-      vehicleFieldRoot.append(makeSignerField(field, value));
-    });
-    cabinFieldDefinitions.forEach((field) => {
-      const value = field.source ? draft.cabin?.[field.source] : draft[field.key];
-      cabinFieldRoot.append(makeSignerField(field, value));
-    });
-    renderContractText(editableSignerData());
-    $("#signer-form").addEventListener("input", () => {
-      renderContractText(editableSignerData());
+    renderContractText({
+      ...draft,
+      vehicle: { ...(draft.vehicle || {}) },
+      cabin: { ...(draft.cabin || {}) },
+      rewardBundleSelected: Boolean(draft.rewardBundleSelected)
     });
     $("#copy-first-contract").addEventListener("click", () => {
       cabinFieldDefinitions.filter((field) => field.source).forEach((field) => {
@@ -255,11 +255,7 @@
         const target = $("#signer-form").elements.namedItem(field.key);
         if (source && target) target.value = source.value;
       });
-      $("#copy-first-contract-status").textContent = "已帶入合約一資料；請確認費用與回饋活動。";
-      renderContractText(editableSignerData());
-    });
-    $("#reward-bundle-selected").addEventListener("change", (event) => {
-      renderContractText({ ...editableSignerData(), rewardBundleSelected: event.target.checked });
+      $("#copy-first-contract-status").textContent = "已帶入第一份契約資料，請確認內容與費用。";
     });
     setupImageInput("document-front", "document-front-preview", (value) => { documentFront = value; });
     setupImageInput("document-back", "document-back-preview", (value) => { documentBack = value; });
@@ -339,12 +335,53 @@
         const heading = document.createElement("h4");
         heading.textContent = section.heading;
         clause.append(heading);
-        section.paragraphs.forEach((paragraph) => {
+        (section.screenParagraphs || section.paragraphs).forEach((paragraph) => {
           const text = document.createElement("p");
           text.textContent = paragraph;
           if (String(paragraph).trim().startsWith("•")) text.dataset.listItem = "true";
           clause.append(text);
         });
+        if (section.copyFromPrevious) {
+          const copyRow = document.createElement("div");
+          copyRow.className = "copy-contract-row";
+          const copyButton = document.createElement("button");
+          copyButton.id = "copy-first-contract";
+          copyButton.className = "button primary";
+          copyButton.type = "button";
+          copyButton.textContent = "帶入第一份契約資料";
+          const copyStatus = document.createElement("span");
+          copyStatus.id = "copy-first-contract-status";
+          copyStatus.className = "status-line";
+          copyStatus.role = "status";
+          copyStatus.textContent = "姓名、電話、證件、租期與地點可一次帶入。";
+          copyRow.append(copyButton, copyStatus);
+          clause.append(copyRow);
+        }
+        if (section.fieldKeys?.length) {
+          const fieldGrid = document.createElement("div");
+          fieldGrid.className = "form-grid contract-inline-fields";
+          section.fieldKeys.forEach((key) => {
+            const definition = signerFieldDefinitions.get(key);
+            if (definition) fieldGrid.append(makeSignerField(definition, signerFieldValue(data, definition)));
+          });
+          clause.append(fieldGrid);
+        }
+        if (section.rewardOption) {
+          const reward = document.createElement("label");
+          reward.className = "reward-option";
+          const rewardInput = document.createElement("input");
+          rewardInput.id = "reward-bundle-selected";
+          rewardInput.type = "checkbox";
+          rewardInput.checked = Boolean(data.rewardBundleSelected);
+          const rewardText = document.createElement("span");
+          const rewardTitle = document.createElement("strong");
+          rewardTitle.textContent = "參加五星評價回饋活動";
+          const rewardHelp = document.createElement("small");
+          rewardHelp.textContent = "免費體驗網美露營套組／影音娛樂套組（原租賃費 NT$3,800）；交車時依活動說明完成附圖評論或社群打卡。";
+          rewardText.append(rewardTitle, rewardHelp);
+          reward.append(rewardInput, rewardText);
+          clause.append(reward);
+        }
         body.append(clause);
       });
       article.append(header, scopeFigure, body);
@@ -397,11 +434,21 @@
         illustrationAlt: "深灰色標示 KIA 卡旺 K2500 車體、底盤與行駛系統，後方露營車廂以淺色呈現",
         scopeType: "vehicle",
         scopeCaption: "第一份契約標的是前方 KIA 卡旺 K2500 車體、底盤、動力與行駛系統；不包含後方露營車廂與露營設備。",
-        title: "第一部分｜借車合約",
+        title: "借車合約",
         subtitle: "借用車輛與行車責任",
         sections: [
-          { heading: "合約雙方", paragraphs: [`車輛提供方（甲方）：${providerLine}`, `車輛借用方（乙方）：${customer}`, `乙方出生年月日：${data.birthDate || "____________"}｜戶籍／聯絡地址：${data.address || "____________"}`] },
-          { heading: "借用車輛", paragraphs: [`車牌：${vehicle.plate || "____________"}｜車型：${vehicle.description || "____________"}`, `借用期間：${rentalPeriod}`, `交車地點：${data.deliveryLocation || "____________"}`, `還車地點：${data.returnLocation || "____________"}`] },
+          {
+            heading: "合約雙方",
+            paragraphs: [`車輛提供方（甲方）：${providerLine}`, `車輛借用方（乙方）：${customer}`, `乙方出生年月日：${data.birthDate || "____________"}｜戶籍／聯絡地址：${data.address || "____________"}`],
+            screenParagraphs: [`車輛提供方（甲方）：${providerLine}`],
+            fieldKeys: ["customerName", "phone", "birthDate", "idNumber", "address"]
+          },
+          {
+            heading: "借用車輛",
+            paragraphs: [`車牌：${vehicle.plate || "____________"}｜車型：${vehicle.description || "____________"}`, `借用期間：${rentalPeriod}`, `交車地點：${data.deliveryLocation || "____________"}`, `還車地點：${data.returnLocation || "____________"}`],
+            screenParagraphs: [],
+            fieldKeys: ["vehiclePlate", "vehicleDescription", "rentalStartDate", "rentalStartTime", "rentalEndDate", "rentalEndTime", "deliveryLocation", "returnLocation"]
+          },
           { heading: "借用內容", paragraphs: [
             "• 借用標的：KIA 卡旺 K2500 車體、底盤、動力與行駛系統；不包含第二份契約的露營車廂與露營設備。",
             "• 借用費用：甲方將前述 KIA 卡旺 K2500 車體無償借予乙方使用，本份契約不收取車輛租金。",
@@ -421,8 +468,8 @@
         illustrationAlt: "深灰色標示 KIA 卡旺 K2500 車體、底盤與行駛系統，後方露營車廂以淺色呈現",
         scopeType: "vehicle",
         scopeCaption: "第一份契約標的是前方 KIA 卡旺 K2500 車體、底盤、動力與行駛系統；不包含後方露營車廂與露營設備。",
-        title: "第一部分｜借車合約",
-        subtitle: "故障、事故與雙方資料",
+        title: "借車合約",
+        subtitle: "故障與事故處理",
         sections: [
           { heading: "車況與故障", paragraphs: [
             "• 交還時應保證車輛運行良好。車輛使用過程中出現故障或異常，乙方應及時通知甲方，並將本車輛運至甲方指定維修廠進行檢查維修。乙方不得拆卸或更換原車裝置及零件；因非正常使用造成的事故責任及損失費用，均由乙方承擔。"
@@ -430,34 +477,6 @@
           { heading: "事故與保險", paragraphs: [
             "• 車輛借用期間如發生事故，乙方應立即通知甲方，甲方及時協助乙方向保險公司報案，乙方支付因此產生的一切費用。",
             "• 如屬保險賠付範圍，費用由保險公司承擔；屬保險責任免賠或其他原因導致保險公司拒賠的損失，由乙方承擔。如保險公司不受理此案，則由乙方全部負責，同時承擔車輛修理費、修理期間的經濟損失及與本案相關所產生的費用。"
-          ] },
-          { heading: "雙方簽署", paragraphs: [`甲方：${provider.name || "揪好森露營車出租"}｜簽名：____________________`, `乙方：${data.customerName || "____________"}｜簽名：見本電子文件每頁所附手寫電子簽名`] }
-        ]
-      },
-      {
-        partId: "contract-cabin",
-        partNumber: "第二份契約",
-        partTitle: "露營車廂租賃合約",
-        partSummary: "藍色露營車廂與露營設備有償租賃，規範租金、使用方式、返還與損害責任。",
-        illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
-        illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
-        scopeType: "cabin",
-        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 KIA 卡旺 K2500 車體。",
-        title: "第二部分｜露營車廂租賃合約",
-        subtitle: "租賃標的、期間與費用",
-        sections: [
-          { heading: "合約雙方", paragraphs: [`出租人（甲方）：${providerLine}`, `承租人（乙方）：${cabinCustomer}`, `乙方出生年月日：${cabin.birthDate || "____________"}｜戶籍／聯絡地址：${cabin.address || "____________"}`] },
-          { heading: "租賃規定", paragraphs: [
-            "租賃物：圖中藍色露營車廂及交車時點交的露營設備；不包含第一份契約無償借用的 KIA 卡旺 K2500 車體。",
-            `租賃期間：${cabinRentalPeriod}`,
-            `交付地點：${cabin.deliveryLocation || "____________"}｜返還地點：${cabin.returnLocation || "____________"}`,
-            `露營車廂與設備租賃費用：${data.rentalFee || "____________"}｜預約訂金：${data.reservationDeposit || "____________"}｜還車結算押金：${data.securityDeposit || "____________"}`,
-            "押金：新臺幣伍仟元整（還車時退還；扣除 ETC 或如有露營車廂、車體、設備損傷及其他未結清費用）。",
-            "本票：無需本票。"
-          ] },
-          { heading: "五星評價回饋活動", paragraphs: [
-            "網美露營套組／影音娛樂套組優惠免費體驗免租金（原租賃費用 NT$3,800）。交車時完成評論附圖：Google 地圖商家兩則五星評論，或 Google 地圖商家五星評論及 Instagram 追蹤、發文標註各一則。",
-            `本次選擇：${data.rewardBundleSelected ? "☑ 參加五星評價回饋活動並體驗套組" : "☐ 未選擇參加五星評價回饋活動"}`
           ] }
         ]
       },
@@ -470,7 +489,54 @@
         illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
         scopeType: "cabin",
         scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 KIA 卡旺 K2500 車體。",
-        title: "第二部分｜露營車廂租賃合約",
+        title: "露營車廂租賃合約",
+        subtitle: "租賃標的、期間與費用",
+        sections: [
+          {
+            heading: "合約雙方",
+            paragraphs: [`出租人（甲方）：${providerLine}`, `承租人（乙方）：${cabinCustomer}`, `乙方出生年月日：${cabin.birthDate || "____________"}｜戶籍／聯絡地址：${cabin.address || "____________"}`],
+            screenParagraphs: [`出租人（甲方）：${providerLine}`],
+            copyFromPrevious: true,
+            fieldKeys: ["cabinCustomerName", "cabinPhone", "cabinBirthDate", "cabinIdNumber", "cabinAddress"]
+          },
+          {
+            heading: "租賃規定",
+            paragraphs: [
+              "租賃物：圖中藍色露營車廂及交車時點交的露營設備；不包含第一份契約無償借用的 KIA 卡旺 K2500 車體。",
+              `租賃期間：${cabinRentalPeriod}`,
+              `交付地點：${cabin.deliveryLocation || "____________"}｜返還地點：${cabin.returnLocation || "____________"}`,
+              `露營車廂與設備租賃費用：${data.rentalFee || "____________"}｜預約訂金：${data.reservationDeposit || "____________"}｜還車結算押金：${data.securityDeposit || "____________"}`,
+              "押金：新臺幣伍仟元整（還車時退還；扣除 ETC 或如有露營車廂、車體、設備損傷及其他未結清費用）。",
+              "本票：無需本票。"
+            ],
+            screenParagraphs: [
+              "租賃物：圖中藍色露營車廂及交車時點交的露營設備；不包含第一份契約無償借用的 KIA 卡旺 K2500 車體。",
+              "押金：新臺幣伍仟元整（還車時退還；扣除 ETC 或如有露營車廂、車體、設備損傷及其他未結清費用）。",
+              "本票：無需本票。"
+            ],
+            fieldKeys: ["cabinRentalStartDate", "cabinRentalStartTime", "cabinRentalEndDate", "cabinRentalEndTime", "cabinDeliveryLocation", "cabinReturnLocation", "rentalFee", "reservationDeposit", "securityDeposit"]
+          },
+          {
+            heading: "五星評價回饋活動",
+            paragraphs: [
+              "網美露營套組／影音娛樂套組優惠免費體驗免租金（原租賃費用 NT$3,800）。交車時完成評論附圖：Google 地圖商家兩則五星評論，或 Google 地圖商家五星評論及 Instagram 追蹤、發文標註各一則。",
+              `本次選擇：${data.rewardBundleSelected ? "☑ 參加五星評價回饋活動並體驗套組" : "☐ 未選擇參加五星評價回饋活動"}`
+            ],
+            screenParagraphs: ["網美露營套組／影音娛樂套組優惠免費體驗免租金（原租賃費用 NT$3,800）。交車時完成評論附圖：Google 地圖商家兩則五星評論，或 Google 地圖商家五星評論及 Instagram 追蹤、發文標註各一則。"],
+            rewardOption: true
+          }
+        ]
+      },
+      {
+        partId: "contract-cabin",
+        partNumber: "第二份契約",
+        partTitle: "露營車廂租賃合約",
+        partSummary: "藍色露營車廂與露營設備有償租賃，規範租金、使用方式、返還與損害責任。",
+        illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
+        illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
+        scopeType: "cabin",
+        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 KIA 卡旺 K2500 車體。",
+        title: "露營車廂租賃合約",
         subtitle: "使用、事故與賠償責任",
         sections: [
           { heading: "租賃內容", paragraphs: [
@@ -493,23 +559,7 @@
         illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
         scopeType: "cabin",
         scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 KIA 卡旺 K2500 車體。",
-        title: "第二部分｜露營車廂租賃合約",
-        subtitle: "雙方資料與電子簽署",
-        sections: [
-          { heading: "雙方簽署", paragraphs: [`甲方：${provider.name || "揪好森露營車出租"}｜簽名：____________________`, `乙方：${cabin.customerName || "____________"}｜簽名：見本電子文件每頁所附手寫電子簽名`] },
-          { heading: "電子簽署", paragraphs: ["乙方於本系統完成手寫簽名後，本份合約的文字、租賃標的圖片、資料確認頁、簽署時間、文件編號及電子簽名共同構成完整電子文件。"] }
-        ]
-      },
-      {
-        partId: "contract-cabin",
-        partNumber: "第二份契約",
-        partTitle: "露營車廂租賃合約",
-        partSummary: "藍色露營車廂與露營設備有償租賃，規範租金、使用方式、返還與損害責任。",
-        illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
-        illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
-        scopeType: "cabin",
-        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 KIA 卡旺 K2500 車體。",
-        title: "第二部分｜露營車廂租賃合約",
+        title: "露營車廂租賃合約",
         subtitle: "露營車廂外觀與內裝示意",
         visualAppendixImages: [
           {

@@ -103,13 +103,10 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 .notice { margin-top: 1rem; padding: .9rem 1rem; border-radius: .9rem; line-height: 1.55; }
 .notice.warning { border-left: 4px solid var(--warning-line); background: var(--warning); }
 .notice.privacy { background: #edf2ef; color: #43504a; }
-.contract-section { border-top: .45rem solid var(--forest-2); }
-#contract-one { border-top-color: #a6672d; }
-#contract-one .step-number { background: #f6e9db; color: #7c4f26; }
-#contract-two { border-top-color: #2d89ad; }
-#contract-two .step-number { background: #e1f2f8; color: #185b77; }
-.contract-fields { margin-bottom: 1rem; padding: 1rem; border: 1px solid #d7dfda; border-radius: 1rem; background: #f8faf8; }
-.copy-contract-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; padding: .85rem; border: 1px solid #b9d6c8; border-radius: 1rem; background: #edf7f2; }
+.contract-flow-section { min-width: 0; }
+.contract-inline-fields { margin-top: .9rem; }
+.contract-inline-fields label { min-width: 0; }
+.copy-contract-row { display: flex; align-items: center; gap: 1rem; margin: .8rem 0 1rem; padding: .85rem; border: 1px solid #b9d6c8; border-radius: 1rem; background: #edf7f2; }
 .copy-contract-row .status-line { margin: 0; }
 .contract-jump { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin-bottom: 1rem; }
 .contract-jump a { display: grid; gap: .22rem; min-height: 7.2rem; padding: 1rem; border: 1px solid #bad0c5; border-radius: 1rem; background: #f4faf7; color: var(--ink); text-decoration: none; }
@@ -117,7 +114,7 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 .contract-jump span { color: var(--forest-2); font-size: .76rem; font-weight: 900; letter-spacing: .08em; }
 .contract-jump strong { font-size: 1.18rem; }
 .contract-jump small { color: var(--muted); font-size: .84rem; line-height: 1.45; }
-.contract-text { display: grid; gap: 1rem; margin-top: 1rem; }
+.contract-text { display: grid; gap: 1rem; margin-top: 0; }
 .contract-document { scroll-margin-top: 5.5rem; overflow: hidden; border: 1px solid #cbd8d1; border-radius: 1.25rem; background: #fff; }
 .contract-document__header { padding: 1.2rem clamp(1rem, 3vw, 1.5rem); background: linear-gradient(135deg, #173f34, #286c55); color: #fff; }
 .contract-document__part { display: inline-block; margin-bottom: .35rem; color: #bde4d2; font-size: .75rem; font-weight: 900; letter-spacing: .1em; }
