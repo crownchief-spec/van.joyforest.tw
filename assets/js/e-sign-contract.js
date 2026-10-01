@@ -766,8 +766,6 @@
       changedFields: changed,
       documentType: $("#document-type").value,
       rewardBundleSelected: $("#reward-bundle-selected").checked,
-      vehicleContractRead: $("#vehicle-contract-read").checked,
-      cabinContractRead: $("#cabin-contract-read").checked,
       electronicConsent: $("#electronic-consent").checked,
       privacyConsent: $("#privacy-consent").checked
     };
@@ -860,12 +858,7 @@
 
     ctx.fillStyle = "#65716c";
     ctx.font = "22px -apple-system, sans-serif";
-    const readStatus = copyType === "vehicle"
-      ? `借車合約：${data.vehicleContractRead ? "已勾選" : "未勾選"}`
-      : copyType === "cabin"
-        ? `車廂租賃：${data.cabinContractRead ? "已勾選" : "未勾選"}`
-        : `借車：${data.vehicleContractRead ? "已勾選" : "未勾選"}｜車廂：${data.cabinContractRead ? "已勾選" : "未勾選"}`;
-    const consentText = `${readStatus}｜電子簽署：${data.electronicConsent ? "已勾選" : "未勾選"}｜個資：${data.privacyConsent ? "已勾選" : "未勾選"}`;
+    const consentText = `電子簽署：${data.electronicConsent ? "已勾選" : "未勾選"}｜個資：${data.privacyConsent ? "已勾選" : "未勾選"}`;
     ctx.fillText(consentText, 80, 1450);
     ctx.fillStyle = "#1d2925";
     ctx.font = "700 24px -apple-system, sans-serif";
