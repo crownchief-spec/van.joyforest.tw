@@ -1165,16 +1165,13 @@
     loading.innerHTML = '<section class="card"><h1>正在帶入最近一位客人資料</h1><p class="status-line">正在重新讀取露營車行事曆，請稍候。</p></section>';
     document.querySelector("main")?.prepend(loading);
     try {
-      const response = await fetch(`/api/e-sign-contract-today?refresh=${Date.now()}`, {
-        cache: "no-store",
-        headers: { "X-Joyforest-Contract-Mode": "today" },
-      });
-      if (!response.ok) {
-        const payload = await response.json().catch(() => ({}));
-        if (payload.error === "no_upcoming_booking") throw new Error("目前行事曆沒有找到今天或接下來的正式露營車預約。");
-        throw new Error("目前無法讀取露營車行事曆，請稍後重新整理。");
-      }
-      const payload = await response.json();
+      const [sourceResponse, calendarModule] = await Promise.all([
+        fetch(`https://camp.8-ways.com/data/calendar-basic.ics?contract_today=${Date.now()}`, { cache: "no-store" }),
+        import("/assets/js/campervan-calendar-data.js?v=20261002-10"),
+      ]);
+      if (!sourceResponse.ok) throw new Error("目前無法讀取露營車行事曆，請稍後重新整理。");
+      const payload = calendarModule.buildTodayContractPayload(await sourceResponse.text());
+      if (!payload) throw new Error("目前行事曆沒有找到今天或接下來的正式露營車預約。");
       loading.remove();
       buildSigner(encodeDraft(payload.draft));
     } catch (error) {
