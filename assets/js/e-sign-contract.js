@@ -427,7 +427,7 @@
     return [
       {
         partId: "contract-vehicle",
-        partNumber: "第一份契約",
+        partNumber: "合約一",
         partTitle: "借車合約",
         partSummary: "KIA 卡旺 K2500 車體無償借用，規範合法駕駛、行車費用、車況、故障與交通事故處理。",
         illustrationSrc: "/assets/images/contract/kia-kawang-k2500-vehicle-scope-diagram-v2.webp",
@@ -461,7 +461,7 @@
       },
       {
         partId: "contract-vehicle",
-        partNumber: "第一份契約",
+        partNumber: "合約一",
         partTitle: "借車合約",
         partSummary: "KIA 卡旺 K2500 車體無償借用，規範合法駕駛、行車費用、車況、故障與交通事故處理。",
         illustrationSrc: "/assets/images/contract/kia-kawang-k2500-vehicle-scope-diagram-v2.webp",
@@ -482,7 +482,7 @@
       },
       {
         partId: "contract-cabin",
-        partNumber: "第二份契約",
+        partNumber: "合約二",
         partTitle: "露營車廂租賃合約",
         partSummary: "藍色露營車廂與露營設備有償租賃，規範租金、使用方式、返還與損害責任。",
         illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
@@ -529,7 +529,7 @@
       },
       {
         partId: "contract-cabin",
-        partNumber: "第二份契約",
+        partNumber: "合約二",
         partTitle: "露營車廂租賃合約",
         partSummary: "藍色露營車廂與露營設備有償租賃，規範租金、使用方式、返還與損害責任。",
         illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
@@ -552,7 +552,7 @@
       },
       {
         partId: "contract-cabin",
-        partNumber: "第二份契約",
+        partNumber: "合約二",
         partTitle: "露營車廂租賃合約",
         partSummary: "藍色露營車廂與露營設備有償租賃，規範租金、使用方式、返還與損害責任。",
         illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
@@ -639,7 +639,7 @@
     ctx.fillRect(0, 0, canvas.width, 210);
     ctx.fillStyle = "#ffffff";
     ctx.font = "800 52px -apple-system, sans-serif";
-    ctx.fillText(model.title, 74, 96);
+    ctx.fillText(`${model.partNumber}｜${model.title}`, 74, 96);
     ctx.font = "24px -apple-system, sans-serif";
     ctx.fillText(model.subtitle, 74, 145);
     ctx.fillText(`第 ${index + 1}／${total} 頁`, 1030, 145);

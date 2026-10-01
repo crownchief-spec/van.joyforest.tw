@@ -117,7 +117,7 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 .contract-text { display: grid; gap: 1rem; margin-top: 0; }
 .contract-document { scroll-margin-top: 5.5rem; overflow: hidden; border: 1px solid #cbd8d1; border-radius: 1.25rem; background: #fff; }
 .contract-document__header { padding: 1.2rem clamp(1rem, 3vw, 1.5rem); background: linear-gradient(135deg, #173f34, #286c55); color: #fff; }
-.contract-document__part { display: inline-block; margin-bottom: .35rem; color: #bde4d2; font-size: .75rem; font-weight: 900; letter-spacing: .1em; }
+.contract-document__part { display: inline-flex; align-items: center; min-height: 2rem; margin-bottom: .55rem; padding: .3rem .7rem; border: 1px solid rgba(255,255,255,.5); border-radius: 999px; background: rgba(255,255,255,.14); color: #fff; font-size: .9rem; font-weight: 900; letter-spacing: .08em; }
 .contract-document__header h3 { margin: 0; font-size: clamp(1.35rem, 3vw, 1.75rem); }
 .contract-document__header p { margin: .45rem 0 0; color: rgba(255,255,255,.82); line-height: 1.55; }
 .contract-scope-figure { margin: 0; padding: 1rem clamp(1rem, 3vw, 1.5rem); border-bottom: 1px solid var(--line); background: #f8faf8; }
