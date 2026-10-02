@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet" />
+  <meta name="theme-color" content="#174b3d" />
+  <title>訂車行事曆與合約｜揪好森露營車管理</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/admin.css?v=20261002-1" />
+</head>
+<body class="admin-page">
+  <main class="admin-app">
+    <p class="admin-banner">內部訂車資料｜僅供管理使用，請勿轉傳後台網址</p>
+    <header class="admin-header-row">
+      <div><h1 class="admin-title">訂車行事曆與合約</h1><p class="admin-subtitle">每個案子可儲存備註，再產生客人的專屬合約連結。</p></div>
+      <button id="admin-logout-btn" class="admin-button small" type="button">登出</button>
+    </header>
+    <div class="admin-toolbar">
+      <a class="admin-button small" href="/pages/admin">← 回管理首頁</a>
+      <button id="refresh-bookings" class="admin-button primary small" type="button">重新讀取行事曆</button>
+    </div>
+    <p id="booking-status" class="admin-status" role="status">正在讀取露營車行事曆…</p>
+    <section id="booking-list" class="booking-list" aria-live="polite"></section>
+    <p class="admin-footnote">管理者備註與已產生的連結會儲存在目前這支手機或電腦的瀏覽器。產生連結後，客人從其他裝置開啟也會看到當下已封裝的資料與備註。</p>
+  </main>
+  <script src="/assets/js/admin-gate.js?v=20261002-1"></script>
+  <script type="module" src="/assets/js/admin-contracts.js?v=20261002-1"></script>
+</body>
+</html>

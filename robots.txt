@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /pages/admin
+Disallow: /pages/admin-contracts
 
 Sitemap: https://van.joyforest.tw/sitemap.xml

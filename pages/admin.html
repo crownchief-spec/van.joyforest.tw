@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet" />
+  <meta name="theme-color" content="#174b3d" />
+  <title>露營車管理後台｜揪好森</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/admin.css?v=20261002-1" />
+</head>
+<body class="admin-page">
+  <main class="admin-app">
+    <p class="admin-banner">露營車管理後台｜僅供內部使用，請勿轉傳</p>
+    <header class="admin-header-row">
+      <div><h1 class="admin-title">揪好森露營車管理</h1><p class="admin-subtitle">登入後選擇要使用的功能。</p></div>
+      <button id="admin-logout-btn" class="admin-button" type="button" hidden>登出</button>
+    </header>
+
+    <section id="admin-login-section" class="admin-login" hidden>
+      <form id="admin-login-form" autocomplete="off">
+        <label for="admin-password">請輸入管理密碼</label>
+        <input id="admin-password" class="admin-input" name="password" type="password" inputmode="numeric" maxlength="12" required />
+        <button class="admin-button primary" type="submit">進入管理後台</button>
+        <p id="admin-login-error" class="admin-error" role="alert" hidden></p>
+      </form>
+    </section>
+
+    <section id="admin-hub-section" hidden>
+      <p class="admin-hub-lead">請選擇要開啟的功能：</p>
+      <div class="admin-hub-grid">
+        <a class="admin-card" href="/pages/admin-contracts">
+          <h2>訂車行事曆</h2>
+          <p>查看接下來的露營車案子、輸入管理者備註，並產生客人的專屬電子合約連結。</p>
+        </a>
+        <a class="admin-card" href="/pages/e-sign-contract" target="_blank" rel="noopener">
+          <h2>空白電子合約</h2>
+          <p>沒有行事曆資料時，直接開啟空白版本，讓客人現場填寫。</p>
+        </a>
+      </div>
+    </section>
+  </main>
+  <script src="/assets/js/admin-gate.js?v=20261002-1"></script>
+  <script src="/assets/js/admin.js?v=20261002-1"></script>
+</body>
+</html>

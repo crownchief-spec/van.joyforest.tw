@@ -59,3 +59,15 @@
   Cache-Control: private, no-store, no-cache, must-revalidate, max-age=0
   X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
   Referrer-Policy: no-referrer
+
+/pages/admin*
+  Cache-Control: private, no-store, no-cache, must-revalidate, max-age=0
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+  X-Frame-Options: DENY
+  Referrer-Policy: no-referrer
+
+/pages/admin-contracts*
+  Cache-Control: private, no-store, no-cache, must-revalidate, max-age=0
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+  X-Frame-Options: DENY
+  Referrer-Policy: no-referrer

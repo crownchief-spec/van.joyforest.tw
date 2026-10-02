@@ -1368,6 +1368,23 @@ html[lang="en"] .nav-links a .nav-stack {
   background: #23272d;
 }
 
+.footer-admin-link {
+  margin: 5px 0 0;
+  text-align: center;
+  font-size: 11px;
+  opacity: .42;
+}
+
+.footer-admin-link a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-admin-link a:hover,
+.footer-admin-link a:focus-visible {
+  text-decoration: underline;
+}
+
 /* 手機版頁尾較長：將「隨機客戶體驗評價」移到品牌區下方，避免捲過聯絡欄才看到 */
 @media (max-width: 899px) {
   .site-footer > .container {

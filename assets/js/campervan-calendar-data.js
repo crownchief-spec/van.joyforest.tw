@@ -242,6 +242,45 @@ export function buildTodayContractPayload(icsText, now = new Date()) {
   };
 }
 
+export function buildContractBookingList(icsText, now = new Date()) {
+  const ics = icsText.replace(/\r?\n[ \t]/g, "").replace(/\r\n/g, "\n");
+  const eventBlocks = ics.match(/BEGIN:VEVENT\n[\s\S]*?\nEND:VEVENT/g) ?? [];
+  const today = formatTaipeiDate(now);
+  const bookings = [];
+
+  for (const block of eventBlocks) {
+    const lines = block.split("\n");
+    if (!lines.some((line) => /^X-JOYFOREST-TAG:rv\s*$/i.test(line.trim()))) continue;
+    const start = parseIcsDate(lines.find((line) => /^DTSTART(?:;|:)/i.test(line)));
+    const end = parseIcsDate(lines.find((line) => /^DTEND(?:;|:)/i.test(line)));
+    const dates = expandEventDates(start, end);
+    if (!dates.length || dates.at(-1) < today) continue;
+
+    const summary = getTextProperty(lines, "SUMMARY");
+    const description = getMultilineTextProperty(lines, "DESCRIPTION");
+    const searchable = `${summary}\n${description}`;
+    // 行事曆中的 rv 標籤也可能被旅行提醒共用；管理後台只留下真正的露營車租借案件。
+    if (!/露營車|camper\s*van|campervan|租車|借車|取車|還車|交車/i.test(searchable)) continue;
+    if (classifyEvent(summary, description, dates) !== "booked") continue;
+
+    const uid = getTextProperty(lines, "UID") || `${dates[0]}-${summary}`;
+    bookings.push({
+      id: uid,
+      summary,
+      description,
+      dates,
+      isActive: dates[0] <= today && dates.at(-1) >= today,
+      draft: buildContractDraftFromEvent({ summary, description, dates }, now),
+    });
+  }
+
+  bookings.sort((left, right) => {
+    if (left.isActive !== right.isActive) return left.isActive ? -1 : 1;
+    return left.dates[0].localeCompare(right.dates[0]);
+  });
+  return bookings;
+}
+
 function classifyEvent(summary, description, dates) {
   const title = summary.trim();
   const text = `${title}\n${description}`;
