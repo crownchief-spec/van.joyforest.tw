@@ -8,7 +8,7 @@
   const signerView = $("#signer-view");
   const vehicleFieldDefinitions = [
     { key: "customerName", label: "車輛借用方（乙方）", autocomplete: "name", required: true },
-    { key: "phone", label: "電話", inputmode: "tel", autocomplete: "tel", required: true },
+    { key: "phone", label: "電話", inputmode: "tel", autocomplete: "off", required: true },
     { key: "birthDate", label: "乙方出生年月日", type: "date" },
     { key: "idNumber", label: "證件號碼", autocomplete: "off" },
     { key: "address", label: "乙方戶籍／聯絡地址", autocomplete: "street-address", full: true },
@@ -23,7 +23,7 @@
   ];
   const cabinFieldDefinitions = [
     { key: "cabinCustomerName", source: "customerName", label: "承租人（乙方）", autocomplete: "name", required: true },
-    { key: "cabinPhone", source: "phone", label: "電話", inputmode: "tel", autocomplete: "tel", required: true },
+    { key: "cabinPhone", source: "phone", label: "電話", inputmode: "tel", autocomplete: "off", required: true },
     { key: "cabinBirthDate", source: "birthDate", label: "乙方出生年月日", type: "date" },
     { key: "cabinIdNumber", source: "idNumber", label: "證件號碼", autocomplete: "off" },
     { key: "cabinAddress", source: "address", label: "乙方戶籍／聯絡地址", autocomplete: "street-address", full: true },
@@ -191,7 +191,6 @@
     if (full) label.className = "full";
     label.innerHTML = `<span>${labelText}</span><input name="${key}" type="${type}" />`;
     const input = $("input", label);
-    input.value = value || "";
     if (inputmode) input.inputMode = inputmode;
     if (autocomplete) input.autocomplete = autocomplete;
     if (placeholder) input.placeholder = placeholder;
@@ -200,6 +199,9 @@
       input.readOnly = true;
       input.classList.add("calculated-field");
     }
+    // iOS／內嵌瀏覽器設定 autocomplete 時可能重設電話欄位，值最後再寫入。
+    input.defaultValue = value || "";
+    input.value = value || "";
     return label;
   }
 
@@ -371,6 +373,18 @@
     const customer = `${data.customerName || "____________"}｜證件號碼：${data.idNumber || "____________"}｜電話：${data.phone || "____________"}`;
     const cabinCustomer = `${cabin.customerName || "____________"}｜證件號碼：${cabin.idNumber || "____________"}｜電話：${cabin.phone || "____________"}`;
     const providerLine = `${provider.name || "揪好森露營車出租"}${provider.role ? `（${provider.role}）` : ""}`;
+    const specialAgreementParagraphs = [];
+    if (data.customerSpecialNote) specialAgreementParagraphs.push(data.customerSpecialNote);
+    if (data.cabinProtectionStatus === "included") {
+      specialAgreementParagraphs.push("• 露營車廂碰撞損害保障方案：本次已包含，不另收費。正常駕駛、倒車或轉彎時發生意外自撞或碰撞，造成露營車廂外殼、角落、車頂、天窗、玻璃、防水結構或外部附掛設備損壞，先依實際保單與保險公司核定結果處理；符合本方案範圍的未獲理賠維修餘額，每次租期累計保障上限為 NT$200,000。一般樹枝或草木造成、不影響結構、防水、玻璃、外觀完整或設備功能的輕微表面痕跡不收費。");
+    }
+    if (data.businessLossWaiverStatus === "included") {
+      specialAgreementParagraphs.push("• 營業損失責任減免方案：本次已包含，不另收費。符合前述碰撞保障範圍且確有合理必要修理期間時，事故發生前已確認、因本次修理而實際取消的後續預約，以該筆租金 70% 計算營業損失；最長計 20 日，每次租期累計減免上限為 NT$50,000。已改期、未取消或由保險及第三人補償的金額不得重複計算。未付訂金、行事曆標示「？」或僅詢問中的案件不列入計算。");
+    }
+    if (data.cabinProtectionStatus === "included" || data.businessLossWaiverStatus === "included") {
+      specialAgreementParagraphs.push("• 上述方案均不包含故意、違法、酒駕、毒駕、無照或未經授權駕駛、未依規定通知與保留證據、擅自拆修，以及操作錯誤造成的機械損壞（例如曾經發生過將水誤加進 AdBlue 尿素槽，造成整套尿素系統故障及損壞）。");
+      specialAgreementParagraphs.push(`• 交車時應付金額：${data.handoverAmount || "NT$15,000"}（租金 ${data.rentalFee || "____________"}－已付訂金 ${data.reservationDeposit || "____________"}＋押金 ${data.securityDeposit || "____________"}；上述兩項方案本次不加收費用）。`);
+    }
     return [
       {
         partId: "contract-vehicle",
@@ -497,7 +511,19 @@
             "• 露營車廂使用中出現故障或異常時，乙方應及時通知甲方；未經甲方同意，不得擅自拆卸、修理或更換車廂裝置與零件。"
           ] }
         ]
-      }
+      },
+      ...(specialAgreementParagraphs.length ? [{
+        partId: "contract-cabin",
+        partNumber: "合約二",
+        partTitle: "露營車廂租賃合約",
+        partSummary: "本次已包含的保障方案與交車應付金額。",
+        title: "露營車廂租賃合約",
+        subtitle: "本次特殊約定與保障方案",
+        sections: [{
+          heading: "本次特殊約定",
+          paragraphs: specialAgreementParagraphs
+        }]
+      }] : [])
     ];
   }
 
@@ -830,7 +856,10 @@
       ["車廂設備租金", data.rentalFee],
       ["訂金／押金", `${data.reservationDeposit || "—"}／${data.securityDeposit || "—"}`],
       ["交車時應付", data.handoverAmount || "—"],
-      ["回饋套組", data.rewardBundleSelected ? "已勾選參加五星評價回饋活動" : "未選擇參加"]
+      ["回饋套組", data.rewardBundleSelected ? "已勾選參加五星評價回饋活動" : "未選擇參加"],
+      ["車廂碰撞保障", data.cabinProtectionStatus === "included" ? "本次已包含，不另收費" : "未包含"],
+      ["營業損失減免", data.businessLossWaiverStatus === "included" ? "本次已包含，不另收費" : "未包含"],
+      ["管理者備註", data.customerSpecialNote || "—"]
     ];
     const rows = [
       ...commonRows,
