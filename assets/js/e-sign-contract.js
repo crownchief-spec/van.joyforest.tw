@@ -424,7 +424,7 @@
           ] },
           { heading: "事故與保險", paragraphs: [
             "• 車輛發生擦撞、毀損、失竊或交通事故時，乙方應立即報警、保留現場與相關證據，並立即通知甲方；乙方應配合警方、甲方及保險公司處理，未經甲方與保險公司同意，不得自行承諾責任、私下和解或擅自修理。",
-            "• 屬保單承保範圍並經保險公司核定理賠者，依保單條款與保額處理。乙方及實際駕駛人具有合法有效駕照、經甲方授權駕駛、依規定報警通知並配合理賠時，普通車體碰撞事故之乙方契約責任，每一事故最高為 NT$10,000。",
+            "• 屬保單承保範圍並經保險公司核定理賠者，依實際保單條款、承保範圍、保額及保險公司的核定結果處理；本契約不另行承諾固定理賠金額或責任上限。",
             "• 超出保額、屬保單除外責任，或因無有效駕照、未經授權駕駛、酒駕或毒駕、肇事逃逸、違法或故意行為、未依規定報警通知、私下和解或拒絕配合理賠，致保險公司不受理、拒賠或追償者，乙方及實際駕駛人應依法負擔未獲理賠的實際損失與必要費用。"
           ] }
         ]
@@ -1054,10 +1054,38 @@
     }
   }
 
+  async function buildDatedContractSigner(slug) {
+    const loading = document.createElement("section");
+    loading.className = "page-shell";
+    loading.innerHTML = '<section class="card"><h1>正在帶入本次合約資料</h1><p class="status-line">請稍候，正在載入預約內容。</p></section>';
+    document.querySelector("main")?.prepend(loading);
+    try {
+      const response = await fetch(`/assets/data/contracts/${slug}.json?contract=${Date.now()}`, { cache: "no-store" });
+      if (!response.ok) throw new Error("目前找不到這份專屬合約，請聯絡揪好森重新取得連結。");
+      const bookingDraft = await response.json();
+      const baseDraft = directPublicDraft();
+      const payload = {
+        ...baseDraft,
+        ...bookingDraft,
+        provider: { ...baseDraft.provider, ...(bookingDraft.provider || {}) },
+        vehicle: { ...baseDraft.vehicle, ...(bookingDraft.vehicle || {}) },
+        cabin: { ...(bookingDraft.cabin || {}) },
+      };
+      loading.remove();
+      buildSigner(encodeDraft(payload));
+    } catch (error) {
+      const status = $(".status-line", loading);
+      status.className = "status-line error";
+      status.textContent = error.message;
+    }
+  }
+
   const queryContract = new URLSearchParams(location.search).get("contract");
   const hashMatch = location.hash.match(/^#contract=(.+)$/);
   const todayContractPage = /\/pages\/e-sign-contract-today(?:\.html)?\/?$/.test(location.pathname);
+  const datedContractMatch = location.pathname.match(/^\/pages\/(e-sign-contract-\d{4}-\d{2}-\d{2})(?:\.html)?\/?$/);
   if (todayContractPage) buildTodaySigner();
+  else if (datedContractMatch) buildDatedContractSigner(datedContractMatch[1]);
   else if (queryContract) buildSigner(queryContract);
   else if (hashMatch) buildSigner(hashMatch[1]);
   else if (location.hostname.endsWith("joyforest.tw")) buildSigner(encodeDraft(directPublicDraft()));

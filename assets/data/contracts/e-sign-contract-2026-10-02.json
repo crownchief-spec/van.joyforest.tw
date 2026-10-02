@@ -1,0 +1,42 @@
+{
+  "customerName": "周淨平",
+  "phone": "0923195415",
+  "birthDate": "",
+  "idNumber": "",
+  "address": "",
+  "rentalStartDate": "2026-10-02",
+  "rentalStartTime": "18:00",
+  "rentalEndDate": "2026-10-04",
+  "rentalEndTime": "18:00",
+  "deliveryLocation": "新北市三重區重新路三段45號16樓之一",
+  "returnLocation": "新北市三重區重新路三段45號16樓之一",
+  "rentalFee": "NT$13,800",
+  "reservationDeposit": "NT$3,800",
+  "securityDeposit": "NT$5,000",
+  "rewardBundleSelected": true,
+  "calendarStatus": "booked",
+  "calendarSummary": "露營車 Joanne Chou☀️",
+  "issuedAt": "2026-10-02T14:02:07+08:00",
+  "version": "dated-contract-2026-10-02-1",
+  "cabin": {
+    "customerName": "周淨平",
+    "phone": "0923195415",
+    "birthDate": "",
+    "idNumber": "",
+    "address": "",
+    "rentalStartDate": "2026-10-02",
+    "rentalStartTime": "18:00",
+    "rentalEndDate": "2026-10-04",
+    "rentalEndTime": "18:00",
+    "deliveryLocation": "新北市三重區重新路三段45號16樓之一",
+    "returnLocation": "新北市三重區重新路三段45號16樓之一"
+  },
+  "provider": {
+    "name": "陳在紳",
+    "role": "聯邦國際租賃股份有限公司桃園分公司租賃小貨車長租租用人"
+  },
+  "vehicle": {
+    "plate": "RBU-8280",
+    "description": "KIA 卡旺 2497cc 雙廂式"
+  }
+}

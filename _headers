@@ -47,3 +47,15 @@
   X-Frame-Options: DENY
   Referrer-Policy: no-referrer
   Permissions-Policy: camera=(self), microphone=(), geolocation=()
+
+/pages/e-sign-contract-2026-10-02*
+  Cache-Control: private, no-store, no-cache, must-revalidate, max-age=0
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+  X-Frame-Options: DENY
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(self), microphone=(), geolocation=()
+
+/assets/data/contracts/*
+  Cache-Control: private, no-store, no-cache, must-revalidate, max-age=0
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+  Referrer-Policy: no-referrer
