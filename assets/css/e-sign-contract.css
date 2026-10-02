@@ -71,6 +71,7 @@ input, select {
   outline: none;
 }
 input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px rgba(39,109,85,.14); }
+.calculated-field { border: 2px solid #d9b84e; background: #fff8dc; color: #5f4700; font-weight: 900; }
 .button {
   display: inline-flex;
   align-items: center;
@@ -103,11 +104,24 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 .notice { margin-top: 1rem; padding: .9rem 1rem; border-radius: .9rem; line-height: 1.55; }
 .notice.warning { border-left: 4px solid var(--warning-line); background: var(--warning); }
 .notice.privacy { background: #edf2ef; color: #43504a; }
+.contract-overview { display: grid; gap: 1.1rem; }
+.contract-overview__copy h1 { margin: 0 0 .75rem; color: var(--forest); font-size: clamp(1.65rem, 4vw, 2.35rem); }
+.contract-overview__copy p { margin: .45rem 0; color: #3f4c47; line-height: 1.65; }
+.contract-overview__copy strong { color: var(--ink); }
+.contract-overview__figure { margin: 0; }
+.contract-overview__media { position: relative; max-width: 48rem; margin: 0 auto; overflow: hidden; border: 1px solid #d7e1db; border-radius: 1.15rem; background: #fff; }
+.contract-overview__media img { display: block; width: 100%; height: auto; aspect-ratio: 1182 / 665; object-fit: contain; }
+.contract-overview__badge { position: absolute; padding: .48rem .72rem; border-radius: .7rem; color: #fff; font-size: clamp(.7rem, 2vw, .88rem); font-weight: 900; box-shadow: 0 6px 18px rgba(0,0,0,.16); }
+.contract-overview__badge--vehicle { left: 8%; bottom: 10%; background: rgba(145,87,34,.94); }
+.contract-overview__badge--cabin { top: 10%; right: 8%; background: rgba(23,63,52,.94); }
 .contract-flow-section { min-width: 0; }
 .contract-inline-fields { margin-top: .9rem; }
 .contract-inline-fields label { min-width: 0; }
-.copy-contract-row { display: flex; align-items: center; gap: 1rem; margin: .8rem 0 1rem; padding: .85rem; border: 1px solid #b9d6c8; border-radius: 1rem; background: #edf7f2; }
+.copy-contract-row { position: relative; display: flex; align-items: center; gap: 1rem; margin: .8rem 0 1rem; padding: 1rem 1rem 1rem 4.2rem; border: 2px solid #e0a91e; border-radius: 1rem; background: #fff7d8; box-shadow: 0 10px 28px rgba(135,95,0,.14); }
+.copy-contract-row::before { content: "➜"; position: absolute; left: 1.1rem; color: #9b6800; font-size: 2.1rem; font-weight: 900; animation: point-to-copy 1s ease-in-out infinite alternate; }
 .copy-contract-row .status-line { margin: 0; }
+.copy-contract-row .button { min-height: 3.35rem; padding-inline: 1.25rem; box-shadow: 0 6px 16px rgba(23,63,52,.18); }
+@keyframes point-to-copy { from { transform: translateX(-.2rem); } to { transform: translateX(.35rem); } }
 .contract-jump { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin-bottom: 1rem; }
 .contract-jump a { display: grid; gap: .22rem; min-height: 7.2rem; padding: 1rem; border: 1px solid #bad0c5; border-radius: 1rem; background: #f4faf7; color: var(--ink); text-decoration: none; }
 .contract-jump a:hover, .contract-jump a:focus-visible { border-color: var(--forest-2); box-shadow: 0 0 0 3px rgba(39,109,85,.12); }
@@ -152,13 +166,16 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 
 .document-type { display: block; max-width: 28rem; margin-bottom: 1rem; }
 .upload-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.upload-card { position: relative; display: grid; place-items: center; min-height: 15rem; padding: 1rem; overflow: hidden; border: 2px dashed #a8b8b0; border-radius: 1.2rem; background: #f7faf8; text-align: center; cursor: pointer; }
-.upload-card input { position: absolute; z-index: 3; inset: 0; opacity: 0; cursor: pointer; }
+.upload-card { position: relative; display: grid; align-content: start; gap: .55rem; min-height: 15rem; padding: 1rem; overflow: hidden; border: 2px dashed #a8b8b0; border-radius: 1.2rem; background: #f7faf8; text-align: center; }
 .upload-title { margin: 0; color: var(--forest); font-size: 1.1rem; }
 .upload-help { margin: .3rem 0 0; color: var(--muted); font-size: .86rem; font-weight: 500; }
-.upload-card img { position: absolute; inset: .5rem; width: calc(100% - 1rem); height: calc(100% - 1rem); object-fit: contain; border-radius: .85rem; background: white; }
+.upload-card img { display: block; width: 100%; height: 10rem; object-fit: contain; border: 1px solid var(--line); border-radius: .85rem; background: white; }
+.upload-card img[hidden] { display: none; }
+.upload-choice-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; margin-top: auto; }
+.upload-choice-row .button { position: relative; margin: 0; }
+.upload-choice-row .button input { position: absolute; width: 1px; height: 1px; min-height: 0; opacity: 0; pointer-events: none; }
 .upload-card.has-preview { border-style: solid; border-color: var(--forest-2); }
-.upload-card.has-preview::after { content: "已選擇照片｜點一下可重拍或更換"; position: absolute; z-index: 2; right: .75rem; bottom: .75rem; left: .75rem; padding: .45rem .6rem; border-radius: .65rem; background: rgba(23,63,52,.88); color: #fff; font-size: .76rem; font-weight: 800; }
+.upload-card.has-preview .upload-help { color: var(--forest-2); font-weight: 800; }
 
 .signature-wrap { position: relative; overflow: hidden; min-height: 14rem; border: 2px solid var(--forest); border-radius: 1.1rem; background: #fff; touch-action: none; }
 #signature-pad { display: block; width: 100%; height: 14rem; cursor: crosshair; }
@@ -173,6 +190,7 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 .result-panel > p { color: var(--muted); }
 .result-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; margin-top: 1.2rem; }
 .document-id { font-size: .86rem; }
+.share-help { margin-top: .8rem; font-size: .9rem; }
 footer { padding: 2rem 1rem 3rem; color: var(--muted); text-align: center; font-size: .82rem; }
 
 @media (max-width: 760px) {

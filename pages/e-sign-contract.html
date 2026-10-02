@@ -8,9 +8,9 @@
     <link rel="canonical" href="https://van.joyforest.tw/pages/e-sign-contract" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E🌲%3C/text%3E%3C/svg%3E" />
     <title>露營車電子合約｜揪好森露營車出租</title>
-    <link rel="stylesheet" href="/assets/css/e-sign-contract.css?v=20261002-10" />
+    <link rel="stylesheet" href="/assets/css/e-sign-contract.css?v=20261002-11" />
     <script defer src="/assets/vendor/pdf-lib.min.js"></script>
-    <script defer src="/assets/js/e-sign-contract.js?v=20261002-10"></script>
+    <script defer src="/assets/js/e-sign-contract.js?v=20261002-11"></script>
   </head>
   <body>
     <header class="site-header">
@@ -80,6 +80,21 @@
 
       <section id="signer-view" class="page-shell signer-shell" hidden>
         <form id="signer-form" class="stack" novalidate>
+          <section class="card contract-overview" aria-labelledby="contract-overview-title">
+            <div class="contract-overview__copy">
+              <h1 id="contract-overview-title">這次會簽署兩份合約</h1>
+              <p><strong>合約一｜借車合約：</strong>圖中白色的 KIA 卡旺 K2500 車體部分。</p>
+              <p><strong>合約二｜露營車廂租賃合約：</strong>圖中藍色的露營車廂與交車時點交的露營設備。</p>
+            </div>
+            <figure class="contract-overview__figure">
+              <div class="contract-overview__media">
+                <img src="/assets/images/contract/campervan-contract-white-vehicle-blue-cabin.webp" alt="露營車合約範圍說明：白色 KIA 卡旺 K2500 車體屬於合約一，藍色露營車廂屬於合約二" title="白色車體為合約一，藍色露營車廂為合約二" width="1182" height="665" decoding="async" />
+                <span class="contract-overview__badge contract-overview__badge--vehicle">合約一｜白色車體</span>
+                <span class="contract-overview__badge contract-overview__badge--cabin">合約二｜藍色車廂</span>
+              </div>
+            </figure>
+          </section>
+
           <section class="contract-flow-section" id="contract-one" aria-label="合約一：借車合約">
             <div id="vehicle-contract-text" class="contract-text" aria-live="polite"></div>
           </section>
@@ -89,13 +104,13 @@
           </section>
 
           <section class="card" id="identity-documents">
-            <div class="section-heading"><div><span class="step-number">03</span><h2>拍攝證件正反面</h2></div><p>實際駕駛人請優先提供有效駕照。手機可直接開啟相機，也可從照片中選擇；影像只會放進業者存證版。</p></div>
+            <div class="section-heading"><div><span class="step-number">03</span><h2>拍攝證件正反面</h2></div><p>實際駕駛人請優先提供有效駕照。可直接拍照，也可從手機相簿選擇；影像會放進完整電子合約 PDF。</p></div>
             <label class="document-type"><span>證件類型</span><select id="document-type"><option value="driver-license">駕駛執照</option><option value="national-id">身分證</option><option value="passport">護照／外國駕駛文件</option></select></label>
             <div class="upload-grid">
-              <label class="upload-card" id="document-front-card"><span class="upload-title">證件正面</span><span class="upload-help" id="document-front-status">點一下開相機或選照片；現場人工確認即可</span><input id="document-front" type="file" accept="image/*" capture="environment" /><img id="document-front-preview" alt="證件正面預覽" hidden width="1200" height="900" decoding="async" title="證件正面預覽" /></label>
-              <label class="upload-card" id="document-back-card"><span class="upload-title">證件反面</span><span class="upload-help" id="document-back-status">點一下開相機或選照片；現場人工確認即可</span><input id="document-back" type="file" accept="image/*" capture="environment" /><img id="document-back-preview" alt="證件反面預覽" hidden width="1200" height="900" decoding="async" title="證件反面預覽" /></label>
+              <div class="upload-card" id="document-front-card"><span class="upload-title">證件正面</span><span class="upload-help" id="document-front-status">請拍照，或從手機相簿選擇。</span><img id="document-front-preview" alt="證件正面預覽" hidden width="1200" height="900" decoding="async" title="證件正面預覽" /><div class="upload-choice-row"><label class="button primary">拍照<input id="document-front-camera" type="file" accept="image/*" capture="environment" /></label><label class="button outline">從相簿選擇<input id="document-front-library" type="file" accept="image/*" /></label></div></div>
+              <div class="upload-card" id="document-back-card"><span class="upload-title">證件反面</span><span class="upload-help" id="document-back-status">請拍照，或從手機相簿選擇。</span><img id="document-back-preview" alt="證件反面預覽" hidden width="1200" height="900" decoding="async" title="證件反面預覽" /><div class="upload-choice-row"><label class="button primary">拍照<input id="document-back-camera" type="file" accept="image/*" capture="environment" /></label><label class="button outline">從相簿選擇<input id="document-back-library" type="file" accept="image/*" /></label></div></div>
             </div>
-            <div class="notice privacy">證件照片只在目前手機內用來製作 PDF，不會自動上傳網站；完成後請把業者存證版傳給揪好森保存。</div>
+            <div class="notice privacy">證件照片只在目前手機內用來製作 PDF，不會自動上傳網站；完成後請把完整 PDF 分享給揪好森保存。</div>
           </section>
 
           <section class="card" id="signature-section">
@@ -107,7 +122,7 @@
           </section>
 
           <section class="card action-card submit-card">
-            <div><h2>完成簽署並產生 PDF</h2><p>會分別產生「借車合約」、「露營車廂租賃合約」與含證件附件的「業者存證包」。手機可開啟、下載，或透過 LINE 與其他 App 分享。</p></div>
+            <div><h2>完成簽署並產生 PDF</h2><p>合約一、合約二、證件附件與電子簽名會整合成同一份 PDF。</p></div>
             <button id="complete-signing" class="button primary large" type="submit">確認送出並產生 PDF</button>
             <p id="completion-status" class="status-line" role="status"></p>
           </section>
@@ -115,15 +130,12 @@
 
         <section id="result-panel" class="card result-panel" hidden>
           <span class="success-icon" aria-hidden="true">✓</span><h2>電子合約已完成</h2>
-          <p>兩份契約已分別產生，客戶可各自保存；業者存證包包含兩份契約及證件附件，請下載或透過 LINE 傳給揪好森保存。</p>
+          <p>完整 PDF 已產生，內含兩份合約、證件附件與電子簽名。</p>
           <div class="result-actions">
-            <a id="download-vehicle" class="button primary" target="_blank" rel="noopener" download>下載合約一｜借車合約</a>
-            <button id="share-vehicle" class="button outline" type="button">分享借車合約</button>
-            <a id="download-cabin" class="button primary" target="_blank" rel="noopener" download>下載合約二｜車廂租賃合約</a>
-            <button id="share-cabin" class="button outline" type="button">分享車廂租賃合約</button>
-            <a id="download-owner" class="button dark" target="_blank" rel="noopener" download>開啟／下載業者存證版</a>
-            <button id="share-owner" class="button outline" type="button">分享業者存證版到 LINE</button>
+            <button id="share-complete-contract" class="button primary large" type="button">分享完整電子合約</button>
+            <a id="open-complete-contract" target="_blank" rel="noopener" hidden></a>
           </div>
+          <p class="share-help">可直接用 LINE 傳給揪好森，也可分享給自己後儲存。</p>
           <p class="document-id">文件編號：<strong id="result-document-id"></strong></p>
         </section>
       </section>

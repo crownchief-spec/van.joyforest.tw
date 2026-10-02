@@ -35,7 +35,8 @@
     { key: "cabinReturnLocation", source: "returnLocation", label: "返還地點", full: true },
     { key: "rentalFee", label: "露營車廂與設備租金", placeholder: "例如 NT$13,800" },
     { key: "reservationDeposit", label: "預約訂金", placeholder: "依本次預約" },
-    { key: "securityDeposit", label: "還車結算押金", placeholder: "例如 NT$5,000" }
+    { key: "securityDeposit", label: "還車結算押金", placeholder: "例如 NT$5,000" },
+    { key: "handoverAmount", label: "交車時應付金額（租金－已付訂金＋押金）", readOnly: true, full: true }
   ];
   const signerFieldDefinitions = new Map([...vehicleFieldDefinitions, ...cabinFieldDefinitions].map((field) => [field.key, field]));
   const fieldLabels = Object.fromEntries([...vehicleFieldDefinitions, ...cabinFieldDefinitions].map((field) => [field.key, field.label]));
@@ -47,12 +48,8 @@
   let signatureDataUrl = "";
   let documentFront = "";
   let documentBack = "";
-  let vehiclePdfBlob = null;
-  let cabinPdfBlob = null;
-  let ownerPdfBlob = null;
-  let vehiclePdfUrl = "";
-  let cabinPdfUrl = "";
-  let ownerPdfUrl = "";
+  let completePdfBlob = null;
+  let completePdfUrl = "";
   let localConfig = null;
 
   function encodeDraft(data) {
@@ -189,7 +186,7 @@
   }
 
   function makeSignerField(definition, value) {
-    const { key, label: labelText, type = "text", inputmode, autocomplete, placeholder, required, full } = definition;
+    const { key, label: labelText, type = "text", inputmode, autocomplete, placeholder, required, full, readOnly } = definition;
     const label = document.createElement("label");
     if (full) label.className = "full";
     label.innerHTML = `<span>${labelText}</span><input name="${key}" type="${type}" />`;
@@ -199,6 +196,10 @@
     if (autocomplete) input.autocomplete = autocomplete;
     if (placeholder) input.placeholder = placeholder;
     if (required) input.required = true;
+    if (readOnly) {
+      input.readOnly = true;
+      input.classList.add("calculated-field");
+    }
     return label;
   }
 
@@ -257,13 +258,12 @@
       });
       $("#copy-first-contract-status").textContent = "已帶入第一份契約資料，請確認內容與費用。";
     });
-    setupImageInput("document-front", "document-front-preview", (value) => { documentFront = value; });
-    setupImageInput("document-back", "document-back-preview", (value) => { documentBack = value; });
+    setupHandoverAmountCalculator();
+    setupImageInputs(["document-front-camera", "document-front-library"], "document-front-preview", "document-front-status", (value) => { documentFront = value; });
+    setupImageInputs(["document-back-camera", "document-back-library"], "document-back-preview", "document-back-status", (value) => { documentBack = value; });
     setupSignaturePad();
     $("#signer-form").addEventListener("submit", completeSigning);
-    $("#share-vehicle").addEventListener("click", () => sharePdf("vehicle"));
-    $("#share-cabin").addEventListener("click", () => sharePdf("cabin"));
-    $("#share-owner").addEventListener("click", () => sharePdf("owner"));
+    $("#share-complete-contract").addEventListener("click", shareCompletePdf);
   }
 
   function renderContractText(data) {
@@ -276,16 +276,9 @@
           partNumber: model.partNumber,
           partTitle: model.partTitle,
           partSummary: model.partSummary,
-          illustrationSrc: model.illustrationSrc,
-          illustrationAlt: model.illustrationAlt,
-          scopeType: model.scopeType,
-          scopeCaption: model.scopeCaption,
           sections: []
         };
         grouped.push(group);
-      }
-      if (Array.isArray(model.visualAppendixImages)) {
-        group.visualAppendixImages = model.visualAppendixImages;
       }
       group.sections.push(...model.sections);
     });
@@ -306,26 +299,6 @@
       const summary = document.createElement("p");
       summary.textContent = group.partSummary;
       header.append(part, title, summary);
-
-      const scopeFigure = document.createElement("figure");
-      scopeFigure.className = `contract-scope-figure contract-scope-figure--${group.scopeType}`;
-      const media = document.createElement("div");
-      media.className = "contract-scope-figure__media";
-      const image = document.createElement("img");
-      image.src = group.illustrationSrc;
-      image.alt = group.illustrationAlt;
-      image.title = group.illustrationAlt;
-      image.width = 1182;
-      image.height = 665;
-      image.loading = "lazy";
-      image.decoding = "async";
-      const badge = document.createElement("span");
-      badge.className = "contract-scope-figure__badge";
-      badge.textContent = group.scopeType === "vehicle" ? "本契約：KIA 卡旺 K2500 車體" : "本契約：藍色露營車廂";
-      media.append(image, badge);
-      const caption = document.createElement("figcaption");
-      caption.textContent = group.scopeCaption;
-      scopeFigure.append(media, caption);
 
       const body = document.createElement("div");
       body.className = "contract-document__body";
@@ -384,33 +357,7 @@
         }
         body.append(clause);
       });
-      article.append(header, scopeFigure, body);
-      if (group.visualAppendixImages?.length) {
-        const appendix = document.createElement("figure");
-        appendix.className = "contract-visual-appendix";
-        const appendixGrid = document.createElement("div");
-        appendixGrid.className = "contract-visual-grid";
-        group.visualAppendixImages.forEach((item) => {
-          const card = document.createElement("div");
-          card.className = "contract-visual-item";
-          const appendixImage = document.createElement("img");
-          appendixImage.src = item.src;
-          appendixImage.alt = item.alt;
-          appendixImage.title = item.alt;
-          appendixImage.width = item.width;
-          appendixImage.height = item.height;
-          appendixImage.loading = "lazy";
-          appendixImage.decoding = "async";
-          const label = document.createElement("span");
-          label.textContent = item.label;
-          card.append(appendixImage, label);
-          appendixGrid.append(card);
-        });
-        const appendixCaption = document.createElement("figcaption");
-        appendixCaption.textContent = "露營車廂外觀與內裝示意，作為第二份合約的租賃標的參考。";
-        appendix.append(appendixGrid, appendixCaption);
-        article.append(appendix);
-      }
+      article.append(header, body);
       root.replaceChildren(article);
     });
   }
@@ -472,11 +419,13 @@
         subtitle: "故障與事故處理",
         sections: [
           { heading: "車況與故障", paragraphs: [
-            "• 交還時應保證車輛運行良好。車輛使用過程中出現故障或異常，乙方應及時通知甲方，並將本車輛運至甲方指定維修廠進行檢查維修。乙方不得拆卸或更換原車裝置及零件；因非正常使用造成的事故責任及損失費用，均由乙方承擔。"
+            "• 車輛發生故障、警示燈或異常時，乙方應停靠於安全地點並立即通知甲方，依甲方指示安排檢修；未經甲方同意，不得擅自拆修、更換原車裝置或零件。",
+            "• 非因乙方操作、使用或保管不當造成的車輛本體機械故障，由甲方協助處理；可歸責於乙方或實際駕駛人的損害與必要費用，由乙方負擔。"
           ] },
           { heading: "事故與保險", paragraphs: [
-            "• 車輛借用期間如發生事故，乙方應立即通知甲方，甲方及時協助乙方向保險公司報案，乙方支付因此產生的一切費用。",
-            "• 如屬保險賠付範圍，費用由保險公司承擔；屬保險責任免賠或其他原因導致保險公司拒賠的損失，由乙方承擔。如保險公司不受理此案，則由乙方全部負責，同時承擔車輛修理費、修理期間的經濟損失及與本案相關所產生的費用。"
+            "• 車輛發生擦撞、毀損、失竊或交通事故時，乙方應立即報警、保留現場與相關證據，並立即通知甲方；乙方應配合警方、甲方及保險公司處理，未經甲方與保險公司同意，不得自行承諾責任、私下和解或擅自修理。",
+            "• 屬保單承保範圍並經保險公司核定理賠者，依保單條款與保額處理。乙方及實際駕駛人具有合法有效駕照、經甲方授權駕駛、依規定報警通知並配合理賠時，普通車體碰撞事故之乙方契約責任，每一事故最高為 NT$10,000。",
+            "• 超出保額、屬保單除外責任，或因無有效駕照、未經授權駕駛、酒駕或毒駕、肇事逃逸、違法或故意行為、未依規定報警通知、私下和解或拒絕配合理賠，致保險公司不受理、拒賠或追償者，乙方及實際駕駛人應依法負擔未獲理賠的實際損失與必要費用。"
           ] }
         ]
       },
@@ -505,16 +454,17 @@
               "租賃物：圖中藍色露營車廂及交車時點交的露營設備；不包含第一份契約無償借用的 KIA 卡旺 K2500 車體。",
               `租賃期間：${cabinRentalPeriod}`,
               `交付地點：${cabin.deliveryLocation || "____________"}｜返還地點：${cabin.returnLocation || "____________"}`,
-              `露營車廂與設備租賃費用：${data.rentalFee || "____________"}｜預約訂金：${data.reservationDeposit || "____________"}｜還車結算押金：${data.securityDeposit || "____________"}`,
-              "押金：新臺幣伍仟元整（還車時退還；扣除 ETC 或如有露營車廂、車體、設備損傷及其他未結清費用）。",
+              `露營車廂與設備租賃費用：${data.rentalFee || "____________"}｜已付預約訂金：${data.reservationDeposit || "____________"}｜還車結算押金：${data.securityDeposit || "____________"}`,
+              `交車時應付金額（租金－已付訂金＋押金）：${data.handoverAmount || "____________"}`,
+              "押金：新臺幣伍仟元整（還車檢查後，扣除 ETC、未結清費用或有證明的車廂與設備損害後，退還餘額）。",
               "本票：無需本票。"
             ],
             screenParagraphs: [
               "租賃物：圖中藍色露營車廂及交車時點交的露營設備；不包含第一份契約無償借用的 KIA 卡旺 K2500 車體。",
-              "押金：新臺幣伍仟元整（還車時退還；扣除 ETC 或如有露營車廂、車體、設備損傷及其他未結清費用）。",
+              "押金：新臺幣伍仟元整（還車檢查後，扣除 ETC、未結清費用或有證明的車廂與設備損害後，退還餘額）。",
               "本票：無需本票。"
             ],
-            fieldKeys: ["cabinRentalStartDate", "cabinRentalStartTime", "cabinRentalEndDate", "cabinRentalEndTime", "cabinDeliveryLocation", "cabinReturnLocation", "rentalFee", "reservationDeposit", "securityDeposit"]
+            fieldKeys: ["cabinRentalStartDate", "cabinRentalStartTime", "cabinRentalEndDate", "cabinRentalEndTime", "cabinDeliveryLocation", "cabinReturnLocation", "rentalFee", "reservationDeposit", "securityDeposit", "handoverAmount"]
           },
           {
             heading: "五星評價回饋活動",
@@ -537,68 +487,16 @@
         scopeType: "cabin",
         scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 KIA 卡旺 K2500 車體。",
         title: "露營車廂租賃合約",
-        subtitle: "使用、事故與賠償責任",
+        subtitle: "使用、返還與損害責任",
         sections: [
           { heading: "租賃內容", paragraphs: [
             "• 租賃時間超出預定期間，加收費用每小時 NT$300，並請預先與甲方確認。",
-            "• 租賃期間如發生交通事故導致露營車廂損壞，乙方應立即通知甲方並報案。如屬保險賠付範圍，費用由保險公司承擔；屬保險責任免賠或其他原因導致保險公司拒賠的損失，由乙方承擔露營車廂修理費、修理期間的經濟損失及與本案相關所產生的費用。",
-            "• 露營車廂並非車體，因此事故保險賠付時並非視為車損，而是財損（財物損失）；一般強制險無法賠償財損。",
-            "• 露營車廂維修費用依維修廠報價。指定維修廠：家吼勝 HOME FUN／露營車俱樂部，桃園市八德區廣興路 1320 號。",
             "• 乙方租用露營車廂期間，不得將其買賣、抵押、質押、贈與或用於從事營業性活動。",
             "• 交還時應保證露營車廂物品完整、功能正常，並以租賃時錄影憑證為準。",
-            "• 露營車廂使用過程中出現故障或異常，乙方應及時通知甲方。歸還時甲方將交由指定維修廠維修。乙方不得拆卸或更換裝置及零件；因非正常使用造成的事故責任及損失費用，均由乙方承擔。"
+            "• 露營車廂、車頂、固定設備與隨車露營設備如有破損、變形、滲漏、遺失或功能異常，以交車點交記錄及維修或更換憑證計算實際損失；一般正常使用所生的輕微表面痕跡不收費。",
+            "• 露營車廂使用中出現故障或異常時，乙方應及時通知甲方；未經甲方同意，不得擅自拆卸、修理或更換車廂裝置與零件。"
           ] }
         ]
-      },
-      {
-        partId: "contract-cabin",
-        partNumber: "合約二",
-        partTitle: "露營車廂租賃合約",
-        partSummary: "藍色露營車廂與露營設備有償租賃，規範租金、使用方式、返還與損害責任。",
-        illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
-        illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
-        scopeType: "cabin",
-        scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 KIA 卡旺 K2500 車體。",
-        title: "露營車廂租賃合約",
-        subtitle: "露營車廂外觀與內裝示意",
-        visualAppendixImages: [
-          {
-            src: "/assets/images/contract/campervan-cabin-exterior-side.webp",
-            alt: "揪好森藍白色露營車廂側面外觀",
-            label: "車廂側面",
-            width: 324,
-            height: 230
-          },
-          {
-            src: "/assets/images/contract/campervan-cabin-exterior-awning.webp",
-            alt: "揪好森露營車廂後側與展開的戶外遮陽棚",
-            label: "遮陽棚外觀",
-            width: 324,
-            height: 168
-          },
-          {
-            src: "/assets/images/contract/campervan-cabin-dinette.webp",
-            alt: "揪好森露營車廂內的餐桌與環繞座位",
-            label: "餐桌座位",
-            width: 270,
-            height: 170
-          },
-          {
-            src: "/assets/images/contract/campervan-cabin-lounge.webp",
-            alt: "揪好森露營車廂內的客廳座位與窗景",
-            label: "客廳座位",
-            width: 324,
-            height: 204
-          },
-          {
-            src: "/assets/images/contract/campervan-cabin-bathroom.webp",
-            alt: "揪好森露營車廂內的獨立浴廁與洗手台",
-            label: "獨立浴廁",
-            width: 270,
-            height: 349
-          }
-        ],
-        sections: []
       }
     ];
   }
@@ -643,42 +541,19 @@
     ctx.font = "24px -apple-system, sans-serif";
     ctx.fillText(model.subtitle, 74, 145);
     ctx.fillText(`第 ${index + 1}／${total} 頁`, 1030, 145);
-    if (model.visualAppendixImages?.length) {
-      const appendixImages = await Promise.all(model.visualAppendixImages.map((item) => loadImage(item.src)));
-      const columns = 3;
-      const gap = 24;
-      const cellWidth = 348;
-      const cellHeight = 500;
-      appendixImages.forEach((appendixImage, imageIndex) => {
-        const column = imageIndex % columns;
-        const row = Math.floor(imageIndex / columns);
-        const x = 74 + column * (cellWidth + gap);
-        const y = 270 + row * (cellHeight + 28);
-        ctx.fillStyle = "#ffffff";
-        ctx.fillRect(x, y, cellWidth, cellHeight);
-        ctx.strokeStyle = "#cad8d1";
-        ctx.lineWidth = 2;
-        ctx.strokeRect(x, y, cellWidth, cellHeight);
-        drawImageContain(ctx, appendixImage, x + 16, y + 16, cellWidth - 32, 408);
-        ctx.fillStyle = "#173f34";
-        ctx.font = "800 23px -apple-system, sans-serif";
-        ctx.fillText(model.visualAppendixImages[imageIndex].label, x + 18, y + 466);
+    let y = 275;
+    model.sections.forEach((section) => {
+      ctx.fillStyle = "#173f34";
+      ctx.font = "800 29px -apple-system, sans-serif";
+      ctx.fillText(section.heading, 74, y);
+      y += 49;
+      ctx.fillStyle = "#1d2925";
+      ctx.font = "23px -apple-system, sans-serif";
+      section.paragraphs.forEach((paragraph) => {
+        y = drawContractParagraph(ctx, paragraph, 86, y, 1060, 35) + 12;
       });
-    } else {
-      let y = 275;
-      model.sections.forEach((section) => {
-        ctx.fillStyle = "#173f34";
-        ctx.font = "800 29px -apple-system, sans-serif";
-        ctx.fillText(section.heading, 74, y);
-        y += 49;
-        ctx.fillStyle = "#1d2925";
-        ctx.font = "23px -apple-system, sans-serif";
-        section.paragraphs.forEach((paragraph) => {
-          y = drawContractParagraph(ctx, paragraph, 86, y, 1060, 35) + 12;
-        });
-        y += 18;
-      });
-    }
+      y += 18;
+    });
     ctx.strokeStyle = "#b8c9c0";
     ctx.beginPath();
     ctx.moveTo(74, 1590);
@@ -697,41 +572,37 @@
     return canvas.toDataURL("image/png");
   }
 
-  async function contractScopePagePng(partId, signedAt, documentId, signatureSrc) {
-    const vehiclePart = partId === "contract-vehicle";
+  async function contractOverviewPagePng(signedAt, documentId, signatureSrc) {
     const canvas = document.createElement("canvas");
     canvas.width = 1240;
     canvas.height = 1754;
     const ctx = canvas.getContext("2d");
     ctx.fillStyle = "#fffdfa";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = vehiclePart ? "#7c4f26" : "#173f34";
+    ctx.fillStyle = "#173f34";
     ctx.fillRect(0, 0, canvas.width, 240);
     ctx.fillStyle = "#ffffff";
     ctx.font = "800 49px -apple-system, sans-serif";
-    ctx.fillText(vehiclePart ? "第一份契約標的｜KIA 卡旺 K2500 車體" : "第二份契約標的｜藍色露營車廂", 70, 105);
+    ctx.fillText("本次簽署包含兩份合約", 70, 105);
     ctx.font = "25px -apple-system, sans-serif";
-    ctx.fillText(vehiclePart ? "無償借用｜不收取車輛租金" : "有償租賃｜租金僅對應車廂與露營設備", 70, 160);
+    ctx.fillText("白色車體為合約一，藍色露營車廂為合約二", 70, 160);
 
-    const illustration = await loadImage(vehiclePart
-      ? "/assets/images/contract/kia-kawang-k2500-vehicle-scope-diagram-v2.webp"
-      : "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp");
+    const illustration = await loadImage("/assets/images/contract/campervan-contract-white-vehicle-blue-cabin.webp");
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(70, 300, 1100, 700);
     drawImageContain(ctx, illustration, 90, 320, 1060, 660);
-    ctx.strokeStyle = vehiclePart ? "#b36c2f" : "#2d89ad";
-    ctx.lineWidth = 8;
-    if (vehiclePart) ctx.strokeRect(180, 525, 475, 355);
-    else ctx.strokeRect(355, 385, 700, 455);
-    ctx.fillStyle = vehiclePart ? "#7c4f26" : "#173f34";
+    ctx.fillStyle = "#7c4f26";
     ctx.font = "800 32px -apple-system, sans-serif";
-    ctx.fillText(vehiclePart ? "本契約：前方 KIA 卡旺 K2500 車體與行駛系統" : "本契約：圖中藍色露營車廂與露營設備", 90, 1080);
-    ctx.font = "25px -apple-system, sans-serif";
+    ctx.fillText("合約一｜借車合約", 90, 1080);
     ctx.fillStyle = "#34423c";
-    const scopeText = vehiclePart
-      ? "第一份契約標的是 KIA 卡旺 K2500 車體、底盤、動力與行駛系統；不包含後方露營車廂與露營設備。車體由甲方無償借予乙方使用。"
-      : "第二份契約標的是藍色露營車廂與交車時點交的露營設備；不包含前方 KIA 卡旺 K2500 車體。租金、訂金與押金均記載在本份契約。";
-    drawContractParagraph(ctx, scopeText, 90, 1140, 1060, 40);
+    ctx.font = "25px -apple-system, sans-serif";
+    drawContractParagraph(ctx, "圖中白色的 KIA 卡旺 K2500 車體、底盤、動力與行駛系統。", 90, 1130, 1060, 40);
+    ctx.fillStyle = "#173f34";
+    ctx.font = "800 32px -apple-system, sans-serif";
+    ctx.fillText("合約二｜露營車廂租賃合約", 90, 1240);
+    ctx.fillStyle = "#34423c";
+    ctx.font = "25px -apple-system, sans-serif";
+    drawContractParagraph(ctx, "圖中藍色的露營車廂與交車時點交的露營設備。", 90, 1290, 1060, 40);
     ctx.strokeStyle = "#b8c9c0";
     ctx.beginPath();
     ctx.moveTo(74, 1590);
@@ -753,12 +624,34 @@
     return Promise.all(models.map((model, index) => contractPagePng(model, index, models.length, signedAt, documentId, signatureSrc)));
   }
 
-  function setupImageInput(inputId, previewId, setter) {
-    const input = $(`#${inputId}`);
+  function moneyNumber(value) {
+    const digits = String(value || "").replace(/[^\d]/g, "");
+    return digits ? Number(digits) : 0;
+  }
+
+  function setupHandoverAmountCalculator() {
+    const form = $("#signer-form");
+    const rent = form.elements.namedItem("rentalFee");
+    const paidDeposit = form.elements.namedItem("reservationDeposit");
+    const security = form.elements.namedItem("securityDeposit");
+    const total = form.elements.namedItem("handoverAmount");
+    if (!rent || !paidDeposit || !security || !total) return;
+    const update = () => {
+      if (!moneyNumber(rent.value)) {
+        total.value = "";
+        return;
+      }
+      total.value = formatMoneyLike(Math.max(0, moneyNumber(rent.value) - moneyNumber(paidDeposit.value) + moneyNumber(security.value)));
+    };
+    [rent, paidDeposit, security].forEach((input) => input.addEventListener("input", update));
+    update();
+  }
+
+  function setupImageInputs(inputIds, previewId, statusId, setter) {
     const preview = $(`#${previewId}`);
-    const card = input.closest(".upload-card");
-    const status = $(`#${inputId}-status`);
-    input.addEventListener("change", async () => {
+    const card = preview.closest(".upload-card");
+    const status = $(`#${statusId}`);
+    const handleChange = async (input) => {
       const file = input.files?.[0];
       if (!file) return;
       if (status) status.textContent = "正在處理照片…";
@@ -775,6 +668,10 @@
         card?.classList.remove("has-preview");
         if (status) status.textContent = "這張照片無法讀取，請重新拍攝或選擇其他照片。";
       }
+    };
+    inputIds.forEach((inputId) => {
+      const input = $(`#${inputId}`);
+      input?.addEventListener("change", () => handleChange(input));
     });
   }
 
@@ -912,7 +809,7 @@
     ctx.font = "700 34px -apple-system, sans-serif";
     ctx.fillText("揪好森露營車出租", 80, 88);
     ctx.font = "800 58px -apple-system, sans-serif";
-    const confirmationTitle = copyType === "vehicle" ? "借車合約｜資料確認" : copyType === "cabin" ? "露營車廂租賃｜資料確認" : "業者存證包｜資料確認";
+    const confirmationTitle = copyType === "vehicle" ? "借車合約｜資料確認" : copyType === "cabin" ? "露營車廂租賃｜資料確認" : "完整電子合約｜資料確認";
     ctx.fillText(confirmationTitle, 80, 174);
     ctx.fillStyle = "#1d2925";
     ctx.font = "700 28px -apple-system, sans-serif";
@@ -932,6 +829,7 @@
       ["租賃標的", "藍色露營車廂與交車時點交設備"],
       ["車廂設備租金", data.rentalFee],
       ["訂金／押金", `${data.reservationDeposit || "—"}／${data.securityDeposit || "—"}`],
+      ["交車時應付", data.handoverAmount || "—"],
       ["回饋套組", data.rewardBundleSelected ? "已勾選參加五星評價回饋活動" : "未選擇參加"]
     ];
     const rows = [
@@ -982,7 +880,7 @@
     ctx.strokeRect(280, 1460, 800, 210);
     ctx.fillStyle = "#65716c";
     ctx.font = "18px -apple-system, sans-serif";
-    const bindingText = copyType === "vehicle" ? "本確認頁與第一份借車合約，以同一文件編號及簽署時間綁定。" : copyType === "cabin" ? "本確認頁與第二份露營車廂租賃合約，以同一文件編號及簽署時間綁定。" : "本存證包包含兩份分開製作的契約與證件附件。";
+    const bindingText = copyType === "vehicle" ? "本確認頁與第一份借車合約，以同一文件編號及簽署時間綁定。" : copyType === "cabin" ? "本確認頁與第二份露營車廂租賃合約，以同一文件編號及簽署時間綁定。" : "本 PDF 包含兩份契約、電子簽名與證件附件。";
     ctx.fillText(bindingText, 80, 1710);
     return canvas.toDataURL("image/png");
   }
@@ -1043,13 +941,8 @@
     const output = await PDFDocument.create();
     output.setTitle(`Joyforest Campervan Rental Agreement ${documentId}`);
     output.setAuthor("Joyforest CamperVan Rental");
-    output.setSubject(copyType === "vehicle" ? "Vehicle loan agreement" : copyType === "cabin" ? "Camper cabin rental agreement" : "Owner evidence package");
+    output.setSubject(copyType === "vehicle" ? "Vehicle loan agreement" : copyType === "cabin" ? "Camper cabin rental agreement" : "Complete electronic agreement");
     output.setKeywords(["Joyforest", "CamperVan", "Rental", "Agreement", documentId]);
-    const confirmationPng = await confirmationPagePng(data, signedAt, documentId, copyType);
-    const confirmationImage = await output.embedPng(confirmationPng);
-    const cover = output.addPage([595.28, 841.89]);
-    cover.drawImage(confirmationImage, { x: 0, y: 0, width: 595.28, height: 841.89 });
-
     for (const pagePng of contractImages) {
       const image = await output.embedPng(pagePng);
       const page = output.addPage([595.28, 841.89]);
@@ -1072,7 +965,7 @@
     const button = $("#complete-signing");
     button.disabled = true;
     status.className = "status-line";
-    status.textContent = "正在分別製作借車合約、露營車廂租賃合約與業者存證包…";
+    status.textContent = "正在製作完整電子合約 PDF…";
     try {
       signatureDataUrl = signatureHasInk ? $("#signature-pad").toDataURL("image/png") : "";
       const data = currentSignerData();
@@ -1080,38 +973,21 @@
       const documentId = `JF-${todayYmd().replaceAll("-", "")}-${draftToken.toUpperCase()}`;
       const vehicleDocumentId = `${documentId}-V`;
       const cabinDocumentId = `${documentId}-C`;
-      const [vehicleScopeImage, cabinScopeImage, vehicleContractPages, cabinContractPages] = await Promise.all([
-        contractScopePagePng("contract-vehicle", signedAt, vehicleDocumentId, signatureDataUrl),
-        contractScopePagePng("contract-cabin", signedAt, cabinDocumentId, signatureDataUrl),
+      const [overviewImage, vehicleContractPages, cabinContractPages] = await Promise.all([
+        contractOverviewPagePng(signedAt, documentId, signatureDataUrl),
         createContractPageImages(data, "contract-vehicle", signedAt, vehicleDocumentId, signatureDataUrl),
         createContractPageImages(data, "contract-cabin", signedAt, cabinDocumentId, signatureDataUrl)
       ]);
-      const vehicleContractImages = [vehicleScopeImage, ...vehicleContractPages];
-      const cabinContractImages = [cabinScopeImage, ...cabinContractPages];
-      const [vehicleBytes, cabinBytes, ownerBytes] = await Promise.all([
-        buildPdf(data, signedAt, vehicleDocumentId, "vehicle", false, vehicleContractImages),
-        buildPdf(data, signedAt, cabinDocumentId, "cabin", false, cabinContractImages),
-        buildPdf(data, signedAt, documentId, "owner", true, [...vehicleContractImages, ...cabinContractImages])
-      ]);
-      vehiclePdfBlob = new Blob([vehicleBytes], { type: "application/pdf" });
-      cabinPdfBlob = new Blob([cabinBytes], { type: "application/pdf" });
-      ownerPdfBlob = new Blob([ownerBytes], { type: "application/pdf" });
-      if (vehiclePdfUrl) URL.revokeObjectURL(vehiclePdfUrl);
-      if (cabinPdfUrl) URL.revokeObjectURL(cabinPdfUrl);
-      if (ownerPdfUrl) URL.revokeObjectURL(ownerPdfUrl);
-      vehiclePdfUrl = URL.createObjectURL(vehiclePdfBlob);
-      cabinPdfUrl = URL.createObjectURL(cabinPdfBlob);
-      ownerPdfUrl = URL.createObjectURL(ownerPdfBlob);
-      $("#download-vehicle").href = vehiclePdfUrl;
-      $("#download-vehicle").download = `${vehicleDocumentId}-借車合約.pdf`;
-      $("#download-cabin").href = cabinPdfUrl;
-      $("#download-cabin").download = `${cabinDocumentId}-露營車廂租賃合約.pdf`;
-      $("#download-owner").href = ownerPdfUrl;
-      $("#download-owner").download = `${documentId}-業者存證包.pdf`;
+      const completeBytes = await buildPdf(data, signedAt, documentId, "complete", true, [overviewImage, ...vehicleContractPages, ...cabinContractPages]);
+      completePdfBlob = new Blob([completeBytes], { type: "application/pdf" });
+      if (completePdfUrl) URL.revokeObjectURL(completePdfUrl);
+      completePdfUrl = URL.createObjectURL(completePdfBlob);
+      $("#open-complete-contract").href = completePdfUrl;
+      $("#open-complete-contract").download = `${documentId}-完整電子合約.pdf`;
       $("#result-document-id").textContent = documentId;
       $("#result-panel").hidden = false;
       $("#result-panel").scrollIntoView({ behavior: "smooth" });
-      status.textContent = "兩份獨立契約與業者存證包都已產生。請保存兩份契約，並把業者存證包分享給揪好森。";
+      status.textContent = "完整電子合約 PDF 已產生，請用下方按鈕分享給揪好森或儲存。";
     } catch (error) {
       console.error(error);
       status.className = "status-line error";
@@ -1121,28 +997,20 @@
     }
   }
 
-  async function sharePdf(kind) {
-    const pdfMap = {
-      vehicle: { blob: vehiclePdfBlob, name: "借車合約", selector: "#download-vehicle" },
-      cabin: { blob: cabinPdfBlob, name: "露營車廂租賃合約", selector: "#download-cabin" },
-      owner: { blob: ownerPdfBlob, name: "業者存證包", selector: "#download-owner" }
-    };
-    const selected = pdfMap[kind];
-    const blob = selected?.blob;
-    if (!blob) return;
+  async function shareCompletePdf() {
+    if (!completePdfBlob) return;
     const documentId = $("#result-document-id").textContent;
-    const copyName = selected.name;
-    const file = new File([blob], `${documentId}-${copyName}.pdf`, { type: "application/pdf" });
+    const file = new File([completePdfBlob], `${documentId}-完整電子合約.pdf`, { type: "application/pdf" });
     if (navigator.canShare?.({ files: [file] })) {
       try {
-        await navigator.share({ title: "揪好森露營車電子合約", text: `已完成簽署，附件為${copyName} PDF。`, files: [file] });
+        await navigator.share({ title: "揪好森露營車電子合約", text: "已完成簽署，附件為完整電子合約 PDF。", files: [file] });
         return;
       } catch (error) {
         if (error?.name === "AbortError") return;
       }
     }
-    $(selected.selector).click();
-    alert(`這支手機未支援從網頁直接分享 PDF，已開啟／下載${copyName}；請在 LINE 中選擇檔案傳送。`);
+    $("#open-complete-contract").click();
+    alert("這支手機未支援從網頁直接分享 PDF，已開啟完整合約；請用手機的「分享」功能傳到 LINE 或儲存。");
   }
 
   function directPublicDraft() {
