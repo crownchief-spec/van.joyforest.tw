@@ -5,7 +5,7 @@ export async function onRequestGet() {
     const sourceUrl = new URL(CALENDAR_SOURCE);
     sourceUrl.searchParams.set("contract_admin", Date.now().toString());
     const response = await fetch(sourceUrl, {
-      headers: { "user-agent": "JoyForest-CamperVan-Contract-Admin/1.0" },
+      headers: { "user-agent": "Joy Forest-Campervan-Contract-Admin/1.0" },
       cache: "no-store",
       cf: { cacheTtl: 0, cacheEverything: false },
     });

@@ -384,7 +384,7 @@
     const cabinRentalPeriod = `${cabin.rentalStartDate || "____-__-__"} ${cabin.rentalStartTime || "__:__"} 至 ${cabin.rentalEndDate || "____-__-__"} ${cabin.rentalEndTime || "__:__"}`;
     const customer = `${data.customerName || "____________"}｜證件號碼：${data.idNumber || "____________"}｜電話：${data.phone || "____________"}`;
     const cabinCustomer = `${cabin.customerName || "____________"}｜證件號碼：${cabin.idNumber || "____________"}｜電話：${cabin.phone || "____________"}`;
-    const providerLine = `${provider.name || "揪好森露營車出租"}${provider.role ? `（${provider.role}）` : ""}`;
+    const providerLine = `${provider.name || "揪好森 Joy Forest 露營車出租"}${provider.role ? `（${provider.role}）` : ""}`;
     const specialAgreementParagraphs = [];
     if (data.customerSpecialNote) specialAgreementParagraphs.push(data.customerSpecialNote);
     if (data.cabinProtectionStatus === "included") {
@@ -461,7 +461,7 @@
         partTitle: "露營車廂租賃合約",
         partSummary: "藍色露營車廂與露營設備有償租賃，規範租金、使用方式、返還與損害責任。",
         illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
-        illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
+        illustrationAlt: "Joy Forest Campervan 插圖中以藍色標示有償租賃的露營車廂範圍",
         scopeType: "cabin",
         scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 KIA 卡旺 K2500 車體。",
         title: "露營車廂租賃合約",
@@ -509,7 +509,7 @@
         partTitle: "露營車廂租賃合約",
         partSummary: "藍色露營車廂與露營設備有償租賃，規範租金、使用方式、返還與損害責任。",
         illustrationSrc: "/assets/images/contract/blue-camper-cabin-rental-scope-diagram.webp",
-        illustrationAlt: "JoyForest CamperVan 插圖中以藍色標示有償租賃的露營車廂範圍",
+        illustrationAlt: "Joy Forest Campervan 插圖中以藍色標示有償租賃的露營車廂範圍",
         scopeType: "cabin",
         scopeCaption: "第二份契約標的是圖中藍色露營車廂與交車時點交的露營設備；不包含前方 KIA 卡旺 K2500 車體。",
         title: "露營車廂租賃合約",
@@ -845,7 +845,7 @@
     ctx.fillRect(0, 0, canvas.width, 250);
     ctx.fillStyle = "white";
     ctx.font = "700 34px -apple-system, sans-serif";
-    ctx.fillText("揪好森露營車出租", 80, 88);
+    ctx.fillText("揪好森 Joy Forest 露營車出租", 80, 88);
     ctx.font = "800 58px -apple-system, sans-serif";
     const confirmationTitle = copyType === "vehicle" ? "借車合約｜資料確認" : copyType === "cabin" ? "露營車廂租賃｜資料確認" : "完整電子合約｜資料確認";
     ctx.fillText(confirmationTitle, 80, 174);
@@ -980,10 +980,10 @@
   async function buildPdf(data, signedAt, documentId, copyType, includeEvidence, contractImages) {
     const { PDFDocument } = window.PDFLib;
     const output = await PDFDocument.create();
-    output.setTitle(`Joyforest Campervan Rental Agreement ${documentId}`);
-    output.setAuthor("Joyforest CamperVan Rental");
+    output.setTitle(`Joy Forest Campervan Rental Agreement ${documentId}`);
+    output.setAuthor("Joy Forest Campervan Rental");
     output.setSubject(copyType === "vehicle" ? "Vehicle loan agreement" : copyType === "cabin" ? "Camper cabin rental agreement" : "Complete electronic agreement");
-    output.setKeywords(["Joyforest", "CamperVan", "Rental", "Agreement", documentId]);
+    output.setKeywords(["Joy Forest", "Campervan", "Rental", "Agreement", documentId]);
     for (const pagePng of contractImages) {
       const image = await output.embedPng(pagePng);
       const page = output.addPage([595.28, 841.89]);

@@ -54,14 +54,17 @@ button, a { -webkit-tap-highlight-color: transparent; }
   backdrop-filter: blur(10px);
 }
 .brand { display: flex; align-items: center; gap: .7rem; color: inherit; text-decoration: none; }
+.brand-logo,
 .brand-mark {
   display: block;
   width: 3rem;
+  height: 3rem;
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: 50%;
+  object-fit: cover;
   color: transparent;
-  background: url("/assets/images/contract/campervan-forest-brand-mark.svg") center / cover no-repeat;
+  background: url("/assets/images/shared/joyforest-logo-campervan-camping.webp") center / cover no-repeat;
   box-shadow: 0 4px 14px rgba(78, 87, 72, .2);
   font-size: 0;
 }

@@ -119,14 +119,31 @@ a {
   font-weight: 700;
 }
 
+.brand-logo,
 .brand-mark {
-  width: 30px;
-  height: 30px;
+  display: block;
+  width: 52px;
+  height: 52px;
   border-radius: 999px;
-  background: #fff url("/assets/images/shared/joyforest-campervan-rental-logo-icon-64.png") center/cover no-repeat;
+  object-fit: cover;
+  background: #fff url("/assets/images/shared/joyforest-logo-campervan-camping.webp") center/cover no-repeat;
   border: 1px solid rgba(31, 35, 32, 0.14);
   box-shadow: 0 6px 16px rgba(31, 58, 44, 0.18);
   flex: 0 0 auto;
+}
+
+.brand-copy { display: grid; line-height: 1.15; }
+.brand-copy strong { font-size: 1rem; }
+.brand-copy small { margin-top: 4px; color: var(--color-muted); font-size: .74rem; font-weight: 650; letter-spacing: .06em; }
+
+.footer-brand-logo {
+  display: block;
+  width: 104px;
+  height: 104px;
+  margin: 0 0 14px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
 }
 
 .nav-toggle {

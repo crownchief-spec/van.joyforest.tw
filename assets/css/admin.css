@@ -21,6 +21,8 @@ button, input, textarea, select { font: inherit; }
 .admin-app { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 20px 0 52px; }
 .admin-banner { margin: 0 0 20px; padding: 13px 18px; border-radius: 14px; background: var(--admin-warn); color: #fff; text-align: center; font-weight: 700; }
 .admin-header-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 28px; }
+.admin-brand { display: flex; align-items: center; gap: 15px; min-width: 0; }
+.admin-brand-logo { display: block; width: 76px; height: 76px; flex: 0 0 auto; border: 1px solid var(--admin-line); border-radius: 50%; background: #fff; object-fit: cover; box-shadow: var(--admin-shadow); }
 .admin-title { margin: 0; font-size: clamp(1.6rem, 4vw, 2.35rem); }
 .admin-subtitle { margin: 7px 0 0; color: var(--admin-muted); }
 .admin-button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: 7px; padding: 10px 18px; border: 1px solid var(--admin-line); border-radius: 999px; background: var(--admin-paper); color: var(--admin-green); font-weight: 700; text-decoration: none; cursor: pointer; }
@@ -90,6 +92,9 @@ button, input, textarea, select { font: inherit; }
   .admin-app { width: min(100% - 20px, 1120px); padding-top: 10px; }
   .admin-banner { border-radius: 10px; font-size: .88rem; }
   .admin-header-row { align-items: flex-start; }
+  .admin-brand { align-items: flex-start; gap: 10px; }
+  .admin-brand-logo { width: 58px; height: 58px; }
+  .admin-title { font-size: 1.35rem; }
   .admin-hub-grid, .admin-form-grid, .booking-data, .booking-workspace, .template-panel { grid-template-columns: 1fr; }
   .admin-card--contract { grid-template-columns: auto minmax(0, 1fr); }
   .template-panel__actions { justify-content: stretch; }

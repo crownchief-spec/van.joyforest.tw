@@ -1,6 +1,6 @@
 import { buildContractBookingList } from "/assets/js/campervan-calendar-data.js?v=20261007-4";
 
-const Gate = window.JoyforestVanAdminGate;
+const Gate = window.JoyForestVanAdminGate;
 const CALENDAR_SOURCE = /^(127\.0\.0\.1|localhost)$/.test(location.hostname)
   ? "https://camp.8-ways.com/data/calendar-basic.ics"
   : "/api/campervan-contract-calendar";

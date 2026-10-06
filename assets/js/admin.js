@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var Gate = window.JoyforestVanAdminGate;
+  var Gate = window.JoyForestVanAdminGate;
   if (!Gate) return;
 
   var loginSection = document.getElementById("admin-login-section");

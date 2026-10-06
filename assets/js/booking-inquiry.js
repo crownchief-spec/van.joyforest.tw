@@ -34,7 +34,7 @@
     const dates = get("start") && get("end") ? `${get("start")} ～ ${get("end")}` : get("start") || get("end");
     if (isEnglish) {
       return [
-        "【JoyForest campervan booking enquiry】",
+        "【Joy Forest campervan booking enquiry】",
         "",
         `Name: ${show(get("name"))}`,
         `Phone / WhatsApp: ${show(get("phone"))}`,
