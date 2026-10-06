@@ -122,6 +122,10 @@ function extractRentalTimes(text) {
     .map((match) => normalizeClock(match[1], match[2]));
   if (explicitTimes.length >= 2) return { startTime: explicitTimes[0], endTime: explicitTimes[1] };
 
+  const englishPrefixTimes = [...text.matchAll(/\b(am|pm)\s*(\d{1,2})(?::([0-5]\d))?\b/gi)]
+    .map((match) => normalizeClock(match[2], match[3] || "00", match[1]));
+  if (englishPrefixTimes.length >= 2) return { startTime: englishPrefixTimes[0], endTime: englishPrefixTimes[1] };
+
   const englishTimes = [...text.matchAll(/\b(\d{1,2})(?::([0-5]\d))?\s*(am|pm)\b/gi)]
     .map((match) => normalizeClock(match[1], match[2] || "00", match[3]));
   if (englishTimes.length >= 2) return { startTime: englishTimes[0], endTime: englishTimes[1] };
@@ -129,7 +133,7 @@ function extractRentalTimes(text) {
   const chineseTimes = [...text.matchAll(/(早上|上午|中午|下午|晚上)?\s*(\d{1,2})\s*[點时](?:\s*(半|\d{1,2}\s*分))?/g)]
     .map((match) => normalizeClock(match[2], match[3]?.includes("半") ? "30" : match[3]?.replace(/\D/g, "") || "00", match[1] || ""));
   if (chineseTimes.length >= 2) return { startTime: chineseTimes[0], endTime: chineseTimes[1] };
-  return { startTime: explicitTimes[0] || englishTimes[0] || chineseTimes[0] || "15:00", endTime: "15:00" };
+  return { startTime: explicitTimes[0] || englishPrefixTimes[0] || englishTimes[0] || chineseTimes[0] || "15:00", endTime: "15:00" };
 }
 
 function summaryCustomerName(summary) {
@@ -141,11 +145,12 @@ function summaryCustomerName(summary) {
 }
 
 function buildContractDraftFromEvent({ summary, description, dates }, now) {
-  const name = firstCaptured(description, [
+  const rawName = firstCaptured(description, [
     /(?:^|\n)\s*預約人姓名\s*[：:/]?\s*([^\n]+?)(?=\s*(?:聯絡電話|電話|手機|身分證|證件|$))/i,
     /(?:^|\n)\s*預約人\s*[：:/]?\s*([^\n]+?)(?=\s*(?:聯絡電話|電話|手機|身分證|證件|$))/i,
     /(?:^|\n)\s*姓名\s*[：:/]?\s*([^\n]+?)(?=\s*(?:聯絡電話|電話|手機|身分證|證件|$))/i,
   ]) || summaryCustomerName(summary);
+  const name = rawName.replace(/^(?:姓名|name)\s*[：:]\s*/i, "").trim();
   const phone = firstCaptured(description, [
     /(?:聯絡電話|電話|手機)\s*[：:/]?\s*(\+?[\d][\d\s()-]{7,})/i,
     /WhatsApp[^+\d]*(\+?[\d][\d\s()-]{7,})/i,
@@ -178,7 +183,7 @@ function buildContractDraftFromEvent({ summary, description, dates }, now) {
   const securityDeposit = extractMoney(description, [
     /(?:Refundable Handover Security Deposit|交車收可退押金|交車押金|可退押金|還車結算押金)\s*[：:]?\s*([^\n]+)/i,
   ]) || "NT$5,000";
-  const { startTime, endTime } = extractRentalTimes(description);
+  const { startTime, endTime } = extractRentalTimes(`${summary}\n${description}`);
   const rewardBundleSelected = /打卡分享優惠|五星評價回饋|網美露營套組\s*[：:]?\s*(?:需要|yes)|影音娛樂套組\s*[：:]?\s*(?:需要|yes)/i.test(description);
 
   return {

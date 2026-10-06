@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex,nofollow,noarchive,nosnippet" />
-  <meta name="theme-color" content="#174b3d" />
+  <meta name="theme-color" content="#4e5748" />
   <title>訂車行事曆與合約｜揪好森露營車管理</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/admin.css?v=20261002-1" />
+  <link rel="stylesheet" href="/assets/css/admin.css?v=20261007-2" />
 </head>
 <body class="admin-page">
   <main class="admin-app">
@@ -22,11 +22,22 @@
       <a class="admin-button small" href="/pages/admin">← 回管理首頁</a>
       <button id="refresh-bookings" class="admin-button primary small" type="button">重新讀取行事曆</button>
     </div>
+    <section class="template-panel" aria-labelledby="template-panel-title">
+      <div>
+        <span class="template-panel__eyebrow">合約範本</span>
+        <h2 id="template-panel-title">先查看目前使用中的基礎合約</h2>
+        <p>空白範本的欄位可以直接試填；日後固定條款需要調整時，就以這一份作為校稿基準。</p>
+      </div>
+      <div class="template-panel__actions">
+        <a class="admin-button primary" href="/pages/e-sign-contract" target="_blank" rel="noopener">開啟空白合約範本</a>
+        <a class="admin-button" href="/pages/e-sign-contract-today" target="_blank" rel="noopener">預覽最近客戶資料</a>
+      </div>
+    </section>
     <p id="booking-status" class="admin-status" role="status">正在讀取露營車行事曆…</p>
     <section id="booking-list" class="booking-list" aria-live="polite"></section>
     <p class="admin-footnote">管理者備註與已產生的連結會儲存在目前這支手機或電腦的瀏覽器。產生連結後，客人從其他裝置開啟也會看到當下已封裝的資料與備註。</p>
   </main>
-  <script src="/assets/js/admin-gate.js?v=20261002-1"></script>
-  <script type="module" src="/assets/js/admin-contracts.js?v=20261002-1"></script>
+  <script src="/assets/js/admin-gate.js?v=20261007-2"></script>
+  <script type="module" src="/assets/js/admin-contracts.js?v=20261007-3"></script>
 </body>
 </html>

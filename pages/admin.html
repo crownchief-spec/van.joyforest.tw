@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex,nofollow,noarchive,nosnippet" />
-  <meta name="theme-color" content="#174b3d" />
+  <meta name="theme-color" content="#4e5748" />
   <title>露營車管理後台｜揪好森</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/admin.css?v=20261002-1" />
+  <link rel="stylesheet" href="/assets/css/admin.css?v=20261007-2" />
 </head>
 <body class="admin-page">
   <main class="admin-app">
@@ -30,19 +30,15 @@
 
     <section id="admin-hub-section" hidden>
       <p class="admin-hub-lead">請選擇要開啟的功能：</p>
-      <div class="admin-hub-grid">
-        <a class="admin-card" href="/pages/admin-contracts">
-          <h2>訂車行事曆</h2>
-          <p>查看接下來的露營車案子、輸入管理者備註，並產生客人的專屬電子合約連結。</p>
-        </a>
-        <a class="admin-card" href="/pages/e-sign-contract" target="_blank" rel="noopener">
-          <h2>空白電子合約</h2>
-          <p>沒有行事曆資料時，直接開啟空白版本，讓客人現場填寫。</p>
+      <div class="admin-hub-grid admin-hub-grid--single">
+        <a class="admin-card admin-card--contract" href="/pages/admin-contracts">
+          <span class="admin-card__icon" aria-hidden="true">✍︎</span>
+          <div><h2>合約系統</h2><p>讀取露營車行事曆、管理每筆案件備註，並產生客人的專屬電子合約連結。</p></div>
         </a>
       </div>
     </section>
   </main>
-  <script src="/assets/js/admin-gate.js?v=20261002-1"></script>
-  <script src="/assets/js/admin.js?v=20261002-1"></script>
+  <script src="/assets/js/admin-gate.js?v=20261007-2"></script>
+  <script src="/assets/js/admin.js?v=20261007-2"></script>
 </body>
 </html>

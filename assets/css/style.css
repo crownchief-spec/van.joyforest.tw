@@ -1365,7 +1365,17 @@ html[lang="en"] .nav-links a .nav-stack {
 .site-footer {
   margin-top: 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
-  background: #23272d;
+  background: #4e5748;
+}
+
+.footer-lang-link {
+  margin: 4px 0 0;
+  text-align: center;
+}
+
+.footer-lang-link a {
+  color: inherit;
+  text-underline-offset: 4px;
 }
 
 .footer-admin-link {

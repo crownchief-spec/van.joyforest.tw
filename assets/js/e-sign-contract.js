@@ -1076,7 +1076,7 @@
     try {
       const [sourceResponse, calendarModule] = await Promise.all([
         fetch(`https://camp.8-ways.com/data/calendar-basic.ics?contract_today=${Date.now()}`, { cache: "no-store" }),
-        import("/assets/js/campervan-calendar-data.js?v=20261002-10"),
+        import("/assets/js/campervan-calendar-data.js?v=20261007-4"),
       ]);
       if (!sourceResponse.ok) throw new Error("目前無法讀取露營車行事曆，請稍後重新整理。");
       const payload = calendarModule.buildTodayContractPayload(await sourceResponse.text());

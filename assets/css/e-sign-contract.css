@@ -222,7 +222,14 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 .result-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; margin-top: 1.2rem; }
 .document-id { font-size: .86rem; }
 .share-help { margin-top: .8rem; font-size: .9rem; }
-footer { padding: 2rem 1rem 3rem; color: var(--muted); text-align: center; font-size: .82rem; }
+.contract-site-footer { margin-top: 3rem; padding: 0 1rem 2.5rem; color: rgba(242,236,225,.78); background: var(--forest); text-align: center; }
+.contract-site-footer__inner { width: min(1120px, 100%); margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(242,236,225,.32); }
+.contract-site-footer nav { display: grid; justify-items: center; gap: .7rem; }
+.contract-site-footer a { color: rgba(242,236,225,.78); font-size: .95rem; text-underline-offset: .22rem; }
+.contract-site-footer a:hover { color: var(--cream); }
+.contract-site-footer a:first-child { text-decoration: underline; }
+.contract-site-footer__admin { font-size: .78rem !important; text-decoration: none; opacity: .68; }
+.contract-site-footer p { margin: 1rem 0 0; font-size: .88rem; font-weight: 650; }
 
 /* 露營車主題小插圖：整頁沿用相同的森林品牌語言 */
 #identity-documents,
@@ -278,6 +285,6 @@ footer { padding: 2rem 1rem 3rem; color: var(--muted); text-align: center; font-
 }
 
 @media print {
-  .site-header, footer { display: none; }
+  .site-header, .contract-site-footer { display: none; }
   body { background: white; }
 }
