@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" role="img" aria-labelledby="title">
+  <title id="title">露營車電子合約 PDF 分享插圖</title>
+  <path d="M15 118c37-13 134-13 170 0" fill="none" stroke="#d6c3a5" stroke-width="9" stroke-linecap="round" opacity=".65"/>
+  <rect x="28" y="35" width="92" height="70" rx="13" fill="#fffdf9" stroke="#4e5748" stroke-width="4"/>
+  <path d="M42 76h63v29H42Z" fill="#9ea58c"/>
+  <path d="M48 76V62c0-4 3-7 7-7h29c8 0 15 7 15 15v6" fill="#f2ece1" stroke="#4e5748" stroke-width="4"/>
+  <path d="M55 61h27c5 0 9 4 9 9v6H55Z" fill="#c4c8b5"/>
+  <circle cx="55" cy="106" r="7" fill="#34372f" stroke="#f2ece1" stroke-width="3"/>
+  <circle cx="96" cy="106" r="7" fill="#34372f" stroke="#f2ece1" stroke-width="3"/>
+  <path d="M129 29h30l18 18v58h-48Z" fill="#fffdf9" stroke="#4e5748" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M159 29v20h18" fill="#d6c3a5" stroke="#4e5748" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M140 72h25m-25 13h25" stroke="#b39a64" stroke-width="5" stroke-linecap="round"/>
+  <path d="m116 45 14-14m0 0-1 12m1-12-12 1" fill="none" stroke="#7f8770" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

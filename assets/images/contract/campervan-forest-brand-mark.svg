@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">揪好森露營車森林標誌</title>
+  <circle cx="48" cy="48" r="45" fill="#4e5748"/>
+  <path d="M21 34 32 16l11 18h-7l9 14H19l9-14Z" fill="#c4c8b5"/>
+  <path d="M26 48v19" stroke="#f2ece1" stroke-width="4" stroke-linecap="round"/>
+  <path d="M39 47h28c5 0 9 4 9 9v12H36V50c0-2 1-3 3-3Z" fill="#f2ece1" stroke="#f2ece1" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M47 47V37h17c4 0 7 3 7 7v3" fill="#f2ece1" stroke="#f2ece1" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M51 41h11c2 0 4 2 4 4v2H51Z" fill="#9ea58c"/>
+  <path d="M40 53h10v8H40Zm14 0h17v8H54Z" fill="#9ea58c"/>
+  <circle cx="46" cy="69" r="6" fill="#34372f" stroke="#f2ece1" stroke-width="3"/>
+  <circle cx="68" cy="69" r="6" fill="#34372f" stroke="#f2ece1" stroke-width="3"/>
+  <path d="M18 78c14-5 47-5 61 0" fill="none" stroke="#b39a64" stroke-width="4" stroke-linecap="round"/>
+</svg>

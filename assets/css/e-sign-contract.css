@@ -1,24 +1,42 @@
 :root {
-  --ink: #1d2925;
-  --muted: #66716c;
-  --forest: #173f34;
-  --forest-2: #276d55;
-  --mint: #e7f3ed;
-  --cream: #f7f2e9;
+  /* 與 camp.8-ways.com 共用的 Joy Forest 2026 品牌色 */
+  --color-dusty-sage: #9ea58c;
+  --color-eucalyptus: #7f8770;
+  --color-pale-sage: #c4c8b5;
+  --color-warm-white: #f2ece1;
+  --color-oat-milk: #d6c3a5;
+  --color-fog-gold: #b39a64;
+  --ink: #34372f;
+  --muted: #65695f;
+  --forest: #4e5748;
+  --forest-2: #7f8770;
+  --mint: #e3e5d9;
+  --cream: #f2ece1;
   --paper: #fffdf9;
-  --line: #d8ded9;
-  --warning: #fff4cf;
-  --warning-line: #d39b18;
+  --line: rgba(78, 87, 72, .2);
+  --warning: #f7efd9;
+  --warning-line: #b39a64;
   --danger: #9e3d36;
-  --shadow: 0 18px 50px rgba(31, 52, 43, 0.12);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+  --shadow: 0 8px 28px rgba(78, 87, 72, .1);
+  --shadow-hover: 0 14px 38px rgba(78, 87, 72, .16);
+  --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-serif: "Noto Serif TC", "PingFang TC", serif;
+  font-family: var(--font-sans);
   color: var(--ink);
   background: var(--cream);
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; min-height: 100vh; background: radial-gradient(circle at top right, #edf5ef, transparent 35rem), var(--cream); }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 8% 4%, rgba(196, 200, 181, .5), transparent 24rem),
+    radial-gradient(circle at 92% 18%, rgba(214, 195, 165, .38), transparent 28rem),
+    var(--cream);
+}
 button, input, select { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 
@@ -31,25 +49,35 @@ button, a { -webkit-tap-highlight-color: transparent; }
   justify-content: space-between;
   gap: 1rem;
   padding: .85rem max(1rem, calc((100vw - 1120px) / 2));
-  border-bottom: 1px solid rgba(23, 63, 52, .12);
-  background: rgba(255, 253, 249, .94);
-  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(242, 236, 225, .94);
+  backdrop-filter: blur(10px);
 }
 .brand { display: flex; align-items: center; gap: .7rem; color: inherit; text-decoration: none; }
-.brand-mark { display: grid; place-items: center; width: 2.8rem; aspect-ratio: 1; border-radius: 50%; color: white; background: var(--forest); font-weight: 800; }
+.brand-mark {
+  display: block;
+  width: 3rem;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  color: transparent;
+  background: url("/assets/images/contract/campervan-forest-brand-mark.svg") center / cover no-repeat;
+  box-shadow: 0 4px 14px rgba(78, 87, 72, .2);
+  font-size: 0;
+}
 .brand strong, .brand small { display: block; }
 .brand small { margin-top: .1rem; color: var(--muted); font-size: .75rem; }
-.local-badge { padding: .4rem .65rem; border-radius: 999px; background: var(--mint); color: var(--forest); font-size: .78rem; font-weight: 700; }
+.local-badge { padding: .4rem .75rem; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,253,249,.72); color: var(--forest); font-size: .78rem; font-weight: 700; }
 
 .page-shell { width: min(1120px, calc(100% - 2rem)); margin: 1.5rem auto 4rem; }
-.hero-card, .card { border: 1px solid rgba(23, 63, 52, .13); background: rgba(255, 253, 249, .96); box-shadow: var(--shadow); }
-.hero-card { padding: clamp(1.6rem, 5vw, 3.2rem); border-radius: 2rem; background: linear-gradient(135deg, #173f34, #2d745c); color: white; }
+.hero-card, .card { border: 1px solid var(--line); background: rgba(255, 253, 249, .94); box-shadow: var(--shadow); }
+.hero-card { padding: clamp(1.6rem, 5vw, 3.2rem); border-radius: 1.25rem; background: linear-gradient(145deg, #4e5748, #7f8770); color: var(--cream); }
 .hero-card h1,
 .hero-card .page-title { margin: .3rem 0 .8rem; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.08; letter-spacing: -.035em; }
-.hero-card p { max-width: 48rem; margin: 0; color: rgba(255,255,255,.82); font-size: 1.05rem; line-height: 1.7; }
+.hero-card p { max-width: 48rem; margin: 0; color: rgba(242,236,225,.9); font-size: 1.05rem; line-height: 1.7; }
 .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-weight: 800; font-size: .75rem !important; }
 .stack { display: grid; gap: 1rem; margin-top: 1rem; }
-.card { padding: clamp(1.15rem, 3.5vw, 2rem); border-radius: 1.5rem; }
+.card { padding: clamp(1.15rem, 3.5vw, 2rem); border-radius: 1.25rem; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.35rem; }
 .section-heading > div { display: flex; align-items: center; gap: .75rem; }
 .section-heading h2, .action-card h2 { margin: 0; font-size: clamp(1.35rem, 3vw, 1.8rem); }
@@ -64,14 +92,14 @@ input, select {
   width: 100%;
   min-height: 3.15rem;
   padding: .75rem .9rem;
-  border: 1px solid #cbd4ce;
-  border-radius: .85rem;
-  background: white;
+  border: 1px solid rgba(78,87,72,.28);
+  border-radius: .75rem;
+  background: #fffdf9;
   color: var(--ink);
   outline: none;
 }
-input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px rgba(39,109,85,.14); }
-.calculated-field { border: 2px solid #d9b84e; background: #fff8dc; color: #5f4700; font-weight: 900; }
+input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px rgba(127,135,112,.18); }
+.calculated-field { border: 2px solid var(--color-fog-gold); background: #faf3df; color: #655631; font-weight: 900; }
 .button {
   display: inline-flex;
   align-items: center;
@@ -80,14 +108,16 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
   min-height: 3rem;
   padding: .7rem 1rem;
   border: 1px solid transparent;
-  border-radius: .9rem;
+  border-radius: 999px;
   cursor: pointer;
   font-weight: 800;
   text-decoration: none;
 }
-.button.primary { background: var(--forest); color: white; }
-.button.dark { background: #202a27; color: white; }
-.button.outline { border-color: var(--forest); background: white; color: var(--forest); }
+.button.primary { background: var(--forest); color: var(--cream); box-shadow: 0 5px 16px rgba(78,87,72,.18); }
+.button.primary:hover { background: #3f473b; transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.button.dark { background: #34372f; color: var(--cream); }
+.button.outline { border-color: var(--forest); background: rgba(255,253,249,.75); color: var(--forest); }
+.button.outline:hover { background: var(--mint); }
 .button.large { min-height: 3.5rem; padding-inline: 1.35rem; }
 .text-button { background: transparent; color: var(--forest-2); padding-left: 0; text-decoration: underline; }
 .button:disabled { opacity: .55; cursor: wait; }
@@ -103,48 +133,49 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 
 .notice { margin-top: 1rem; padding: .9rem 1rem; border-radius: .9rem; line-height: 1.55; }
 .notice.warning { border-left: 4px solid var(--warning-line); background: var(--warning); }
-.notice.privacy { background: #edf2ef; color: #43504a; }
+.notice.privacy { background: #e7e4d9; color: #51564c; }
 .contract-overview { display: grid; gap: 1.1rem; }
-.contract-overview__copy h1 { margin: 0 0 .75rem; color: var(--forest); font-size: clamp(1.65rem, 4vw, 2.35rem); }
+.contract-overview__copy h1 { margin: 0 0 .75rem; color: var(--forest); font-family: var(--font-serif); font-size: clamp(1.65rem, 4vw, 2.35rem); letter-spacing: .03em; }
 .contract-overview__copy p { margin: .45rem 0; color: #3f4c47; line-height: 1.65; }
 .contract-overview__copy strong { color: var(--ink); }
 .contract-overview__figure { margin: 0; }
-.contract-overview__media { position: relative; max-width: 48rem; margin: 0 auto; overflow: hidden; border: 1px solid #d7e1db; border-radius: 1.15rem; background: #fff; }
+.contract-overview__media { position: relative; max-width: 48rem; margin: 0 auto; overflow: hidden; border: 1px solid var(--line); border-radius: 1.15rem; background: linear-gradient(180deg, #fffdf9 0 77%, #e5ddcf 77% 80%, #c4c8b5 80%); }
 .contract-overview__media img { display: block; width: 100%; height: auto; aspect-ratio: 1182 / 665; object-fit: contain; }
 .contract-overview__badge { position: absolute; padding: .48rem .72rem; border-radius: .7rem; color: #fff; font-size: clamp(.7rem, 2vw, .88rem); font-weight: 900; box-shadow: 0 6px 18px rgba(0,0,0,.16); }
-.contract-overview__badge--vehicle { left: 8%; bottom: 10%; background: rgba(145,87,34,.94); }
-.contract-overview__badge--cabin { top: 10%; right: 8%; background: rgba(23,63,52,.94); }
+.contract-overview__badge--vehicle { left: 8%; bottom: 10%; background: rgba(128,107,68,.96); }
+.contract-overview__badge--cabin { top: 10%; right: 8%; background: rgba(78,87,72,.96); }
 .contract-flow-section { min-width: 0; }
 .contract-inline-fields { margin-top: .9rem; }
 .contract-inline-fields label { min-width: 0; }
-.copy-contract-row { position: relative; display: flex; align-items: center; gap: 1rem; margin: .8rem 0 1rem; padding: 1rem 1rem 1rem 4.2rem; border: 2px solid #e0a91e; border-radius: 1rem; background: #fff7d8; box-shadow: 0 10px 28px rgba(135,95,0,.14); }
-.copy-contract-row::before { content: "➜"; position: absolute; left: 1.1rem; color: #9b6800; font-size: 2.1rem; font-weight: 900; animation: point-to-copy 1s ease-in-out infinite alternate; }
+.copy-contract-row { position: relative; display: flex; align-items: center; gap: 1rem; margin: .8rem 0 1rem; padding: 1rem 1rem 1rem 4.2rem; border: 2px solid var(--color-fog-gold); border-radius: 1rem; background: #f7efd9; box-shadow: 0 10px 28px rgba(128,107,68,.13); }
+.copy-contract-row::before { content: "➜"; position: absolute; left: 1.1rem; color: #806b44; font-size: 2.1rem; font-weight: 900; animation: point-to-copy 1s ease-in-out infinite alternate; }
 .copy-contract-row .status-line { margin: 0; }
 .copy-contract-row .button { min-height: 3.35rem; padding-inline: 1.25rem; box-shadow: 0 6px 16px rgba(23,63,52,.18); }
 @keyframes point-to-copy { from { transform: translateX(-.2rem); } to { transform: translateX(.35rem); } }
 .contract-jump { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin-bottom: 1rem; }
-.contract-jump a { display: grid; gap: .22rem; min-height: 7.2rem; padding: 1rem; border: 1px solid #bad0c5; border-radius: 1rem; background: #f4faf7; color: var(--ink); text-decoration: none; }
-.contract-jump a:hover, .contract-jump a:focus-visible { border-color: var(--forest-2); box-shadow: 0 0 0 3px rgba(39,109,85,.12); }
+.contract-jump a { display: grid; gap: .22rem; min-height: 7.2rem; padding: 1rem; border: 1px solid var(--line); border-radius: 1rem; background: #f7f3eb; color: var(--ink); text-decoration: none; }
+.contract-jump a:hover, .contract-jump a:focus-visible { border-color: var(--forest-2); box-shadow: 0 0 0 3px rgba(127,135,112,.15); }
 .contract-jump span { color: var(--forest-2); font-size: .76rem; font-weight: 900; letter-spacing: .08em; }
 .contract-jump strong { font-size: 1.18rem; }
 .contract-jump small { color: var(--muted); font-size: .84rem; line-height: 1.45; }
 .contract-text { display: grid; gap: 1rem; margin-top: 0; }
-.contract-document { scroll-margin-top: 5.5rem; overflow: hidden; border: 1px solid #cbd8d1; border-radius: 1.25rem; background: #fff; }
-.contract-document__header { padding: 1.2rem clamp(1rem, 3vw, 1.5rem); background: linear-gradient(135deg, #173f34, #286c55); color: #fff; }
+.contract-document { scroll-margin-top: 5.5rem; overflow: hidden; border: 1px solid var(--line); border-radius: 1.25rem; background: var(--paper); box-shadow: var(--shadow); }
+.contract-document__header { position: relative; overflow: hidden; padding: 1.2rem clamp(1rem, 3vw, 1.5rem); background: linear-gradient(135deg, #4e5748, #7f8770); color: var(--cream); }
+.contract-document__header::after { content: ""; position: absolute; right: -1.5rem; bottom: -2.5rem; width: 9rem; height: 7rem; background: url("/assets/images/contract/campervan-pdf-share.svg") center / contain no-repeat; opacity: .18; pointer-events: none; }
 .contract-document__part { display: inline-flex; align-items: center; min-height: 2rem; margin-bottom: .55rem; padding: .3rem .7rem; border: 1px solid rgba(255,255,255,.5); border-radius: 999px; background: rgba(255,255,255,.14); color: #fff; font-size: .9rem; font-weight: 900; letter-spacing: .08em; }
 .contract-document__header h3 { margin: 0; font-size: clamp(1.35rem, 3vw, 1.75rem); }
-.contract-document__header p { margin: .45rem 0 0; color: rgba(255,255,255,.82); line-height: 1.55; }
-.contract-scope-figure { margin: 0; padding: 1rem clamp(1rem, 3vw, 1.5rem); border-bottom: 1px solid var(--line); background: #f8faf8; }
+.contract-document__header p { margin: .45rem 0 0; color: rgba(242,236,225,.88); line-height: 1.55; }
+.contract-scope-figure { margin: 0; padding: 1rem clamp(1rem, 3vw, 1.5rem); border-bottom: 1px solid var(--line); background: #f6f1e8; }
 .contract-scope-figure__media { position: relative; max-width: 42rem; margin: 0 auto; overflow: hidden; border: 1px solid #d7e1db; border-radius: 1rem; background: #fff; }
 .contract-scope-figure img { display: block; width: 100%; height: auto; aspect-ratio: 1182 / 665; object-fit: contain; }
-.contract-scope-figure__badge { position: absolute; left: .75rem; bottom: .75rem; padding: .48rem .7rem; border-radius: .65rem; background: rgba(23,63,52,.92); color: #fff; font-size: .78rem; font-weight: 900; box-shadow: 0 5px 20px rgba(0,0,0,.15); }
-.contract-scope-figure--vehicle .contract-scope-figure__badge { left: 8%; bottom: 15%; background: rgba(166,103,39,.94); }
+.contract-scope-figure__badge { position: absolute; left: .75rem; bottom: .75rem; padding: .48rem .7rem; border-radius: 999px; background: rgba(78,87,72,.94); color: var(--cream); font-size: .78rem; font-weight: 900; box-shadow: 0 5px 20px rgba(0,0,0,.15); }
+.contract-scope-figure--vehicle .contract-scope-figure__badge { left: 8%; bottom: 15%; background: rgba(128,107,68,.95); }
 .contract-scope-figure--cabin .contract-scope-figure__badge { left: auto; right: 8%; bottom: 18%; }
 .contract-scope-figure figcaption { max-width: 42rem; margin: .75rem auto 0; color: #4c5a54; font-size: .9rem; font-weight: 700; line-height: 1.55; }
 .contract-document__body { padding: .35rem clamp(1rem, 3vw, 1.5rem) 1.2rem; }
 .contract-clause { padding: 1rem 0; border-bottom: 1px solid var(--line); }
 .contract-clause:last-child { border-bottom: 0; }
-.contract-clause h4 { margin: 0 0 .55rem; color: var(--forest); font-size: 1rem; }
+.contract-clause h4 { margin: 0 0 .55rem; color: var(--forest); font-family: var(--font-serif); font-size: 1.03rem; letter-spacing: .025em; }
 .contract-clause p { margin: .38rem 0; color: #35423d; line-height: 1.72; }
 .contract-clause p[data-list-item="true"] { padding-left: 1.15rem; text-indent: -1.15rem; }
 .contract-visual-appendix { margin: 0; padding: 0 clamp(1rem, 3vw, 1.5rem) 1.5rem; text-align: center; }
@@ -153,7 +184,7 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 .contract-visual-item img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; background: #fff; }
 .contract-visual-item span { padding: .45rem .35rem .5rem; color: var(--forest); font-size: clamp(.66rem, 2.2vw, .82rem); font-weight: 900; line-height: 1.25; }
 .contract-visual-appendix figcaption { margin-top: .7rem; color: var(--muted); font-size: .88rem; line-height: 1.55; }
-.reward-option { display: flex; align-items: flex-start; gap: .8rem; margin-top: 1rem; padding: 1.05rem; border: 2px solid #d9b84e; border-radius: 1rem; background: #fff7d8; cursor: pointer; }
+.reward-option { display: flex; align-items: flex-start; gap: .8rem; margin-top: 1rem; padding: 1.05rem; border: 2px solid var(--color-fog-gold); border-radius: 1rem; background: #f7efd9; cursor: pointer; }
 .reward-option input { width: 1.4rem; min-height: 1.4rem; margin-top: .12rem; accent-color: var(--forest); }
 .reward-option span { display: grid; gap: .25rem; }
 .reward-option strong { color: #5f4700; font-size: 1rem; }
@@ -166,7 +197,7 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 
 .document-type { display: block; max-width: 28rem; margin-bottom: 1rem; }
 .upload-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.upload-card { position: relative; display: grid; align-content: start; gap: .55rem; min-height: 15rem; padding: 1rem; overflow: hidden; border: 2px dashed #a8b8b0; border-radius: 1.2rem; background: #f7faf8; text-align: center; }
+.upload-card { position: relative; display: grid; align-content: start; gap: .55rem; min-height: 15rem; padding: 1rem; overflow: hidden; border: 2px dashed #9ea58c; border-radius: 1.2rem; background: #f7f3eb; text-align: center; }
 .upload-title { margin: 0; color: var(--forest); font-size: 1.1rem; }
 .upload-help { margin: .3rem 0 0; color: var(--muted); font-size: .86rem; font-weight: 500; }
 .upload-card img { display: block; width: 100%; height: 10rem; object-fit: contain; border: 1px solid var(--line); border-radius: .85rem; background: white; }
@@ -177,7 +208,7 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 .upload-card.has-preview { border-style: solid; border-color: var(--forest-2); }
 .upload-card.has-preview .upload-help { color: var(--forest-2); font-weight: 800; }
 
-.signature-wrap { position: relative; overflow: hidden; min-height: 14rem; border: 2px solid var(--forest); border-radius: 1.1rem; background: #fff; touch-action: none; }
+.signature-wrap { position: relative; overflow: hidden; min-height: 14rem; border: 2px solid var(--forest); border-radius: 1.1rem; background: #fffdf9; touch-action: none; }
 #signature-pad { display: block; width: 100%; height: 14rem; cursor: crosshair; }
 #signature-placeholder { position: absolute; inset: 50% auto auto 50%; transform: translate(-50%, -50%); color: #9fa8a3; pointer-events: none; font-size: 1.15rem; }
 .signature-actions { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: .75rem; color: var(--muted); }
@@ -192,6 +223,32 @@ input:focus, select:focus { border-color: var(--forest-2); box-shadow: 0 0 0 3px
 .document-id { font-size: .86rem; }
 .share-help { margin-top: .8rem; font-size: .9rem; }
 footer { padding: 2rem 1rem 3rem; color: var(--muted); text-align: center; font-size: .82rem; }
+
+/* 露營車主題小插圖：整頁沿用相同的森林品牌語言 */
+#identity-documents,
+#signature-section,
+.submit-card { position: relative; overflow: hidden; }
+#identity-documents::after,
+#signature-section::after,
+.submit-card::after {
+  content: "";
+  position: absolute;
+  top: .7rem;
+  right: .8rem;
+  width: clamp(5rem, 12vw, 8rem);
+  aspect-ratio: 10 / 7;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: .95;
+  pointer-events: none;
+}
+#identity-documents::after { background-image: url("/assets/images/contract/campervan-document-camera.svg"); }
+#signature-section::after { background-image: url("/assets/images/contract/campervan-signature-campfire.svg"); }
+.submit-card::after { background-image: url("/assets/images/contract/campervan-pdf-share.svg"); }
+#identity-documents .section-heading,
+#signature-section .section-heading { padding-right: clamp(5.5rem, 14vw, 8.5rem); }
+.submit-card { padding-right: clamp(6.5rem, 16vw, 10rem); }
 
 @media (max-width: 760px) {
   .site-header { padding-inline: .85rem; }
@@ -212,6 +269,12 @@ footer { padding: 2rem 1rem 3rem; color: var(--muted); text-align: center; font-
   .upload-card { min-height: 12rem; }
   .result-actions { display: grid; }
   .result-actions .button { width: 100%; }
+  #identity-documents::after,
+  #signature-section::after,
+  .submit-card::after { top: .4rem; right: .35rem; width: 4.6rem; opacity: .82; }
+  #identity-documents .section-heading,
+  #signature-section .section-heading { padding-right: 4rem; }
+  .submit-card { padding-right: 4.8rem; }
 }
 
 @media print {

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" role="img" aria-labelledby="title">
+  <title id="title">露營車合約手寫簽名插圖</title>
+  <path d="M14 117c38-12 134-12 172 0" fill="none" stroke="#d6c3a5" stroke-width="9" stroke-linecap="round" opacity=".65"/>
+  <path d="M24 85 43 52l19 33H49l13 21H24l13-21Z" fill="#c4c8b5"/>
+  <path d="M43 104v17" stroke="#7f8770" stroke-width="4" stroke-linecap="round"/>
+  <rect x="70" y="19" width="77" height="94" rx="11" fill="#fffdf9" stroke="#4e5748" stroke-width="4"/>
+  <path d="M88 43h42M88 57h42M88 71h26" stroke="#9ea58c" stroke-width="5" stroke-linecap="round"/>
+  <path d="M87 94c10-13 17 8 27-3 8-9 12 8 22-1" fill="none" stroke="#b39a64" stroke-width="5" stroke-linecap="round"/>
+  <path d="m150 36 27 27-45 45-19 4 5-18Z" fill="#7f8770" stroke="#4e5748" stroke-width="4" stroke-linejoin="round"/>
+  <path d="m150 36 9-9c3-3 8-3 11 0l16 16c3 3 3 8 0 11l-9 9Z" fill="#d6c3a5" stroke="#4e5748" stroke-width="4"/>
+</svg>

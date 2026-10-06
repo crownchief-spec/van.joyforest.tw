@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" role="img" aria-labelledby="title">
+  <title id="title">露營車證件拍攝插圖</title>
+  <path d="M15 115c34-14 137-14 171 0" fill="none" stroke="#d6c3a5" stroke-width="9" stroke-linecap="round" opacity=".65"/>
+  <path d="M28 87 43 62l15 25H47l11 18H28l11-18Z" fill="#c4c8b5"/>
+  <path d="M43 103v17" stroke="#7f8770" stroke-width="4" stroke-linecap="round"/>
+  <rect x="65" y="28" width="85" height="76" rx="12" fill="#fffdf9" stroke="#4e5748" stroke-width="4"/>
+  <circle cx="91" cy="56" r="13" fill="#d6c3a5"/>
+  <path d="M74 84c4-14 30-14 34 0" fill="#9ea58c"/>
+  <path d="M118 50h21m-21 12h21m-21 12h15" stroke="#7f8770" stroke-width="5" stroke-linecap="round"/>
+  <path d="M129 82h45c5 0 9 4 9 9v24h-63V91c0-5 4-9 9-9Z" fill="#4e5748"/>
+  <path d="m137 82 6-10h18l6 10" fill="#7f8770"/>
+  <circle cx="151" cy="98" r="10" fill="#f2ece1" stroke="#b39a64" stroke-width="4"/>
+</svg>
