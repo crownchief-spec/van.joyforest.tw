@@ -1,0 +1,44 @@
+{
+  "customerName": "沈苡珊",
+  "phone": "0907406347",
+  "birthDate": "",
+  "idNumber": "L225265447",
+  "address": "",
+  "rentalStartDate": "2026-10-07",
+  "rentalStartTime": "09:00",
+  "rentalEndDate": "2026-10-14",
+  "rentalEndTime": "09:00",
+  "deliveryLocation": "桃園機場停車場",
+  "returnLocation": "桃園機場停車場",
+  "rentalFee": "NT$27,800",
+  "reservationDeposit": "NT$7,800",
+  "securityDeposit": "NT$5,000",
+  "handoverAmount": "NT$25,000",
+  "rewardBundleSelected": false,
+  "customerSpecialNote": "行事曆記載實際駕駛人為 Jochen Keller 與 Heike Keller；請於現場依實際簽約與駕駛資料確認、修正並提供有效證件。",
+  "calendarStatus": "booked",
+  "calendarSummary": "露營車德國夫婦 沈苡珊 Sandra am9 | am9",
+  "issuedAt": "2026-10-07T12:00:00+08:00",
+  "version": "dated-contract-2026-10-07-1",
+  "cabin": {
+    "customerName": "沈苡珊",
+    "phone": "0907406347",
+    "birthDate": "",
+    "idNumber": "L225265447",
+    "address": "",
+    "rentalStartDate": "2026-10-07",
+    "rentalStartTime": "09:00",
+    "rentalEndDate": "2026-10-14",
+    "rentalEndTime": "09:00",
+    "deliveryLocation": "桃園機場停車場",
+    "returnLocation": "桃園機場停車場"
+  },
+  "provider": {
+    "name": "陳在紳",
+    "role": "聯邦國際租賃股份有限公司桃園分公司租賃小貨車長租租用人"
+  },
+  "vehicle": {
+    "plate": "RBU-8280",
+    "description": "KIA 卡旺 2497cc 雙廂式"
+  }
+}
