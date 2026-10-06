@@ -252,6 +252,18 @@
       cabin: { ...(draft.cabin || {}) },
       rewardBundleSelected: Boolean(draft.rewardBundleSelected)
     });
+    // 部分手機瀏覽器會在動態表單插入後，用先前的空白值覆蓋電話等欄位。
+    // 只補回仍為空白的預載資料，避免改動客人已經輸入的內容。
+    const restorePrefilledFields = () => {
+      [...vehicleFieldDefinitions, ...cabinFieldDefinitions].forEach((definition) => {
+        const input = $("#signer-form")?.elements.namedItem(definition.key);
+        const value = signerFieldValue(draft, definition);
+        if (input && !input.value && value) input.value = value;
+      });
+    };
+    restorePrefilledFields();
+    requestAnimationFrame(restorePrefilledFields);
+    setTimeout(restorePrefilledFields, 250);
     $("#copy-first-contract").addEventListener("click", () => {
       cabinFieldDefinitions.filter((field) => field.source).forEach((field) => {
         const source = $("#signer-form").elements.namedItem(field.source);
