@@ -1383,27 +1383,34 @@ html[lang="en"] .nav-links a .nav-stack {
   margin-top: 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   background: #4e5748;
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .footer-lang-link {
-  margin: 4px 0 0;
+  margin: 16px 0 0;
   text-align: center;
 }
 
 .footer-lang-link a {
-  color: inherit;
+  color: rgba(255, 255, 255, 0.9);
   text-underline-offset: 4px;
 }
 
 .footer-admin-link {
-  margin: 5px 0 0;
+  margin: 8px 0 12px;
   text-align: center;
-  font-size: 11px;
-  opacity: .42;
+  font-size: 13px;
 }
 
 .footer-admin-link a {
-  color: inherit;
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
 }
 
@@ -1437,6 +1444,14 @@ html[lang="en"] .nav-links a .nav-stack {
 
   .site-footer > .container > *:nth-child(5) {
     order: 5;
+  }
+
+  .site-footer > .container > *:nth-child(6) {
+    order: 6;
+  }
+
+  .site-footer > .container > *:nth-child(7) {
+    order: 7;
   }
 }
 
@@ -1482,6 +1497,7 @@ html[lang="en"] .nav-links a .nav-stack {
   padding: 14px 0 22px;
   color: rgba(255, 255, 255, 0.74);
   font-size: 13px;
+  text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
