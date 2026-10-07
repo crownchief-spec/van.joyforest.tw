@@ -7,7 +7,7 @@ export async function onRequestGet() {
     const sourceUrl = new URL(CALENDAR_SOURCE);
     sourceUrl.searchParams.set("availability_live", Date.now().toString());
     const sourceResponse = await fetch(sourceUrl, {
-      headers: { "user-agent": "Joy Forest-Campervan-Availability-Live/1.0" },
+      headers: { "user-agent": "JoyForest-CamperVan-Availability-Live/1.0" },
       cache: "no-store",
       cf: { cacheTtl: 0, cacheEverything: false },
     });

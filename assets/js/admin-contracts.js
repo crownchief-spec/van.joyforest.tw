@@ -1,9 +1,10 @@
-import { buildContractBookingList } from "/assets/js/campervan-calendar-data.js?v=20261007-4";
+import { buildContractBookingList } from "/assets/js/campervan-calendar-data.js?v=20261007-5";
 
-const Gate = window.JoyForestVanAdminGate;
-const CALENDAR_SOURCE = /^(127\.0\.0\.1|localhost)$/.test(location.hostname)
-  ? "https://camp.8-ways.com/data/calendar-basic.ics"
-  : "/api/campervan-contract-calendar";
+const Gate = window.JoyForestVanAdminGate || window.JoyforestVanAdminGate;
+const DIRECT_CALENDAR_SOURCE = "https://camp.8-ways.com/data/calendar-basic.ics";
+const CALENDAR_SOURCES = /^(127\.0\.0\.1|localhost)$/.test(location.hostname)
+  ? [DIRECT_CALENDAR_SOURCE]
+  : ["/api/campervan-contract-calendar", DIRECT_CALENDAR_SOURCE];
 const CONTRACT_BASE = "https://van.joyforest.tw/pages/e-sign-contract";
 const STORAGE_PREFIX = "joyforest_van_contract_admin_v1:";
 const statusElement = document.getElementById("booking-status");
@@ -198,9 +199,28 @@ async function loadBookings() {
   listElement.replaceChildren();
   refreshButton.disabled = true;
   try {
-    const response = await fetch(`${CALENDAR_SOURCE}?van_admin=${Date.now()}`, { cache: "no-store" });
-    if (!response.ok) throw new Error(`行事曆回應錯誤（${response.status}）`);
-    const bookings = buildContractBookingList(await response.text());
+    let calendarText = "";
+    let lastError = null;
+    for (const source of CALENDAR_SOURCES) {
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 12000);
+      try {
+        const joiner = source.includes("?") ? "&" : "?";
+        const response = await fetch(`${source}${joiner}van_admin=${Date.now()}`, {
+          cache: "no-store",
+          signal: controller.signal,
+        });
+        if (!response.ok) throw new Error(`行事曆回應錯誤（${response.status}）`);
+        calendarText = await response.text();
+        if (calendarText) break;
+      } catch (error) {
+        lastError = error;
+      } finally {
+        window.clearTimeout(timeout);
+      }
+    }
+    if (!calendarText) throw lastError || new Error("行事曆沒有回傳資料");
+    const bookings = buildContractBookingList(calendarText);
     if (!bookings.length) {
       statusElement.textContent = "目前沒有找到今天以後的正式露營車案子。";
       listElement.innerHTML = '<div class="admin-empty">行事曆目前沒有可建立合約的露營車訂單。</div>';

@@ -37,5 +37,7 @@
     return false;
   }
 
-  global.JoyForestVanAdminGate = { isAuthed: isAuthed, tryLogin: tryLogin, logout: logout, requireAuth: requireAuth };
+  var gate = { isAuthed: isAuthed, tryLogin: tryLogin, logout: logout, requireAuth: requireAuth };
+  global.JoyForestVanAdminGate = gate;
+  global.JoyforestVanAdminGate = gate;
 })(window);
