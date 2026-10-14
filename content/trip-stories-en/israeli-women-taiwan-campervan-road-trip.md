@@ -17,6 +17,10 @@ readingTime: "About 15 min"
 
 ## “Taiwan—the trip of a lifetime” | Two women, nine days, one moving home
 
+## Collaborating creator account
+
+This Taiwan campervan road trip was shared by a collaborating creator who approved public reuse. The original Instagram Story attribution remains visible, and readers can visit the real travel account directly: [@eliya.yifrah](https://www.instagram.com/eliya.yifrah/).
+
 When **Maya and Noa (pseudonyms)** arrived from Israel, they already knew what they wanted from Taiwan: beautiful beaches, dramatic scenery, good food and a trip that felt lived—not a checklist of photo stops.
 
 They are also travel and lifestyle content creators. Before departure, they wanted to film the details of real van life: waking up inside the campervan, cooking beside it, scenic drives, interior routines and practical tips. One Hebrew video caption roughly called Taiwan “the destination of a lifetime, with much more from this trip still to come.” Another said that every morning of the journey felt more perfect than the last.
@@ -32,6 +36,8 @@ Their route began in Taipei, followed Taiwan’s east coast through Dong’ao an
 </figure>
 
 **Visible video summary and subtitle translation:** Two Israeli women sit inside the Joyforest self-drive campervan, singing and recording their Taiwan east-coast road trip. The Hebrew on-screen caption approximately says: “Taiwan is a destination of a lifetime, and there is still so much more from this trip to share.” The clip captures the real atmosphere of international visitors renting and driving a campervan in Taiwan for the first time.
+
+**Audio review:** The audio was extracted and checked with Hebrew speech recognition. It is primarily music and in-vehicle singing, with no reliable travel narration that can be separated from the song. Lyrics are therefore not reproduced; the searchable text relies on the visible caption translation and the Taiwan self-drive campervan context.
 
 ## The complete nine-day route | Confirmed stays versus researched options
 
@@ -151,6 +157,8 @@ One evening, external power was present and all internal appliances worked, but 
 </figure>
 
 **Visible video summary and subtitle translation:** A traveler gets ready beside the campervan window while the white double bed, interior storage and campsite view appear in the frame. The on-screen caption translates as: “Every morning on this journey felt more perfect than the last.” The video shows the campervan not only as transportation, but as a moving living space whose window changes from coast to forest to campsite.
+
+**Audio review:** The audio was extracted and checked with Hebrew speech recognition. The soundtrack is mainly a Hebrew song, without clear narration about the route or campervan equipment. Song lyrics are not reproduced; the morning routine, double bed, storage and campsite view supply the accessible and SEO-friendly description.
 
 <figure class="guide-figure">
   <img src="/assets/images/trip-ideas/israeli-women-taiwan-campervan-road-trip/campervan-double-bed.webp" width="1400" height="788" loading="lazy" decoding="async" title="Double bed inside the Taiwan campervan" alt="A wide double bed with white bedding and pillows inside the campervan, with storage cabinets, side windows and reading lights" />
