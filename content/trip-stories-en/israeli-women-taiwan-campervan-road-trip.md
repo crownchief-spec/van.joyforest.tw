@@ -31,6 +31,8 @@ Their route began in Taipei, followed Taiwan’s east coast through Dong’ao an
   <figcaption><span class="guide-img-title">Their first road-trip diary</span>Singing, laughing and heading south—the journey was already happening long before each arrival.</figcaption>
 </figure>
 
+**Visible video summary and subtitle translation:** Two Israeli women sit inside the Joyforest self-drive campervan, singing and recording their Taiwan east-coast road trip. The Hebrew on-screen caption approximately says: “Taiwan is a destination of a lifetime, and there is still so much more from this trip to share.” The clip captures the real atmosphere of international visitors renting and driving a campervan in Taiwan for the first time.
+
 ## The complete nine-day route | Confirmed stays versus researched options
 
 This itinerary is reconstructed from the handover record, trip messages, campsite calls and the travelers’ own media. **Sleep by Sea in Dong’ao, Ocean Chill in Hualien, Dawang Mountain Residence in Zhiben and Tiepoka at Sun Moon Lake** have clear booking or arrival records. The southern Hualien hot-spring corridor and Kenting section include places that were genuinely compared and called, but the final check-in could not be verified; those are labelled as options rather than presented as confirmed stays.
@@ -147,6 +149,8 @@ One evening, external power was present and all internal appliances worked, but 
   </video>
   <figcaption><span class="guide-img-title">A morning routine inside the campervan</span>It was not a hotel room, but the view outside changed every day—that was exactly the life they wanted to film.</figcaption>
 </figure>
+
+**Visible video summary and subtitle translation:** A traveler gets ready beside the campervan window while the white double bed, interior storage and campsite view appear in the frame. The on-screen caption translates as: “Every morning on this journey felt more perfect than the last.” The video shows the campervan not only as transportation, but as a moving living space whose window changes from coast to forest to campsite.
 
 <figure class="guide-figure">
   <img src="/assets/images/trip-ideas/israeli-women-taiwan-campervan-road-trip/campervan-double-bed.webp" width="1400" height="788" loading="lazy" decoding="async" title="Double bed inside the Taiwan campervan" alt="A wide double bed with white bedding and pillows inside the campervan, with storage cabinets, side windows and reading lights" />
