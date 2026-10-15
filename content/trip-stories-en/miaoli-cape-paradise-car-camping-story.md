@@ -18,7 +18,7 @@ Many campervan travelers like **parking into a sea view**: Taiwan's west and nor
 
 <p class="intro-lead"><strong>Why does the coast feel made for van-camping?</strong> Compared with tight mountain roads and forest-blocked views, the coast often offers **park-and-see-far** scenes (whether overnight or campervans are allowed—**always check signs and authorities**). Space opens up and so does your head: simple cook beside the van, chair and stare, maybe low music—less "under someone's window" pressure.</p>
 
-<p class="intro-lead"><strong>Sound and neighbor distance matter in practice.</strong> Mountain valleys carry noise; late-night **external generators** or loud volume can bother distant homes or other pitches; the coast's wind, waves, and openness often give more **psychological margin**—that doesn't mean anything goes: **volume, hours, and distance** still need discipline, plus noise rules and site/road management.</p>
+<p class="intro-lead"><strong>Sound and neighbor distance matter in practice.</strong> Mountain valleys carry noise; late-night **mechanical noise** or loud volume can bother distant homes or other pitches; the coast's wind, waves, and openness often give more **psychological margin**—that doesn't mean anything goes: **volume, hours, and distance** still need discipline, plus noise rules and site/road management.</p>
 
 <p class="intro-lead">Mountains have irreplaceable beauty too—forest, cloud sea, cool nights. This section shares **how coastal van-camping often feels and how to plan**; actual trips follow weather, roads, and booking notes.</p>
 
