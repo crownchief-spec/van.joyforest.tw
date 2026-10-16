@@ -1146,12 +1146,13 @@
     {
       "file": "pages/booking-guide/outdoor-entertainment.html",
       "route": "/pages/booking-guide/outdoor-entertainment",
-      "title": "露營車戶外套組與影音設備使用教學｜揪好森",
-      "description": "戶外桌椅、燈串、投影機、布幕、藍牙喇叭、Switch 與 Type-C 轉 HDMI 使用及收納提醒。",
+      "title": "露營車戶外電影設備使用教學｜手機投影・HDMI・AUX｜揪好森",
+      "description": "揪好森露營車戶外電影設備教學：用 Type-C 轉 HDMI 連接手機與投影機，再以 3.5 mm 音源線接上藍牙喇叭 AUX，附圖解與無聲排查。",
       "canonical": "https://van.joyforest.tw/pages/booking-guide/outdoor-entertainment",
-      "heroImage": "https://van.joyforest.tw/assets/images/guide/taipei-campervan-rental-projector-screen-bluetooth-guide.png",
+      "heroImage": "https://van.joyforest.tw/assets/images/booking-guide/outdoor-entertainment/campervan-outdoor-cinema-connection-guide.webp",
       "ogImage": "https://van.joyforest.tw/assets/images/og/pages--booking-guide--outdoor-entertainment.jpg",
       "schemaType": [
+        "HowTo",
         "WebPage"
       ],
       "noindex": false,
