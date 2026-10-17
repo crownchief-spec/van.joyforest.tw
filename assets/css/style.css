@@ -4234,6 +4234,44 @@ button.availability-day:focus-visible {
   margin-top: 0;
 }
 
+/* 電力故障排除：逆變器位置與重啟開關三格實拍 */
+.inverter-photo-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  max-width: 880px;
+  margin: 18px auto 0;
+}
+
+.inverter-photo-strip figure {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(31, 107, 82, 0.16);
+  border-radius: 12px;
+  background: #f7f4eb;
+}
+
+.inverter-photo-strip img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: #e9e5da;
+}
+
+.inverter-photo-strip figcaption {
+  min-height: 66px;
+  padding: 10px 12px;
+  color: var(--color-muted);
+  background: #fff;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.inverter-photo-strip figcaption strong {
+  color: var(--color-ink);
+}
+
 @media (max-width: 600px) {
   .guide-topic-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -4303,6 +4341,21 @@ button.availability-day:focus-visible {
 
   .toilet-guide-figure figcaption {
     padding: 14px 16px;
+  }
+
+  .inverter-photo-strip {
+    gap: 6px;
+  }
+
+  .inverter-photo-strip img {
+    height: 128px;
+  }
+
+  .inverter-photo-strip figcaption {
+    min-height: 76px;
+    padding: 8px 6px;
+    font-size: 0.72rem;
+    line-height: 1.35;
   }
 }
 
