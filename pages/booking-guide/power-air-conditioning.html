@@ -6,13 +6,13 @@
     <meta name="theme-color" content="#1f6b52" />
     <meta name="robots" content="index,follow,max-image-preview:large" />
     <title>露營車電、充電與冷氣使用教學｜揪好森</title>
-    <meta name="description" content="看懂庫侖計的百分比、Ah、伏特數、安培數與瓦數，安排冷氣用電、露營區接電與內建發電機充電。" />
+    <meta name="description" content="看懂庫侖計的百分比、Ah、伏特數、安培數與瓦數，安排冷氣用電與充電，並排除插座、冷氣同時沒電及逆變器過載跳電。" />
     <link rel="canonical" href="https://van.joyforest.tw/pages/booking-guide/power-air-conditioning" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
     <meta property="og:site_name" content="揪好森 Joy Forest 露營車出租" />
     <meta property="og:title" content="露營車電、充電與冷氣使用教學｜揪好森" />
-    <meta property="og:description" content="看懂庫侖計的百分比、Ah、伏特數、安培數與瓦數，安排冷氣用電、露營區接電與內建發電機充電。" />
+    <meta property="og:description" content="看懂庫侖計、安排冷氣用電與充電，並排除插座、冷氣同時沒電及逆變器過載跳電。" />
     <meta property="og:url" content="https://van.joyforest.tw/pages/booking-guide/power-air-conditioning" />
     <meta property="og:image" content="https://van.joyforest.tw/assets/images/og/pages--booking-guide--power-air-conditioning.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -20,7 +20,7 @@
     <meta property="og:image:alt" content="露營車電量面板、冷氣、充電與發電機教學" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="露營車電、充電與冷氣使用教學｜揪好森" />
-    <meta name="twitter:description" content="看懂庫侖計的百分比、Ah、伏特數、安培數與瓦數，安排冷氣用電、露營區接電與內建發電機充電。" />
+    <meta name="twitter:description" content="看懂庫侖計、安排冷氣用電與充電，並排除插座、冷氣同時沒電及逆變器過載跳電。" />
     <meta name="twitter:image" content="https://van.joyforest.tw/assets/images/og/pages--booking-guide--power-air-conditioning.jpg" />
     <meta name="twitter:image:alt" content="露營車電量面板、冷氣、充電與發電機教學" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -29,7 +29,10 @@
     <link rel="stylesheet" href="/assets/css/style.css?v=20261007-3" />
     <script defer src="/assets/js/main.js?v=20261001-1"></script>
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"WebPage","url":"https://van.joyforest.tw/pages/booking-guide/power-air-conditioning","name":"電｜充電與冷氣","description":"看懂庫侖計的百分比、Ah、伏特數、安培數與瓦數，安排冷氣用電、露營區接電與內建發電機充電。","inLanguage":"zh-Hant","isPartOf":{"@type":"WebSite","url":"https://van.joyforest.tw/","name":"揪好森 Joy Forest 露營車出租"}}
+      {"@context":"https://schema.org","@type":"WebPage","url":"https://van.joyforest.tw/pages/booking-guide/power-air-conditioning","name":"電｜充電、冷氣與故障排除","description":"看懂庫侖計、安排冷氣用電與充電，並排除插座、冷氣同時沒電及逆變器過載跳電。","inLanguage":"zh-Hant","isPartOf":{"@type":"WebSite","url":"https://van.joyforest.tw/","name":"揪好森 Joy Forest 露營車出租"}}
+    </script>
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"露營車電池有電，但冷氣和插座同時沒電怎麼辦？","acceptedAnswer":{"@type":"Answer","text":"先關閉冷氣、吹風機等高耗電設備，再確認庫侖計顯示電池仍有電。掀開右側靠近流理台的座椅，找到座椅下方上層的大型銀色逆變器，將側邊黑色開關關閉，等指示燈熄滅後再重新開啟。恢復供電後請逐一啟動設備，避免冷氣強力運轉時同時使用吹風機最大功率。若再次停止供電，請停止高耗電設備並聯絡揪好森。"}}]}
     </script>
       <link rel="icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-64.png" type="image/png" sizes="64x64" />
       <!-- Analytics placeholder: add GA4/GTM only after the measurement ID and consent policy are confirmed. -->
@@ -69,7 +72,7 @@
             </p>
           </div>
 
-          <div class="card fade-in" data-reveal style="margin-top: 16px">
+          <div id="battery-level" class="card fade-in" data-reveal style="margin-top: 16px">
             <h3 style="margin-top: 0">庫侖計怎麼看？交車先看 %／Ah，回充後以伏特數（V）為準</h3>
             <p>
               <strong>第一次剛交車、電量已校正時</strong>，可先看螢幕上方的<strong>百分比</strong>與右上角的 <strong>Ah（安培小時）</strong>。這台露營車設定滿電約為 <strong>800Ah</strong>；例如畫面顯示 <strong>99%／785Ah</strong>，代表當下接近全滿。
@@ -222,6 +225,36 @@
             </figure>
           </div>
 
+          <div id="power-troubleshooting" class="card fade-in" data-reveal style="margin-top: 16px">
+            <p class="eyebrow">故障排除｜冷氣與插座同時沒電</p>
+            <h3 style="margin-top: 6px">先判斷是電池沒電，還是逆變器過載保護</h3>
+            <p>
+              如果冷氣和車內 110V 插座同時沒有電，常見有兩種情況。請先查看庫侖計，不要直接反覆開關設備：
+            </p>
+            <div class="two-col" style="margin-top: 14px">
+              <div class="callout">
+                <h4 style="margin: 0 0 8px">情況一｜電池電量不足</h4>
+                <p style="margin: 0">先依照上方的<a href="#battery-level">庫侖計與伏特數判讀方式</a>確認剩餘電量。若電量已低，請停止高耗電設備，並接營區電源或使用發電機補電。</p>
+              </div>
+              <div class="callout">
+                <h4 style="margin: 0 0 8px">情況二｜電池有電，但冷氣、插座都沒電</h4>
+                <p style="margin: 0">這通常是瞬間用電過大，讓<strong>逆變器進入過載保護並停止輸出</strong>。冷氣強力運轉時再同時使用吹風機等高耗電設備，特別容易發生。</p>
+              </div>
+            </div>
+
+            <h4 style="margin: 20px 0 8px">逆變器跳電重啟方式</h4>
+            <ol class="list">
+              <li><strong>先關閉高耗電設備：</strong>關閉冷氣與吹風機，並拔除正在使用的其他高功率電器。</li>
+              <li><strong>掀開右側座椅：</strong>找到車內<strong>右側、靠近流理台</strong>的座位，將椅墊與座板掀開。</li>
+              <li><strong>找到銀色逆變器：</strong>座椅下方最上層有一台大型銀色機器，外觀看起來像大型變壓器，這就是逆變器。</li>
+              <li><strong>重新啟動：</strong>找到逆變器側邊的<strong>黑色小開關</strong>，先切到關閉；等待指示燈熄滅後，再切回開啟。</li>
+              <li><strong>逐一恢復用電：</strong>確認插座恢復供電後，再逐一開啟需要的設備，不要立刻同時全開。</li>
+            </ol>
+            <div class="callout" style="margin-top: 14px">
+              <strong>避免再次跳電：</strong>冷氣剛啟動、設定最低溫或使用最大風量時耗電最高，這時不要同時把吹風機開到最大功率。若重啟後很快又停止供電，請不要連續重啟；先停用高耗電設備，再聯絡揪好森協助確認。
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -264,6 +297,13 @@
                 <span class="toggle" data-toggle aria-hidden="true">＋</span>
               </button>
               <div class="panel">可以。冷氣<strong>最強力運作</strong>時，單靠車內電池大約 <strong>8 小時</strong>。實務上不是用完再充，開冷氣過程中有機會就接營區電或開發電機補電；長時間使用建議安排可外接電源的露營區。</div>
+            </div>
+            <div class="accordion fade-in" data-reveal data-accordion>
+              <button type="button" aria-expanded="false">
+                <div>電池有電，但冷氣和插座都沒電怎麼辦？<div><span>重啟座椅下方的逆變器</span></div></div>
+                <span class="toggle" data-toggle aria-hidden="true">＋</span>
+              </button>
+              <div class="panel">先關閉冷氣、吹風機等高耗電設備。掀開<strong>右側靠近流理台的座椅</strong>，找到下方上層的大型銀色逆變器，把側邊黑色開關關閉，等指示燈熄滅後再重新開啟。詳細位置與操作順序請看<a href="#power-troubleshooting">逆變器跳電重啟方式</a>。</div>
             </div>
           </div>
 
