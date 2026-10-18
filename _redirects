@@ -1,4 +1,8 @@
 # Legacy client-side redirect pages → final canonical URLs
+/en/c                  /en/pages/e-sign-contract       200
+/en/c/*                /en/pages/e-sign-contract       200
+/c                     /pages/e-sign-contract          200
+/c/*                   /pages/e-sign-contract          200
 /pages/guide             /pages/booking-guide  301
 /pages/guide.html        /pages/booking-guide  301
 /pages/faq               /pages/booking-guide  301

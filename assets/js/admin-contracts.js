@@ -5,7 +5,8 @@ const DIRECT_CALENDAR_SOURCE = "https://camp.8-ways.com/data/calendar-basic.ics"
 const CALENDAR_SOURCES = /^(127\.0\.0\.1|localhost)$/.test(location.hostname)
   ? [DIRECT_CALENDAR_SOURCE]
   : ["/api/campervan-contract-calendar", DIRECT_CALENDAR_SOURCE];
-const CONTRACT_BASE = "https://van.joyforest.tw/pages/e-sign-contract";
+const CONTRACT_BASE = "https://van.joyforest.tw/c/b";
+const ENGLISH_CONTRACT_BASE = "https://van.joyforest.tw/en/c/b";
 const STORAGE_PREFIX = "joyforest_van_contract_admin_v1:";
 const statusElement = document.getElementById("booking-status");
 const listElement = document.getElementById("booking-list");
@@ -14,13 +15,6 @@ const logoutButton = document.getElementById("admin-logout-btn");
 
 const localPreview = /^(127\.0\.0\.1|localhost)$/.test(location.hostname) && new URLSearchParams(location.search).get("preview") === "1";
 if (!localPreview && !Gate?.requireAuth("/pages/admin")) throw new Error("admin_auth_required");
-
-function encodeDraft(data) {
-  const bytes = new TextEncoder().encode(JSON.stringify(data));
-  let binary = "";
-  bytes.forEach((byte) => { binary += String.fromCharCode(byte); });
-  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
-}
 
 function safeStorageKey(id) {
   return `${STORAGE_PREFIX}${encodeURIComponent(id)}`;
@@ -89,6 +83,7 @@ function collectSettings(card) {
     cabinProtectionStatus: card.querySelector("[name=cabinProtectionStatus]").value,
     businessLossWaiverStatus: card.querySelector("[name=businessLossWaiverStatus]").value,
     contractUrl: card.querySelector("[data-contract-link]")?.value || "",
+    englishContractUrl: card.querySelector("[data-contract-link-en]")?.value || "",
   };
 }
 
@@ -149,8 +144,10 @@ function renderBooking(booking, index) {
           <span class="save-state" data-save-state>${saved.savedAt ? "已載入上次儲存內容" : "尚未儲存"}</span>
         </div>
         <div class="contract-result" data-contract-result${saved.contractUrl ? "" : " hidden"}>
-          <p>客人專屬合約連結</p>
-          <div class="contract-link-row"><input class="contract-link" data-contract-link value="${escapeHtml(saved.contractUrl || "")}" readonly /><div class="contract-link-actions"><button class="admin-button primary" type="button" data-copy>複製連結</button><a class="admin-button" data-open href="${escapeHtml(saved.contractUrl || "#")}" target="_blank" rel="noopener">開啟合約</a></div></div>
+          <p>中文客戶專屬短連結</p>
+          <div class="contract-link-row"><input class="contract-link" data-contract-link value="${escapeHtml(saved.contractUrl || "")}" readonly /><div class="contract-link-actions"><button class="admin-button primary" type="button" data-copy data-copy-target="zh">複製中文連結</button><a class="admin-button" data-open href="${escapeHtml(saved.contractUrl || "#")}" target="_blank" rel="noopener">開啟</a></div></div>
+          <p>English customer short link</p>
+          <div class="contract-link-row"><input class="contract-link" data-contract-link-en value="${escapeHtml(saved.englishContractUrl || "")}" readonly /><div class="contract-link-actions"><button class="admin-button blue" type="button" data-copy data-copy-target="en">複製英文連結</button><a class="admin-button" data-open-en href="${escapeHtml(saved.englishContractUrl || "#")}" target="_blank" rel="noopener">Open</a></div></div>
         </div>
       </section>
     </div>`;
@@ -171,25 +168,46 @@ function renderBooking(booking, index) {
       state.textContent = "正在自動儲存…";
       card.querySelector("[data-contract-result]").hidden = true;
       card.querySelector("[data-contract-link]").value = "";
+      card.querySelector("[data-contract-link-en]").value = "";
       clearTimeout(autosaveTimer);
       autosaveTimer = setTimeout(() => {
-        writeSaved(booking.id, { ...collectSettings(card), contractUrl: "" });
+        writeSaved(booking.id, { ...collectSettings(card), contractUrl: "", englishContractUrl: "" });
         state.textContent = "備註已自動儲存；請重新產生合約連結";
       }, 450);
     });
   });
-  card.querySelector("[data-generate]").addEventListener("click", () => {
+  card.querySelector("[data-generate]").addEventListener("click", async (event) => {
+    const button = event.currentTarget;
+    button.disabled = true;
+    button.textContent = "正在產生短連結…";
     const settings = collectSettings(card);
-    const contractUrl = `${CONTRACT_BASE}#contract=${encodeDraft(mergedDraft(booking, settings))}`;
+    const settingsPayload = {
+      customerSpecialNote: settings.customerSpecialNote,
+      cabinProtectionStatus: settings.cabinProtectionStatus,
+      businessLossWaiverStatus: settings.businessLossWaiverStatus,
+    };
+    const hasSettings = settingsPayload.customerSpecialNote || settingsPayload.cabinProtectionStatus === "included" || settingsPayload.businessLossWaiverStatus === "included";
+    const settingsToken = hasSettings ? await window.JoyForestContractLinks.encodePayload(settingsPayload) : "";
+    const bookingCode = window.JoyForestContractLinks.shortBookingId(booking.id);
+    const suffix = settingsToken ? `/${settingsToken}` : "";
+    const contractUrl = `${CONTRACT_BASE}/${bookingCode}${suffix}`;
+    const englishContractUrl = `${ENGLISH_CONTRACT_BASE}/${bookingCode}${suffix}`;
     const input = card.querySelector("[data-contract-link]");
     input.value = contractUrl;
+    card.querySelector("[data-contract-link-en]").value = englishContractUrl;
     card.querySelector("[data-open]").href = contractUrl;
+    card.querySelector("[data-open-en]").href = englishContractUrl;
     card.querySelector("[data-contract-result]").hidden = false;
-    writeSaved(booking.id, { ...settings, contractUrl });
-    card.querySelector("[data-save-state]").textContent = "合約連結已產生並儲存";
+    writeSaved(booking.id, { ...settings, contractUrl, englishContractUrl });
+    card.querySelector("[data-save-state]").textContent = "中英文短連結已產生並儲存";
     input.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    button.disabled = false;
+    button.textContent = "產生合約及連結";
   });
-  card.querySelector("[data-copy]").addEventListener("click", (event) => copyText(card.querySelector("[data-contract-link]").value, event.currentTarget));
+  card.querySelectorAll("[data-copy]").forEach((button) => button.addEventListener("click", (event) => {
+    const selector = event.currentTarget.dataset.copyTarget === "en" ? "[data-contract-link-en]" : "[data-contract-link]";
+    copyText(card.querySelector(selector).value, event.currentTarget);
+  }));
   return card;
 }
 

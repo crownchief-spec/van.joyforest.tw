@@ -70,6 +70,21 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 .brand strong, .brand small { display: block; }
 .brand small { margin-top: .1rem; color: var(--muted); font-size: .75rem; }
+.site-header__actions { display: flex; align-items: center; gap: .55rem; }
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.35rem;
+  padding: .38rem .75rem;
+  border: 1px solid var(--forest);
+  border-radius: 999px;
+  background: var(--forest);
+  color: var(--cream);
+  font-size: .78rem;
+  font-weight: 850;
+  text-decoration: none;
+}
+.language-switch:hover { background: #3f473b; }
 .local-badge { padding: .4rem .75rem; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,253,249,.72); color: var(--forest); font-size: .78rem; font-weight: 700; }
 
 .page-shell { width: min(1120px, calc(100% - 2rem)); margin: 1.5rem auto 4rem; }

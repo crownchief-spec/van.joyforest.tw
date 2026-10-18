@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta name="theme-color" content="#4e5748" />
+    <link rel="canonical" href="https://van.joyforest.tw/en/c" />
+    <link rel="icon" href="/assets/images/shared/joyforest-campervan-rental-logo-icon-64.png" type="image/png" sizes="64x64" />
+    <title>Campervan E-Sign Agreement | Joy Forest Campervan Rental</title>
+    <link rel="stylesheet" href="/assets/css/e-sign-contract.css?v=20261019-1" />
+    <script defer src="/assets/vendor/pdf-lib.min.js"></script>
+    <script defer src="/assets/js/contract-short-link.js?v=20261019-1"></script>
+    <script defer src="/assets/js/e-sign-contract.js?v=20261019-1"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/en/" aria-label="Back to Joy Forest Campervan Rental">
+        <img class="brand-logo" src="/assets/images/shared/joyforest-logo-campervan-camping.webp" alt="Joy Forest Campervan Rental logo" title="Joy Forest Campervan Rental" width="800" height="800" decoding="async" />
+        <span><strong>Joy Forest</strong><small>Campervan Rental | E-Sign Agreement</small></span>
+      </a>
+      <div class="site-header__actions"><a id="language-switch-link" class="language-switch" href="/c" lang="zh-Hant" hreflang="zh-Hant">中文</a><span class="local-badge">Online Signing</span></div>
+    </header>
+
+    <main>
+      <section id="admin-view" class="page-shell" hidden></section>
+
+      <section id="signer-view" class="page-shell signer-shell" hidden>
+        <form id="signer-form" class="stack" novalidate>
+          <section class="card contract-overview" aria-labelledby="contract-overview-title">
+            <div class="contract-overview__copy">
+              <h1 id="contract-overview-title">You will sign two separate agreements</h1>
+              <p><strong>Agreement One | Vehicle Loan Agreement:</strong> the white KIA K2500 base vehicle shown below.</p>
+              <p><strong>Agreement Two | Camper Cabin Rental Agreement:</strong> the blue camper cabin and the camping equipment checked at handover.</p>
+            </div>
+            <figure class="contract-overview__figure">
+              <div class="contract-overview__media">
+                <img src="/assets/images/contract/campervan-contract-white-vehicle-blue-cabin.webp" alt="Agreement scope: the white KIA K2500 base vehicle is Agreement One, and the blue camper cabin is Agreement Two" title="White base vehicle: Agreement One; blue camper cabin: Agreement Two" width="1182" height="665" decoding="async" />
+                <span class="contract-overview__badge contract-overview__badge--vehicle">Agreement 1 | White vehicle</span>
+                <span class="contract-overview__badge contract-overview__badge--cabin">Agreement 2 | Blue cabin</span>
+              </div>
+            </figure>
+          </section>
+
+          <section class="contract-flow-section" id="contract-one" aria-label="Agreement One: Vehicle Loan Agreement">
+            <div id="vehicle-contract-text" class="contract-text" aria-live="polite"></div>
+          </section>
+
+          <section class="contract-flow-section" id="contract-two" aria-label="Agreement Two: Camper Cabin Rental Agreement">
+            <div id="cabin-contract-text" class="contract-text" aria-live="polite"></div>
+          </section>
+
+          <section class="card" id="identity-documents">
+            <div class="section-heading"><div><span class="step-number">03</span><h2>Upload both sides of your ID</h2></div><p>The actual driver should provide a valid driving licence first. You may take a photo or choose one from your phone; the images will be included in the complete agreement PDF.</p></div>
+            <label class="document-type"><span>Document type</span><select id="document-type"><option value="driver-license">Driving licence</option><option value="national-id">National ID card</option><option value="passport">Passport / foreign driving document</option></select></label>
+            <div class="upload-grid">
+              <div class="upload-card" id="document-front-card"><span class="upload-title">Front</span><span class="upload-help" id="document-front-status">Take a photo or choose one from your phone.</span><img id="document-front-preview" alt="Front of document preview" hidden width="1200" height="900" decoding="async" title="Front of document preview" /><div class="upload-choice-row"><label class="button primary">Take photo<input id="document-front-camera" type="file" accept="image/*" capture="environment" /></label><label class="button outline">Choose photo<input id="document-front-library" type="file" accept="image/*" /></label></div></div>
+              <div class="upload-card" id="document-back-card"><span class="upload-title">Back</span><span class="upload-help" id="document-back-status">Take a photo or choose one from your phone.</span><img id="document-back-preview" alt="Back of document preview" hidden width="1200" height="900" decoding="async" title="Back of document preview" /><div class="upload-choice-row"><label class="button primary">Take photo<input id="document-back-camera" type="file" accept="image/*" capture="environment" /></label><label class="button outline">Choose photo<input id="document-back-library" type="file" accept="image/*" /></label></div></div>
+            </div>
+            <div class="notice privacy">Your document photos are used only on this phone to create the PDF and are not automatically uploaded to the website. When finished, please share the complete PDF with Joy Forest for recordkeeping.</div>
+          </section>
+
+          <section class="card" id="signature-section">
+            <div class="section-heading"><div><span class="step-number">04</span><h2>Sign with your finger</h2></div><p>Please sign the same name shown on your ID.</p></div>
+            <div class="signature-wrap"><canvas id="signature-pad" aria-label="Handwritten signature area"></canvas><span id="signature-placeholder">Sign here</span></div>
+            <div class="signature-actions"><button id="clear-signature" class="button outline" type="button">Clear and sign again</button><span id="signature-status">Not signed yet</span></div>
+            <label class="check-row"><input id="electronic-consent" type="checkbox" /><span>I agree to use electronic documents and electronic signatures. This handwritten signature signs both separate agreements above, and I confirm that the information and documents were provided by me.</span></label>
+            <label class="check-row"><input id="privacy-consent" type="checkbox" /><span>I have read the personal-data notice and understand that my information will be used for the rental, identity and driving-qualification checks, contract performance, and dispute handling.</span></label>
+          </section>
+
+          <section class="card action-card submit-card">
+            <div><h2>Complete signing and create the PDF</h2><p>Agreement One, Agreement Two, the ID attachments, and your electronic signature will be combined into one PDF.</p></div>
+            <button id="complete-signing" class="button primary large" type="submit">Confirm and create PDF</button>
+            <p id="completion-status" class="status-line" role="status"></p>
+          </section>
+        </form>
+
+        <section id="result-panel" class="card result-panel" hidden>
+          <span class="success-icon" aria-hidden="true">✓</span><h2>Your e-sign agreement is complete</h2>
+          <p>The complete PDF includes both agreements, your ID attachments, and your electronic signature.</p>
+          <div class="result-actions"><button id="share-complete-contract" class="button primary large" type="button">Share complete agreement</button><a id="open-complete-contract" target="_blank" rel="noopener" hidden></a></div>
+          <p class="share-help">You can send it directly to Joy Forest through LINE, or share it to yourself and save it.</p>
+          <p class="document-id">Document ID: <strong id="result-document-id"></strong></p>
+        </section>
+      </section>
+    </main>
+
+    <footer class="contract-site-footer"><div class="contract-site-footer__inner"><nav aria-label="Language and management links"><a id="footer-language-switch-link" href="/c" lang="zh-Hant" hreflang="zh-Hant">中文版</a><a class="contract-site-footer__admin" href="/pages/admin" rel="nofollow">管理</a></nav><p>© Joy Forest | Campervan Rental</p></div></footer>
+  </body>
+</html>

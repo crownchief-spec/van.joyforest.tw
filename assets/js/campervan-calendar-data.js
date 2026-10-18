@@ -247,7 +247,7 @@ export function buildTodayContractPayload(icsText, now = new Date()) {
   };
 }
 
-export function buildContractBookingList(icsText, now = new Date()) {
+export function buildContractBookingList(icsText, now = new Date(), options = {}) {
   const ics = icsText.replace(/\r?\n[ \t]/g, "").replace(/\r\n/g, "\n");
   const eventBlocks = ics.match(/BEGIN:VEVENT\n[\s\S]*?\nEND:VEVENT/g) ?? [];
   const today = formatTaipeiDate(now);
@@ -259,7 +259,7 @@ export function buildContractBookingList(icsText, now = new Date()) {
     const start = parseIcsDate(lines.find((line) => /^DTSTART(?:;|:)/i.test(line)));
     const end = parseIcsDate(lines.find((line) => /^DTEND(?:;|:)/i.test(line)));
     const dates = expandEventDates(start, end);
-    if (!dates.length || dates.at(-1) < today) continue;
+    if (!dates.length || (!options.includePast && dates.at(-1) < today)) continue;
 
     const summary = getTextProperty(lines, "SUMMARY");
     const description = getMultilineTextProperty(lines, "DESCRIPTION");
