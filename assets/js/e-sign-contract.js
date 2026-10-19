@@ -1222,7 +1222,7 @@
     document.querySelector("main")?.prepend(loading);
     try {
       const [sourceResponse, calendarModule] = await Promise.all([
-        fetch(`https://camp.8-ways.com/data/calendar-basic.ics?contract_today=${Date.now()}`, { cache: "no-store" }),
+        fetch(`/api/campervan-contract-calendar?contract_today=${Date.now()}`, { cache: "no-store" }),
         import("/assets/js/campervan-calendar-data.js?v=20261007-4"),
       ]);
       if (!sourceResponse.ok) throw new Error(t("目前無法讀取露營車行事曆，請稍後重新整理。", "The campervan calendar is temporarily unavailable. Please refresh later."));

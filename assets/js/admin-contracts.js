@@ -1,10 +1,7 @@
 import { buildContractBookingList } from "/assets/js/campervan-calendar-data.js?v=20261007-5";
 
 const Gate = window.JoyForestVanAdminGate || window.JoyforestVanAdminGate;
-const DIRECT_CALENDAR_SOURCE = "https://camp.8-ways.com/data/calendar-basic.ics";
-const CALENDAR_SOURCES = /^(127\.0\.0\.1|localhost)$/.test(location.hostname)
-  ? [DIRECT_CALENDAR_SOURCE]
-  : ["/api/campervan-contract-calendar", DIRECT_CALENDAR_SOURCE];
+const CALENDAR_SOURCES = ["/api/campervan-contract-calendar"];
 const CONTRACT_BASE = "https://van.joyforest.tw/c/b";
 const ENGLISH_CONTRACT_BASE = "https://van.joyforest.tw/en/c/b";
 const STORAGE_PREFIX = "joyforest_van_contract_admin_v1:";
