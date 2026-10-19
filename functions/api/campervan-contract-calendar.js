@@ -5,12 +5,7 @@ const CALENDAR_SOURCE = "https://calendar.google.com/calendar/ical/al2upmt9aegl0
 
 export async function onRequestGet() {
   try {
-    const sourceUrl = new URL(CALENDAR_SOURCE);
-    const response = await fetch(sourceUrl, {
-      headers: { "user-agent": "JoyForest-CamperVan-Contract-Admin/1.0" },
-      cache: "no-store",
-      cf: { cacheTtl: 0, cacheEverything: false },
-    });
+    const response = await fetch(CALENDAR_SOURCE);
     if (!response.ok) throw new Error(`Calendar source returned HTTP ${response.status}`);
     const calendarText = await response.text();
     // 私人露營車行事曆不含公開合併檔使用的分類標籤；在伺服器端補上，
@@ -27,7 +22,7 @@ export async function onRequestGet() {
     });
   } catch (error) {
     console.error("Contract calendar refresh failed", error);
-    return new Response("calendar_refresh_failed", {
+    return new Response(`calendar_refresh_failed: ${error.message}`, {
       status: 503,
       headers: { "Cache-Control": "no-store", "Content-Type": "text/plain; charset=utf-8" },
     });
