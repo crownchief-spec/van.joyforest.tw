@@ -5,10 +5,10 @@ description: "想開露營車到海邊自由車泊？從一般地圖、衛星圖
 date: "2026-10-20"
 category: "自由車泊"
 tags: ["自由車泊", "海邊車宿", "Google 地圖找點", "露營車過夜", "海線慢旅"]
-coverImage: "/assets/images/trip-ideas/seaside-campervan-overnight/joyforest-campervan-coastal-roadside-parking.webp"
+coverImage: "/assets/images/trip-ideas/seaside-campervan-overnight/joyforest-campervan-coastal-roadside-parking-enhanced.webp"
 coverImageAlt: "揪好森露營車停在海岸小路旁的平整空地，前方是開闊海景"
-coverImageWidth: 1024
-coverImageHeight: 768
+coverImageWidth: 1448
+coverImageHeight: 1086
 featured: true
 order: 13
 readingTime: "約 10 分鐘"
@@ -33,16 +33,16 @@ hasEnglish: true
 
 我們曾在一處臨海小路旁找到平整的停靠空間。白天先看清楚道路、海況與周邊環境，確認不擋路、沒有住家，也沒有禁止停車或夜間停留的告示，才把車停好。
 
-<figure class="guide-figure"><img src="/assets/images/trip-ideas/seaside-campervan-overnight/joyforest-campervan-coastal-roadside-parking.webp" alt="揪好森露營車停在海岸小路旁的平整空地，旁邊沒有展開帳篷或大型設備" title="海邊自由車泊實景｜先停好車，再判斷周邊環境" width="1024" height="768" loading="eager" decoding="async" /><figcaption><span class="guide-img-title">先停好車，再慢慢看環境</span>實際停留前仍要確認現場告示、土地權屬、道路安全與當日海況。</figcaption></figure>
+<figure class="guide-figure"><img src="/assets/images/trip-ideas/seaside-campervan-overnight/joyforest-campervan-coastal-roadside-parking-enhanced.webp" alt="揪好森露營車停在海岸小路旁的平整空地，旁邊沒有展開帳篷或大型設備" title="海邊自由車泊實景｜先停好車，再判斷周邊環境" width="1448" height="1086" loading="eager" decoding="async" /><figcaption><span class="guide-img-title">先停好車，再慢慢看環境</span>實際停留前仍要確認現場告示、土地權屬、道路安全與當日海況。</figcaption></figure>
 
 傍晚我們到附近漁港買魚與海鮮，只在車邊小桌上快速把魚和火鍋煮好，完成後立刻收起器材，把食物帶回車內吃。晚上拿著飲料到海邊散步，回到車內安靜休息；隔天早上從車窗看見海，再慢慢吃早餐。自由車泊真正舒服的地方，不是把整套露營設備都搬出來，而是<strong>讓車成為靠近風景、又能隨時收好的小房間</strong>。
 
 <div class="guide-grid-2">
-  <figure class="guide-figure"><img src="/assets/images/trip-ideas/seaside-campervan-overnight/joyforest-campervan-seaside-turnout-rear-view.webp" alt="從露營車後方望向海邊小路與太平洋，車身完整停在道路外側空間" title="海岸停靠實景｜不占用道路與通行空間" width="1024" height="768" loading="lazy" decoding="async" /><figcaption><span class="guide-img-title">空間要平整，也不能妨礙通行</span>看得到海不是唯一條件；車體、車門與人員活動都要留在安全範圍內。</figcaption></figure>
-  <figure class="guide-figure"><img src="/assets/images/trip-ideas/seaside-campervan-overnight/campervan-window-ocean-morning-view.webp" alt="從露營車內窗戶看見近距離海岸與海浪，車內仍保持整潔安靜" title="露營車海景早晨｜在車內看海與吃早餐" width="1024" height="768" loading="lazy" decoding="async" /><figcaption><span class="guide-img-title">醒來就能看海</span>安靜地待在車內，通常比在外面長時間展開桌椅更適合一般停靠環境。</figcaption></figure>
+  <figure class="guide-figure"><img src="/assets/images/trip-ideas/seaside-campervan-overnight/joyforest-campervan-seaside-turnout-rear-view-enhanced.webp" alt="從露營車後方望向海邊小路與太平洋，車身完整停在道路外側空間" title="海岸停靠實景｜不占用道路與通行空間" width="1200" height="900" loading="lazy" decoding="async" /><figcaption><span class="guide-img-title">空間要平整，也不能妨礙通行</span>看得到海不是唯一條件；車體、車門與人員活動都要留在安全範圍內。</figcaption></figure>
+  <figure class="guide-figure"><img src="/assets/images/trip-ideas/seaside-campervan-overnight/campervan-window-ocean-morning-view-enhanced.webp" alt="從露營車內窗戶看見近距離海岸與海浪，車內仍保持整潔安靜" title="露營車海景早晨｜在車內看海與吃早餐" width="1200" height="900" loading="lazy" decoding="async" /><figcaption><span class="guide-img-title">醒來就能看海</span>安靜地待在車內，通常比在外面長時間展開桌椅更適合一般停靠環境。</figcaption></figure>
 </div>
 
-<figure class="guide-figure"><img src="/assets/images/trip-ideas/seaside-campervan-overnight/joyforest-campervan-driving-coastal-side-road.webp" alt="揪好森露營車行駛在靠海的小路上，旁邊是開闊海岸與防浪設施" title="海邊小路實景｜先慢速通過再決定是否停留" width="1200" height="675" loading="lazy" decoding="async" /><figcaption><span class="guide-img-title">先慢速繞一圈，不要看到空地就立刻停</span>確認路寬、迴轉空間、地面承重與退潮滿潮差，再決定是否適合停留。</figcaption></figure>
+<figure class="guide-figure"><img src="/assets/images/trip-ideas/seaside-campervan-overnight/joyforest-campervan-driving-coastal-side-road-enhanced.webp" alt="揪好森露營車行駛在靠海的小路上，旁邊是開闊海岸與防浪設施" title="海邊小路實景｜先慢速通過再決定是否停留" width="1600" height="900" loading="lazy" decoding="async" /><figcaption><span class="guide-img-title">先慢速繞一圈，不要看到空地就立刻停</span>確認路寬、迴轉空間、地面承重與退潮滿潮差，再決定是否適合停留。</figcaption></figure>
 
 ## 用 Google 地圖找海邊地點：三層判斷法
 
