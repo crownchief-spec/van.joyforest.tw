@@ -11,7 +11,6 @@ function isAvailabilityPayload(value) {
 
 async function fetchLiveApiBackup() {
   const response = await fetch(LIVE_API_BACKUP, {
-    cache: "no-store",
     cf: { cacheTtl: 0, cacheEverything: false },
   });
   if (!response.ok) throw new Error(`Availability backup returned HTTP ${response.status}`);
@@ -24,7 +23,6 @@ export async function onRequestGet() {
   try {
     const sourceResponse = await fetch(CALENDAR_SOURCE, {
       headers: { "user-agent": "JoyForest-CamperVan-Availability-Live/1.0" },
-      cache: "no-store",
       cf: { cacheTtl: 0, cacheEverything: false },
     });
     if (!sourceResponse.ok) throw new Error(`Calendar source returned HTTP ${sourceResponse.status}`);
