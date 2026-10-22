@@ -20,7 +20,7 @@ skipArticleCta: true
 
 <div class="trip-article-hero-actions">
   <div class="hero-actions">
-    <a class="btn btn-primary" href="https://line.me/ti/p/~0911252302" target="_blank" rel="noopener noreferrer">Check availability on LINE</a>
+    <a class="btn btn-primary" href="https://lin.ee/7BinzLS" target="_blank" rel="noopener noreferrer">Check availability on LINE</a>
     <a class="btn btn-outline" href="/en/pages/campervan.html">Rates & vehicle info</a>
     <a class="btn btn-outline" href="/en/pages/booking-guide.html">Campervan how-to guide</a>
   </div>
@@ -131,7 +131,7 @@ This route puts **night one in a campsite** so beginners can safely pull out tab
   </div>
   <div class="itinerary-card__actions">
     <button class="btn btn-outline" type="button" data-copy-itinerary-day="1">Copy day plan</button>
-    <a class="btn btn-primary" href="https://line.me/ti/p/~0911252302" target="_blank" rel="noopener noreferrer">LINE availability</a>
+    <a class="btn btn-primary" href="https://lin.ee/7BinzLS" target="_blank" rel="noopener noreferrer">LINE availability</a>
     <a class="btn btn-outline" href="/en/pages/booking-guide.html">Campervan how-to</a>
     <p class="itinerary-copy-feedback" data-itinerary-copy-feedback aria-live="polite"></p>
   </div>
@@ -203,7 +203,7 @@ Transport: Taipei or agreed handover → North Coast Bunker Campsite</template>
   </div>
   <div class="itinerary-card__actions">
     <button class="btn btn-outline" type="button" data-copy-itinerary-day="2">Copy day plan</button>
-    <a class="btn btn-primary" href="https://line.me/ti/p/~0911252302" target="_blank" rel="noopener noreferrer">LINE availability</a>
+    <a class="btn btn-primary" href="https://lin.ee/7BinzLS" target="_blank" rel="noopener noreferrer">LINE availability</a>
     <a class="btn btn-outline" href="/en/pages/booking-guide.html">Campervan how-to</a>
     <p class="itinerary-copy-feedback" data-itinerary-copy-feedback aria-live="polite"></p>
   </div>
@@ -270,7 +270,7 @@ Transport: Bunker → Fugui Cape → Fugui Harbor → Laomei → Baishawan / Ful
   </div>
   <div class="itinerary-card__actions">
     <button class="btn btn-outline" type="button" data-copy-itinerary-day="3">Copy day plan</button>
-    <a class="btn btn-primary" href="https://line.me/ti/p/~0911252302" target="_blank" rel="noopener noreferrer">LINE availability</a>
+    <a class="btn btn-primary" href="https://lin.ee/7BinzLS" target="_blank" rel="noopener noreferrer">LINE availability</a>
     <a class="btn btn-outline" href="/en/pages/booking-guide.html">Campervan how-to</a>
     <p class="itinerary-copy-feedback" data-itinerary-copy-feedback aria-live="polite"></p>
   </div>
@@ -408,7 +408,7 @@ We suggest beginners start North Coast, Yilan coast, Miaoli coast, mountain camp
   <h2>Want to run this route?</h2>
   <p>Tell us rental dates, headcount, delivery location, and whether you prefer North Coast, Yilan, or Miaoli coast. We'll confirm van availability, cost, and best use for your dates and party size.</p>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="https://line.me/ti/p/~0911252302" target="_blank" rel="noopener noreferrer">LINE availability</a>
+    <a class="btn btn-primary" href="https://lin.ee/7BinzLS" target="_blank" rel="noopener noreferrer">LINE availability</a>
     <a class="btn btn-dark" href="https://wa.me/886911252302" target="_blank" rel="noopener noreferrer">WhatsApp inquiry</a>
     <a class="btn btn-outline" href="/en/pages/campervan.html">Rates & vehicle info</a>
     <a class="btn btn-outline" href="/en/pages/booking-guide.html">Campervan how-to</a>
