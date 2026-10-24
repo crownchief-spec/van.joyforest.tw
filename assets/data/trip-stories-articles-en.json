@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T04:40:42.554Z",
+  "generatedAt": "2026-10-24T15:53:55.666Z",
   "articles": [
     {
       "slug": "taiwan-campervan-overnight-database",
@@ -108,6 +108,30 @@
       "order": 1,
       "readingTime": "12 min read",
       "url": "/en/trip-stories/british-australian-guests-taiwan-campervan-road-trip/"
+    },
+    {
+      "slug": "campervan-driving-safety-low-clearance-scratches",
+      "title": "Campervan Driving Safety｜Avoiding Narrow Alleys, Low Signs, Awnings and Scrapes",
+      "description": "Real examples show how to judge clearance near narrow alleys, utility poles, low signs and awnings in Taiwan, what to do after contact, and how repair costs and insurance differ.",
+      "wideBody": true,
+      "date": "2026-10-24",
+      "category": "Driving safety",
+      "tags": [
+        "Campervan driving safety",
+        "Campervan scrape",
+        "Low-clearance awning",
+        "Driving in Taiwan",
+        "Damage procedure",
+        "Campervan insurance"
+      ],
+      "coverImage": "/assets/images/trip-ideas/campervan-driving-safety-low-clearance/taipei-old-street-low-signs-awning-clearance-risk.webp",
+      "coverImageAlt": "Older Taipei commercial street with many low projecting signs and awnings, illustrating side and overhead clearance risks for a three-metre-high campervan",
+      "coverImageWidth": 1024,
+      "coverImageHeight": 768,
+      "featured": true,
+      "order": 4,
+      "readingTime": "About 9 min",
+      "url": "/en/trip-stories/campervan-driving-safety-low-clearance-scratches/"
     },
     {
       "slug": "vietnam-friends-coastal-campervan-overnight",
@@ -270,8 +294,8 @@
       ],
       "coverImage": "/assets/images/trip-ideas/seaside-campervan-overnight/joyforest-campervan-coastal-roadside-parking-enhanced.webp",
       "coverImageAlt": "Joy Forest campervan parked on a level pull-off beside a quiet coastal road with an open sea view",
-      "coverImageWidth": 1024,
-      "coverImageHeight": 768,
+      "coverImageWidth": 1448,
+      "coverImageHeight": 1086,
       "featured": true,
       "order": 13,
       "readingTime": "About 10 min",

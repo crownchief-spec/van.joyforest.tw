@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T04:40:42.265Z",
+  "generatedAt": "2026-10-24T15:53:55.405Z",
   "articles": [
     {
       "slug": "taiwan-campervan-overnight-database",
@@ -117,6 +117,31 @@
       "order": 1,
       "readingTime": "約 12 分鐘",
       "url": "/trip-stories/british-australian-guests-taiwan-campervan-road-trip/"
+    },
+    {
+      "slug": "campervan-driving-safety-low-clearance-scratches",
+      "title": "露營車行車安全｜小巷、電線桿、低矮招牌與雨遮擦撞怎麼避免",
+      "description": "用真實擦撞案例說明露營車在小巷、電線桿、老市區招牌與低矮雨遮旁怎麼判斷安全距離，並整理事故處理、修補費用範例與保險責任。",
+      "wideBody": true,
+      "hasEnglish": true,
+      "date": "2026-10-24",
+      "category": "駕駛安全",
+      "tags": [
+        "露營車行車安全",
+        "露營車擦撞",
+        "低矮雨遮",
+        "小巷駕駛",
+        "車損處理",
+        "露營車保險"
+      ],
+      "coverImage": "/assets/images/trip-ideas/campervan-driving-safety-low-clearance/taipei-old-street-low-signs-awning-clearance-risk.webp",
+      "coverImageAlt": "台北老市區街道兩側有許多低矮招牌與雨遮，提醒約三公尺高的露營車保留側邊與上方距離",
+      "coverImageWidth": 1024,
+      "coverImageHeight": 768,
+      "featured": true,
+      "order": 4,
+      "readingTime": "約 9 分鐘",
+      "url": "/trip-stories/campervan-driving-safety-low-clearance-scratches/"
     },
     {
       "slug": "vietnam-friends-coastal-campervan-overnight",
@@ -309,8 +334,8 @@
       ],
       "coverImage": "/assets/images/trip-ideas/seaside-campervan-overnight/joyforest-campervan-coastal-roadside-parking-enhanced.webp",
       "coverImageAlt": "揪好森露營車停在海岸小路旁的平整空地，前方是開闊海景",
-      "coverImageWidth": 1024,
-      "coverImageHeight": 768,
+      "coverImageWidth": 1448,
+      "coverImageHeight": 1086,
       "featured": true,
       "order": 13,
       "readingTime": "約 10 分鐘",
