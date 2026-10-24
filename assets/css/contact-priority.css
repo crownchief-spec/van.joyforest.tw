@@ -1,0 +1,23 @@
+/* Owner-approved primary contact: LINE Official Account, 2026-10-24. */
+a.contact-line-primary, .sticky-cta a[href*="@281uducw"], .mobile-cta a[href*="@281uducw"], .mobile-booking-bar a[href*="@281uducw"] {
+  display:inline-flex; align-items:center; justify-content:center; gap:.4rem;
+  background:#087f3e !important; color:#fff !important; border:1px solid #087f3e !important;
+  padding:.8rem 1.2rem !important; min-height:48px; border-radius:10px;
+  font-size:1rem !important; font-weight:700; line-height:1.4; text-decoration:none;
+  order:-1; box-shadow:0 3px 10px rgba(8,127,62,.15);
+}
+a.contact-line-primary:hover { background:#066831 !important; border-color:#066831 !important; }
+a.contact-secondary, .mobile-booking-bar a[href*="wa.me"] {
+  min-height:44px; padding:.5rem .8rem !important; font-size:.875rem !important;
+  background:transparent !important; color:inherit !important; border:1px solid currentColor !important;
+  box-shadow:none !important; font-weight:500 !important; flex-grow:0 !important;
+}
+.contact-official-id { display:block; margin:.5rem 0; font-size:.9rem; line-height:1.6; }
+.contact-secondary-text { font-size:.875rem; }
+.footer-mini-cta-stack { display:flex; flex-direction:column; align-items:flex-start; }
+.cta-mobile-bar .contact-line-primary { flex:2; }
+.cta-mobile-bar .contact-secondary { flex:0 1 auto; }
+.mobile-booking-bar { grid-template-columns: 2fr 1fr !important; }
+.mobile-booking-bar a[href*="@281uducw"] { flex:2 !important; }
+.mobile-booking-bar a[href*="wa.me"] { flex:1 !important; }
+a.contact-line-primary:focus-visible, a.contact-secondary:focus-visible { outline:3px solid #e5ac41; outline-offset:3px; }

@@ -20,7 +20,7 @@ skipArticleCta: true
 
 <div class="trip-article-hero-actions">
   <div class="hero-actions">
-    <a class="btn btn-primary" href="https://line.me/ti/p/~0911252302" target="_blank" rel="noopener noreferrer">立即詢問可租日期</a>
+    <a class="btn btn-primary" href="https://line.me/R/ti/p/@281uducw" target="_blank" rel="noopener noreferrer">立即詢問可租日期</a>
     <a class="btn btn-outline" href="/pages/campervan.html">看價格與車款</a>
     <a class="btn btn-outline" href="/pages/booking-guide.html">看露營車使用教學</a>
   </div>
@@ -131,7 +131,7 @@ skipArticleCta: true
   </div>
   <div class="itinerary-card__actions">
     <button class="btn btn-outline" type="button" data-copy-itinerary-day="1">複製行程</button>
-    <a class="btn btn-primary" href="https://line.me/ti/p/~0911252302" target="_blank" rel="noopener noreferrer">LINE 詢問可租日期</a>
+    <a class="btn btn-primary" href="https://line.me/R/ti/p/@281uducw" target="_blank" rel="noopener noreferrer">LINE 詢問可租日期</a>
     <a class="btn btn-outline" href="/pages/booking-guide.html">看露營車使用教學</a>
     <p class="itinerary-copy-feedback" data-itinerary-copy-feedback aria-live="polite"></p>
   </div>
@@ -203,7 +203,7 @@ skipArticleCta: true
   </div>
   <div class="itinerary-card__actions">
     <button class="btn btn-outline" type="button" data-copy-itinerary-day="2">複製行程</button>
-    <a class="btn btn-primary" href="https://line.me/ti/p/~0911252302" target="_blank" rel="noopener noreferrer">LINE 詢問可租日期</a>
+    <a class="btn btn-primary" href="https://line.me/R/ti/p/@281uducw" target="_blank" rel="noopener noreferrer">LINE 詢問可租日期</a>
     <a class="btn btn-outline" href="/pages/booking-guide.html">看露營車使用教學</a>
     <p class="itinerary-copy-feedback" data-itinerary-copy-feedback aria-live="polite"></p>
   </div>
@@ -270,7 +270,7 @@ skipArticleCta: true
   </div>
   <div class="itinerary-card__actions">
     <button class="btn btn-outline" type="button" data-copy-itinerary-day="3">複製行程</button>
-    <a class="btn btn-primary" href="https://line.me/ti/p/~0911252302" target="_blank" rel="noopener noreferrer">LINE 詢問可租日期</a>
+    <a class="btn btn-primary" href="https://line.me/R/ti/p/@281uducw" target="_blank" rel="noopener noreferrer">LINE 詢問可租日期</a>
     <a class="btn btn-outline" href="/pages/booking-guide.html">看露營車使用教學</a>
     <p class="itinerary-copy-feedback" data-itinerary-copy-feedback aria-live="polite"></p>
   </div>
@@ -408,7 +408,7 @@ skipArticleCta: true
   <h2>想照這條路線出發嗎？</h2>
   <p>你可以先告訴我們租借日期、人數、預計送車地點，以及想走北海岸、宜蘭或苗栗海線。我們會依照日期、天數與人數，協助確認露營車檔期、費用與適合的使用方式。</p>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="https://line.me/ti/p/~0911252302" target="_blank" rel="noopener noreferrer">LINE 詢問可租日期</a>
+    <a class="btn btn-primary" href="https://line.me/R/ti/p/@281uducw" target="_blank" rel="noopener noreferrer">LINE 詢問可租日期</a>
     <a class="btn btn-dark" href="https://wa.me/886911252302" target="_blank" rel="noopener noreferrer">WhatsApp 詢問</a>
     <a class="btn btn-outline" href="/pages/campervan.html">查看價格與車款</a>
     <a class="btn btn-outline" href="/pages/booking-guide.html">看露營車使用教學</a>
