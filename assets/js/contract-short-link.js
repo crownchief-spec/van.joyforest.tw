@@ -50,5 +50,31 @@
     return hash.toString(36).padStart(7, "0");
   }
 
-  window.JoyForestContractLinks = { encodePayload, decodePayload, shortBookingId };
+  function shortContractCode(bookingId, settings = {}) {
+    const cabinStatus = settings.cabinProtectionStatus === "included" ? "included" : "none";
+    const lossStatus = settings.businessLossWaiverStatus === "included" ? "included" : "none";
+    return shortBookingId(`${bookingId}|${cabinStatus}|${lossStatus}`);
+  }
+
+  function resolveShortContract(bookings, bookingCode) {
+    for (const booking of bookings) {
+      // Keep every previously issued code working.
+      if (shortBookingId(booking.id) === bookingCode) return { booking, settings: {} };
+      for (const cabinProtectionStatus of ["none", "included"]) {
+        for (const businessLossWaiverStatus of ["none", "included"]) {
+          const settings = { cabinProtectionStatus, businessLossWaiverStatus };
+          if (shortContractCode(booking.id, settings) === bookingCode) return { booking, settings };
+        }
+      }
+    }
+    return null;
+  }
+
+  window.JoyForestContractLinks = {
+    encodePayload,
+    decodePayload,
+    shortBookingId,
+    shortContractCode,
+    resolveShortContract,
+  };
 })();

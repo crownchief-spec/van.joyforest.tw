@@ -1292,9 +1292,11 @@
       ]);
       if (!sourceResponse.ok) throw new Error(t("目前無法讀取露營車行事曆，請稍後重新整理。", "The campervan calendar is temporarily unavailable. Please refresh later."));
       const bookings = calendarModule.buildContractBookingList(await sourceResponse.text(), new Date(), { includePast: true });
-      const booking = bookings.find((item) => window.JoyForestContractLinks.shortBookingId(item.id) === bookingCode);
-      if (!booking) throw new Error(t("目前找不到這份專屬合約，請聯絡揪好森重新取得連結。", "This customer agreement could not be found. Please contact Joy Forest for a new link."));
-      const settings = settingsToken ? await window.JoyForestContractLinks.decodePayload(settingsToken) : {};
+      const resolved = window.JoyForestContractLinks.resolveShortContract(bookings, bookingCode);
+      if (!resolved) throw new Error(t("目前找不到這份專屬合約，請聯絡揪好森重新取得連結。", "This customer agreement could not be found. Please contact Joy Forest for a new link."));
+      const booking = resolved.booking;
+      const legacySettings = settingsToken ? await window.JoyForestContractLinks.decodePayload(settingsToken) : {};
+      const settings = { ...resolved.settings, ...legacySettings };
       const baseDraft = directPublicDraft();
       const bookingDraft = booking.draft || {};
       const handoverAmount = formatMoneyLike(Math.max(0, moneyNumber(bookingDraft.rentalFee) - moneyNumber(bookingDraft.reservationDeposit) + moneyNumber(bookingDraft.securityDeposit)));

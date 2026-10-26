@@ -105,9 +105,25 @@ function mergedDraft(booking, settings) {
   };
 }
 
+function shortContractUrls(booking, settings) {
+  const bookingCode = window.JoyForestContractLinks.shortContractCode(booking.id, settings);
+  return {
+    contractUrl: `${CONTRACT_BASE}/${bookingCode}`,
+    englishContractUrl: `${ENGLISH_CONTRACT_BASE}/${bookingCode}`,
+  };
+}
+
 function renderBooking(booking, index) {
   const saved = readSaved(booking.id);
   const draft = booking.draft;
+  const canUseSavedShortLink = Boolean(saved.contractUrl) && !String(saved.customerSpecialNote || "").trim();
+  const savedLinks = canUseSavedShortLink ? shortContractUrls(booking, saved) : {
+    contractUrl: saved.contractUrl || "",
+    englishContractUrl: saved.englishContractUrl || "",
+  };
+  if (canUseSavedShortLink && (savedLinks.contractUrl !== saved.contractUrl || savedLinks.englishContractUrl !== saved.englishContractUrl)) {
+    writeSaved(booking.id, { ...saved, ...savedLinks });
+  }
   const card = document.createElement("article");
   card.className = "booking-card";
   card.dataset.bookingId = booking.id;
@@ -131,7 +147,7 @@ function renderBooking(booking, index) {
       </section>
       <section class="booking-controls" aria-label="合約備註與產生連結">
         <div class="admin-form-grid">
-          <label class="admin-field full"><span class="field-label">管理者備註（客人會在合約中看到）</span><textarea class="admin-textarea" name="customerSpecialNote" placeholder="例如：本次已包含車廂碰撞損害保障及營業損失責任減免，不另收費。">${escapeHtml(saved.customerSpecialNote || "")}</textarea><span class="field-help">輸入後會自動保存在目前裝置；產生連結時會一起封裝進客人的合約。</span></label>
+          <label class="admin-field full"><span class="field-label">管理者備註（舊版功能）</span><textarea class="admin-textarea" name="customerSpecialNote" placeholder="真正短網址不再把長備註放進網址，請保持空白。">${escapeHtml(saved.customerSpecialNote || "")}</textarea><span class="field-help">為確保產生的網址都維持精簡，這裡必須保持空白；若已有舊備註，請先清除再產生連結。</span></label>
           <label class="admin-field"><span class="field-label">露營車廂碰撞損害保障方案</span><select class="admin-select" name="cabinProtectionStatus"><option value="none"${defaultCabinStatus === "none" ? " selected" : ""}>本次未包含</option><option value="included"${defaultCabinStatus === "included" ? " selected" : ""}>本次已包含，不另收費</option></select></label>
           <label class="admin-field"><span class="field-label">營業損失責任減免方案</span><select class="admin-select" name="businessLossWaiverStatus"><option value="none"${defaultLossStatus === "none" ? " selected" : ""}>本次未包含</option><option value="included"${defaultLossStatus === "included" ? " selected" : ""}>本次已包含，不另收費</option></select></label>
         </div>
@@ -140,11 +156,11 @@ function renderBooking(booking, index) {
           <button class="admin-button blue" type="button" data-generate>產生合約及連結</button>
           <span class="save-state" data-save-state>${saved.savedAt ? "已載入上次儲存內容" : "尚未儲存"}</span>
         </div>
-        <div class="contract-result" data-contract-result${saved.contractUrl ? "" : " hidden"}>
+        <div class="contract-result" data-contract-result${savedLinks.contractUrl ? "" : " hidden"}>
           <p>中文客戶專屬短連結</p>
-          <div class="contract-link-row"><input class="contract-link" data-contract-link value="${escapeHtml(saved.contractUrl || "")}" readonly /><div class="contract-link-actions"><button class="admin-button primary" type="button" data-copy data-copy-target="zh">複製中文連結</button><a class="admin-button" data-open href="${escapeHtml(saved.contractUrl || "#")}" target="_blank" rel="noopener">開啟</a></div></div>
+          <div class="contract-link-row"><input class="contract-link" data-contract-link value="${escapeHtml(savedLinks.contractUrl)}" readonly /><div class="contract-link-actions"><button class="admin-button primary" type="button" data-copy data-copy-target="zh">複製中文連結</button><a class="admin-button" data-open href="${escapeHtml(savedLinks.contractUrl || "#")}" target="_blank" rel="noopener">開啟</a></div></div>
           <p>English customer short link</p>
-          <div class="contract-link-row"><input class="contract-link" data-contract-link-en value="${escapeHtml(saved.englishContractUrl || "")}" readonly /><div class="contract-link-actions"><button class="admin-button blue" type="button" data-copy data-copy-target="en">複製英文連結</button><a class="admin-button" data-open-en href="${escapeHtml(saved.englishContractUrl || "#")}" target="_blank" rel="noopener">Open</a></div></div>
+          <div class="contract-link-row"><input class="contract-link" data-contract-link-en value="${escapeHtml(savedLinks.englishContractUrl)}" readonly /><div class="contract-link-actions"><button class="admin-button blue" type="button" data-copy data-copy-target="en">複製英文連結</button><a class="admin-button" data-open-en href="${escapeHtml(savedLinks.englishContractUrl || "#")}" target="_blank" rel="noopener">Open</a></div></div>
         </div>
       </section>
     </div>`;
@@ -183,12 +199,13 @@ function renderBooking(booking, index) {
       cabinProtectionStatus: settings.cabinProtectionStatus,
       businessLossWaiverStatus: settings.businessLossWaiverStatus,
     };
-    const hasSettings = settingsPayload.customerSpecialNote || settingsPayload.cabinProtectionStatus === "included" || settingsPayload.businessLossWaiverStatus === "included";
-    const settingsToken = hasSettings ? await window.JoyForestContractLinks.encodePayload(settingsPayload) : "";
-    const bookingCode = window.JoyForestContractLinks.shortBookingId(booking.id);
-    const suffix = settingsToken ? `/${settingsToken}` : "";
-    const contractUrl = `${CONTRACT_BASE}/${bookingCode}${suffix}`;
-    const englishContractUrl = `${ENGLISH_CONTRACT_BASE}/${bookingCode}${suffix}`;
+    if (settingsPayload.customerSpecialNote) {
+      card.querySelector("[data-save-state]").textContent = "為維持真正短網址，請先清除舊版管理者備註。";
+      button.disabled = false;
+      button.textContent = "產生合約及連結";
+      return;
+    }
+    const { contractUrl, englishContractUrl } = shortContractUrls(booking, settingsPayload);
     const input = card.querySelector("[data-contract-link]");
     input.value = contractUrl;
     card.querySelector("[data-contract-link-en]").value = englishContractUrl;
