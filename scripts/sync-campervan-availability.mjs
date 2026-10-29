@@ -3,7 +3,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildAvailabilityPayload } from "../functions/_shared/campervan-availability.js";
 
-const DEFAULT_SOURCE = "https://camp.8-ways.com/data/calendar-basic.ics";
+// 備援檔也直接由露營車原始行事曆產生，避免公開合併 ICS
+// 將跨日活動拆成整天狀態時遺漏還車當天。
+const DEFAULT_SOURCE = "https://calendar.google.com/calendar/ical/al2upmt9aegl0gc9uk6dms17k4%40group.calendar.google.com/private-96c6b258d3838a040c762d5a412aa839/basic.ics";
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputPath = path.join(projectRoot, "assets/data/campervan-availability.json");
 const sourceFlagIndex = process.argv.indexOf("--source");
@@ -25,7 +27,9 @@ async function readSource(sourceValue) {
   return readFile(path.resolve(sourceValue), "utf8");
 }
 
-const payload = buildAvailabilityPayload(await readSource(source));
+const calendarText = await readSource(source);
+const taggedCalendarText = calendarText.replace(/BEGIN:VEVENT\r?\n/g, "BEGIN:VEVENT\r\nX-JOYFOREST-TAG:rv\r\n");
+const payload = buildAvailabilityPayload(taggedCalendarText);
 
 await writeFile(outputPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
 console.log(

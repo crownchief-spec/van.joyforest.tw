@@ -1,6 +1,8 @@
 import { buildAvailabilityPayload } from "../_shared/campervan-availability.js";
 
-const CALENDAR_SOURCE = "https://camp.8-ways.com/data/calendar-basic.ics";
+// 直接讀取露營車原始行事曆。camp.8-ways.com 的公開 ICS 為了隱私會把
+// 跨日時間活動拆成「整天忙碌」記號，可能遺漏還車當天。
+const CALENDAR_SOURCE = "https://calendar.google.com/calendar/ical/al2upmt9aegl0gc9uk6dms17k4%40group.calendar.google.com/private-96c6b258d3838a040c762d5a412aa839/basic.ics";
 const LIVE_API_BACKUP = "https://camp.8-ways.com/api/campervan-availability";
 const LOCAL_AVAILABILITY_ASSET = "https://assets.local/assets/data/campervan-availability.json";
 
@@ -48,7 +50,10 @@ export async function onRequestGet({ env }) {
     });
     if (!sourceResponse.ok) throw new Error(`Calendar source returned HTTP ${sourceResponse.status}`);
 
-    const payload = buildAvailabilityPayload(await sourceResponse.text());
+    const calendarText = await sourceResponse.text();
+    // 原始露營車行事曆每筆都是露營車活動，伺服器端補上分類標籤後再解析。
+    const taggedCalendarText = calendarText.replace(/BEGIN:VEVENT\r?\n/g, "BEGIN:VEVENT\r\nX-JOYFOREST-TAG:rv\r\n");
+    const payload = buildAvailabilityPayload(taggedCalendarText);
     return availabilityResponse(payload);
   } catch (primaryError) {
     console.warn("Campervan calendar source unavailable; using public API backup", primaryError);
