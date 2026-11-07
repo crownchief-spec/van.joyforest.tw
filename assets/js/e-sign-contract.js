@@ -11,28 +11,28 @@
   const vehicleFieldDefinitions = [
     { key: "customerName", label: t("車輛借用方（乙方）", "Borrower (Party B)"), autocomplete: "name", required: true },
     { key: "phone", label: t("電話", "Phone"), inputmode: "tel", autocomplete: "off", required: true },
-    { key: "birthDate", label: t("乙方出生年月日", "Date of birth"), type: "date" },
+    { key: "birthDate", label: t("乙方出生年月日", "Date of birth (YYYY-MM-DD)"), type: "date", placeholder: "YYYY-MM-DD" },
     { key: "idNumber", label: t("證件號碼", "ID / passport number"), autocomplete: "off" },
     { key: "address", label: t("乙方戶籍／聯絡地址", "Registered / contact address"), autocomplete: "street-address", full: true },
     { key: "vehiclePlate", label: t("借用車輛車牌", "Vehicle registration number") },
     { key: "vehicleDescription", label: t("借用車輛／車型", "Vehicle / model") },
-    { key: "rentalStartDate", label: t("借用開始日期", "Loan start date"), type: "date", required: true },
-    { key: "rentalStartTime", label: t("開始時間", "Start time"), type: "time" },
-    { key: "rentalEndDate", label: t("借用結束日期", "Loan end date"), type: "date", required: true },
-    { key: "rentalEndTime", label: t("結束時間", "End time"), type: "time" },
+    { key: "rentalStartDate", label: t("借用開始日期", "Loan start date (YYYY-MM-DD)"), type: "date", placeholder: "YYYY-MM-DD", required: true },
+    { key: "rentalStartTime", label: t("開始時間", "Start time (AM/PM)"), type: "time", placeholder: "h:mm AM/PM" },
+    { key: "rentalEndDate", label: t("借用結束日期", "Loan end date (YYYY-MM-DD)"), type: "date", placeholder: "YYYY-MM-DD", required: true },
+    { key: "rentalEndTime", label: t("結束時間", "End time (AM/PM)"), type: "time", placeholder: "h:mm AM/PM" },
     { key: "deliveryLocation", label: t("交車地點", "Handover location"), full: true },
     { key: "returnLocation", label: t("還車地點", "Return location"), full: true }
   ];
   const cabinFieldDefinitions = [
     { key: "cabinCustomerName", source: "customerName", label: t("承租人（乙方）", "Renter (Party B)"), autocomplete: "name", required: true },
     { key: "cabinPhone", source: "phone", label: t("電話", "Phone"), inputmode: "tel", autocomplete: "off", required: true },
-    { key: "cabinBirthDate", source: "birthDate", label: t("乙方出生年月日", "Date of birth"), type: "date" },
+    { key: "cabinBirthDate", source: "birthDate", label: t("乙方出生年月日", "Date of birth (YYYY-MM-DD)"), type: "date", placeholder: "YYYY-MM-DD" },
     { key: "cabinIdNumber", source: "idNumber", label: t("證件號碼", "ID / passport number"), autocomplete: "off" },
     { key: "cabinAddress", source: "address", label: t("乙方戶籍／聯絡地址", "Registered / contact address"), autocomplete: "street-address", full: true },
-    { key: "cabinRentalStartDate", source: "rentalStartDate", label: t("租賃開始日期", "Rental start date"), type: "date", required: true },
-    { key: "cabinRentalStartTime", source: "rentalStartTime", label: t("開始時間", "Start time"), type: "time" },
-    { key: "cabinRentalEndDate", source: "rentalEndDate", label: t("租賃結束日期", "Rental end date"), type: "date", required: true },
-    { key: "cabinRentalEndTime", source: "rentalEndTime", label: t("結束時間", "End time"), type: "time" },
+    { key: "cabinRentalStartDate", source: "rentalStartDate", label: t("租賃開始日期", "Rental start date (YYYY-MM-DD)"), type: "date", placeholder: "YYYY-MM-DD", required: true },
+    { key: "cabinRentalStartTime", source: "rentalStartTime", label: t("開始時間", "Start time (AM/PM)"), type: "time", placeholder: "h:mm AM/PM" },
+    { key: "cabinRentalEndDate", source: "rentalEndDate", label: t("租賃結束日期", "Rental end date (YYYY-MM-DD)"), type: "date", placeholder: "YYYY-MM-DD", required: true },
+    { key: "cabinRentalEndTime", source: "rentalEndTime", label: t("結束時間", "End time (AM/PM)"), type: "time", placeholder: "h:mm AM/PM" },
     { key: "cabinDeliveryLocation", source: "deliveryLocation", label: t("交付地點", "Delivery location"), full: true },
     { key: "cabinReturnLocation", source: "returnLocation", label: t("返還地點", "Return location"), full: true },
     { key: "rentalFee", label: t("露營車廂與設備租金", "Camper cabin and equipment rental fee"), placeholder: t("例如 NT$13,800", "e.g. NT$13,800") },
@@ -77,6 +77,15 @@
   function formatMoneyLike(value) {
     const digits = String(value || "").replace(/[^\d]/g, "");
     return digits ? `NT$${Number(digits).toLocaleString("zh-TW")}` : String(value || "");
+  }
+
+  function formatEnglishTime(value) {
+    if (!IS_EN || !value) return value || "";
+    const match = String(value).trim().match(/^(\d{1,2}):(\d{2})(?::\d{2})?$/);
+    if (!match) return String(value);
+    const hour = Number(match[1]);
+    if (hour > 23) return String(value);
+    return `${hour % 12 || 12}:${match[2]} ${hour < 12 ? "AM" : "PM"}`;
   }
 
   function setFormValues(form, data) {
@@ -189,11 +198,13 @@
 
   function makeSignerField(definition, value) {
     const { key, label: labelText, type = "text", inputmode, autocomplete, placeholder, required, full, readOnly } = definition;
+    const renderedType = IS_EN && (type === "date" || type === "time") ? "text" : type;
     const label = document.createElement("label");
     if (full) label.className = "full";
-    label.innerHTML = `<span>${labelText}</span><input name="${key}" type="${type}" />`;
+    label.innerHTML = `<span>${labelText}</span><input name="${key}" type="${renderedType}" />`;
     const input = $("input", label);
     if (inputmode) input.inputMode = inputmode;
+    else if (IS_EN && (type === "date" || type === "time")) input.inputMode = "text";
     if (autocomplete) input.autocomplete = autocomplete;
     if (placeholder) input.placeholder = placeholder;
     if (required) input.required = true;
@@ -213,8 +224,8 @@
       const description = data.vehicle?.description || "";
       return IS_EN && description === "KIA 卡旺 2497cc 雙廂式" ? "KIA K2500, 2497 cc, double-cab" : description;
     }
-    if (definition.source) return data.cabin?.[definition.source] || data[definition.key] || "";
-    return data[definition.key] || "";
+    const value = definition.source ? (data.cabin?.[definition.source] || data[definition.key] || "") : (data[definition.key] || "");
+    return IS_EN && definition.type === "time" ? formatEnglishTime(value) : value;
   }
 
   function editableSignerData() {
@@ -238,7 +249,8 @@
   function originalDraftValue(key) {
     if (key === "vehiclePlate") return originalDraft?.vehicle?.plate || "";
     if (key === "vehicleDescription") return originalDraft?.vehicle?.description || "";
-    return originalDraft?.[key] || "";
+    const value = originalDraft?.[key] || "";
+    return IS_EN && signerFieldDefinitions.get(key)?.type === "time" ? formatEnglishTime(value) : value;
   }
 
   function buildSigner(encoded) {
@@ -396,6 +408,12 @@
     const customer = `${data.customerName || "____________"}｜證件號碼：${data.idNumber || "____________"}｜電話：${data.phone || "____________"}`;
     const cabinCustomer = `${cabin.customerName || "____________"}｜證件號碼：${cabin.idNumber || "____________"}｜電話：${cabin.phone || "____________"}`;
     const providerLine = `${provider.name || "揪好森 Joy Forest 露營車出租"}${provider.role ? `（${provider.role}）` : ""}`;
+    const securityDepositText = String(data.securityDeposit || "").trim();
+    const securityDepositParagraph = securityDepositText
+      ? (moneyNumber(securityDepositText) === 0
+        ? "本次租賃免收還車結算押金。"
+        : `還車結算押金：${securityDepositText}（還車檢查後，扣除 ETC、未結清費用或有證明的車廂與設備損害後，退還餘額）。`)
+      : "還車結算押金：依本次預約欄位所示。";
     const specialAgreementParagraphs = [];
     if (data.customerSpecialNote) specialAgreementParagraphs.push(data.customerSpecialNote);
     if (data.cabinProtectionStatus === "included") {
@@ -493,12 +511,12 @@
               `交付地點：${cabin.deliveryLocation || "____________"}｜返還地點：${cabin.returnLocation || "____________"}`,
               `露營車廂與設備租賃費用：${data.rentalFee || "____________"}｜已付預約訂金：${data.reservationDeposit || "____________"}｜還車結算押金：${data.securityDeposit || "____________"}`,
               `交車時應付金額（租金－已付訂金＋押金）：${data.handoverAmount || "____________"}`,
-              "押金：新臺幣伍仟元整（還車檢查後，扣除 ETC、未結清費用或有證明的車廂與設備損害後，退還餘額）。",
+              securityDepositParagraph,
               "本票：無需本票。"
             ],
             screenParagraphs: [
               "租賃物：圖中藍色露營車廂及交車時點交的露營設備；不包含第一份契約無償借用的 KIA 卡旺 K2500 車體。",
-              "押金：新臺幣伍仟元整（還車檢查後，扣除 ETC、未結清費用或有證明的車廂與設備損害後，退還餘額）。",
+              securityDepositParagraph,
               "本票：無需本票。"
             ],
             fieldKeys: ["cabinRentalStartDate", "cabinRentalStartTime", "cabinRentalEndDate", "cabinRentalEndTime", "cabinDeliveryLocation", "cabinReturnLocation", "rentalFee", "reservationDeposit", "securityDeposit", "handoverAmount"]
@@ -561,6 +579,12 @@
       ? "Long-term lessee of the rental light truck from the Taoyuan Branch of UNION FINANCE & LEASING (INT'L) CORP."
       : (provider.role || "");
     const providerLine = `${provider.name || "Joy Forest Campervan Rental"}${providerRole ? ` (${providerRole})` : ""}`;
+    const securityDepositText = String(data.securityDeposit || "").trim();
+    const securityDepositParagraph = securityDepositText
+      ? (moneyNumber(securityDepositText) === 0
+        ? "No Refundable Handover Security Deposit is required for this rental."
+        : `Refundable Handover Security Deposit: ${securityDepositText}. After the return inspection, the balance will be refunded after deducting ETC tolls, unsettled charges, and documented damage to the camper cabin or equipment.`)
+      : "Refundable Handover Security Deposit: as stated in this booking.";
     const vehicleDescription = vehicle.description === "KIA 卡旺 2497cc 雙廂式"
       ? "KIA K2500, 2497 cc, double-cab"
       : (vehicle.description || "____________");
@@ -639,12 +663,12 @@
               `Delivery location: ${cabin.deliveryLocation || "____________"} | Return location: ${cabin.returnLocation || "____________"}`,
               `Camper cabin and equipment rental fee: ${data.rentalFee || "____________"} | Reservation Deposit already paid: ${data.reservationDeposit || "____________"} | Refundable Handover Security Deposit: ${data.securityDeposit || "____________"}`,
               `Amount due at handover (rental fee − Reservation Deposit + Security Deposit): ${data.handoverAmount || "____________"}`,
-              "Refundable Handover Security Deposit: NT$5,000. After the return inspection, the balance will be refunded after deducting ETC tolls, unsettled charges, and documented damage to the camper cabin or equipment.",
+              securityDepositParagraph,
               "Promissory note: not required."
             ],
             screenParagraphs: [
               "Rental item: the blue camper cabin shown above and the camping equipment checked at handover. The KIA K2500 base vehicle loaned at no charge under Agreement One is excluded.",
-              "Refundable Handover Security Deposit: NT$5,000. After the return inspection, the balance will be refunded after deducting ETC tolls, unsettled charges, and documented damage to the camper cabin or equipment.",
+              securityDepositParagraph,
               "Promissory note: not required."
             ],
             fieldKeys: ["cabinRentalStartDate", "cabinRentalStartTime", "cabinRentalEndDate", "cabinRentalEndTime", "cabinDeliveryLocation", "cabinReturnLocation", "rentalFee", "reservationDeposit", "securityDeposit", "handoverAmount"]
@@ -1299,18 +1323,18 @@
       const settings = { ...resolved.settings, ...legacySettings };
       const baseDraft = directPublicDraft();
       const bookingDraft = booking.draft || {};
-      const handoverAmount = formatMoneyLike(Math.max(0, moneyNumber(bookingDraft.rentalFee) - moneyNumber(bookingDraft.reservationDeposit) + moneyNumber(bookingDraft.securityDeposit)));
+      const effectiveDraft = { ...bookingDraft, ...settings };
+      const handoverAmount = formatMoneyLike(Math.max(0, moneyNumber(effectiveDraft.rentalFee) - moneyNumber(effectiveDraft.reservationDeposit) + moneyNumber(effectiveDraft.securityDeposit)));
       const payload = {
         ...baseDraft,
-        ...bookingDraft,
-        ...settings,
+        ...effectiveDraft,
         handoverAmount,
         calendarEventId: booking.id,
         calendarSummary: booking.summary,
         issuedAt: new Date().toISOString(),
         version: "short-calendar-contract-1",
-        provider: { ...baseDraft.provider, ...(bookingDraft.provider || {}) },
-        vehicle: { ...baseDraft.vehicle, ...(bookingDraft.vehicle || {}) },
+        provider: { ...baseDraft.provider, ...(bookingDraft.provider || {}), ...(settings.provider || {}) },
+        vehicle: { ...baseDraft.vehicle, ...(bookingDraft.vehicle || {}), ...(settings.vehicle || {}) },
       };
       loading.remove();
       buildSigner(encodeDraft(payload));
