@@ -32,3 +32,9 @@ Create one polished hand-drawn editorial illustration for a Taiwanese campervan 
 中英文外層標題、摘要、內頁及圖片 title 改為明示煞車變軟（soft brake pedal）須立即安全停車並停止行程；高山連續長下坡每半小時停車休息至少 10 分鐘。變軟後不能以休息滿 10 分鐘或腳感暫時恢復作為續行依據，須聯絡並由專業人員檢查確認。保留低速檔及避免長踩煞車的預防提醒。
 
 前輪負擔採負重前移、前輪煞車負擔增加的定性說明；此車型未有可核對的 70%／80–90% 比例資料，不將通用比例當作本車定值。參考 Bendix：https://www.bendix.com.au/news-events/bendix-explains-brake-bias 、Kia 維修中心：https://www.i10fiestakia.com/spongy-brake.html 。
+
+## 後續補充｜引擎煞車
+
+中英文安全內頁新增 #engine-braking：收油門、低檔位利用引擎阻力減速；D 往左進手動換檔、往後（−）拉一下降一檔（4→3 僅為示例）、往右回 D。方向與操作依業主本次提供的車輛教學，實際以車上標示、儀表、交車示範與車主手冊為準。一般操作觀念另參考 Kia 官方手冊：https://ownersmanual.kia.com/full_webhelp/SP2/2025/en_US/topics/chapter5_8_1.html （不同車型的手冊，只核對一般手動換檔觀念，不視為本車型規格）。
+
+說明引擎煞車可減少腳煞車熱負擔與磨耗，仍須配合腳煞車；未熟悉者先安全停車詢問，不能以每半小時休息取代引擎煞車、正確控速或繼續長踩煞車。
