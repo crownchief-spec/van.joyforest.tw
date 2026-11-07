@@ -224,7 +224,7 @@
       const description = data.vehicle?.description || "";
       return IS_EN && description === "KIA 卡旺 2497cc 雙廂式" ? "KIA K2500, 2497 cc, double-cab" : description;
     }
-    const value = definition.source ? (data.cabin?.[definition.source] || data[definition.key] || "") : (data[definition.key] || "");
+    const value = definition.source ? (data.cabin?.[definition.source] || data[definition.source] || data[definition.key] || "") : (data[definition.key] || "");
     return IS_EN && definition.type === "time" ? formatEnglishTime(value) : value;
   }
 
