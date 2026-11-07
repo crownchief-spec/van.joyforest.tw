@@ -26,3 +26,9 @@ Create one polished hand-drawn editorial illustration for a Taiwanese campervan 
 
 Create one polished hand-drawn editorial illustration for a Taiwanese campervan safety website thumbnail. Warm ivory paper background, muted teal and pale sky-blue, charcoal outlines, restrained orange-red safety accents. Friendly but serious, clean shapes readable at small thumbnail size. Vehicle is a small Taiwanese white cab-over truck camper with a pale blue stripe, tall over-cab sleeping compartment and long rear camper box. Landscape 3:2 composition, centered with safe margins. No logos, no watermark. Elevated three-quarter view of campervan carefully making a broad slow turn on a simple road corner. Show front and rear path arrows, orange highlighted rear corner sweep and a roadside bollard outside its path, so rear clearance is obvious. Small seatbelt-check icon as secondary cue. No words or text.
 
+
+## 後續修訂｜煞車變軟與高山連續長下坡
+
+中英文外層標題、摘要、內頁及圖片 title 改為明示煞車變軟（soft brake pedal）須立即安全停車並停止行程；高山連續長下坡每半小時停車休息至少 10 分鐘。變軟後不能以休息滿 10 分鐘或腳感暫時恢復作為續行依據，須聯絡並由專業人員檢查確認。保留低速檔及避免長踩煞車的預防提醒。
+
+前輪負擔採負重前移、前輪煞車負擔增加的定性說明；此車型未有可核對的 70%／80–90% 比例資料，不將通用比例當作本車定值。參考 Bendix：https://www.bendix.com.au/news-events/bendix-explains-brake-bias 、Kia 維修中心：https://www.i10fiestakia.com/spongy-brake.html 。
