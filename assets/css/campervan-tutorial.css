@@ -10,3 +10,14 @@
 .tutorial-resources{background:#edf3ed;border:1px solid #c4d5c6;border-radius:16px;padding:24px;margin:20px 0 32px}.tutorial-resources h2{margin-top:0}.tutorial-reference{font-size:13px;line-height:1.8;color:#596c61}.guide-anchor{display:block;scroll-margin-top:100px}.tutorial-page .driving-safety-section{padding-bottom:32px}
 @media(max-width:700px){.tutorial-page .hero{padding:40px 0 28px}.tutorial-layout{padding:0 18px 40px}.tutorial-topic-grid{gap:9px}.tutorial-topic{padding:12px 10px;gap:9px;align-items:flex-start}.tutorial-topic>span{font-size:16px}.tutorial-topic strong{font-size:14px}.tutorial-topic small{font-size:11px}.tutorial-detail{grid-template-columns:1fr;gap:18px}.tutorial-photos{max-width:420px;grid-template-columns:repeat(2,minmax(0,1fr))}.tutorial-photos img{height:170px}.tutorial-section{padding:28px 0}.tutorial-steps li{line-height:1.8}.tutorial-resources{padding:18px}}
 @media print{.site-header,.site-footer,.hero-actions,.tutorial-back,.tutorial-topic-grid{display:none}.tutorial-section{break-before:page}.tutorial-detail{grid-template-columns:1fr 180px}.tutorial-photos img{height:160px}}
+
+/* Approved seven-minute walkthrough, shared by both language pages. */
+.tutorial-video-section{padding:36px 0 44px;background:#edf3ed;scroll-margin-top:90px}
+.tutorial-video-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,340px);gap:44px;align-items:center}
+.tutorial-video-copy{max-width:580px}.tutorial-video-copy h2{font-size:clamp(26px,3vw,36px);line-height:1.4;margin:15px 0}
+.tutorial-video-copy p{font-size:18px;line-height:1.85}.tutorial-video-badge{display:inline-block;border:1px solid #abc2ae;border-radius:30px;padding:7px 13px;background:#fff;color:#245c4d;font-size:14px;font-weight:700}
+.tutorial-video-copy .tutorial-video-detail{font-size:15px;color:#526c5c}.tutorial-video-frame{margin:0;min-width:0}
+.tutorial-video-frame video{display:block;width:100%;height:auto;aspect-ratio:9/16;border-radius:14px;background:#17382f;box-shadow:0 10px 28px #183b3020}
+.tutorial-video-frame figcaption{margin-top:9px;font-size:13px;color:#526c5c;line-height:1.6}
+@media(max-width:700px){.tutorial-video-layout{grid-template-columns:1fr;gap:20px}.tutorial-video-section{padding:28px 0 34px}.tutorial-video-copy p{font-size:16px}.tutorial-video-frame{width:100%;max-width:360px;margin:0 auto}.tutorial-video-copy h2{font-size:26px}}
+@media print{.tutorial-video-section{display:none}}
