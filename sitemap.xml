@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://van.joyforest.tw/en/pages/booking-guide</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-23</lastmod>
   </url>
   <url>
     <loc>https://van.joyforest.tw/en/pages/campervan</loc>
@@ -278,11 +278,11 @@
   </url>
   <url>
     <loc>https://van.joyforest.tw/pages/booking-guide</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-23</lastmod>
   </url>
   <url>
     <loc>https://van.joyforest.tw/pages/booking-guide/beds</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-23</lastmod>
   </url>
   <url>
     <loc>https://van.joyforest.tw/pages/booking-guide/driving-safety</loc>
@@ -290,19 +290,19 @@
   </url>
   <url>
     <loc>https://van.joyforest.tw/pages/booking-guide/outdoor-entertainment</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-23</lastmod>
   </url>
   <url>
     <loc>https://van.joyforest.tw/pages/booking-guide/power-air-conditioning</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-23</lastmod>
   </url>
   <url>
     <loc>https://van.joyforest.tw/pages/booking-guide/vehicle-and-driving</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-23</lastmod>
   </url>
   <url>
     <loc>https://van.joyforest.tw/pages/booking-guide/water-bathroom-toilet</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-23</lastmod>
   </url>
   <url>
     <loc>https://van.joyforest.tw/pages/campervan</loc>
@@ -557,4 +557,24 @@
     <lastmod>2026-10-24</lastmod>
   </url>
   <url><loc>https://van.joyforest.tw/en/pages/booking-guide/driving-safety</loc><lastmod>2026-11-07</lastmod></url>
+  <url>
+    <loc>https://van.joyforest.tw/en/pages/booking-guide/beds</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/en/pages/booking-guide/outdoor-entertainment</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/en/pages/booking-guide/power-air-conditioning</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/en/pages/booking-guide/vehicle-and-driving</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+  <url>
+    <loc>https://van.joyforest.tw/en/pages/booking-guide/water-bathroom-toilet</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
 </urlset>
