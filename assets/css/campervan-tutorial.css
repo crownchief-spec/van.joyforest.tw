@@ -1,7 +1,7 @@
 /* Text-first operational guide, shared by Chinese and English. */
 .tutorial-page .hero{min-height:0;padding:64px 0 42px}.tutorial-page .hero h1{font-size:clamp(28px,4vw,44px)}
 .tutorial-intro{max-width:760px}.tutorial-layout{max-width:1140px;margin:0 auto;padding:0 24px 60px}.tutorial-updated{color:#607067;font-size:13px}
-.tutorial-topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0}
+#guide-topics{scroll-margin-top:110px}.tutorial-topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0}
 .tutorial-topic{display:flex;gap:14px;align-items:center;padding:17px;border:1px solid #c2d1c8;border-radius:14px;background:#fff;text-decoration:none;color:#243c31;transition:background .15s,border-color .15s}
 .tutorial-topic:hover,.tutorial-topic:focus-visible{background:#eef5ef;border-color:#245c4d;outline-offset:3px}.tutorial-topic>span{font-weight:700;color:#6c846f;font-size:21px}.tutorial-topic strong{display:block;font-size:17px;line-height:1.4}.tutorial-topic small{display:block;margin-top:4px;color:#607067}
 .tutorial-section{padding:38px 0;border-top:1px solid #d2ddd4;scroll-margin-top:100px}.tutorial-section-heading{display:flex;gap:14px;align-items:center;margin-bottom:18px}.tutorial-section h2{margin:0;font-size:clamp(23px,2.5vw,30px);line-height:1.4}.tutorial-number{display:inline-grid;place-items:center;min-width:42px;height:42px;border-radius:50%;background:#245c4d;color:white;font-weight:700}
