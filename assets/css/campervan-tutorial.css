@@ -11,6 +11,44 @@
 @media(max-width:700px){.tutorial-page .hero{padding:40px 0 28px}.tutorial-layout{padding:0 18px 40px}.tutorial-topic-grid{gap:9px}.tutorial-topic{padding:12px 10px;gap:9px;align-items:flex-start}.tutorial-topic>span{font-size:16px}.tutorial-topic strong{font-size:14px}.tutorial-topic small{font-size:11px}.tutorial-detail{grid-template-columns:1fr;gap:18px}.tutorial-photos{max-width:420px;grid-template-columns:repeat(2,minmax(0,1fr))}.tutorial-photos img{height:170px}.tutorial-section{padding:28px 0}.tutorial-steps li{line-height:1.8}.tutorial-resources{padding:18px}}
 @media print{.site-header,.site-footer,.hero-actions,.tutorial-back,.tutorial-topic-grid{display:none}.tutorial-section{break-before:page}.tutorial-detail{grid-template-columns:1fr 180px}.tutorial-photos img{height:160px}}
 
+.tutorial-intro .tutorial-projector-link {
+  align-items: center;
+  gap: 12px;
+  max-width: 490px;
+  min-height: 0;
+  margin-top: 20px;
+  padding: 10px 12px;
+}
+
+.tutorial-projector-link .guide-topic-card__thumb {
+  flex: 0 0 clamp(76px, 22%, 104px);
+}
+
+.tutorial-projector-link .guide-topic-card__thumb img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.tutorial-projector-link .guide-topic-card__body strong {
+  font-size: clamp(17px, 2vw, 21px);
+}
+
+.tutorial-projector-link .guide-topic-card__summary {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.tutorial-projector-link .guide-topic-card__more {
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+@media print {
+  .tutorial-intro .tutorial-projector-link { display: none; }
+}
+
 /* Approved seven-minute walkthrough, shared by both language pages. */
 .tutorial-video-section{padding:36px 0 44px;background:#edf3ed;scroll-margin-top:90px}
 .tutorial-video-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,340px);gap:44px;align-items:center}
